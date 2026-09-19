@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "backupId": "20260919T223145606624Z",
+  "repositoryRoot": "C:\\Users\\nsh\\Developer\\code\\vscode\\dirac",
+  "destinationRoot": "C:\\Users\\nsh\\Developer\\code\\vscode\\dirac\\backups\\edits\\20260919T223145606624Z",
+  "files": [
+    {
+      "relativePath": "scripts/resolve_wolframscript.sh",
+      "sourceSha256": "8b3b4d2520480ebaca6dbef3eb6808dfdd2058c337d9130bb6fe706197c664c0",
+      "sourceSize": 1215,
+      "backupSha256": "8b3b4d2520480ebaca6dbef3eb6808dfdd2058c337d9130bb6fe706197c664c0",
+      "backupSize": 1215,
+      "match": true
+    },
+    {
+      "relativePath": "scripts/verify_phase4_publication.sh",
+      "sourceSha256": "3a8e776d7e9e964fc1c1def02f4a4f58bdfbbba31ec5d8156a6af24bab1edb4c",
+      "sourceSize": 5627,
+      "backupSha256": "3a8e776d7e9e964fc1c1def02f4a4f58bdfbbba31ec5d8156a6af24bab1edb4c",
+      "backupSize": 5627,
+      "match": true
+    },
+    {
+      "relativePath": "provenance/DISSERTATION.md",
+      "sourceSha256": "0f4a97470f019014c375335dfa83961f6f43043ec8911873fa950b474ce9f6a4",
+      "sourceSize": 5592,
+      "backupSha256": "0f4a97470f019014c375335dfa83961f6f43043ec8911873fa950b474ce9f6a4",
+      "backupSize": 5592,
+      "match": true
+    }
+  ],
+  "allFilesMatched": true
+}

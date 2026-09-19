@@ -1,0 +1,65 @@
+{
+  "schemaVersion": 1,
+  "backupId": "20260919T221746057784Z",
+  "repositoryRoot": "C:\\Users\\nsh\\Developer\\code\\vscode\\dirac",
+  "destinationRoot": "C:\\Users\\nsh\\Developer\\code\\vscode\\dirac\\backups\\edits\\20260919T221746057784Z",
+  "files": [
+    {
+      "relativePath": "artifacts/wolfram/dirac-triality-report.json",
+      "sourceSha256": "22df4baa803043179ad141472d7308a0977d6016e05f16583b3901bd53d93356",
+      "sourceSize": 4695,
+      "backupSha256": "22df4baa803043179ad141472d7308a0977d6016e05f16583b3901bd53d93356",
+      "backupSize": 4695,
+      "match": true
+    },
+    {
+      "relativePath": "notebooks/DiracTriality.nb",
+      "sourceSha256": "e1c69e86982dd2ce9b887e5ad0e0e27e4dc78ff4550e568c63cb41764ddcdba1",
+      "sourceSize": 4905,
+      "backupSha256": "e1c69e86982dd2ce9b887e5ad0e0e27e4dc78ff4550e568c63cb41764ddcdba1",
+      "backupSize": 4905,
+      "match": true
+    },
+    {
+      "relativePath": "notebooks/dirac_triality.ipynb",
+      "sourceSha256": "5813727a077a9afcc881e86928e7e48376056d48ce31409fb5c28e00d0844411",
+      "sourceSize": 6574,
+      "backupSha256": "5813727a077a9afcc881e86928e7e48376056d48ce31409fb5c28e00d0844411",
+      "backupSize": 6574,
+      "match": true
+    },
+    {
+      "relativePath": "notebooks/dirac_triality.executed.ipynb",
+      "sourceSha256": "adea839972e7b5db62553d834f83948b6645da3b6b00893c729fadc17b70fe18",
+      "sourceSize": 14920,
+      "backupSha256": "adea839972e7b5db62553d834f83948b6645da3b6b00893c729fadc17b70fe18",
+      "backupSize": 14920,
+      "match": true
+    },
+    {
+      "relativePath": "artifacts/notebooks/jupyter-report.json",
+      "sourceSha256": "069ce81d226977515d7d6527a31655c9e52f10cae00f5ddb6388e0e4cc76386b",
+      "sourceSize": 681,
+      "backupSha256": "069ce81d226977515d7d6527a31655c9e52f10cae00f5ddb6388e0e4cc76386b",
+      "backupSize": 681,
+      "match": true
+    },
+    {
+      "relativePath": "dissertation/dirac-triality.tex",
+      "sourceSha256": "ad9eacda4e5d2419db9187c67948954aa9bb0a3b9648c2a0bdab4f5ca7a776d3",
+      "sourceSize": 19234,
+      "backupSha256": "ad9eacda4e5d2419db9187c67948954aa9bb0a3b9648c2a0bdab4f5ca7a776d3",
+      "backupSize": 19234,
+      "match": true
+    },
+    {
+      "relativePath": "dissertation/dirac-triality.pdf",
+      "sourceSha256": "7611b08a6e8bf550b0dec1babdac2cc4225a388419db9713211e64868cc980ce",
+      "sourceSize": 345934,
+      "backupSha256": "7611b08a6e8bf550b0dec1babdac2cc4225a388419db9713211e64868cc980ce",
+      "backupSize": 345934,
+      "match": true
+    }
+  ],
+  "allFilesMatched": true
+}

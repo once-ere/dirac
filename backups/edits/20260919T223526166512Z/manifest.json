@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "backupId": "20260919T223526166512Z",
+  "repositoryRoot": "C:\\Users\\nsh\\Developer\\code\\vscode\\dirac",
+  "destinationRoot": "C:\\Users\\nsh\\Developer\\code\\vscode\\dirac\\backups\\edits\\20260919T223526166512Z",
+  "files": [
+    {
+      "relativePath": "scripts/resolve_wolframscript.sh",
+      "sourceSha256": "78aa6cc486a5bbd1ed0ee07a27c4e4f76b6b8c1372cee1d7422ace36dbaeea27",
+      "sourceSize": 1775,
+      "backupSha256": "78aa6cc486a5bbd1ed0ee07a27c4e4f76b6b8c1372cee1d7422ace36dbaeea27",
+      "backupSize": 1775,
+      "match": true
+    }
+  ],
+  "allFilesMatched": true
+}

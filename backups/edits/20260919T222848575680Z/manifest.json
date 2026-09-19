@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "backupId": "20260919T222848575680Z",
+  "repositoryRoot": "C:\\Users\\nsh\\Developer\\code\\vscode\\dirac",
+  "destinationRoot": "C:\\Users\\nsh\\Developer\\code\\vscode\\dirac\\backups\\edits\\20260919T222848575680Z",
+  "files": [
+    {
+      "relativePath": "scripts/verify_mathematica_notebook.wls",
+      "sourceSha256": "2334116f65838d1f3ceb475a33c6149640ad64b940018bb7dc3ee2e809c014ea",
+      "sourceSize": 2103,
+      "backupSha256": "2334116f65838d1f3ceb475a33c6149640ad64b940018bb7dc3ee2e809c014ea",
+      "backupSize": 2103,
+      "match": true
+    }
+  ],
+  "allFilesMatched": true
+}

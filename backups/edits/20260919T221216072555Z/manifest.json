@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "backupId": "20260919T221216072555Z",
+  "repositoryRoot": "C:\\Users\\nsh\\Developer\\code\\vscode\\dirac",
+  "destinationRoot": "C:\\Users\\nsh\\Developer\\code\\vscode\\dirac\\backups\\edits\\20260919T221216072555Z",
+  "files": [
+    {
+      "relativePath": "scripts/build_dissertation_tex.py",
+      "sourceSha256": "e9bcdf5948b3025f383a0fcb4eb2a70041db342940be594f856a2c6d93adbc54",
+      "sourceSize": 9191,
+      "backupSha256": "e9bcdf5948b3025f383a0fcb4eb2a70041db342940be594f856a2c6d93adbc54",
+      "backupSize": 9191,
+      "match": true
+    }
+  ],
+  "allFilesMatched": true
+}

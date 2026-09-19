@@ -1,0 +1,41 @@
+{
+  "schemaVersion": 1,
+  "backupId": "20260919T222428650942Z",
+  "repositoryRoot": "C:\\Users\\nsh\\Developer\\code\\vscode\\dirac",
+  "destinationRoot": "C:\\Users\\nsh\\Developer\\code\\vscode\\dirac\\backups\\edits\\20260919T222428650942Z",
+  "files": [
+    {
+      "relativePath": "scripts/build_dissertation_tex.py",
+      "sourceSha256": "97bbf0de1d2c1d39ca61b1e30d27d8419fdfdff4ef92b0c64aec6b09e0041a16",
+      "sourceSize": 9255,
+      "backupSha256": "97bbf0de1d2c1d39ca61b1e30d27d8419fdfdff4ef92b0c64aec6b09e0041a16",
+      "backupSize": 9255,
+      "match": true
+    },
+    {
+      "relativePath": "scripts/verify_phase4_publication.ps1",
+      "sourceSha256": "a433ef5468656bd16c58b572c4513bdccbeb8a6f215147eb186688a6727af2ea",
+      "sourceSize": 5182,
+      "backupSha256": "a433ef5468656bd16c58b572c4513bdccbeb8a6f215147eb186688a6727af2ea",
+      "backupSize": 5182,
+      "match": true
+    },
+    {
+      "relativePath": "scripts/verify_phase4_publication.sh",
+      "sourceSha256": "d99fe53eaca66a01bbfc618c22284cde57ea8c97d6e19d415085cdd54caa18b7",
+      "sourceSize": 5381,
+      "backupSha256": "d99fe53eaca66a01bbfc618c22284cde57ea8c97d6e19d415085cdd54caa18b7",
+      "backupSize": 5381,
+      "match": true
+    },
+    {
+      "relativePath": "provenance/DISSERTATION.md",
+      "sourceSha256": "1cf469129ddff6b7e1db2f4d8de4248703ba4c51ffe9d5b9767056a19b6939bc",
+      "sourceSize": 4835,
+      "backupSha256": "1cf469129ddff6b7e1db2f4d8de4248703ba4c51ffe9d5b9767056a19b6939bc",
+      "backupSize": 4835,
+      "match": true
+    }
+  ],
+  "allFilesMatched": true
+}

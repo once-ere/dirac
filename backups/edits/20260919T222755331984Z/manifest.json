@@ -1,0 +1,25 @@
+{
+  "schemaVersion": 1,
+  "backupId": "20260919T222755331984Z",
+  "repositoryRoot": "C:\\Users\\nsh\\Developer\\code\\vscode\\dirac",
+  "destinationRoot": "C:\\Users\\nsh\\Developer\\code\\vscode\\dirac\\backups\\edits\\20260919T222755331984Z",
+  "files": [
+    {
+      "relativePath": "scripts/verify_phase4_publication.ps1",
+      "sourceSha256": "1ee1bdc7e02235be1e9887dd07a8f6c0a4acc926a16c7374cec7672dfc011bc0",
+      "sourceSize": 5379,
+      "backupSha256": "1ee1bdc7e02235be1e9887dd07a8f6c0a4acc926a16c7374cec7672dfc011bc0",
+      "backupSize": 5379,
+      "match": true
+    },
+    {
+      "relativePath": "provenance/DISSERTATION.md",
+      "sourceSha256": "51b5c3d75c4ff04cef8b915ebf5c9935c04797549d360438d61f2cf7d36a1cf3",
+      "sourceSize": 5305,
+      "backupSha256": "51b5c3d75c4ff04cef8b915ebf5c9935c04797549d360438d61f2cf7d36a1cf3",
+      "backupSize": 5305,
+      "match": true
+    }
+  ],
+  "allFilesMatched": true
+}

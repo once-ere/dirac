@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "backupId": "20260919T220311331439Z",
+  "repositoryRoot": "C:\\Users\\nsh\\Developer\\code\\vscode\\dirac",
+  "destinationRoot": "C:\\Users\\nsh\\Developer\\code\\vscode\\dirac\\backups\\edits\\20260919T220311331439Z",
+  "files": [
+    {
+      "relativePath": "scripts/run_jupyter_notebook.py",
+      "sourceSha256": "5913bcdd3ba0696463008632c01bb97a793a432c44c72690d99d6147d7293f3f",
+      "sourceSize": 1880,
+      "backupSha256": "5913bcdd3ba0696463008632c01bb97a793a432c44c72690d99d6147d7293f3f",
+      "backupSize": 1880,
+      "match": true
+    }
+  ],
+  "allFilesMatched": true
+}

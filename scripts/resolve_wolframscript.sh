@@ -40,3 +40,25 @@ resolve_windows_command() {
 resolve_wolframscript() {
     resolve_windows_command wolframscript
 }
+
+resolve_miktex_pdflatex() {
+    local executable
+    local candidate
+
+    if executable="$(resolve_windows_command pdflatex.exe 2>/dev/null)"; then
+        printf '%s\n' "$executable"
+        return 0
+    fi
+
+    for candidate in \
+        "/mnt/c/Program Files/MiKTeX/miktex/bin/x64/pdflatex.exe" \
+        "/c/Program Files/MiKTeX/miktex/bin/x64/pdflatex.exe"; do
+        if [[ -f "$candidate" ]]; then
+            printf '%s\n' "$candidate"
+            return 0
+        fi
+    done
+
+    printf '%s\n' 'ERROR: pdflatex.exe was not found' >&2
+    return 1
+}

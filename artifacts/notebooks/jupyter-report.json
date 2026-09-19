@@ -1,0 +1,18 @@
+{
+  "checks": {
+    "cosmology_dimension": true,
+    "cosmology_success": true,
+    "dataset_counts": true,
+    "input_hashes": true,
+    "transport_dimension": true,
+    "transport_success": true
+  },
+  "inputSha256": {
+    "cl44": "0660e436fdcf90ed0f0481c9a828e92659987f5820084ccbf5e1dfc96866cc54",
+    "cosmology": "8f1e45a37c14cc10c7c6b6469ceca7c65e7b9ffc08b3c9dd5bfc518065c590db",
+    "split": "25044ea194c1e18e40341da1f0098b80bfeb9f4bcb6e7665a32d03f55ac360ca",
+    "transport": "61b8fe5a8a72e48d40d40d6850a6c559e2dd06ccfa9de97982590d35a82044fb",
+    "triality": "5985f5c0fdd6656c3c9f572ef1a5d06eee21aabe44cc9bf33747bb79b5e181dd"
+  },
+  "schemaVersion": 1
+}
