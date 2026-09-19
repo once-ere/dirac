@@ -1,7 +1,6 @@
 # Implementation progress
 
-Status: Phases 0 through 2 are frozen in Git; the Phase 3 real spinor
-cosmology gate is verified and awaits its Git checkpoint.
+Status: Phases 0 through 3 are verified and frozen in Git.
 
 ## Verified checkpoint
 
@@ -123,7 +122,8 @@ cosmology gate is verified and awaits its Git checkpoint.
 
 ### Phase 3: real homogeneous nonlinear-spinor cosmology
 
-- Git checkpoint: pending.
+- Commit: `e6d149a061a087f55621ed95ce0203738bcae932`
+- Tag: `phase3-spinor-cosmology-green`
 - Generated constants SHA-256:
   `cc2131fc739b0bdc4ae9e9146ccb57e47e7ed12aadabcef42ef1263df3de9c7b`.
 - Background SHA-256:
@@ -173,4 +173,4 @@ cosmology gate is verified and awaits its Git checkpoint.
 - Vendored SUNDIALS source will remain byte-identical and read-only.
 - Every existing file is backed up and hash-verified before modification.
 
-Next action: freeze the verified Phase 3 checkpoint in Git, then generate and execute standalone Mathematica and deterministic Jupyter notebooks from the verified exact and numerical artifacts.
+Next action: generate and execute standalone Mathematica and deterministic Jupyter notebooks from the verified exact and numerical artifacts.
