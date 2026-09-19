@@ -13,7 +13,10 @@ if head="$("$git_command" rev-parse --verify HEAD 2>/dev/null | tr -d '\r')"; th
 else
     head="unborn"
 fi
-phase_tag="$("$git_command" tag --list 'phase*' --sort=-creatordate | tr -d '\r' | head -n 1)"
+phase_tag="$("$git_command" tag --list 'final-release-green' | tr -d '\r' | head -n 1)"
+if [[ -z "$phase_tag" ]]; then
+    phase_tag="$("$git_command" tag --list 'phase*' --sort=-creatordate | tr -d '\r' | head -n 1)"
+fi
 phase_tag="${phase_tag:-none}"
 mapfile -t dirty < <("$git_command" status --short | tr -d '\r')
 

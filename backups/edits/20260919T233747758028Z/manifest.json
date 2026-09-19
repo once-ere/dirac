@@ -1,0 +1,25 @@
+{
+  "schemaVersion": 1,
+  "backupId": "20260919T233747758028Z",
+  "repositoryRoot": "C:\\Users\\nsh\\Developer\\code\\vscode\\dirac",
+  "destinationRoot": "C:\\Users\\nsh\\Developer\\code\\vscode\\dirac\\backups\\edits\\20260919T233747758028Z",
+  "files": [
+    {
+      "relativePath": "scripts/status.ps1",
+      "sourceSha256": "61718410bb832d1ccfd4fd6a1a8c5e796a21150e2b4167e3e4b303efc81c9460",
+      "sourceSize": 1509,
+      "backupSha256": "61718410bb832d1ccfd4fd6a1a8c5e796a21150e2b4167e3e4b303efc81c9460",
+      "backupSize": 1509,
+      "match": true
+    },
+    {
+      "relativePath": "scripts/status.sh",
+      "sourceSha256": "5a05ad42ec389fc3d398ddcd88e3b03e83a6c083a10ce0fc89687336b9b13aaa",
+      "sourceSize": 1632,
+      "backupSha256": "5a05ad42ec389fc3d398ddcd88e3b03e83a6c083a10ce0fc89687336b9b13aaa",
+      "backupSize": 1632,
+      "match": true
+    }
+  ],
+  "allFilesMatched": true
+}

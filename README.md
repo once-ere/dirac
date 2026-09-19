@@ -1,9 +1,9 @@
 # Real Spin(4,4), split octonions, and triality
 
-This repository is being built as a reproducible, exact-real treatment of
+This repository provides a reproducible, exact-real treatment of
 `Cl(4,4)`, `Spin(4,4)`, its two real half-spin modules, split-octonion
-multiplication, and split-real triality. It will also contain two numerical
-studies driven by the pure-Rust SUNDIALS 7.8.0 CVODE implementation and publish
+multiplication, and split-real triality. It includes two numerical
+studies driven by the pure-Rust SUNDIALS 7.8.0 CVODE implementation and publishes
 standalone WolframScript, Mathematica, Jupyter, Markdown, LaTeX, PDF, and
 provenance artifacts.
 
@@ -33,6 +33,11 @@ The publication layer is complete. A standalone WolframScript combines all
 69 exact and numerical checks; generated Mathematica and Jupyter notebooks
 execute without failed checks; and the complete Markdown dissertation builds
 to deterministic LaTeX and a warning-free 13-page PDF.
+
+The `final-release-green` tag was verified from a fresh recursive clone. Every
+phase gate passed, all 21 Python tests passed, 15 canonical artifacts were
+byte-identical, and the rebuilt worktree had zero tracked drift. The local
+`prompt.txt` is intentionally ignored and absent from the remote repository.
 
 ## Current verification
 

@@ -1,13 +1,14 @@
 # Implementation progress
 
-Status: Phases 0 through 4 are verified and frozen in Git.
+Status: Final release verified from a fresh recursive clone; Phases 0 through 4 are frozen in Git.
 
 ## Verified checkpoint
 
 - Target: `C:\Users\nsh\Developer\code\vscode\dirac`.
-- Git repository initialized on branch `main`; no baseline commit exists yet.
-- The authoritative `prompt.txt` and `19sep26.txt` inputs have byte-matching
-  pre-bootstrap backups.
+- Git repository is synchronized on branch `main` with all phase and release
+  tags pushed to `origin`.
+- The local-only `prompt.txt` has frozen hash/size provenance and is ignored;
+  the authoritative `19sep26.txt` remains tracked with matching provenance.
 - Seven configured source roots contain 5,991 files and 371,942,252 bytes.
 - Content-aware classification identifies 209 required Markdown or
   Wolfram-family artifacts; two `.m` files are verified MATLAB sources.
@@ -189,6 +190,28 @@ Status: Phases 0 through 4 are verified and frozen in Git.
 - Next action: run every phase gate from a fresh recursive clone, compare all
   canonical artifact hashes, and freeze the final verified release.
 
+### Final release verification
+
+- Verified commit: `f18d12fb3a798917edd132d9d57ea10653228b51`.
+- Tag: `final-release-green`.
+- A new recursive clone passed every Phase 0 through Phase 4 gate against the
+  pinned solver submodule at
+  `d1836e6a279d63a90fe2839a0020123245487e76`.
+- Phase 0 regenerated all six audit outputs with zero tracked drift: 5,991
+  source files, 371,942,252 bytes, 209 reviewed audit artifacts, and 66
+  message-free Wolfram parses.
+- Phase 1 passed 23+24 Clifford, 17+17 split-octonion, and 25+24 triality
+  checks with zero failures.
+- Phases 2 and 3 passed six Rust tests, 32 numerical-output checks, and
+  deterministic replay of both canonical studies.
+- Phase 4 passed 69 standalone Wolfram checks, five Mathematica notebook
+  checks, 12 Jupyter checks, six PDF checks, and all 21 Python tests.
+- All 15 canonical exact, numerical, notebook, report, dissertation, and PDF
+  artifacts matched the source checkout byte-for-byte; the rebuilt checkout
+  had zero tracked changes.
+- The remote tree contains all four files under `wolfram/` and no
+  `prompt.txt`.
+
 ## Evidence
 
 - `backups/pre-bootstrap/manifest.json`
@@ -223,4 +246,4 @@ Status: Phases 0 through 4 are verified and frozen in Git.
 - Vendored SUNDIALS source will remain byte-identical and read-only.
 - Every existing file is backed up and hash-verified before modification.
 
-Next action: run every phase gate from a fresh recursive clone, compare all canonical artifact hashes, and freeze the final verified release.
+Next action: none; `final-release-green` is the frozen verified release.

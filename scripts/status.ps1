@@ -10,8 +10,12 @@ $head = git rev-parse --verify HEAD 2>$null
 if ($LASTEXITCODE -ne 0) {
     $head = "unborn"
 }
-$phaseTag = git tag --list "phase*" --sort=-creatordate |
+$phaseTag = git tag --list "final-release-green" |
     Select-Object -First 1
+if (-not $phaseTag) {
+    $phaseTag = git tag --list "phase*" --sort=-creatordate |
+        Select-Object -First 1
+}
 if (-not $phaseTag) {
     $phaseTag = "none"
 }
