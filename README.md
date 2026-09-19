@@ -29,6 +29,11 @@ background in e-fold time. It reconstructs a CPL density with a nonlinear
 potential, checks the 16-component condensate dilution directly, and emits a
 deterministic 1,201-row background history.
 
+The publication layer is complete. A standalone WolframScript combines all
+69 exact and numerical checks; generated Mathematica and Jupyter notebooks
+execute without failed checks; and the complete Markdown dissertation builds
+to deterministic LaTeX and a warning-free 13-page PDF.
+
 ## Current verification
 
 From PowerShell:
@@ -41,6 +46,7 @@ Set-Location C:\Users\nsh\Developer\code\vscode\dirac
 .\scripts\verify_phase1.ps1
 .\scripts\verify_phase2_transport.ps1
 .\scripts\verify_phase3_cosmology.ps1
+.\scripts\verify_phase4_publication.ps1
 .\scripts\status.ps1
 ```
 
@@ -54,6 +60,7 @@ cd /c/Users/nsh/Developer/code/vscode/dirac
 ./scripts/verify_phase1.sh
 ./scripts/verify_phase2_transport.sh
 ./scripts/verify_phase3_cosmology.sh
+bash ./scripts/verify_phase4_publication.sh
 ./scripts/status.sh
 ```
 
@@ -72,6 +79,11 @@ outputs are under `artifacts/triality-transport`, and all commands are in
 The cosmology study is under `studies/spinor_cosmology`, its canonical outputs
 are under `artifacts/spinor-cosmology`, and all commands are in
 `provenance/SPINOR_COSMOLOGY.md`.
+
+The publication artifacts are under `wolfram/`, `notebooks/`, and
+`dissertation/`. Complete standalone rebuild commands are in
+`provenance/WOLFRAMSCRIPT.md`, `provenance/MATHEMATICA_NOTEBOOK.md`,
+`provenance/JUPYTER_NOTEBOOK.md`, and `provenance/DISSERTATION.md`.
 
 ## Scientific boundary
 

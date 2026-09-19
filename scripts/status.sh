@@ -3,17 +3,19 @@ set -euo pipefail
 
 script_dir="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd)"
 repository_root="$(cd -- "$script_dir/.." && pwd)"
+source "$script_dir/resolve_wolframscript.sh"
+git_command="$(resolve_windows_command git.exe)"
 cd -- "$repository_root"
 
-branch="$(git branch --show-current)"
-if head="$(git rev-parse --verify HEAD 2>/dev/null)"; then
+branch="$("$git_command" branch --show-current | tr -d '\r')"
+if head="$("$git_command" rev-parse --verify HEAD 2>/dev/null | tr -d '\r')"; then
     :
 else
     head="unborn"
 fi
-phase_tag="$(git tag --list 'phase*' --sort=-creatordate | head -n 1)"
+phase_tag="$("$git_command" tag --list 'phase*' --sort=-creatordate | tr -d '\r' | head -n 1)"
 phase_tag="${phase_tag:-none}"
-mapfile -t dirty < <(git status --short)
+mapfile -t dirty < <("$git_command" status --short | tr -d '\r')
 
 if [[ -f audit/source-manifest.json ]]; then
     if command -v sha256sum >/dev/null 2>&1; then
@@ -33,7 +35,7 @@ printf 'head=%s\n' "$head"
 printf 'dirty_count=%d\n' "${#dirty[@]}"
 printf 'latest_phase_tag=%s\n' "$phase_tag"
 printf 'source_manifest_sha256=%s\n' "$manifest_hash"
-printf '%s\n' 'latest_verification=phase3 cosmology: 3 Rust tests, 17 output checks, 1201 deterministic samples'
+printf '%s\n' 'latest_verification=phase4 publication: 69 Wolfram checks, 11 Jupyter checks, 5 PDF checks, 18 Python tests'
 printf 'next_action=%s\n' "$next_action"
 if ((${#dirty[@]} > 0)); then
     printf '%s\n' 'dirty_files_begin'

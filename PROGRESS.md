@@ -1,6 +1,6 @@
 # Implementation progress
 
-Status: Phases 0 through 3 are verified and frozen in Git.
+Status: Phases 0 through 4 are verified and frozen in Git.
 
 ## Verified checkpoint
 
@@ -67,6 +67,18 @@ Status: Phases 0 through 3 are verified and frozen in Git.
 - The 18-state real homogeneous nonlinear-spinor cosmology builds and lints
   warning-free, passes three Rust tests and 17 output checks, and produces
   byte-identical 1,201-row background histories in PowerShell and WSL.
+- The standalone WolframScript report passes all 69 exact and numerical
+  checks without failures.
+- The generated Mathematica notebook has 22 fixed cells and 14 executable
+  input cells; fresh-kernel execution has zero failures, zero messages, and
+  five passing notebook checks.
+- The deterministic Jupyter notebook has ten fixed-ID cells and five executed
+  code cells; all 11 structural, result, hash, and replay checks pass.
+- The 598-line Markdown dissertation generates a complete 571-line LaTeX
+  source and a warning-free, 13-page letter-sized PDF. Independent builds are
+  byte-identical in PowerShell and WSL.
+- Both Phase 4 publication gates pass, including five PDF structure checks
+  and all 18 Python tests.
 
 ## Phase checkpoints
 
@@ -139,6 +151,36 @@ Status: Phases 0 through 3 are verified and frozen in Git.
 - Next action: generate and execute standalone Mathematica and deterministic
   Jupyter notebooks from the verified exact and numerical artifacts.
 
+### Phase 4: notebooks and publication artifacts
+
+- Commit: `ab030d78a60d220f69f30aa7a9d587785e4c6f52`
+- Tag: `phase4-publication-green`
+- Standalone report SHA-256:
+  `22df4baa803043179ad141472d7308a0977d6016e05f16583b3901bd53d93356`.
+- Mathematica notebook SHA-256:
+  `e1c69e86982dd2ce9b887e5ad0e0e27e4dc78ff4550e568c63cb41764ddcdba1`.
+- Jupyter source notebook SHA-256:
+  `5813727a077a9afcc881e86928e7e48376056d48ce31409fb5c28e00d0844411`.
+- Executed Jupyter notebook SHA-256:
+  `adea839972e7b5db62553d834f83948b6645da3b6b00893c729fadc17b70fe18`.
+- Dissertation Markdown SHA-256:
+  `47d280353a02c37778775720cf2459b9866510bc89ddb1bbb83c6da2d3504b97`.
+- Dissertation LaTeX SHA-256:
+  `414b966295ae8f5092553c1af5f339683a67bf8ed77844eb118751713795bfd0`.
+- Dissertation PDF SHA-256:
+  `a2a6e366817cb17d4b4ba936a98f5e495a8ca9c0bc012540021bc548847073f3`.
+- Result: standalone Wolfram evaluation, fresh-kernel Mathematica execution,
+  deterministic Jupyter execution, deterministic LaTeX generation, and two
+  isolated PDF builds pass in PowerShell and WSL; the PDF has 13 pages, one
+  letter-sized media box, and no TeX warnings or errors.
+- Verification: `scripts/verify_phase4_publication.ps1` or
+  `scripts/verify_phase4_publication.sh`.
+- Provenance: `provenance/WOLFRAMSCRIPT.md`,
+  `provenance/MATHEMATICA_NOTEBOOK.md`,
+  `provenance/JUPYTER_NOTEBOOK.md`, and `provenance/DISSERTATION.md`.
+- Next action: run every phase gate from a fresh recursive clone, compare all
+  canonical artifact hashes, and freeze the final verified release.
+
 ## Evidence
 
 - `backups/pre-bootstrap/manifest.json`
@@ -173,4 +215,4 @@ Status: Phases 0 through 3 are verified and frozen in Git.
 - Vendored SUNDIALS source will remain byte-identical and read-only.
 - Every existing file is backed up and hash-verified before modification.
 
-Next action: generate and execute standalone Mathematica and deterministic Jupyter notebooks from the verified exact and numerical artifacts.
+Next action: run every phase gate from a fresh recursive clone, compare all canonical artifact hashes, and freeze the final verified release.
