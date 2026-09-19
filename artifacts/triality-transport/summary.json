@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "study": "triality-transport",
+  "stateDimension": 24,
+  "trialityFixtureSha256": "5985f5c0fdd6656c3c9f572ef1a5d06eee21aabe44cc9bf33747bb79b5e181dd",
+  "splitFixtureSha256": "25044ea194c1e18e40341da1f0098b80bfeb9f4bcb6e7665a32d03f55ac360ca",
+  "finalTime": 4.00000000000000000e+00,
+  "outputStep": 1.00000000000000006e-01,
+  "relativeTolerance": 9.99999999999999939e-12,
+  "absoluteTolerance": 1.00000000000000003e-13,
+  "maximumStep": 2.00000000000000004e-02,
+  "sampleCount": 41,
+  "solverSteps": 237,
+  "rhsEvaluations": 251,
+  "maximumDrift": {
+    "vectorNorm": 1.29152244454644460e-12,
+    "plusNorm": 3.07087688611318299e-12,
+    "minusNorm": 2.80420131559822039e-12,
+    "trilinear": 2.96507263186640557e-12
+  },
+  "verdict": "SUCCESS"
+}

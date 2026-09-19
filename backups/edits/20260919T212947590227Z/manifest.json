@@ -1,0 +1,25 @@
+{
+  "schemaVersion": 1,
+  "backupId": "20260919T212947590227Z",
+  "repositoryRoot": "C:\\Users\\nsh\\Developer\\code\\vscode\\dirac",
+  "destinationRoot": "C:\\Users\\nsh\\Developer\\code\\vscode\\dirac\\backups\\edits\\20260919T212947590227Z",
+  "files": [
+    {
+      "relativePath": "scripts/generate_triality_transport_constants.py",
+      "sourceSha256": "9d1e25cfba6b1bbf2206527f8207ea5975112fc009dd502984cdd75cf2a759d7",
+      "sourceSize": 5749,
+      "backupSha256": "9d1e25cfba6b1bbf2206527f8207ea5975112fc009dd502984cdd75cf2a759d7",
+      "backupSize": 5749,
+      "match": true
+    },
+    {
+      "relativePath": "studies/triality_transport/src/generated.rs",
+      "sourceSha256": "12267ab01edd27206aeaa8516980e3db41ac73bc2eac1defc902cef6a9a9bfc2",
+      "sourceSize": 150036,
+      "backupSha256": "12267ab01edd27206aeaa8516980e3db41ac73bc2eac1defc902cef6a9a9bfc2",
+      "backupSize": 150036,
+      "match": true
+    }
+  ],
+  "allFilesMatched": true
+}

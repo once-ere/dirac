@@ -1,7 +1,7 @@
 # Implementation progress
 
-Status: Phase 0 and the Phase 1 exact algebra and triality gate are verified
-and frozen in Git.
+Status: Phases 0 and 1 are frozen in Git; the Phase 2 triality transport gate
+is verified and awaits its Git checkpoint.
 
 ## Verified checkpoint
 
@@ -59,6 +59,12 @@ and frozen in Git.
   action, and an invertible link to the canonical Clifford representation.
 - Fourteen Python tests pass, and two successive generations of every exact
   JSON fixture are byte-identical.
+- The solver engine is a read-only submodule pinned to
+  `d1836e6a279d63a90fe2839a0020123245487e76`; all 1,713 tracked files match
+  the audited solver copy.
+- The application-owned 24-state triality transport study builds and lints
+  warning-free, passes three Rust tests and 15 output checks, and produces
+  byte-identical repeated CSV and JSON runs in PowerShell and WSL.
 
 ## Phase checkpoints
 
@@ -91,6 +97,25 @@ and frozen in Git.
   `provenance/SPLIT_OCTONION_TRIALITY.md`.
 - Next action: build the application-owned 24-state triality transport study
   against the hash-pinned, read-only CVODE engine.
+
+### Phase 2: 24-state triality transport
+
+- Git checkpoint: pending.
+- Solver commit:
+  `d1836e6a279d63a90fe2839a0020123245487e76`.
+- Generated constants SHA-256:
+  `932cc651e4212b35064f0419763ee9145f4c67fc7ba45f3f59ee7f90dbb03edc`.
+- Trajectory SHA-256:
+  `ee5ad82ee604f072f04bed8ef20cdd856bb02ba80e16c3973b10c6c43f972b9c`.
+- Summary SHA-256:
+  `61b8fe5a8a72e48d40d40d6850a6c559e2dd06ccfa9de97982590d35a82044fb`.
+- Result: 41 samples, 237 CVODE steps, 251 RHS evaluations, and all four
+  invariant drifts below `3.1e-12`.
+- Verification: `scripts/verify_phase2_transport.ps1` or
+  `scripts/verify_phase2_transport.sh`.
+- Provenance: `provenance/TRIALITY_TRANSPORT.md`.
+- Next action: implement the real homogeneous nonlinear-spinor cosmology
+  study with independent analytic background checks.
 
 ## Evidence
 
@@ -126,4 +151,4 @@ and frozen in Git.
 - Vendored SUNDIALS source will remain byte-identical and read-only.
 - Every existing file is backed up and hash-verified before modification.
 
-Next action: build the application-owned 24-state triality transport study against the hash-pinned, read-only CVODE engine.
+Next action: freeze the verified Phase 2 checkpoint in Git, then implement the real homogeneous nonlinear-spinor cosmology study with independent analytic background checks.

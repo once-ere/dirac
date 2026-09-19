@@ -1,11 +1,12 @@
 #!/usr/bin/env bash
 
-resolve_wolframscript() {
+resolve_windows_command() {
+    local command_name="$1"
     local executable
     local windows_path
     local shell_command
 
-    if executable="$(command -v wolframscript 2>/dev/null)"; then
+    if executable="$(command -v "$command_name" 2>/dev/null)"; then
         printf '%s\n' "$executable"
         return 0
     fi
@@ -14,7 +15,7 @@ resolve_wolframscript() {
         command -v "$shell_command" >/dev/null 2>&1 || continue
         windows_path="$(
             "$shell_command" -NoProfile -NonInteractive -Command \
-                '(Get-Command wolframscript -ErrorAction Stop).Source' |
+                "(Get-Command '$command_name' -ErrorAction Stop).Source" |
                 tr -d '\r' |
                 tail -n 1
         )"
@@ -32,6 +33,10 @@ resolve_wolframscript() {
         fi
     done
 
-    printf '%s\n' 'ERROR: wolframscript was not found' >&2
+    printf 'ERROR: %s was not found\n' "$command_name" >&2
     return 1
+}
+
+resolve_wolframscript() {
+    resolve_windows_command wolframscript
 }

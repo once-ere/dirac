@@ -19,6 +19,11 @@ split-octonion multiplication, the invariant triality trilinear form, and the
 outer six-element permutation action. All public fixtures contain only exact
 real data.
 
+The first numerical study transports the vector and two half-spin states as a
+24-component real system through one noncommuting triality path. The
+application uses the pinned pure-Rust CVODE engine, preserves three split
+norms and the invariant trilinear form, and emits deterministic CSV and JSON.
+
 ## Current verification
 
 From PowerShell:
@@ -29,6 +34,7 @@ Set-Location C:\Users\nsh\Developer\code\vscode\dirac
   -Command "python -m unittest discover -s tests -v"
 .\scripts\verify_phase0.ps1
 .\scripts\verify_phase1.ps1
+.\scripts\verify_phase2_transport.ps1
 .\scripts\status.ps1
 ```
 
@@ -40,6 +46,7 @@ cd /c/Users/nsh/Developer/code/vscode/dirac
   python -m unittest discover -s tests -v
 ./scripts/verify_phase0.sh
 ./scripts/verify_phase1.sh
+./scripts/verify_phase2_transport.sh
 ./scripts/status.sh
 ```
 
@@ -50,6 +57,10 @@ hash-verification manifests remain trackable.
 Exact machine-readable fixtures are under `artifacts/exact/`. Their complete
 commands and expected measurements are in `provenance/CL44_SEED.md` and
 `provenance/SPLIT_OCTONION_TRIALITY.md`.
+
+The transport study is under `studies/triality_transport`, its canonical
+outputs are under `artifacts/triality-transport`, and all commands are in
+`provenance/TRIALITY_TRANSPORT.md`.
 
 ## Scientific boundary
 

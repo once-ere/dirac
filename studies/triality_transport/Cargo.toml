@@ -1,0 +1,10 @@
+[package]
+name = "triality_transport"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+description = "A 24-state split-real triality transport study integrated with pure-Rust SUNDIALS CVODE."
+
+[dependencies]
+sundials_core = { path = "../../vendor/sundials_rs/crates/sundials_core" }
+cvode_rs = { path = "../../vendor/sundials_rs/crates/cvode_rs" }

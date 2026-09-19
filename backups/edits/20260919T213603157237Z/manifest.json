@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "backupId": "20260919T213603157237Z",
+  "repositoryRoot": "/mnt/c/Users/nsh/Developer/code/vscode/dirac",
+  "destinationRoot": "/mnt/c/Users/nsh/Developer/code/vscode/dirac/backups/edits/20260919T213603157237Z",
+  "files": [
+    {
+      "relativePath": "studies/triality_transport/src/generated.rs",
+      "sourceSha256": "932cc651e4212b35064f0419763ee9145f4c67fc7ba45f3f59ee7f90dbb03edc",
+      "sourceSize": 150139,
+      "backupSha256": "932cc651e4212b35064f0419763ee9145f4c67fc7ba45f3f59ee7f90dbb03edc",
+      "backupSize": 150139,
+      "match": true
+    },
+    {
+      "relativePath": "artifacts/triality-transport/trajectory.csv",
+      "sourceSha256": "ee5ad82ee604f072f04bed8ef20cdd856bb02ba80e16c3973b10c6c43f972b9c",
+      "sourceSize": 28822,
+      "backupSha256": "ee5ad82ee604f072f04bed8ef20cdd856bb02ba80e16c3973b10c6c43f972b9c",
+      "backupSize": 28822,
+      "match": true
+    },
+    {
+      "relativePath": "artifacts/triality-transport/summary.json",
+      "sourceSha256": "61b8fe5a8a72e48d40d40d6850a6c559e2dd06ccfa9de97982590d35a82044fb",
+      "sourceSize": 772,
+      "backupSha256": "61b8fe5a8a72e48d40d40d6850a6c559e2dd06ccfa9de97982590d35a82044fb",
+      "backupSize": 772,
+      "match": true
+    }
+  ],
+  "allFilesMatched": true
+}
