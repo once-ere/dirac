@@ -1,6 +1,6 @@
 # Implementation progress
 
-Status: Phase 0 source audit is complete; the Git phase checkpoint is pending.
+Status: Phase 0 source audit is complete and frozen in Git.
 
 ## Verified checkpoint
 
@@ -47,6 +47,21 @@ Status: Phase 0 source audit is complete; the Git phase checkpoint is pending.
   source files, 209 audit artifacts, 66 parsed Wolfram artifacts, 209 complete
   human reviews, and zero parse, message, hash, size, or structural failures.
 
+## Phase checkpoints
+
+### Phase 0: source audit and repository bootstrap
+
+- Commit: `763b1734512adf196ccf1465a77875a1a20c21b6`
+- Tag: `phase0-source-audit-green`
+- Result: 5,991 files and 371,942,252 bytes frozen; 209 of 209 required
+  artifacts reviewed; 66 of 66 parseable Wolfram artifacts imported without
+  evaluation; 11 tests passed; zero parse, message, hash, size, or structural
+  failures.
+- Logs: `logs/phase0-verify-tests.log`,
+  `logs/phase0-verify-manifest.log`, `logs/phase0-verify-wolfram.log`,
+  `logs/phase0-verify-structural.log`, and `logs/phase0-verify-check.log`.
+- Next action: construct and verify the exact-real 16-by-16 `Cl(4,4)` seed.
+
 ## Evidence
 
 - `backups/pre-bootstrap/manifest.json`
@@ -81,4 +96,4 @@ Status: Phase 0 source audit is complete; the Git phase checkpoint is pending.
 - Vendored SUNDIALS source will remain byte-identical and read-only.
 - Every existing file is backed up and hash-verified before modification.
 
-Next action: freeze the verified Phase 0 checkpoint in Git, then begin an independently derived exact-real 16-by-16 Cl(4,4) seed with anticommutator, rank-256, and half-spin projector tests.
+Next action: begin an independently derived exact-real 16-by-16 Cl(4,4) seed with anticommutator, rank-256, and half-spin projector tests.
