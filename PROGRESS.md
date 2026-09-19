@@ -1,7 +1,7 @@
 # Implementation progress
 
-Status: Phase 0 is frozen in Git; the Phase 1 exact algebra and triality gate
-is verified and awaits its Git checkpoint.
+Status: Phase 0 and the Phase 1 exact algebra and triality gate are verified
+and frozen in Git.
 
 ## Verified checkpoint
 
@@ -77,7 +77,8 @@ is verified and awaits its Git checkpoint.
 
 ### Phase 1: exact algebra and split-real triality
 
-- Git checkpoint: pending.
+- Commit: `07ed08d46d194f72e4fbea89df6fdeedfa61eafe`
+- Tag: `phase1-exact-triality-green`
 - `artifacts/exact/cl44-seed.json` SHA-256:
   `0660e436fdcf90ed0f0481c9a828e92659987f5820084ccbf5e1dfc96866cc54`.
 - `artifacts/exact/split-octonion.json` SHA-256:
@@ -125,4 +126,4 @@ is verified and awaits its Git checkpoint.
 - Vendored SUNDIALS source will remain byte-identical and read-only.
 - Every existing file is backed up and hash-verified before modification.
 
-Next action: freeze the verified Phase 1 checkpoint in Git, then build the application-owned 24-state triality transport study against the hash-pinned, read-only CVODE engine.
+Next action: build the application-owned 24-state triality transport study against the hash-pinned, read-only CVODE engine.
