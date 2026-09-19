@@ -177,7 +177,8 @@ Status: Phases 0 through 4 are verified and frozen in Git.
 - Checkout attributes pin each generated text artifact to its writer's
   deterministic line endings, preventing `core.autocrlf` from changing hashes.
 - The root `prompt.txt` is local-only and ignored; Phase 0 validates its tracked
-  pre-bootstrap backup without requiring the private root file in fresh clones.
+  pre-bootstrap hash record and any available local backup bytes without
+  requiring the private root file in fresh clones.
 - Verification: `scripts/verify_phase4_publication.ps1` or
   `scripts/verify_phase4_publication.sh`.
 - Provenance: `provenance/WOLFRAMSCRIPT.md`,

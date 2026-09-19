@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "backupId": "20260919T232318358379Z",
+  "repositoryRoot": "C:\\Users\\nsh\\Developer\\code\\vscode\\dirac",
+  "destinationRoot": "C:\\Users\\nsh\\Developer\\code\\vscode\\dirac\\backups\\edits\\20260919T232318358379Z",
+  "files": [
+    {
+      "relativePath": "scripts/check_phase0.py",
+      "sourceSha256": "7e23a22c22df1440f18d1b79a44ce2be514205e491cc894ff84add373dcccb02",
+      "sourceSize": 16868,
+      "backupSha256": "7e23a22c22df1440f18d1b79a44ce2be514205e491cc894ff84add373dcccb02",
+      "backupSize": 16868,
+      "match": true
+    },
+    {
+      "relativePath": "tests/test_phase0_frozen_inputs.py",
+      "sourceSha256": "a0706c074f17305524d8f6f2a367d94311ea21cb8834c36748bc2b7c6bedf132",
+      "sourceSize": 1951,
+      "backupSha256": "a0706c074f17305524d8f6f2a367d94311ea21cb8834c36748bc2b7c6bedf132",
+      "backupSize": 1951,
+      "match": true
+    },
+    {
+      "relativePath": "PROGRESS.md",
+      "sourceSha256": "76de37767da586652a3a62d8ff7b3e445b9168e87f8c8c56d29ff92212e1495e",
+      "sourceSize": 11982,
+      "backupSha256": "76de37767da586652a3a62d8ff7b3e445b9168e87f8c8c56d29ff92212e1495e",
+      "backupSize": 11982,
+      "match": true
+    }
+  ],
+  "allFilesMatched": true
+}

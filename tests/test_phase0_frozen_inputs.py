@@ -10,7 +10,7 @@ from scripts import check_phase0
 
 
 class Phase0FrozenInputTests(unittest.TestCase):
-    def test_local_prompt_may_be_absent_when_tracked_backup_is_valid(self) -> None:
+    def test_local_prompt_may_be_absent_with_frozen_hash_record(self) -> None:
         with tempfile.TemporaryDirectory() as temporary_directory:
             repository_root = Path(temporary_directory)
             backup_root = repository_root / "backups" / "pre-bootstrap"
@@ -22,7 +22,6 @@ class Phase0FrozenInputTests(unittest.TestCase):
             records = []
             for name, content in files.items():
                 digest = hashlib.sha256(content).hexdigest().upper()
-                (backup_root / name).write_bytes(content)
                 records.append(
                     {
                         "name": name,

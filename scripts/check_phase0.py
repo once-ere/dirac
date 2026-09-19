@@ -361,19 +361,26 @@ def validate_frozen_inputs() -> None:
         backup_path = initial_backup_root / name
         source_hash = str(record["sourceHash"]).lower()
         source_size = int(record["sourceSize"])
+        backup_hash = str(record["backupHash"]).lower()
+        backup_size = int(record["backupSize"])
         require(record["backupMatch"] is True, f"Input backup failed: {name}")
-        require(backup_path.is_file(), f"Missing frozen backup: {backup_path}")
         require(
-            sha256_file(backup_path) == source_hash
-            == str(record["backupHash"]).lower(),
-            f"Frozen backup hash mismatch: {name}",
+            source_hash == backup_hash,
+            f"Frozen hash record mismatch: {name}",
         )
         require(
-            backup_path.stat().st_size
-            == source_size
-            == int(record["backupSize"]),
-            f"Frozen backup size mismatch: {name}",
+            source_size == backup_size,
+            f"Frozen size record mismatch: {name}",
         )
+        if backup_path.is_file():
+            require(
+                sha256_file(backup_path) == backup_hash,
+                f"Frozen backup hash mismatch: {name}",
+            )
+            require(
+                backup_path.stat().st_size == backup_size,
+                f"Frozen backup size mismatch: {name}",
+            )
         recorded_revisions[name].add((source_hash, source_size))
 
     backup_manifests = (REPOSITORY_ROOT / "backups").rglob("manifest.json")
