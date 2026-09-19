@@ -78,7 +78,7 @@ Status: Phases 0 through 4 are verified and frozen in Git.
   source and a warning-free, 13-page letter-sized PDF. Independent builds are
   byte-identical in PowerShell and WSL.
 - Both Phase 4 publication gates pass, including six PDF structure and hash
-  checks and all 19 Python tests.
+  checks and all 20 Python tests.
 
 ## Phase checkpoints
 
@@ -176,6 +176,8 @@ Status: Phases 0 through 4 are verified and frozen in Git.
   or errors.
 - Checkout attributes pin each generated text artifact to its writer's
   deterministic line endings, preventing `core.autocrlf` from changing hashes.
+- The root `prompt.txt` is local-only and ignored; Phase 0 validates its tracked
+  pre-bootstrap backup without requiring the private root file in fresh clones.
 - Verification: `scripts/verify_phase4_publication.ps1` or
   `scripts/verify_phase4_publication.sh`.
 - Provenance: `provenance/WOLFRAMSCRIPT.md`,

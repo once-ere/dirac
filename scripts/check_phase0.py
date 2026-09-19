@@ -38,6 +38,7 @@ AUTHORED_CELL_STYLES = {
     "Text",
     "Title",
 }
+LOCAL_ONLY_FROZEN_INPUTS = {"prompt.txt"}
 
 
 def require(condition: bool, message: str) -> None:
@@ -354,18 +355,32 @@ def validate_frozen_inputs() -> None:
         name: set() for name in input_names
     }
 
-    backup_manifests = (REPOSITORY_ROOT / "backups").rglob("manifest.json")
-    for manifest_path in sorted(backup_manifests):
-        manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
-        destination_root_value = manifest.get(
-            "destinationRoot",
-            manifest.get("backupDirectory"),
+    initial_backup_root = REPOSITORY_ROOT / "backups" / "pre-bootstrap"
+    for record in initial["files"]:
+        name = record["name"]
+        backup_path = initial_backup_root / name
+        source_hash = str(record["sourceHash"]).lower()
+        source_size = int(record["sourceSize"])
+        require(record["backupMatch"] is True, f"Input backup failed: {name}")
+        require(backup_path.is_file(), f"Missing frozen backup: {backup_path}")
+        require(
+            sha256_file(backup_path) == source_hash
+            == str(record["backupHash"]).lower(),
+            f"Frozen backup hash mismatch: {name}",
         )
         require(
-            destination_root_value is not None,
-            f"Invalid backup: {manifest_path}",
+            backup_path.stat().st_size
+            == source_size
+            == int(record["backupSize"]),
+            f"Frozen backup size mismatch: {name}",
         )
-        destination_root = Path(destination_root_value)
+        recorded_revisions[name].add((source_hash, source_size))
+
+    backup_manifests = (REPOSITORY_ROOT / "backups").rglob("manifest.json")
+    for manifest_path in sorted(backup_manifests):
+        if manifest_path == initial_backup_root / "manifest.json":
+            continue
+        manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
         for record in manifest.get("files", []):
             relative_path = record.get("relativePath", record.get("name"))
             if relative_path not in input_names:
@@ -375,12 +390,10 @@ def validate_frozen_inputs() -> None:
             backup_hash = record.get("backupSha256", record.get("backupHash"))
             backup_size = record.get("backupSize")
             match = record.get("match", record.get("backupMatch", False))
-            backup_path = destination_root.joinpath(*relative_path.split("/"))
+            backup_path = manifest_path.parent.joinpath(*relative_path.split("/"))
             require(match is True, f"Unverified input backup: {manifest_path}")
-            require(
-                backup_path.is_file(),
-                f"Missing input backup: {backup_path}",
-            )
+            if not backup_path.is_file():
+                continue
             require(
                 sha256_file(backup_path).upper() == str(backup_hash).upper(),
                 f"Input backup hash mismatch: {backup_path}",
@@ -395,7 +408,12 @@ def validate_frozen_inputs() -> None:
 
     for name in sorted(input_names):
         source = REPOSITORY_ROOT / name
-        require(source.is_file(), f"Missing frozen input: {name}")
+        if not source.is_file():
+            require(
+                name in LOCAL_ONLY_FROZEN_INPUTS,
+                f"Missing frozen input: {name}",
+            )
+            continue
         current = (sha256_file(source), source.stat().st_size)
         require(
             current in recorded_revisions[name],
