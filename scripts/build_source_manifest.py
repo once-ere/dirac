@@ -263,6 +263,7 @@ def iter_files(root: Path) -> Iterable[Path]:
 def load_roots(
     config_path: Path,
 ) -> tuple[dict[str, Any], list[dict[str, str]]]:
+    config_path = config_path.resolve()
     config_bytes = config_path.read_bytes()
     config = json.loads(config_bytes.decode("utf-8"))
     if config.get("schemaVersion") != 1:
@@ -283,7 +284,7 @@ def load_roots(
     return {
         "schemaVersion": config["schemaVersion"],
         "sha256": hash_bytes(config_bytes),
-        "path": config_path.resolve().as_posix(),
+        "path": config_path.relative_to(project_root).as_posix(),
     }, roots
 
 

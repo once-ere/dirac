@@ -4,7 +4,7 @@
   "configuration": {
     "schemaVersion": 1,
     "sha256": "2dfa65be4ee2024c98f633a94d2d4162f7b63020ebdabf2bdf5b37d6940e9354",
-    "path": "C:/Users/nsh/Developer/code/vscode/dirac/config/source-roots.json"
+    "path": "config/source-roots.json"
   },
   "roots": [
     {

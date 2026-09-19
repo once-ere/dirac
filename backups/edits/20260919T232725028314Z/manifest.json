@@ -1,0 +1,105 @@
+{
+  "schemaVersion": 1,
+  "backupId": "20260919T232725028314Z",
+  "repositoryRoot": "C:\\Users\\nsh\\Developer\\code\\vscode\\dirac",
+  "destinationRoot": "C:\\Users\\nsh\\Developer\\code\\vscode\\dirac\\backups\\edits\\20260919T232725028314Z",
+  "files": [
+    {
+      "relativePath": ".gitattributes",
+      "sourceSha256": "7a27043fbe59c18fe38409b6e24474f85f117fd6a9470ffa4dca2a6dc6d30a2e",
+      "sourceSize": 485,
+      "backupSha256": "7a27043fbe59c18fe38409b6e24474f85f117fd6a9470ffa4dca2a6dc6d30a2e",
+      "backupSize": 485,
+      "match": true
+    },
+    {
+      "relativePath": "scripts/build_source_manifest.py",
+      "sourceSha256": "86f54e729c1f1473b0c91fcb756d0d94ce758570105f4d03aa5d65272d36585d",
+      "sourceSize": 14916,
+      "backupSha256": "86f54e729c1f1473b0c91fcb756d0d94ce758570105f4d03aa5d65272d36585d",
+      "backupSize": 14916,
+      "match": true
+    },
+    {
+      "relativePath": "tests/test_source_manifest.py",
+      "sourceSha256": "b0f984ccf0607c1f43fd17d6c69270c8ba156ee26495efc8d5f52f29ad493738",
+      "sourceSize": 4788,
+      "backupSha256": "b0f984ccf0607c1f43fd17d6c69270c8ba156ee26495efc8d5f52f29ad493738",
+      "backupSize": 4788,
+      "match": true
+    },
+    {
+      "relativePath": "PROGRESS.md",
+      "sourceSha256": "c6cc9b4404b1c733a30fa323ee192b416c4bce194a3a47202c30ec9a15f9ce31",
+      "sourceSize": 12027,
+      "backupSha256": "c6cc9b4404b1c733a30fa323ee192b416c4bce194a3a47202c30ec9a15f9ce31",
+      "backupSize": 12027,
+      "match": true
+    },
+    {
+      "relativePath": "scripts/status.ps1",
+      "sourceSha256": "a35ade783ec6af5281f73211243aea2935626a1ebf83d6fa4deaa826bddba23e",
+      "sourceSize": 1509,
+      "backupSha256": "a35ade783ec6af5281f73211243aea2935626a1ebf83d6fa4deaa826bddba23e",
+      "backupSize": 1509,
+      "match": true
+    },
+    {
+      "relativePath": "scripts/status.sh",
+      "sourceSha256": "1baed2a4d2b9ff7b4fa5d7ceb8d19946732aa580a0627de188011809c6a328b8",
+      "sourceSize": 1632,
+      "backupSha256": "1baed2a4d2b9ff7b4fa5d7ceb8d19946732aa580a0627de188011809c6a328b8",
+      "backupSize": 1632,
+      "match": true
+    },
+    {
+      "relativePath": "audit/source-manifest.json",
+      "sourceSha256": "0083c99a63b4d070e91f20935fa4c0dc2401538b380db012a0acb54c07dad7ad",
+      "sourceSize": 3826106,
+      "backupSha256": "0083c99a63b4d070e91f20935fa4c0dc2401538b380db012a0acb54c07dad7ad",
+      "backupSize": 3826106,
+      "match": true
+    },
+    {
+      "relativePath": "audit/source-manifest.csv",
+      "sourceSha256": "a698dc8b8046e887c0c5085d470ef7c832642e516b5a05262c94302ba507279c",
+      "sourceSize": 2196038,
+      "backupSha256": "a698dc8b8046e887c0c5085d470ef7c832642e516b5a05262c94302ba507279c",
+      "backupSize": 2196038,
+      "match": true
+    },
+    {
+      "relativePath": "audit/SHA256SUMS",
+      "sourceSha256": "241ffaf5d7b0d2bea824a30e0276dbf3dbb4b818821bed2f0c426ef374adc840",
+      "sourceSize": 929106,
+      "backupSha256": "241ffaf5d7b0d2bea824a30e0276dbf3dbb4b818821bed2f0c426ef374adc840",
+      "backupSize": 929106,
+      "match": true
+    },
+    {
+      "relativePath": "audit/audit-ledger.md",
+      "sourceSha256": "48913ea72020a71102173c9554e759e233a8909e16f692fa4a6832ab7a7e2bbf",
+      "sourceSize": 85236,
+      "backupSha256": "48913ea72020a71102173c9554e759e233a8909e16f692fa4a6832ab7a7e2bbf",
+      "backupSize": 85236,
+      "match": true
+    },
+    {
+      "relativePath": "audit/wolfram-structure.json",
+      "sourceSha256": "7b0a41d2bb4abf10d33f4a74913fdf6050358e356624ae01f525afa2cb1eece6",
+      "sourceSize": 2444382,
+      "backupSha256": "7b0a41d2bb4abf10d33f4a74913fdf6050358e356624ae01f525afa2cb1eece6",
+      "backupSize": 2444382,
+      "match": true
+    },
+    {
+      "relativePath": "audit/structural-audit.json",
+      "sourceSha256": "4e3b5c521c1cc106f80f16e74e416a0b8f5a04abe47a314bb1ef7aeb5007d730",
+      "sourceSize": 3337226,
+      "backupSha256": "4e3b5c521c1cc106f80f16e74e416a0b8f5a04abe47a314bb1ef7aeb5007d730",
+      "backupSize": 3337226,
+      "match": true
+    }
+  ],
+  "allFilesMatched": true
+}

@@ -30,6 +30,29 @@ class SourceManifestTests(unittest.TestCase):
         roots = [{"id": "fixture", "path": str(self.root.resolve())}]
         return subject.inventory(roots)
 
+    def test_configuration_path_is_repository_relative(self) -> None:
+        project_root = Path(self.temporary_directory.name) / "project"
+        config_directory = project_root / "config"
+        source_root = project_root / "sources"
+        config_directory.mkdir(parents=True)
+        source_root.mkdir()
+        config_path = config_directory / "source-roots.json"
+        config_path.write_text(
+            json.dumps(
+                {
+                    "schemaVersion": 1,
+                    "baseDirectory": ".",
+                    "roots": [{"id": "fixture", "directory": "sources"}],
+                }
+            ),
+            encoding="utf-8",
+        )
+
+        config_record, roots = subject.load_roots(config_path)
+
+        self.assertEqual(config_record["path"], "config/source-roots.json")
+        self.assertEqual(roots[0]["path"], str(source_root.resolve()))
+
     def test_inventory_is_sorted_and_byte_complete(self) -> None:
         records = self.records()
         self.assertEqual(
