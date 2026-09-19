@@ -1,0 +1,73 @@
+{
+  "schemaVersion": 1,
+  "backupId": "20260919T225021896925Z",
+  "repositoryRoot": "C:\\Users\\nsh\\Developer\\code\\vscode\\dirac",
+  "destinationRoot": "C:\\Users\\nsh\\Developer\\code\\vscode\\dirac\\backups\\edits\\20260919T225021896925Z",
+  "files": [
+    {
+      "relativePath": "scripts/check_dissertation_pdf.py",
+      "sourceSha256": "944d64bc3886d33917ba2b82daf5da2f92b996de6239a5bce1c8f3a1c08e53e6",
+      "sourceSize": 3255,
+      "backupSha256": "944d64bc3886d33917ba2b82daf5da2f92b996de6239a5bce1c8f3a1c08e53e6",
+      "backupSize": 3255,
+      "match": true
+    },
+    {
+      "relativePath": "scripts/verify_phase4_publication.ps1",
+      "sourceSha256": "a34bbf9a384040994b671592e9ca2764622ca51c070a94dcd319e723b51082de",
+      "sourceSize": 5720,
+      "backupSha256": "a34bbf9a384040994b671592e9ca2764622ca51c070a94dcd319e723b51082de",
+      "backupSize": 5720,
+      "match": true
+    },
+    {
+      "relativePath": "scripts/verify_phase4_publication.sh",
+      "sourceSha256": "558b5170a6901632aa5ad3067477007d0f1b1cb3e9f14c9436f4dd207e77d5d9",
+      "sourceSize": 5614,
+      "backupSha256": "558b5170a6901632aa5ad3067477007d0f1b1cb3e9f14c9436f4dd207e77d5d9",
+      "backupSize": 5614,
+      "match": true
+    },
+    {
+      "relativePath": "provenance/DISSERTATION.md",
+      "sourceSha256": "c505cffd656445e6c79e2cc5ecfbf476bf466175b8a99bbfafc6c93fd3d604a1",
+      "sourceSize": 5579,
+      "backupSha256": "c505cffd656445e6c79e2cc5ecfbf476bf466175b8a99bbfafc6c93fd3d604a1",
+      "backupSize": 5579,
+      "match": true
+    },
+    {
+      "relativePath": "tests/test_dissertation_pdf.py",
+      "sourceSha256": "b7f84e927f1c3dc7c29330d7988ca54e416a8c9869ba822fd41c6ffd2fe25904",
+      "sourceSize": 703,
+      "backupSha256": "b7f84e927f1c3dc7c29330d7988ca54e416a8c9869ba822fd41c6ffd2fe25904",
+      "backupSize": 703,
+      "match": true
+    },
+    {
+      "relativePath": "PROGRESS.md",
+      "sourceSha256": "7d76751c6cffcec59539074b6c779c84c65073df32fc937f82ac62a8a201bdbc",
+      "sourceSize": 11615,
+      "backupSha256": "7d76751c6cffcec59539074b6c779c84c65073df32fc937f82ac62a8a201bdbc",
+      "backupSize": 11615,
+      "match": true
+    },
+    {
+      "relativePath": "scripts/status.ps1",
+      "sourceSha256": "063ba03916419fef18b45a5950cdfad5f453046c61a0f5b85a8731ad0babfb9d",
+      "sourceSize": 1509,
+      "backupSha256": "063ba03916419fef18b45a5950cdfad5f453046c61a0f5b85a8731ad0babfb9d",
+      "backupSize": 1509,
+      "match": true
+    },
+    {
+      "relativePath": "scripts/status.sh",
+      "sourceSha256": "0717ea9aff88917343c4ee01ed5ac9559ebd5ce979ae0385a7d11e4be2339359",
+      "sourceSize": 1632,
+      "backupSha256": "0717ea9aff88917343c4ee01ed5ac9559ebd5ce979ae0385a7d11e4be2339359",
+      "backupSize": 1632,
+      "match": true
+    }
+  ],
+  "allFilesMatched": true
+}

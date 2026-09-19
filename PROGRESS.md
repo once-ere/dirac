@@ -77,8 +77,8 @@ Status: Phases 0 through 4 are verified and frozen in Git.
 - The 598-line Markdown dissertation generates a complete 571-line LaTeX
   source and a warning-free, 13-page letter-sized PDF. Independent builds are
   byte-identical in PowerShell and WSL.
-- Both Phase 4 publication gates pass, including five PDF structure checks
-  and all 18 Python tests.
+- Both Phase 4 publication gates pass, including six PDF structure and hash
+  checks and all 19 Python tests.
 
 ## Phase checkpoints
 
@@ -171,8 +171,9 @@ Status: Phases 0 through 4 are verified and frozen in Git.
   `a2a6e366817cb17d4b4ba936a98f5e495a8ca9c0bc012540021bc548847073f3`.
 - Result: standalone Wolfram evaluation, fresh-kernel Mathematica execution,
   deterministic Jupyter execution, deterministic LaTeX generation, and two
-  isolated PDF builds pass in PowerShell and WSL; the PDF has 13 pages, one
-  letter-sized media box, and no TeX warnings or errors.
+  isolated three-pass PDF builds pass in PowerShell and WSL; the PDF has 13
+  pages, one letter-sized media box, its canonical hash, and no TeX warnings
+  or errors.
 - Verification: `scripts/verify_phase4_publication.ps1` or
   `scripts/verify_phase4_publication.sh`.
 - Provenance: `provenance/WOLFRAMSCRIPT.md`,

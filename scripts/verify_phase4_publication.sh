@@ -65,11 +65,18 @@ mkdir -p build/phase4/pdf-a build/phase4/pdf-b
 "$script_dir/run_logged.sh" logs/phase4-build-pdf-a2-bash.log -- \
     "$pdflatex_command" -interaction=nonstopmode -halt-on-error \
         -output-directory=build/phase4/pdf-a dissertation/dirac-triality.tex
+"$script_dir/run_logged.sh" logs/phase4-build-pdf-a3-bash.log -- \
+    "$pdflatex_command" -interaction=nonstopmode -halt-on-error \
+        -output-directory=build/phase4/pdf-a dissertation/dirac-triality.tex
 "$script_dir/run_logged.sh" logs/phase4-build-pdf-b1-bash.log -- \
     "$pdflatex_command" -interaction=nonstopmode -halt-on-error \
         -jobname=dirac-triality -output-directory=build/phase4/pdf-b \
         build/phase4/dirac-triality-repeat.tex
 "$script_dir/run_logged.sh" logs/phase4-build-pdf-b2-bash.log -- \
+    "$pdflatex_command" -interaction=nonstopmode -halt-on-error \
+        -jobname=dirac-triality -output-directory=build/phase4/pdf-b \
+        build/phase4/dirac-triality-repeat.tex
+"$script_dir/run_logged.sh" logs/phase4-build-pdf-b3-bash.log -- \
     "$pdflatex_command" -interaction=nonstopmode -halt-on-error \
         -jobname=dirac-triality -output-directory=build/phase4/pdf-b \
         build/phase4/dirac-triality-repeat.tex

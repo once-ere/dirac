@@ -36,7 +36,7 @@ Write-Output "head=$head"
 Write-Output "dirty_count=$($dirty.Count)"
 Write-Output "latest_phase_tag=$phaseTag"
 Write-Output "source_manifest_sha256=$manifestHash"
-Write-Output "latest_verification=phase4 publication: 69 Wolfram checks, 11 Jupyter checks, 5 PDF checks, 18 Python tests"
+Write-Output "latest_verification=phase4 publication: 69 Wolfram checks, 11 Jupyter checks, 6 PDF checks, 19 Python tests"
 Write-Output "next_action=$nextAction"
 if ($dirty.Count -gt 0) {
     Write-Output "dirty_files_begin"

@@ -47,8 +47,10 @@ $steps = @(
     @("logs/phase4-build-dissertation-tex-repeat.log", "python scripts/build_dissertation_tex.py --output build/phase4/dirac-triality-repeat.tex"),
     @("logs/phase4-build-pdf-a1.log", "pdflatex -interaction=nonstopmode -halt-on-error -output-directory=build/phase4/pdf-a dissertation/dirac-triality.tex"),
     @("logs/phase4-build-pdf-a2.log", "pdflatex -interaction=nonstopmode -halt-on-error -output-directory=build/phase4/pdf-a dissertation/dirac-triality.tex"),
+    @("logs/phase4-build-pdf-a3.log", "pdflatex -interaction=nonstopmode -halt-on-error -output-directory=build/phase4/pdf-a dissertation/dirac-triality.tex"),
     @("logs/phase4-build-pdf-b1.log", "pdflatex -interaction=nonstopmode -halt-on-error -jobname=dirac-triality -output-directory=build/phase4/pdf-b build/phase4/dirac-triality-repeat.tex"),
     @("logs/phase4-build-pdf-b2.log", "pdflatex -interaction=nonstopmode -halt-on-error -jobname=dirac-triality -output-directory=build/phase4/pdf-b build/phase4/dirac-triality-repeat.tex"),
+    @("logs/phase4-build-pdf-b3.log", "pdflatex -interaction=nonstopmode -halt-on-error -jobname=dirac-triality -output-directory=build/phase4/pdf-b build/phase4/dirac-triality-repeat.tex"),
     @("logs/phase4-check-dissertation-pdf.log", "python scripts/check_dissertation_pdf.py build/phase4/pdf-a/dirac-triality.pdf --repeat build/phase4/pdf-b/dirac-triality.pdf"),
     @("logs/phase4-python-tests.log", "python -m unittest discover -s tests -v")
 )

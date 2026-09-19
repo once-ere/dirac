@@ -12,6 +12,8 @@ The Markdown file is the authoritative dissertation text. The Python builder
 expands it into a complete standalone LaTeX document; the LaTeX source does not
 include the Markdown file at compile time. The PDF suppresses volatile engine
 timestamps and trailer identifiers so isolated builds are byte-identical.
+Three pdfTeX passes are required because inserting the first table of contents
+shifts the section page numbers consumed by the final pass.
 
 ## Complete Windows commands
 
@@ -38,9 +40,13 @@ if ($texFirst -ne $texSecond) { throw "LaTeX generation changed bytes" }
   -Command "pdflatex -interaction=nonstopmode -halt-on-error -output-directory=build/phase4/pdf-a dissertation/dirac-triality.tex"
 .\scripts\run_logged.ps1 -LogPath logs\phase4-build-pdf-a2.log `
   -Command "pdflatex -interaction=nonstopmode -halt-on-error -output-directory=build/phase4/pdf-a dissertation/dirac-triality.tex"
+.\scripts\run_logged.ps1 -LogPath logs\phase4-build-pdf-a3.log `
+  -Command "pdflatex -interaction=nonstopmode -halt-on-error -output-directory=build/phase4/pdf-a dissertation/dirac-triality.tex"
 .\scripts\run_logged.ps1 -LogPath logs\phase4-build-pdf-b1.log `
   -Command "pdflatex -interaction=nonstopmode -halt-on-error -jobname=dirac-triality -output-directory=build/phase4/pdf-b build/phase4/dirac-triality-repeat.tex"
 .\scripts\run_logged.ps1 -LogPath logs\phase4-build-pdf-b2.log `
+  -Command "pdflatex -interaction=nonstopmode -halt-on-error -jobname=dirac-triality -output-directory=build/phase4/pdf-b build/phase4/dirac-triality-repeat.tex"
+.\scripts\run_logged.ps1 -LogPath logs\phase4-build-pdf-b3.log `
   -Command "pdflatex -interaction=nonstopmode -halt-on-error -jobname=dirac-triality -output-directory=build/phase4/pdf-b build/phase4/dirac-triality-repeat.tex"
 .\scripts\run_logged.ps1 -LogPath logs\phase4-check-dissertation-pdf.log `
   -Command "python scripts/check_dissertation_pdf.py build/phase4/pdf-a/dirac-triality.pdf --repeat build/phase4/pdf-b/dirac-triality.pdf"
@@ -81,11 +87,18 @@ test "$(sha256sum dissertation/dirac-triality.tex | cut -d' ' -f1)" = \
 ./scripts/run_logged.sh logs/phase4-build-pdf-a2-bash.log -- \
   "$pdflatex_command" -interaction=nonstopmode -halt-on-error \
     -output-directory=build/phase4/pdf-a dissertation/dirac-triality.tex
+./scripts/run_logged.sh logs/phase4-build-pdf-a3-bash.log -- \
+  "$pdflatex_command" -interaction=nonstopmode -halt-on-error \
+    -output-directory=build/phase4/pdf-a dissertation/dirac-triality.tex
 ./scripts/run_logged.sh logs/phase4-build-pdf-b1-bash.log -- \
   "$pdflatex_command" -interaction=nonstopmode -halt-on-error \
     -jobname=dirac-triality -output-directory=build/phase4/pdf-b \
     build/phase4/dirac-triality-repeat.tex
 ./scripts/run_logged.sh logs/phase4-build-pdf-b2-bash.log -- \
+  "$pdflatex_command" -interaction=nonstopmode -halt-on-error \
+    -jobname=dirac-triality -output-directory=build/phase4/pdf-b \
+    build/phase4/dirac-triality-repeat.tex
+./scripts/run_logged.sh logs/phase4-build-pdf-b3-bash.log -- \
   "$pdflatex_command" -interaction=nonstopmode -halt-on-error \
     -jobname=dirac-triality -output-directory=build/phase4/pdf-b \
     build/phase4/dirac-triality-repeat.tex

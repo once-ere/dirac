@@ -11,6 +11,7 @@ from pathlib import Path
 
 PAGE_PATTERN = re.compile(rb"/Type\s*/Page(?!s)\b")
 MEDIA_BOX_PATTERN = re.compile(rb"/MediaBox\s*\[([^]]+)\]")
+EXPECTED_PDF_SHA256 = "a2a6e366817cb17d4b4ba936a98f5e495a8ca9c0bc012540021bc548847073f3"
 
 
 def parse_arguments() -> argparse.Namespace:
@@ -50,6 +51,7 @@ def verify_pdf(
     expected_height: float,
 ) -> dict[str, object]:
     content = pdf_path.read_bytes()
+    content_hash = sha256_bytes(content)
     page_count = len(PAGE_PATTERN.findall(content))
     media_boxes = parse_media_boxes(content)
     expected_box = (0.0, 0.0, expected_width, expected_height)
@@ -60,6 +62,7 @@ def verify_pdf(
         "endMarker": content.rstrip().endswith(b"%%EOF"),
         "pageCount": page_count == expected_pages,
         "mediaBox": media_boxes == [expected_box],
+        "canonicalHash": content_hash == EXPECTED_PDF_SHA256,
         "repeatByteIdentity": repeat_equal,
     }
     return {
@@ -68,7 +71,7 @@ def verify_pdf(
             "byteCount": len(content),
             "pageCount": page_count,
             "mediaBoxes": media_boxes,
-            "pdfSha256": sha256_bytes(content),
+            "pdfSha256": content_hash,
             "repeatCompared": repeat_compared,
         },
     }
