@@ -1,0 +1,57 @@
+{
+  "schemaVersion": 1,
+  "backupId": "20260919T165146235682Z",
+  "repositoryRoot": "C:\\Users\\nsh\\Developer\\code\\vscode\\dirac",
+  "destinationRoot": "C:\\Users\\nsh\\Developer\\code\\vscode\\dirac\\backups\\edits\\20260919T165146235682Z",
+  "files": [
+    {
+      "relativePath": "audit/source-manifest.json",
+      "sourceSha256": "0083c99a63b4d070e91f20935fa4c0dc2401538b380db012a0acb54c07dad7ad",
+      "sourceSize": 3826106,
+      "backupSha256": "0083c99a63b4d070e91f20935fa4c0dc2401538b380db012a0acb54c07dad7ad",
+      "backupSize": 3826106,
+      "match": true
+    },
+    {
+      "relativePath": "audit/source-manifest.csv",
+      "sourceSha256": "a698dc8b8046e887c0c5085d470ef7c832642e516b5a05262c94302ba507279c",
+      "sourceSize": 2196038,
+      "backupSha256": "a698dc8b8046e887c0c5085d470ef7c832642e516b5a05262c94302ba507279c",
+      "backupSize": 2196038,
+      "match": true
+    },
+    {
+      "relativePath": "audit/SHA256SUMS",
+      "sourceSha256": "241ffaf5d7b0d2bea824a30e0276dbf3dbb4b818821bed2f0c426ef374adc840",
+      "sourceSize": 929106,
+      "backupSha256": "241ffaf5d7b0d2bea824a30e0276dbf3dbb4b818821bed2f0c426ef374adc840",
+      "backupSize": 929106,
+      "match": true
+    },
+    {
+      "relativePath": "audit/audit-ledger.md",
+      "sourceSha256": "51a35187f4f0be3ff367450d9cb32979420f4a3fdf940f78e2fec613ff36d5a5",
+      "sourceSize": 52866,
+      "backupSha256": "51a35187f4f0be3ff367450d9cb32979420f4a3fdf940f78e2fec613ff36d5a5",
+      "backupSize": 52866,
+      "match": true
+    },
+    {
+      "relativePath": "audit/wolfram-structure.json",
+      "sourceSha256": "a45e4d5168d8d7872b628d9e240d60e46f7c5c44d4440831ee19de33c39af0d2",
+      "sourceSize": 40936,
+      "backupSha256": "a45e4d5168d8d7872b628d9e240d60e46f7c5c44d4440831ee19de33c39af0d2",
+      "backupSize": 40936,
+      "match": true
+    },
+    {
+      "relativePath": "audit/structural-audit.json",
+      "sourceSha256": "e1ead2994ec608873de8f5060864c03481027198a0b9eec9d6c3543c35b02e2c",
+      "sourceSize": 606038,
+      "backupSha256": "e1ead2994ec608873de8f5060864c03481027198a0b9eec9d6c3543c35b02e2c",
+      "backupSize": 606038,
+      "match": true
+    }
+  ],
+  "allFilesMatched": true
+}

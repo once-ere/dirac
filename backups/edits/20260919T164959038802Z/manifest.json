@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "backupId": "20260919T164959038802Z",
+  "repositoryRoot": "C:\\Users\\nsh\\Developer\\code\\vscode\\dirac",
+  "destinationRoot": "C:\\Users\\nsh\\Developer\\code\\vscode\\dirac\\backups\\edits\\20260919T164959038802Z",
+  "files": [
+    {
+      "relativePath": "scripts/check_phase0.py",
+      "sourceSha256": "bdde683d653297344042bdbd5cf622d9080c35d1bbd725ff8baf7b025739ceec",
+      "sourceSize": 11612,
+      "backupSha256": "bdde683d653297344042bdbd5cf622d9080c35d1bbd725ff8baf7b025739ceec",
+      "backupSize": 11612,
+      "match": true
+    }
+  ],
+  "allFilesMatched": true
+}

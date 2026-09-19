@@ -1,0 +1,73 @@
+{
+  "schemaVersion": 1,
+  "backupId": "20260919T164241748478Z",
+  "repositoryRoot": "C:\\Users\\nsh\\Developer\\code\\vscode\\dirac",
+  "destinationRoot": "C:\\Users\\nsh\\Developer\\code\\vscode\\dirac\\backups\\edits\\20260919T164241748478Z",
+  "files": [
+    {
+      "relativePath": "scripts/build_source_manifest.py",
+      "sourceSha256": "73f0562b2bed257f2b8844ec0df4690e737e2de12c74a7575c3e5053c0281904",
+      "sourceSize": 14343,
+      "backupSha256": "73f0562b2bed257f2b8844ec0df4690e737e2de12c74a7575c3e5053c0281904",
+      "backupSize": 14343,
+      "match": true
+    },
+    {
+      "relativePath": "tests/test_source_manifest.py",
+      "sourceSha256": "f14c61924d876b0d9175044a493475be1585fe8b8d2bcfc054c978f47503bcc7",
+      "sourceSize": 4180,
+      "backupSha256": "f14c61924d876b0d9175044a493475be1585fe8b8d2bcfc054c978f47503bcc7",
+      "backupSize": 4180,
+      "match": true
+    },
+    {
+      "relativePath": "scripts/audit_wolfram.wls",
+      "sourceSha256": "e77077c93d0c9f9c10fe48a7be62963c7b65ee61c4398081c0e0d52989bf03a7",
+      "sourceSize": 6482,
+      "backupSha256": "e77077c93d0c9f9c10fe48a7be62963c7b65ee61c4398081c0e0d52989bf03a7",
+      "backupSize": 6482,
+      "match": true
+    },
+    {
+      "relativePath": "audit/source-manifest.json",
+      "sourceSha256": "1f06a254fa6c87c84a2c9981c2a45e8248e357f4eae3e202ae2b144a16d638fd",
+      "sourceSize": 3826082,
+      "backupSha256": "1f06a254fa6c87c84a2c9981c2a45e8248e357f4eae3e202ae2b144a16d638fd",
+      "backupSize": 3826082,
+      "match": true
+    },
+    {
+      "relativePath": "audit/source-manifest.csv",
+      "sourceSha256": "ff210788ec6509170e07f72a6d54235e7f145c6aba9296b88b484791ecaca519",
+      "sourceSize": 2196040,
+      "backupSha256": "ff210788ec6509170e07f72a6d54235e7f145c6aba9296b88b484791ecaca519",
+      "backupSize": 2196040,
+      "match": true
+    },
+    {
+      "relativePath": "audit/SHA256SUMS",
+      "sourceSha256": "241ffaf5d7b0d2bea824a30e0276dbf3dbb4b818821bed2f0c426ef374adc840",
+      "sourceSize": 929106,
+      "backupSha256": "241ffaf5d7b0d2bea824a30e0276dbf3dbb4b818821bed2f0c426ef374adc840",
+      "backupSize": 929106,
+      "match": true
+    },
+    {
+      "relativePath": "audit/audit-ledger.md",
+      "sourceSha256": "3c7b6901a8de0aaae349daccc7b10d4be009bca2dac0149a32f5a5e083eb9e74",
+      "sourceSize": 50289,
+      "backupSha256": "3c7b6901a8de0aaae349daccc7b10d4be009bca2dac0149a32f5a5e083eb9e74",
+      "backupSize": 50289,
+      "match": true
+    },
+    {
+      "relativePath": "audit/wolfram-structure.json",
+      "sourceSha256": "54b19a08cf64f1ea1ab299ac86168735165145b03b6dd2a262a9c710e9ff1a2e",
+      "sourceSize": 40642,
+      "backupSha256": "54b19a08cf64f1ea1ab299ac86168735165145b03b6dd2a262a9c710e9ff1a2e",
+      "backupSize": 40642,
+      "match": true
+    }
+  ],
+  "allFilesMatched": true
+}

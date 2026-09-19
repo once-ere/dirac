@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "backupId": "20260919T163201267671Z",
+  "repositoryRoot": "C:\\Users\\nsh\\Developer\\code\\vscode\\dirac",
+  "destinationRoot": "C:\\Users\\nsh\\Developer\\code\\vscode\\dirac\\backups\\edits\\20260919T163201267671Z",
+  "files": [
+    {
+      "relativePath": "tests/test_source_manifest.py",
+      "sourceSha256": "0ab87375fb5550a350ad025545511f7bf532955656dafe8d213c9a839f1cad6c",
+      "sourceSize": 4102,
+      "backupSha256": "0ab87375fb5550a350ad025545511f7bf532955656dafe8d213c9a839f1cad6c",
+      "backupSize": 4102,
+      "match": true
+    }
+  ],
+  "allFilesMatched": true
+}

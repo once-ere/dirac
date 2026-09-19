@@ -1,0 +1,25 @@
+{
+  "schemaVersion": 1,
+  "backupId": "20260919T203649341696Z",
+  "repositoryRoot": "C:\\Users\\nsh\\Developer\\code\\vscode\\dirac",
+  "destinationRoot": "C:\\Users\\nsh\\Developer\\code\\vscode\\dirac\\backups\\edits\\20260919T203649341696Z",
+  "files": [
+    {
+      "relativePath": "config/audit-decisions.json",
+      "sourceSha256": "3e0a93f799b28ba6123de01471cd8a84a1f097ab4084965254484fbb989369ec",
+      "sourceSize": 13029,
+      "backupSha256": "3e0a93f799b28ba6123de01471cd8a84a1f097ab4084965254484fbb989369ec",
+      "backupSize": 13029,
+      "match": true
+    },
+    {
+      "relativePath": "PROGRESS.md",
+      "sourceSha256": "c80fcd7489753457ec8787f32d066cfb6cf6c01b5b06a7a2934f2f2f8190024a",
+      "sourceSize": 3452,
+      "backupSha256": "c80fcd7489753457ec8787f32d066cfb6cf6c01b5b06a7a2934f2f2f8190024a",
+      "backupSize": 3452,
+      "match": true
+    }
+  ],
+  "allFilesMatched": true
+}

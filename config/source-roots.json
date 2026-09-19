@@ -1,0 +1,34 @@
+{
+  "schemaVersion": 1,
+  "baseDirectory": "..",
+  "roots": [
+    {
+      "id": "pre-universe-gpt56-sol",
+      "directory": "Pre-Universe-GPT5_6_Sol-main"
+    },
+    {
+      "id": "pre-universe-with-claude",
+      "directory": "Pre-Universe_with_Claude-main"
+    },
+    {
+      "id": "rust-solveit-win11-sundials-7-8-0",
+      "directory": "rustSolveIt_Win11_SUNDIALS_7_8_0-main"
+    },
+    {
+      "id": "sundials-7-8-rust-port-win11",
+      "directory": "SUNDIALS_7_8_Rust_port_for_Windows11-main"
+    },
+    {
+      "id": "pre-universe",
+      "directory": "Pre-Universe-main"
+    },
+    {
+      "id": "dirac-matrices",
+      "directory": "Dirac_Matrices-main"
+    },
+    {
+      "id": "eternal-deflation-inflation",
+      "directory": "Eternal-DEFLATION-Inflation-main"
+    }
+  ]
+}

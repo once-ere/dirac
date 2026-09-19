@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "backupId": "20260919T164508710498Z",
+  "repositoryRoot": "C:\\Users\\nsh\\Developer\\code\\vscode\\dirac",
+  "destinationRoot": "C:\\Users\\nsh\\Developer\\code\\vscode\\dirac\\backups\\edits\\20260919T164508710498Z",
+  "files": [
+    {
+      "relativePath": "audit/audit-ledger.md",
+      "sourceSha256": "cbb8680a2ba410e043be8261c9990aba0be1431aaf7c489921467ccb868f0151",
+      "sourceSize": 49786,
+      "backupSha256": "cbb8680a2ba410e043be8261c9990aba0be1431aaf7c489921467ccb868f0151",
+      "backupSize": 49786,
+      "match": true
+    }
+  ],
+  "allFilesMatched": true
+}

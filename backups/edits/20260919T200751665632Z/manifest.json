@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "backupId": "20260919T200751665632Z",
+  "repositoryRoot": "C:\\Users\\nsh\\Developer\\code\\vscode\\dirac",
+  "destinationRoot": "C:\\Users\\nsh\\Developer\\code\\vscode\\dirac\\backups\\edits\\20260919T200751665632Z",
+  "files": [
+    {
+      "relativePath": "config/audit-decisions.json",
+      "sourceSha256": "52fd9159514ae521f6fed3fae3719fbc1d676bb1d607692e78f0b99e9a7f1534",
+      "sourceSize": 7564,
+      "backupSha256": "52fd9159514ae521f6fed3fae3719fbc1d676bb1d607692e78f0b99e9a7f1534",
+      "backupSize": 7564,
+      "match": true
+    },
+    {
+      "relativePath": "scripts/check_phase0.py",
+      "sourceSha256": "1fe935f2ee9a56d02c4468c53d80201f1c6a4d52f2657e1aa0e795cb2d539acb",
+      "sourceSize": 13788,
+      "backupSha256": "1fe935f2ee9a56d02c4468c53d80201f1c6a4d52f2657e1aa0e795cb2d539acb",
+      "backupSize": 13788,
+      "match": true
+    },
+    {
+      "relativePath": "PROGRESS.md",
+      "sourceSha256": "2826682d84f5c47271840f81ad42d11f574a488f3d6ac51b62a6b0909bb2962c",
+      "sourceSize": 2841,
+      "backupSha256": "2826682d84f5c47271840f81ad42d11f574a488f3d6ac51b62a6b0909bb2962c",
+      "backupSize": 2841,
+      "match": true
+    }
+  ],
+  "allFilesMatched": true
+}

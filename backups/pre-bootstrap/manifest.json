@@ -1,0 +1,27 @@
+{
+  "sourceDirectory": "C:\\Users\\nsh\\Developer\\code\\vscode\\dirac",
+  "backupDirectory": "C:\\Users\\nsh\\Developer\\code\\vscode\\dirac\\backups\\pre-bootstrap",
+  "dotGitExists": false,
+  "unexpectedFilesBefore": [],
+  "files": [
+    {
+      "name": "prompt.txt",
+      "sourceHash": "AFC1D56D75329C40C0A326D06F0C50810EA56AD7EA51B03EC2A1AB600B2810BA",
+      "sourceSize": 10543,
+      "backupHash": "AFC1D56D75329C40C0A326D06F0C50810EA56AD7EA51B03EC2A1AB600B2810BA",
+      "backupSize": 10543,
+      "backupMatch": true
+    },
+    {
+      "name": "19sep26.txt",
+      "sourceHash": "264F9E5E3A5DF897B68C5F4D39F6AC1696E22D49C8823C8665CB04159B26D7E4",
+      "sourceSize": 17396,
+      "backupHash": "264F9E5E3A5DF897B68C5F4D39F6AC1696E22D49C8823C8665CB04159B26D7E4",
+      "backupSize": 17396,
+      "backupMatch": true
+    }
+  ],
+  "verification": {
+    "allFilesMatched": true
+  }
+}

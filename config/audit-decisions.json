@@ -1,0 +1,277 @@
+{
+  "schemaVersion": 1,
+  "rootReviews": [
+    {
+      "rootId": "pre-universe-with-claude",
+      "authoredReview": "complete",
+      "execution": "per-file-see-review",
+      "relevance": "mixed",
+      "defects": "Per-file findings include historical outputs, tautological checks, overstated triality, and model assumptions.",
+      "disposition": "mixed-see-review",
+      "reviewSource": "audit/reviews/pre-universe-with-claude.md"
+    },
+    {
+      "rootId": "sundials-7-8-rust-port-win11",
+      "authoredReview": "complete",
+      "execution": "static-source-check-complete-runtime-rerun-required",
+      "relevance": "high",
+      "defects": "Per-file findings distinguish current static properties from historical build and parity claims, document coverage gaps, and identify stale or contradictory counts.",
+      "disposition": "mixed-see-review",
+      "reviewSource": "audit/reviews/sundials-7-8-rust-port-win11.md"
+    },
+    {
+      "rootId": "rust-solveit-win11-sundials-7-8-0",
+      "authoredReview": "complete",
+      "execution": "per-file-static-review-runtime-rerun-required",
+      "relevance": "mixed",
+      "defects": "Per-file findings separate reusable CVODE, Jupyter, data, and provenance patterns from stale results, unrelated physics, licensing constraints, and model-specific assumptions.",
+      "disposition": "mixed-see-review",
+      "reviewSource": "audit/reviews/rust-solveit-win11-sundials-7-8-0.md"
+    }
+  ],
+  "decisions": [
+    {
+      "logicalPath": "pre-universe-gpt56-sol/README.md",
+      "authoredReview": "complete",
+      "execution": "upstream-rerun-required",
+      "relevance": "medium",
+      "defects": "Historical verification claims and a non-target field model.",
+      "disposition": "historical-evidence",
+      "reviewSource": "audit/reviews/pre-universe-gpt56-sol.md"
+    },
+    {
+      "logicalPath": "pre-universe-gpt56-sol/PROVENANCE.md",
+      "authoredReview": "complete",
+      "execution": "replace-scipy-with-cvode",
+      "relevance": "high",
+      "defects": "The numerical lineage uses SciPy and does not satisfy the CVODE requirement.",
+      "disposition": "historical-evidence",
+      "reviewSource": "audit/reviews/pre-universe-gpt56-sol.md"
+    },
+    {
+      "logicalPath": "pre-universe-gpt56-sol/docs/gpt5_6_cosmology.md",
+      "authoredReview": "complete",
+      "execution": "independent-cvode-reconstruction-required",
+      "relevance": "high",
+      "defects": "Published numerical values remain historical until independently reproduced with CVODE.",
+      "disposition": "independently-reconstruct",
+      "reviewSource": "audit/reviews/pre-universe-gpt56-sol.md"
+    },
+    {
+      "logicalPath": "pre-universe-gpt56-sol/docs/gpt5_6_dark_sector_relationships.md",
+      "authoredReview": "complete",
+      "execution": "symbolic-rederivation-required",
+      "relevance": "medium",
+      "defects": "The repeated four-component construction is not the target real Cl(4,4) module.",
+      "disposition": "independently-reconstruct",
+      "reviewSource": "audit/reviews/pre-universe-gpt56-sol.md"
+    },
+    {
+      "logicalPath": "pre-universe-gpt56-sol/notebooks/gpt-5.6_bridge.nb",
+      "authoredReview": "complete",
+      "execution": "fresh-kernel-required",
+      "relevance": "high",
+      "defects": "Generated notebook output is not independent proof.",
+      "disposition": "generated",
+      "reviewSource": "audit/reviews/pre-universe-gpt56-sol.md"
+    },
+    {
+      "logicalPath": "pre-universe-gpt56-sol/scripts/run_gpt56_notebook.wls",
+      "authoredReview": "complete",
+      "execution": "strengthened-runner-required",
+      "relevance": "medium",
+      "defects": "The runner does not enforce exact source hashes or the expected success count.",
+      "disposition": "reuse-pattern",
+      "reviewSource": "audit/reviews/pre-universe-gpt56-sol.md"
+    },
+    {
+      "logicalPath": "pre-universe-gpt56-sol/tests/verify_gpt56_bridge.wls",
+      "authoredReview": "complete",
+      "execution": "strengthened-verifier-required",
+      "relevance": "medium",
+      "defects": "Zero failures can pass with a reduced test set because the success count is not asserted.",
+      "disposition": "reuse-pattern",
+      "reviewSource": "audit/reviews/pre-universe-gpt56-sol.md"
+    },
+    {
+      "logicalPath": "pre-universe-gpt56-sol/wolfram/gpt56_bridge.wls",
+      "authoredReview": "complete",
+      "execution": "independent-exact-tests-required",
+      "relevance": "high",
+      "defects": "It omits split-octonion triality, rank-256 faithfulness, and complete half-spin tests.",
+      "disposition": "reuse-pattern",
+      "reviewSource": "audit/reviews/pre-universe-gpt56-sol.md"
+    },
+    {
+      "logicalPath": "pre-universe/README.md",
+      "authoredReview": "complete",
+      "execution": "not-executed-documentation-review",
+      "relevance": "high",
+      "defects": "The Clifford normalization is inconsistent, triality is overstated as canonical equivalence, and the generation claim is not derived.",
+      "disposition": "independently-reconstruct",
+      "reviewSource": "audit/reviews/pre-universe.md"
+    },
+    {
+      "logicalPath": "pre-universe/ConvertMapleToMathematicaV2.wl",
+      "authoredReview": "complete",
+      "execution": "not-executed-byte-duplicate",
+      "relevance": "low",
+      "defects": "This exact duplicate is a disclaimed incomplete text parser that may skip input before evaluating the result.",
+      "disposition": "historical-evidence",
+      "reviewSource": "audit/reviews/pre-universe.md"
+    },
+    {
+      "logicalPath": "pre-universe/Dirac-Lord-Nash_4+4.wl",
+      "authoredReview": "complete",
+      "execution": "not-executed-byte-duplicate",
+      "relevance": "high",
+      "defects": "This exact duplicate conflates chiral blocks with full Clifford generators and lacks faithfulness, half-spin, and full-triality proofs.",
+      "disposition": "independently-reconstruct",
+      "reviewSource": "audit/reviews/pre-universe.md"
+    },
+    {
+      "logicalPath": "pre-universe/Dirac-Lord-Nash_4+4-REVA.wl",
+      "authoredReview": "complete",
+      "execution": "do-not-use-independent-reconstruction-required",
+      "relevance": "high",
+      "defects": "The warning-marked revision has malformed index conversion, indexing and projection errors, non-Boolean verification composition, non-real basis machinery, and no complete triality proof.",
+      "disposition": "independently-reconstruct",
+      "reviewSource": "audit/reviews/pre-universe.md"
+    },
+    {
+      "logicalPath": "pre-universe/EtoExp.wl",
+      "authoredReview": "complete",
+      "execution": "do-not-use-helper-review-only",
+      "relevance": "low",
+      "defects": "The warning-marked rewrite helper has self-checks coupled to its implementation and is unnecessary for the exact algebra.",
+      "disposition": "historical-evidence",
+      "reviewSource": "audit/reviews/pre-universe.md"
+    },
+    {
+      "logicalPath": "pre-universe/Pre-gravity_Pre-Big_Bang_M6=3-Generations_of_Einstein-Rosen-2-Planes.nb",
+      "authoredReview": "complete",
+      "execution": "not-executed-held-review-only",
+      "relevance": "high",
+      "defects": "The scratch notebook contains failed symbolic work, stored messages and outputs, helper dependencies, substantial shared lineage, and unsupported physical claims.",
+      "disposition": "historical-evidence",
+      "reviewSource": "audit/reviews/pre-universe.md"
+    },
+    {
+      "logicalPath": "pre-universe/short_PreUniverse.nb",
+      "authoredReview": "complete",
+      "execution": "not-executed-held-review-only",
+      "relevance": "medium",
+      "defects": "The composite notebook depends on a warning-marked package, retains stored outputs, and appends an unsupported six-plane construction.",
+      "disposition": "historical-evidence",
+      "reviewSource": "audit/reviews/pre-universe.md"
+    },
+    {
+      "logicalPath": "pre-universe/U3onsixPlaneAlpha.nb",
+      "authoredReview": "complete",
+      "execution": "not-executed-held-review-only",
+      "relevance": "medium",
+      "defects": "It imposes rather than derives the positive metric and block structure, retains an unevaluated compatibility check and a failed pullback check, and does not justify its physical identification.",
+      "disposition": "independently-reconstruct",
+      "reviewSource": "audit/reviews/pre-universe.md"
+    },
+    {
+      "logicalPath": "dirac-matrices/README.md",
+      "authoredReview": "complete",
+      "execution": "not-executed-documentation-review",
+      "relevance": "medium",
+      "defects": "The short description provides no definitions, conventions, derivation, or tests.",
+      "disposition": "historical-evidence",
+      "reviewSource": "audit/reviews/dirac-matrices.md"
+    },
+    {
+      "logicalPath": "dirac-matrices/Dirac_4x4_real.nb",
+      "authoredReview": "complete",
+      "execution": "not-executed-held-review-only",
+      "relevance": "medium",
+      "defects": "Four-dimensional arrays cannot faithfully represent the full real Cl(3,3) algebra; the scratch notebook also depends on front-end notation state and retains partial checks, messages, and cached graphics.",
+      "disposition": "independently-reconstruct",
+      "reviewSource": "audit/reviews/dirac-matrices.md"
+    },
+    {
+      "logicalPath": "eternal-deflation-inflation/README.md",
+      "authoredReview": "complete",
+      "execution": "not-executed-documentation-review",
+      "relevance": "high",
+      "defects": "The document acknowledges omitted source backreaction and no coupled self-consistency; its pair-creation, dark-sector, mass-sign, and superluminal claims remain hypotheses.",
+      "disposition": "historical-evidence",
+      "reviewSource": "audit/reviews/eternal-deflation-inflation.md"
+    },
+    {
+      "logicalPath": "eternal-deflation-inflation/ConvertMapleToMathematicaV2.wl",
+      "authoredReview": "complete",
+      "execution": "not-executed-byte-duplicate",
+      "relevance": "low",
+      "defects": "This exact duplicate is a disclaimed incomplete text parser that may skip input before evaluating the result.",
+      "disposition": "historical-evidence",
+      "reviewSource": "audit/reviews/eternal-deflation-inflation.md"
+    },
+    {
+      "logicalPath": "eternal-deflation-inflation/Dirac-Lord-Nash_4+4.wl",
+      "authoredReview": "complete",
+      "execution": "not-executed-byte-duplicate",
+      "relevance": "high",
+      "defects": "This exact duplicate conflates chiral blocks with full Clifford generators and lacks faithfulness, half-spin, and full-triality proofs.",
+      "disposition": "independently-reconstruct",
+      "reviewSource": "audit/reviews/eternal-deflation-inflation.md"
+    },
+    {
+      "logicalPath": "eternal-deflation-inflation/Dirac_Nash_Identity.nb",
+      "authoredReview": "complete",
+      "execution": "not-executed-held-review-only",
+      "relevance": "medium",
+      "defects": "The scratch derivation depends on front-end notation state, retains extensive cached and rasterized material, and lacks an isolated exact-real test suite.",
+      "disposition": "independently-reconstruct",
+      "reviewSource": "audit/reviews/eternal-deflation-inflation.md"
+    },
+    {
+      "logicalPath": "eternal-deflation-inflation/Einstein-Lovelock-4+4-Nash.nb",
+      "authoredReview": "complete",
+      "execution": "not-executed-held-review-only",
+      "relevance": "medium",
+      "defects": "The xAct-dependent ansatz calculation writes opaque caches and retains 227 result cells without a clean-kernel substitution proof.",
+      "disposition": "historical-evidence",
+      "reviewSource": "audit/reviews/eternal-deflation-inflation.md"
+    },
+    {
+      "logicalPath": "eternal-deflation-inflation/Einstein-Lovelock-7+1-Nash.nb",
+      "authoredReview": "complete",
+      "execution": "not-executed-held-review-only",
+      "relevance": "medium",
+      "defects": "This near-duplicate shares 66 of 79 input bodies with the 4+4 notebook and retains a message plus the same stateful xAct/cache workflow.",
+      "disposition": "historical-evidence",
+      "reviewSource": "audit/reviews/eternal-deflation-inflation.md"
+    },
+    {
+      "logicalPath": "eternal-deflation-inflation/Pair-Crtn-Univ-same_E-L-eqs-alt-approach.nb",
+      "authoredReview": "complete",
+      "execution": "independent-cvode-reconstruction-required",
+      "relevance": "high",
+      "defects": "The copied scratch workflow has messages, parser and binary-state dependencies, failed symbolic paths, omitted backreaction, and no proof that mass-sign solutions represent pair creation.",
+      "disposition": "independently-reconstruct",
+      "reviewSource": "audit/reviews/eternal-deflation-inflation.md"
+    },
+    {
+      "logicalPath": "eternal-deflation-inflation/WaveFunctionUniverse-4+4-Einstein-Lovelock.nb",
+      "authoredReview": "complete",
+      "execution": "independent-cvode-reconstruction-required",
+      "relevance": "high",
+      "defects": "It shares 442 input bodies with the paired-universe notebook, retains messages and binary caches, and does not verify the metric and field as one coupled system.",
+      "disposition": "independently-reconstruct",
+      "reviewSource": "audit/reviews/eternal-deflation-inflation.md"
+    },
+    {
+      "logicalPath": "eternal-deflation-inflation/xact-Vacuum.nb",
+      "authoredReview": "complete",
+      "execution": "fresh-kernel-xact-reconstruction-required",
+      "relevance": "medium",
+      "defects": "The setup explicitly ignores warnings, writes kernel-dependent caches, retains 16 message cells, and substantially overlaps the 4+4 notebook.",
+      "disposition": "reuse-pattern",
+      "reviewSource": "audit/reviews/eternal-deflation-inflation.md"
+    }
+  ]
+}

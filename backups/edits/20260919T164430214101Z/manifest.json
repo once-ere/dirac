@@ -1,0 +1,25 @@
+{
+  "schemaVersion": 1,
+  "backupId": "20260919T164430214101Z",
+  "repositoryRoot": "C:\\Users\\nsh\\Developer\\code\\vscode\\dirac",
+  "destinationRoot": "C:\\Users\\nsh\\Developer\\code\\vscode\\dirac\\backups\\edits\\20260919T164430214101Z",
+  "files": [
+    {
+      "relativePath": "scripts/audit_wolfram.wls",
+      "sourceSha256": "917e4df9141d139f7de99f387ac27db66e11b8a90b393f0e72203739965a8be6",
+      "sourceSize": 8973,
+      "backupSha256": "917e4df9141d139f7de99f387ac27db66e11b8a90b393f0e72203739965a8be6",
+      "backupSize": 8973,
+      "match": true
+    },
+    {
+      "relativePath": "audit/wolfram-structure.json",
+      "sourceSha256": "731641c8c3993f9e9067cfa80ffb100ac269b627358dd35a5bb4e82acd0e5b8a",
+      "sourceSize": 40940,
+      "backupSha256": "731641c8c3993f9e9067cfa80ffb100ac269b627358dd35a5bb4e82acd0e5b8a",
+      "backupSize": 40940,
+      "match": true
+    }
+  ],
+  "allFilesMatched": true
+}

@@ -1,0 +1,49 @@
+{
+  "schemaVersion": 1,
+  "backupId": "20260919T162921693704Z",
+  "repositoryRoot": "C:\\Users\\nsh\\Developer\\code\\vscode\\dirac",
+  "destinationRoot": "C:\\Users\\nsh\\Developer\\code\\vscode\\dirac\\backups\\edits\\20260919T162921693704Z",
+  "files": [
+    {
+      "relativePath": "scripts/build_source_manifest.py",
+      "sourceSha256": "838d1301ef28ede09b8a697bde04c2189db46f92df2010df615b381c7cc51cbc",
+      "sourceSize": 13566,
+      "backupSha256": "838d1301ef28ede09b8a697bde04c2189db46f92df2010df615b381c7cc51cbc",
+      "backupSize": 13566,
+      "match": true
+    },
+    {
+      "relativePath": "audit/source-manifest.json",
+      "sourceSha256": "1f06a254fa6c87c84a2c9981c2a45e8248e357f4eae3e202ae2b144a16d638fd",
+      "sourceSize": 3826082,
+      "backupSha256": "1f06a254fa6c87c84a2c9981c2a45e8248e357f4eae3e202ae2b144a16d638fd",
+      "backupSize": 3826082,
+      "match": true
+    },
+    {
+      "relativePath": "audit/source-manifest.csv",
+      "sourceSha256": "ff210788ec6509170e07f72a6d54235e7f145c6aba9296b88b484791ecaca519",
+      "sourceSize": 2196040,
+      "backupSha256": "ff210788ec6509170e07f72a6d54235e7f145c6aba9296b88b484791ecaca519",
+      "backupSize": 2196040,
+      "match": true
+    },
+    {
+      "relativePath": "audit/SHA256SUMS",
+      "sourceSha256": "241ffaf5d7b0d2bea824a30e0276dbf3dbb4b818821bed2f0c426ef374adc840",
+      "sourceSize": 929106,
+      "backupSha256": "241ffaf5d7b0d2bea824a30e0276dbf3dbb4b818821bed2f0c426ef374adc840",
+      "backupSize": 929106,
+      "match": true
+    },
+    {
+      "relativePath": "audit/audit-ledger.md",
+      "sourceSha256": "3c7b6901a8de0aaae349daccc7b10d4be009bca2dac0149a32f5a5e083eb9e74",
+      "sourceSize": 50289,
+      "backupSha256": "3c7b6901a8de0aaae349daccc7b10d4be009bca2dac0149a32f5a5e083eb9e74",
+      "backupSize": 50289,
+      "match": true
+    }
+  ],
+  "allFilesMatched": true
+}

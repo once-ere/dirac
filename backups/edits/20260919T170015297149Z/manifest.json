@@ -1,0 +1,41 @@
+{
+  "schemaVersion": 1,
+  "backupId": "20260919T170015297149Z",
+  "repositoryRoot": "C:\\Users\\nsh\\Developer\\code\\vscode\\dirac",
+  "destinationRoot": "C:\\Users\\nsh\\Developer\\code\\vscode\\dirac\\backups\\edits\\20260919T170015297149Z",
+  "files": [
+    {
+      "relativePath": "scripts/build_structural_audit.py",
+      "sourceSha256": "a0a61ccc2129ffe8415d93e990f69b39f23740d816e64c58855c078eae0f2529",
+      "sourceSize": 12892,
+      "backupSha256": "a0a61ccc2129ffe8415d93e990f69b39f23740d816e64c58855c078eae0f2529",
+      "backupSize": 12892,
+      "match": true
+    },
+    {
+      "relativePath": "scripts/check_phase0.py",
+      "sourceSha256": "ca06addd02d1fa53b54a1fc86dcd6b23e9c8252115581c742c33c6b01cc4248f",
+      "sourceSize": 12065,
+      "backupSha256": "ca06addd02d1fa53b54a1fc86dcd6b23e9c8252115581c742c33c6b01cc4248f",
+      "backupSize": 12065,
+      "match": true
+    },
+    {
+      "relativePath": "tests/test_structural_audit.py",
+      "sourceSha256": "2f7ee53e4da2736f6aab187328d67aa43198c4eeeb943601d5be3816fba8ed0d",
+      "sourceSize": 3869,
+      "backupSha256": "2f7ee53e4da2736f6aab187328d67aa43198c4eeeb943601d5be3816fba8ed0d",
+      "backupSize": 3869,
+      "match": true
+    },
+    {
+      "relativePath": "PROGRESS.md",
+      "sourceSha256": "a465fb2b107c59ae78896acfdc4bab693a196f0db8ec3a416dd8af4d36ea3f4a",
+      "sourceSize": 2143,
+      "backupSha256": "a465fb2b107c59ae78896acfdc4bab693a196f0db8ec3a416dd8af4d36ea3f4a",
+      "backupSize": 2143,
+      "match": true
+    }
+  ],
+  "allFilesMatched": true
+}

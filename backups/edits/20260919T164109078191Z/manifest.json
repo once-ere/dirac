@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "backupId": "20260919T164109078191Z",
+  "repositoryRoot": "C:\\Users\\nsh\\Developer\\code\\vscode\\dirac",
+  "destinationRoot": "C:\\Users\\nsh\\Developer\\code\\vscode\\dirac\\backups\\edits\\20260919T164109078191Z",
+  "files": [
+    {
+      "relativePath": "tests/test_structural_audit.py",
+      "sourceSha256": "ff94a36b5b6daa7b7be94803abab600d8bc8cd151e275257523f7a586a18f19c",
+      "sourceSize": 3867,
+      "backupSha256": "ff94a36b5b6daa7b7be94803abab600d8bc8cd151e275257523f7a586a18f19c",
+      "backupSize": 3867,
+      "match": true
+    }
+  ],
+  "allFilesMatched": true
+}
