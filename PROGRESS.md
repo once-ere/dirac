@@ -1,7 +1,6 @@
 # Implementation progress
 
-Status: Phases 0 and 1 are frozen in Git; the Phase 2 triality transport gate
-is verified and awaits its Git checkpoint.
+Status: Phases 0 through 2 are verified and frozen in Git.
 
 ## Verified checkpoint
 
@@ -100,7 +99,8 @@ is verified and awaits its Git checkpoint.
 
 ### Phase 2: 24-state triality transport
 
-- Git checkpoint: pending.
+- Commit: `1b7ba925c1bb8b830494a70d0dba3e7fd467991b`
+- Tag: `phase2-triality-transport-green`
 - Solver commit:
   `d1836e6a279d63a90fe2839a0020123245487e76`.
 - Generated constants SHA-256:
@@ -151,4 +151,4 @@ is verified and awaits its Git checkpoint.
 - Vendored SUNDIALS source will remain byte-identical and read-only.
 - Every existing file is backed up and hash-verified before modification.
 
-Next action: freeze the verified Phase 2 checkpoint in Git, then implement the real homogeneous nonlinear-spinor cosmology study with independent analytic background checks.
+Next action: implement the real homogeneous nonlinear-spinor cosmology study with independent analytic background checks.
