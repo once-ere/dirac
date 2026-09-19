@@ -1,6 +1,7 @@
 # Implementation progress
 
-Status: Phases 0 through 2 are verified and frozen in Git.
+Status: Phases 0 through 2 are frozen in Git; the Phase 3 real spinor
+cosmology gate is verified and awaits its Git checkpoint.
 
 ## Verified checkpoint
 
@@ -64,6 +65,9 @@ Status: Phases 0 through 2 are verified and frozen in Git.
 - The application-owned 24-state triality transport study builds and lints
   warning-free, passes three Rust tests and 15 output checks, and produces
   byte-identical repeated CSV and JSON runs in PowerShell and WSL.
+- The 18-state real homogeneous nonlinear-spinor cosmology builds and lints
+  warning-free, passes three Rust tests and 17 output checks, and produces
+  byte-identical 1,201-row background histories in PowerShell and WSL.
 
 ## Phase checkpoints
 
@@ -117,6 +121,24 @@ Status: Phases 0 through 2 are verified and frozen in Git.
 - Next action: implement the real homogeneous nonlinear-spinor cosmology
   study with independent analytic background checks.
 
+### Phase 3: real homogeneous nonlinear-spinor cosmology
+
+- Git checkpoint: pending.
+- Generated constants SHA-256:
+  `cc2131fc739b0bdc4ae9e9146ccb57e47e7ed12aadabcef42ef1263df3de9c7b`.
+- Background SHA-256:
+  `8a6f7ace34949d82d4022a9b5a660733ed018c91b2b931d934aab7793b5585c2`.
+- Summary SHA-256:
+  `8f1e45a37c14cc10c7c6b6469ceca7c65e7b9ffc08b3c9dd5bfc518065c590db`.
+- Result: 1,201 samples, 711 CVODE steps, 783 RHS evaluations, and maximum
+  relative errors below `7.8e-9` for condensate dilution, analytic density,
+  potential reconstruction, and Friedmann closure.
+- Verification: `scripts/verify_phase3_cosmology.ps1` or
+  `scripts/verify_phase3_cosmology.sh`.
+- Provenance: `provenance/SPINOR_COSMOLOGY.md`.
+- Next action: generate and execute standalone Mathematica and deterministic
+  Jupyter notebooks from the verified exact and numerical artifacts.
+
 ## Evidence
 
 - `backups/pre-bootstrap/manifest.json`
@@ -151,4 +173,4 @@ Status: Phases 0 through 2 are verified and frozen in Git.
 - Vendored SUNDIALS source will remain byte-identical and read-only.
 - Every existing file is backed up and hash-verified before modification.
 
-Next action: implement the real homogeneous nonlinear-spinor cosmology study with independent analytic background checks.
+Next action: freeze the verified Phase 3 checkpoint in Git, then generate and execute standalone Mathematica and deterministic Jupyter notebooks from the verified exact and numerical artifacts.

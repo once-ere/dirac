@@ -1,0 +1,10 @@
+[package]
+name = "spinor_cosmology"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+description = "A real homogeneous nonlinear-spinor background cosmology integrated with pure-Rust SUNDIALS CVODE."
+
+[dependencies]
+sundials_core = { path = "../../vendor/sundials_rs/crates/sundials_core" }
+cvode_rs = { path = "../../vendor/sundials_rs/crates/cvode_rs" }

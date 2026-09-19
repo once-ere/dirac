@@ -24,6 +24,11 @@ The first numerical study transports the vector and two half-spin states as a
 application uses the pinned pure-Rust CVODE engine, preserves three split
 norms and the invariant trilinear form, and emits deterministic CSV and JSON.
 
+The second numerical study evolves an 18-state real homogeneous spinor
+background in e-fold time. It reconstructs a CPL density with a nonlinear
+potential, checks the 16-component condensate dilution directly, and emits a
+deterministic 1,201-row background history.
+
 ## Current verification
 
 From PowerShell:
@@ -35,6 +40,7 @@ Set-Location C:\Users\nsh\Developer\code\vscode\dirac
 .\scripts\verify_phase0.ps1
 .\scripts\verify_phase1.ps1
 .\scripts\verify_phase2_transport.ps1
+.\scripts\verify_phase3_cosmology.ps1
 .\scripts\status.ps1
 ```
 
@@ -47,6 +53,7 @@ cd /c/Users/nsh/Developer/code/vscode/dirac
 ./scripts/verify_phase0.sh
 ./scripts/verify_phase1.sh
 ./scripts/verify_phase2_transport.sh
+./scripts/verify_phase3_cosmology.sh
 ./scripts/status.sh
 ```
 
@@ -61,6 +68,10 @@ commands and expected measurements are in `provenance/CL44_SEED.md` and
 The transport study is under `studies/triality_transport`, its canonical
 outputs are under `artifacts/triality-transport`, and all commands are in
 `provenance/TRIALITY_TRANSPORT.md`.
+
+The cosmology study is under `studies/spinor_cosmology`, its canonical outputs
+are under `artifacts/spinor-cosmology`, and all commands are in
+`provenance/SPINOR_COSMOLOGY.md`.
 
 ## Scientific boundary
 

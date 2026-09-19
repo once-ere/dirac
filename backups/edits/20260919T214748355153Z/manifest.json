@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "backupId": "20260919T214748355153Z",
+  "repositoryRoot": "C:\\Users\\nsh\\Developer\\code\\vscode\\dirac",
+  "destinationRoot": "C:\\Users\\nsh\\Developer\\code\\vscode\\dirac\\backups\\edits\\20260919T214748355153Z",
+  "files": [
+    {
+      "relativePath": "studies/spinor_cosmology/src/lib.rs",
+      "sourceSha256": "45e81177eae43c90bfa585e5300c75052168b82213daa8c2743a7542cd5edcf6",
+      "sourceSize": 13171,
+      "backupSha256": "45e81177eae43c90bfa585e5300c75052168b82213daa8c2743a7542cd5edcf6",
+      "backupSize": 13171,
+      "match": true
+    }
+  ],
+  "allFilesMatched": true
+}

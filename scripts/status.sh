@@ -33,7 +33,7 @@ printf 'head=%s\n' "$head"
 printf 'dirty_count=%d\n' "${#dirty[@]}"
 printf 'latest_phase_tag=%s\n' "$phase_tag"
 printf 'source_manifest_sha256=%s\n' "$manifest_hash"
-printf '%s\n' 'latest_verification=phase2 transport: pinned CVODE, 3 Rust tests, 15 output checks, deterministic run'
+printf '%s\n' 'latest_verification=phase3 cosmology: 3 Rust tests, 17 output checks, 1201 deterministic samples'
 printf 'next_action=%s\n' "$next_action"
 if ((${#dirty[@]} > 0)); then
     printf '%s\n' 'dirty_files_begin'

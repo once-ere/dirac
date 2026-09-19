@@ -10,6 +10,14 @@ dependencies = [
 ]
 
 [[package]]
+name = "spinor_cosmology"
+version = "0.1.0"
+dependencies = [
+ "cvode_rs",
+ "sundials_core",
+]
+
+[[package]]
 name = "sundials_core"
 version = "7.8.0"
 

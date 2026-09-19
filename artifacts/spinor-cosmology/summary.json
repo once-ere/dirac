@@ -1,0 +1,30 @@
+{
+  "schemaVersion": 1,
+  "study": "real-spinor-cosmology",
+  "stateDimension": 18,
+  "cl44FixtureSha256": "0660e436fdcf90ed0f0481c9a828e92659987f5820084ccbf5e1dfc96866cc54",
+  "parameters": {
+    "omegaM0": 3.04999999999999993e-01,
+    "omegaR0": 9.00000000000000057e-05,
+    "omegaPsi0": 6.94910000000000028e-01,
+    "w0": -8.60999999999999988e-01,
+    "wa": -5.99999999999999978e-01
+  },
+  "nMin": -4.00000000000000000e+00,
+  "nMax": 1.00000000000000000e+00,
+  "outputStep": 4.16666666666666661e-03,
+  "relativeTolerance": 9.99999999999999939e-12,
+  "absoluteTolerance": 1.00000000000000003e-13,
+  "maximumStep": 2.00000000000000004e-02,
+  "sampleCount": 1201,
+  "solverSteps": 711,
+  "rhsEvaluations": 783,
+  "wMinusOneCrossingScale": 7.68333333333333313e-01,
+  "maximumRelativeError": {
+    "condensate": 6.56550892624613526e-09,
+    "density": 8.67334933419025002e-10,
+    "potential": 7.70767629019542454e-09,
+    "friedmann": 3.08484809986593252e-11
+  },
+  "verdict": "SUCCESS"
+}
