@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "backupId": "20260919T205736529730Z",
+  "repositoryRoot": "C:\\Users\\nsh\\Developer\\code\\vscode\\dirac",
+  "destinationRoot": "C:\\Users\\nsh\\Developer\\code\\vscode\\dirac\\backups\\edits\\20260919T205736529730Z",
+  "files": [
+    {
+      "relativePath": "wolfram/Cl44.wl",
+      "sourceSha256": "d057e8932b004a72968319dad60141ea26f5e6cbb262def51f79e8b24ecd7163",
+      "sourceSize": 8239,
+      "backupSha256": "d057e8932b004a72968319dad60141ea26f5e6cbb262def51f79e8b24ecd7163",
+      "backupSize": 8239,
+      "match": true
+    }
+  ],
+  "allFilesMatched": true
+}

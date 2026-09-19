@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "backupId": "20260919T210705240871Z",
+  "repositoryRoot": "C:\\Users\\nsh\\Developer\\code\\vscode\\dirac",
+  "destinationRoot": "C:\\Users\\nsh\\Developer\\code\\vscode\\dirac\\backups\\edits\\20260919T210705240871Z",
+  "files": [
+    {
+      "relativePath": "scripts/verify_triality44.wls",
+      "sourceSha256": "6e9cbe77161817f9545aafad2925042f9fa8a1a8fb805b467419dab88fdc964d",
+      "sourceSize": 2845,
+      "backupSha256": "6e9cbe77161817f9545aafad2925042f9fa8a1a8fb805b467419dab88fdc964d",
+      "backupSize": 2845,
+      "match": true
+    }
+  ],
+  "allFilesMatched": true
+}

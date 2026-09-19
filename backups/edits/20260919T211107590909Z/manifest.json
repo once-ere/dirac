@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "backupId": "20260919T211107590909Z",
+  "repositoryRoot": "C:\\Users\\nsh\\Developer\\code\\vscode\\dirac",
+  "destinationRoot": "C:\\Users\\nsh\\Developer\\code\\vscode\\dirac\\backups\\edits\\20260919T211107590909Z",
+  "files": [
+    {
+      "relativePath": "scripts/check_triality44_fixture.py",
+      "sourceSha256": "b1fed7f1e74a058441752da51d034a63f02803cb9d8d096ca3035c541678250b",
+      "sourceSize": 18878,
+      "backupSha256": "b1fed7f1e74a058441752da51d034a63f02803cb9d8d096ca3035c541678250b",
+      "backupSize": 18878,
+      "match": true
+    }
+  ],
+  "allFilesMatched": true
+}

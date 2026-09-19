@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "backupId": "20260919T205955109262Z",
+  "repositoryRoot": "C:\\Users\\nsh\\Developer\\code\\vscode\\dirac",
+  "destinationRoot": "C:\\Users\\nsh\\Developer\\code\\vscode\\dirac\\backups\\edits\\20260919T205955109262Z",
+  "files": [
+    {
+      "relativePath": "artifacts/exact/cl44-seed.json",
+      "sourceSha256": "0660e436fdcf90ed0f0481c9a828e92659987f5820084ccbf5e1dfc96866cc54",
+      "sourceSize": 26721,
+      "backupSha256": "0660e436fdcf90ed0f0481c9a828e92659987f5820084ccbf5e1dfc96866cc54",
+      "backupSize": 26721,
+      "match": true
+    }
+  ],
+  "allFilesMatched": true
+}

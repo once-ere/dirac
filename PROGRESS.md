@@ -1,6 +1,7 @@
 # Implementation progress
 
-Status: Phase 0 source audit is complete and frozen in Git.
+Status: Phase 0 is frozen in Git; the Phase 1 exact algebra and triality gate
+is verified and awaits its Git checkpoint.
 
 ## Verified checkpoint
 
@@ -46,6 +47,18 @@ Status: Phase 0 source audit is complete and frozen in Git.
 - The complete Phase 0 rebuild passes from frozen inputs: 11 tests, 5,991
   source files, 209 audit artifacts, 66 parsed Wolfram artifacts, 209 complete
   human reviews, and zero parse, message, hash, size, or structural failures.
+- The exact-real `Cl(4,4)` seed passes 23 Wolfram checks and 24 independent
+  checks: full algebra rank 256, even algebra rank 128, rank-eight half-spin
+  projectors, scalar half-spin commutants, and no cross intertwiner.
+- Split-octonion multiplication passes 17 Wolfram and 17 independent checks:
+  exact unit, conjugation, norm composition, alternativity, 64 integral
+  structure constants, and nondegenerate ordinary and para-product tensors.
+- Split-real triality passes 25 Wolfram and 24 independent checks: related-
+  triple dimension 28, three irreducible pairwise-inequivalent eight-
+  dimensional modules, an invariant trilinear form, a six-element outer
+  action, and an invertible link to the canonical Clifford representation.
+- Fourteen Python tests pass, and two successive generations of every exact
+  JSON fixture are byte-identical.
 
 ## Phase checkpoints
 
@@ -61,6 +74,22 @@ Status: Phase 0 source audit is complete and frozen in Git.
   `logs/phase0-verify-manifest.log`, `logs/phase0-verify-wolfram.log`,
   `logs/phase0-verify-structural.log`, and `logs/phase0-verify-check.log`.
 - Next action: construct and verify the exact-real 16-by-16 `Cl(4,4)` seed.
+
+### Phase 1: exact algebra and split-real triality
+
+- Git checkpoint: pending.
+- `artifacts/exact/cl44-seed.json` SHA-256:
+  `0660e436fdcf90ed0f0481c9a828e92659987f5820084ccbf5e1dfc96866cc54`.
+- `artifacts/exact/split-octonion.json` SHA-256:
+  `25044ea194c1e18e40341da1f0098b80bfeb9f4bcb6e7665a32d03f55ac360ca`.
+- `artifacts/exact/triality44.json` SHA-256:
+  `5985f5c0fdd6656c3c9f572ef1a5d06eee21aabe44cc9bf33747bb79b5e181dd`.
+- Verification: `scripts/verify_phase1.ps1` or
+  `scripts/verify_phase1.sh`.
+- Provenance: `provenance/CL44_SEED.md` and
+  `provenance/SPLIT_OCTONION_TRIALITY.md`.
+- Next action: build the application-owned 24-state triality transport study
+  against the hash-pinned, read-only CVODE engine.
 
 ## Evidence
 
@@ -96,4 +125,4 @@ Status: Phase 0 source audit is complete and frozen in Git.
 - Vendored SUNDIALS source will remain byte-identical and read-only.
 - Every existing file is backed up and hash-verified before modification.
 
-Next action: begin an independently derived exact-real 16-by-16 Cl(4,4) seed with anticommutator, rank-256, and half-spin projector tests.
+Next action: freeze the verified Phase 1 checkpoint in Git, then build the application-owned 24-state triality transport study against the hash-pinned, read-only CVODE engine.

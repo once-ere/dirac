@@ -3,6 +3,8 @@ set -euo pipefail
 
 script_dir="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd)"
 repository_root="$(cd -- "$script_dir/.." && pwd)"
+source "$script_dir/resolve_wolframscript.sh"
+wolframscript_command="$(resolve_wolframscript)"
 cd -- "$repository_root"
 
 generated=(
@@ -27,7 +29,7 @@ fi
 "$script_dir/run_logged.sh" logs/phase0-verify-manifest-bash.log -- \
     python scripts/build_source_manifest.py
 "$script_dir/run_logged.sh" logs/phase0-verify-wolfram-bash.log -- \
-    wolframscript -file scripts/audit_wolfram.wls -- \
+    "$wolframscript_command" -file scripts/audit_wolfram.wls -- \
     audit/source-manifest.json audit/wolfram-structure.json
 "$script_dir/run_logged.sh" logs/phase0-verify-structural-bash.log -- \
     python scripts/build_structural_audit.py

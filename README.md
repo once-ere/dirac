@@ -13,6 +13,12 @@ human review evidence, and all 66 parseable Wolfram artifacts import without
 evaluation or drift. Embedded outputs in historical notebooks are not treated
 as verified results.
 
+The Phase 1 exact gate is also complete. It independently constructs the real
+16-dimensional Clifford module, its two inequivalent real half-spin modules,
+split-octonion multiplication, the invariant triality trilinear form, and the
+outer six-element permutation action. All public fixtures contain only exact
+real data.
+
 ## Current verification
 
 From PowerShell:
@@ -22,6 +28,7 @@ Set-Location C:\Users\nsh\Developer\code\vscode\dirac
 .\scripts\run_logged.ps1 -LogPath logs\phase0-tests.log `
   -Command "python -m unittest discover -s tests -v"
 .\scripts\verify_phase0.ps1
+.\scripts\verify_phase1.ps1
 .\scripts\status.ps1
 ```
 
@@ -32,12 +39,17 @@ cd /c/Users/nsh/Developer/code/vscode/dirac
 ./scripts/run_logged.sh logs/phase0-tests-bash.log -- \
   python -m unittest discover -s tests -v
 ./scripts/verify_phase0.sh
+./scripts/verify_phase1.sh
 ./scripts/status.sh
 ```
 
 The generated source inventory and seven human-review reports are under
 `audit/`. Local command logs and backup payloads are ignored;
 hash-verification manifests remain trackable.
+
+Exact machine-readable fixtures are under `artifacts/exact/`. Their complete
+commands and expected measurements are in `provenance/CL44_SEED.md` and
+`provenance/SPLIT_OCTONION_TRIALITY.md`.
 
 ## Scientific boundary
 

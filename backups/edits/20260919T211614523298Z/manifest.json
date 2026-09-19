@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "backupId": "20260919T211614523298Z",
+  "repositoryRoot": "C:\\Users\\nsh\\Developer\\code\\vscode\\dirac",
+  "destinationRoot": "C:\\Users\\nsh\\Developer\\code\\vscode\\dirac\\backups\\edits\\20260919T211614523298Z",
+  "files": [
+    {
+      "relativePath": "scripts/verify_phase0.sh",
+      "sourceSha256": "63d3d7a4da5e3eed4052c587adfdb01f127b8edb2e3962c5285f09f8a23e5550",
+      "sourceSize": 1295,
+      "backupSha256": "63d3d7a4da5e3eed4052c587adfdb01f127b8edb2e3962c5285f09f8a23e5550",
+      "backupSize": 1295,
+      "match": true
+    },
+    {
+      "relativePath": "scripts/verify_phase1_seed.sh",
+      "sourceSha256": "d25cef8616fbaf87bec2dfe3326c7ca956a3a36c28f47706b98e9877bb9a38dc",
+      "sourceSize": 1331,
+      "backupSha256": "d25cef8616fbaf87bec2dfe3326c7ca956a3a36c28f47706b98e9877bb9a38dc",
+      "backupSize": 1331,
+      "match": true
+    },
+    {
+      "relativePath": "scripts/verify_phase1.sh",
+      "sourceSha256": "c7affe92579f753841a025ac96b23c3a752e559f1e0004b6b629a55157e7f10e",
+      "sourceSize": 2754,
+      "backupSha256": "c7affe92579f753841a025ac96b23c3a752e559f1e0004b6b629a55157e7f10e",
+      "backupSize": 2754,
+      "match": true
+    }
+  ],
+  "allFilesMatched": true
+}

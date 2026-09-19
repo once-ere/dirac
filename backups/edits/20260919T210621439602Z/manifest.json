@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "backupId": "20260919T210621439602Z",
+  "repositoryRoot": "C:\\Users\\nsh\\Developer\\code\\vscode\\dirac",
+  "destinationRoot": "C:\\Users\\nsh\\Developer\\code\\vscode\\dirac\\backups\\edits\\20260919T210621439602Z",
+  "files": [
+    {
+      "relativePath": "wolfram/Triality44.wl",
+      "sourceSha256": "a91a1948ee151944fae0448972ff7d6bc1496ae27b1644a55ba64ee8c831bb85",
+      "sourceSize": 15122,
+      "backupSha256": "a91a1948ee151944fae0448972ff7d6bc1496ae27b1644a55ba64ee8c831bb85",
+      "backupSize": 15122,
+      "match": true
+    }
+  ],
+  "allFilesMatched": true
+}
