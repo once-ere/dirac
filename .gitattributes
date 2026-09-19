@@ -1,0 +1,9 @@
+# Generated text artifacts are hashed byte-for-byte by the verification gates.
+artifacts/triality-transport/*.csv text eol=lf
+artifacts/triality-transport/*.json text eol=lf
+artifacts/spinor-cosmology/*.csv text eol=lf
+artifacts/spinor-cosmology/*.json text eol=lf
+artifacts/notebooks/*.json text eol=lf
+notebooks/*.ipynb text eol=lf
+studies/triality_transport/src/generated.rs text eol=lf
+studies/spinor_cosmology/src/generated.rs text eol=lf

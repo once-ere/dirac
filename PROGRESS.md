@@ -73,7 +73,7 @@ Status: Phases 0 through 4 are verified and frozen in Git.
   input cells; fresh-kernel execution has zero failures, zero messages, and
   five passing notebook checks.
 - The deterministic Jupyter notebook has ten fixed-ID cells and five executed
-  code cells; all 11 structural, result, hash, and replay checks pass.
+  code cells; all 12 structural, result, canonical-hash, and replay checks pass.
 - The 598-line Markdown dissertation generates a complete 571-line LaTeX
   source and a warning-free, 13-page letter-sized PDF. Independent builds are
   byte-identical in PowerShell and WSL.
@@ -174,6 +174,8 @@ Status: Phases 0 through 4 are verified and frozen in Git.
   isolated three-pass PDF builds pass in PowerShell and WSL; the PDF has 13
   pages, one letter-sized media box, its canonical hash, and no TeX warnings
   or errors.
+- Checkout attributes pin generated numerical and notebook text artifacts to
+  LF, preventing Windows `core.autocrlf` from changing canonical byte hashes.
 - Verification: `scripts/verify_phase4_publication.ps1` or
   `scripts/verify_phase4_publication.sh`.
 - Provenance: `provenance/WOLFRAMSCRIPT.md`,

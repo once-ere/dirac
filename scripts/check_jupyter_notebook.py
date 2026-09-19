@@ -11,6 +11,7 @@ from pathlib import Path
 
 EXPECTED_CELL_COUNT = 10
 EXPECTED_CODE_CELL_COUNT = 5
+EXPECTED_EXECUTED_SHA256 = "adea839972e7b5db62553d834f83948b6645da3b6b00893c729fadc17b70fe18"
 
 
 def parse_arguments() -> argparse.Namespace:
@@ -34,6 +35,7 @@ def sha256_file(path: Path) -> str:
 
 def verify_notebook(notebook_path: Path, repeat_path: Path | None) -> dict[str, object]:
     repository_root = Path(__file__).resolve().parent.parent
+    notebook_hash = sha256_file(notebook_path)
     notebook = json.loads(notebook_path.read_text(encoding="utf-8"))
     cells = notebook.get("cells", [])
     code_cells = [cell for cell in cells if cell.get("cell_type") == "code"]
@@ -62,6 +64,7 @@ def verify_notebook(notebook_path: Path, repeat_path: Path | None) -> dict[str, 
         and all(report.get("checks", {}).values()),
         "inputHashes": report.get("inputSha256")
         == notebook.get("metadata", {}).get("dirac", {}).get("inputSha256"),
+        "canonicalHash": notebook_hash == EXPECTED_EXECUTED_SHA256,
         "repeatByteIdentity": repeat_equal,
     }
     return {
@@ -69,7 +72,7 @@ def verify_notebook(notebook_path: Path, repeat_path: Path | None) -> dict[str, 
         "measurements": {
             "cellCount": len(cells),
             "codeCellCount": len(code_cells),
-            "notebookSha256": sha256_file(notebook_path),
+            "notebookSha256": notebook_hash,
             "repeatCompared": repeat_compared,
         },
     }

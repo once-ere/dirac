@@ -38,8 +38,9 @@ if ($first -ne $second) { throw "Jupyter source generation changed bytes" }
   -Command "python scripts/check_jupyter_notebook.py notebooks/dirac_triality.executed.ipynb --repeat build/phase4/dirac_triality-repeat.executed.ipynb"
 ```
 
-The checker must report 11 passing checks, five executed code cells, no error
-outputs, six passing notebook checks, and byte-identical executed notebooks.
+The checker must report 12 passing checks, five executed code cells, no error
+outputs, six passing notebook checks, the canonical executed-notebook hash, and
+byte-identical executed notebooks.
 
 ## Complete Git Bash or WSL commands
 

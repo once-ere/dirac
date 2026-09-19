@@ -1,0 +1,49 @@
+{
+  "schemaVersion": 1,
+  "backupId": "20260919T230208303218Z",
+  "repositoryRoot": "C:\\Users\\nsh\\Developer\\code\\vscode\\dirac",
+  "destinationRoot": "C:\\Users\\nsh\\Developer\\code\\vscode\\dirac\\backups\\edits\\20260919T230208303218Z",
+  "files": [
+    {
+      "relativePath": "scripts/check_jupyter_notebook.py",
+      "sourceSha256": "c168b1ac11ef4eb69bfc5718c470cd89f2ad2e728d589dd50afa587a3c66cfcf",
+      "sourceSize": 3731,
+      "backupSha256": "c168b1ac11ef4eb69bfc5718c470cd89f2ad2e728d589dd50afa587a3c66cfcf",
+      "backupSize": 3731,
+      "match": true
+    },
+    {
+      "relativePath": "provenance/JUPYTER_NOTEBOOK.md",
+      "sourceSha256": "0dab977a712a8bdd9178498424f501bc40ab3199041baf99662ee14e9daed257",
+      "sourceSize": 3487,
+      "backupSha256": "0dab977a712a8bdd9178498424f501bc40ab3199041baf99662ee14e9daed257",
+      "backupSize": 3487,
+      "match": true
+    },
+    {
+      "relativePath": "PROGRESS.md",
+      "sourceSha256": "b6f9514dac2b9490aa256cbcab89f2e28496020d392cd91740bd2c59fb3b7ac4",
+      "sourceSize": 11657,
+      "backupSha256": "b6f9514dac2b9490aa256cbcab89f2e28496020d392cd91740bd2c59fb3b7ac4",
+      "backupSize": 11657,
+      "match": true
+    },
+    {
+      "relativePath": "scripts/status.ps1",
+      "sourceSha256": "00015a608184beab61f890de1ca0e614cfa1c9f1993a68ee197cb4dfdc081c72",
+      "sourceSize": 1509,
+      "backupSha256": "00015a608184beab61f890de1ca0e614cfa1c9f1993a68ee197cb4dfdc081c72",
+      "backupSize": 1509,
+      "match": true
+    },
+    {
+      "relativePath": "scripts/status.sh",
+      "sourceSha256": "486a218796752afc95ab6047184fe35243f5251f0c6739d1eb8acbd22575473c",
+      "sourceSize": 1632,
+      "backupSha256": "486a218796752afc95ab6047184fe35243f5251f0c6739d1eb8acbd22575473c",
+      "backupSize": 1632,
+      "match": true
+    }
+  ],
+  "allFilesMatched": true
+}
