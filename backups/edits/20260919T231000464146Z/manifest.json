@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "backupId": "20260919T231000464146Z",
+  "repositoryRoot": "C:\\Users\\nsh\\Developer\\code\\vscode\\dirac",
+  "destinationRoot": "C:\\Users\\nsh\\Developer\\code\\vscode\\dirac\\backups\\edits\\20260919T231000464146Z",
+  "files": [
+    {
+      "relativePath": "prompt.txt",
+      "sourceSha256": "322aa3db703e47857b1714fa2efd26dbfad50a71794cdf05f22abb89d1e5683c",
+      "sourceSize": 37732,
+      "backupSha256": "322aa3db703e47857b1714fa2efd26dbfad50a71794cdf05f22abb89d1e5683c",
+      "backupSize": 37732,
+      "match": true
+    }
+  ],
+  "allFilesMatched": true
+}

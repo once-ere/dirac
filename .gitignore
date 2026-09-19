@@ -25,6 +25,7 @@
 # -----------------------------------------------------------------------------
 # 1.  SECRETS
 #
+prompt.txt
 #     Nothing matching these may ever be committed.  Nothing matching them is
 #     present today; these patterns are here so that it stays that way.
 # -----------------------------------------------------------------------------
