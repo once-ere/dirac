@@ -174,8 +174,8 @@ Status: Phases 0 through 4 are verified and frozen in Git.
   isolated three-pass PDF builds pass in PowerShell and WSL; the PDF has 13
   pages, one letter-sized media box, its canonical hash, and no TeX warnings
   or errors.
-- Checkout attributes pin generated numerical and notebook text artifacts to
-  LF, preventing Windows `core.autocrlf` from changing canonical byte hashes.
+- Checkout attributes pin each generated text artifact to its writer's
+  deterministic line endings, preventing `core.autocrlf` from changing hashes.
 - Verification: `scripts/verify_phase4_publication.ps1` or
   `scripts/verify_phase4_publication.sh`.
 - Provenance: `provenance/WOLFRAMSCRIPT.md`,
