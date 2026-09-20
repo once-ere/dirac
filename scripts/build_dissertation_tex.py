@@ -8,10 +8,6 @@ import re
 from pathlib import Path
 
 
-TITLE = "Real Clifford Algebra, Split Octonions, and Triality in Signature (4,4)"
-SUBTITLE = "A reproducible exact and numerical study"
-
-
 def parse_arguments() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument(
@@ -23,6 +19,14 @@ def parse_arguments() -> argparse.Namespace:
         "--output",
         type=Path,
         default=Path("dissertation/dirac-triality.tex"),
+    )
+    parser.add_argument(
+        "--strip-heading-numbers",
+        action="store_true",
+        help=(
+            "Remove authored numeric prefixes before LaTeX adds "
+            "section numbers."
+        ),
     )
     return parser.parse_args()
 
@@ -43,7 +47,9 @@ def escape_text(value: str) -> str:
         "–": "--",
         "—": "---",
     }
-    return "".join(replacements.get(character, character) for character in value)
+    return "".join(
+        replacements.get(character, character) for character in value
+    )
 
 
 def inline_markup(value: str) -> str:
@@ -53,25 +59,31 @@ def inline_markup(value: str) -> str:
         if value.startswith("**", index):
             end = value.find("**", index + 2)
             if end >= 0:
-                result.append(r"\textbf{" + inline_markup(value[index + 2 : end]) + "}")
+                result.append(
+                    r"\textbf{" + inline_markup(value[index + 2:end]) + "}"
+                )
                 index = end + 2
                 continue
         if value[index] == "*":
             end = value.find("*", index + 1)
             if end >= 0:
-                result.append(r"\emph{" + inline_markup(value[index + 1 : end]) + "}")
+                result.append(
+                    r"\emph{" + inline_markup(value[index + 1:end]) + "}"
+                )
                 index = end + 1
                 continue
         if value[index] == "`":
             end = value.find("`", index + 1)
             if end >= 0:
-                result.append(r"\texttt{\detokenize{" + value[index + 1 : end] + "}}")
+                result.append(
+                    r"\texttt{\detokenize{" + value[index + 1:end] + "}}"
+                )
                 index = end + 1
                 continue
         if value[index] == "$":
             end = value.find("$", index + 1)
             if end >= 0:
-                result.append(value[index : end + 1])
+                result.append(value[index:end + 1])
                 index = end + 1
                 continue
         next_special = min(
@@ -98,24 +110,38 @@ def inline_markup(value: str) -> str:
 
 def is_table_separator(line: str) -> bool:
     cells = [cell.strip() for cell in line.strip().strip("|").split("|")]
-    return bool(cells) and all(re.fullmatch(r":?-{3,}:?", cell) for cell in cells)
+    return bool(cells) and all(
+        re.fullmatch(r":?-{3,}:?", cell) for cell in cells
+    )
 
 
 def render_table(lines: list[str]) -> list[str]:
     rows = [
-        [inline_markup(cell.strip()) for cell in line.strip().strip("|").split("|")]
+        [
+            inline_markup(cell.strip())
+            for cell in line.strip().strip("|").split("|")
+        ]
         for line in lines
         if not is_table_separator(line)
     ]
     columns = len(rows[0])
     width = 0.92 / columns
-    specification = "@{}" + "".join(f"p{{{width:.3f}\\linewidth}}" for _ in range(columns)) + "@{}"
+    specification = (
+        "@{}"
+        + "".join(
+            f"p{{{width:.3f}\\linewidth}}" for _ in range(columns)
+        )
+        + "@{}"
+    )
     output = [f"\\begin{{longtable}}{{{specification}}}", "\\toprule"]
-    output.append(" & ".join(r"\textbf{" + cell + "}" for cell in rows[0]) + r" \\")
+    header = " & ".join(
+        r"\textbf{" + cell + "}" for cell in rows[0]
+    ) + r" \\"
+    output.append(header)
     output.append("\\midrule")
     output.append("\\endfirsthead")
     output.append("\\toprule")
-    output.append(" & ".join(r"\textbf{" + cell + "}" for cell in rows[0]) + r" \\")
+    output.append(header)
     output.append("\\midrule")
     output.append("\\endhead")
     for row in rows[1:]:
@@ -124,8 +150,35 @@ def render_table(lines: list[str]) -> list[str]:
     return output
 
 
-def convert(markdown: str) -> str:
+def document_metadata(lines: list[str]) -> tuple[str, str, int, int]:
+    title_index = next(
+        (
+            index
+            for index, line in enumerate(lines)
+            if re.match(r"^#\s+\S", line.strip())
+        ),
+        None,
+    )
+    if title_index is None:
+        raise ValueError("Dissertation Markdown must contain an H1 title")
+    subtitle_index = next(
+        (
+            index
+            for index in range(title_index + 1, len(lines))
+            if re.match(r"^##\s+\S", lines[index].strip())
+        ),
+        None,
+    )
+    if subtitle_index is None:
+        raise ValueError("Dissertation Markdown must contain an H2 subtitle")
+    title = lines[title_index].strip()[2:].strip()
+    subtitle = lines[subtitle_index].strip()[3:].strip()
+    return title, subtitle, title_index, subtitle_index
+
+
+def convert(markdown: str, strip_heading_numbers: bool = False) -> str:
     lines = markdown.splitlines()
+    title, subtitle, title_index, subtitle_index = document_metadata(lines)
     body: list[str] = []
     paragraph: list[str] = []
     in_math = False
@@ -137,7 +190,9 @@ def convert(markdown: str) -> str:
     def flush_paragraph() -> None:
         nonlocal paragraph
         if paragraph:
-            body.append(inline_markup(" ".join(line.strip() for line in paragraph)))
+            body.append(
+                inline_markup(" ".join(line.strip() for line in paragraph))
+            )
             body.append("")
             paragraph = []
 
@@ -178,7 +233,11 @@ def convert(markdown: str) -> str:
             body.append(line)
             index += 1
             continue
-        if stripped.startswith("|") and index + 1 < len(lines) and is_table_separator(lines[index + 1]):
+        if (
+            stripped.startswith("|")
+            and index + 1 < len(lines)
+            and is_table_separator(lines[index + 1])
+        ):
             flush_paragraph()
             close_list()
             table_lines = [line, lines[index + 1]]
@@ -198,9 +257,11 @@ def convert(markdown: str) -> str:
             if in_abstract:
                 body.extend(["\\end{abstract}", ""])
                 in_abstract = False
-            if level == 1 or text == SUBTITLE:
+            if index in {title_index, subtitle_index}:
                 index += 1
                 continue
+            if strip_heading_numbers:
+                text = re.sub(r"^\d+(?:\.\d+)*\.?\s+", "", text)
             if text == "Abstract":
                 body.append("\\begin{abstract}")
                 in_abstract = True
@@ -221,7 +282,9 @@ def convert(markdown: str) -> str:
                 close_list()
                 body.append(f"\\begin{{{wanted}}}")
                 list_kind = wanted
-            body.append("\\item " + inline_markup((ordered or unordered).group(1)))
+            body.append(
+                "\\item " + inline_markup((ordered or unordered).group(1))
+            )
             index += 1
             continue
         if not stripped:
@@ -237,6 +300,10 @@ def convert(markdown: str) -> str:
     if in_abstract:
         body.append("\\end{abstract}")
 
+    latex_title = (
+        f"{chr(92)}title{{{inline_markup(title)}"
+        f"{chr(92) * 2}[0.5em]\\large {inline_markup(subtitle)}}}"
+    )
     preamble = rf"""\documentclass[11pt]{{article}}
 \usepackage[T1]{{fontenc}}
 \usepackage[utf8]{{inputenc}}
@@ -254,7 +321,7 @@ def convert(markdown: str) -> str:
 \setlength{{\parindent}}{{0pt}}
 \setlength{{\parskip}}{{0.65em}}
 \setlength{{\emergencystretch}}{{3em}}
-\title{{{TITLE}\\[0.5em]\large {SUBTITLE}}}
+{latex_title}
 \author{{Reproducible exact-real implementation}}
 \date{{September 2026}}
 \begin{{document}}
@@ -269,7 +336,10 @@ def main() -> int:
     arguments = parse_arguments()
     input_path = arguments.input.resolve()
     output_path = arguments.output.resolve()
-    latex = convert(input_path.read_text(encoding="utf-8"))
+    latex = convert(
+        input_path.read_text(encoding="utf-8"),
+        strip_heading_numbers=arguments.strip_heading_numbers,
+    )
     output_path.parent.mkdir(parents=True, exist_ok=True)
     output_path.write_text(latex, encoding="utf-8", newline="\n")
     print(f"input={input_path}")

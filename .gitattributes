@@ -7,6 +7,8 @@ artifacts/spinor-cosmology/*.csv text eol=lf
 artifacts/spinor-cosmology/*.json text eol=lf
 artifacts/notebooks/*.json text eol=crlf
 notebooks/*.ipynb text eol=lf
+dissertation/*.md text eol=lf
 dissertation/*.tex text eol=lf
+dissertation/*.pdf binary
 studies/triality_transport/src/generated.rs text eol=lf
 studies/spinor_cosmology/src/generated.rs text eol=lf

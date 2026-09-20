@@ -86,6 +86,8 @@ mkdir -p build/phase4/pdf-a build/phase4/pdf-b
         --repeat build/phase4/pdf-b/dirac-triality.pdf
 "$script_dir/run_logged.sh" logs/phase4-python-tests-bash.log -- \
     "$python_command" -m unittest discover -s tests -v
+"$script_dir/run_logged.sh" logs/phase4-verify-learn-dissertation-bash.log -- \
+    bash "$script_dir/verify_learn_dissertation.sh"
 
 pairs=(
     "notebooks/DiracTriality.nb:build/phase4/DiracTriality-repeat.nb"
@@ -110,4 +112,6 @@ printf 'jupyter_notebook_sha256=%s\n' \
     "$(sha256sum notebooks/dirac_triality.executed.ipynb | cut -d' ' -f1)"
 printf 'dissertation_pdf_sha256=%s\n' \
     "$(sha256sum dissertation/dirac-triality.pdf | cut -d' ' -f1)"
+printf 'learn_dissertation_pdf_sha256=%s\n' \
+    "$(sha256sum dissertation/Learn_dirac-triality.pdf | cut -d' ' -f1)"
 printf '%s\n' 'phase4_publication_verification=OK'

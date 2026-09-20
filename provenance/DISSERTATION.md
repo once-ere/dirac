@@ -1,4 +1,8 @@
-# Dissertation Markdown, LaTeX, and PDF provenance
+# Original research dissertation provenance
+
+This document covers the preserved research edition. Its Markdown, LaTeX,
+and PDF bytes remain unchanged. The parallel self-contained teaching edition
+is documented in [LEARN_DISSERTATION.md](LEARN_DISSERTATION.md).
 
 ## Artifacts
 

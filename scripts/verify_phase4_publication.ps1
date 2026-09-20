@@ -52,7 +52,8 @@ $steps = @(
     @("logs/phase4-build-pdf-b2.log", "pdflatex -interaction=nonstopmode -halt-on-error -jobname=dirac-triality -output-directory=build/phase4/pdf-b build/phase4/dirac-triality-repeat.tex"),
     @("logs/phase4-build-pdf-b3.log", "pdflatex -interaction=nonstopmode -halt-on-error -jobname=dirac-triality -output-directory=build/phase4/pdf-b build/phase4/dirac-triality-repeat.tex"),
     @("logs/phase4-check-dissertation-pdf.log", "python scripts/check_dissertation_pdf.py build/phase4/pdf-a/dirac-triality.pdf --repeat build/phase4/pdf-b/dirac-triality.pdf"),
-    @("logs/phase4-python-tests.log", "python -m unittest discover -s tests -v")
+    @("logs/phase4-python-tests.log", "python -m unittest discover -s tests -v"),
+    @("logs/phase4-verify-learn-dissertation.log", ".\scripts\verify_learn_dissertation.ps1")
 )
 foreach ($step in $steps) {
     & "$PSScriptRoot\run_logged.ps1" -LogPath $step[0] -Command $step[1]
@@ -88,5 +89,6 @@ Copy-Item -LiteralPath "build\phase4\pdf-a\dirac-triality.pdf" `
 Write-Output "mathematica_notebook_sha256=$((Get-FileHash notebooks\DiracTriality.nb -Algorithm SHA256).Hash.ToLowerInvariant())"
 Write-Output "jupyter_notebook_sha256=$((Get-FileHash notebooks\dirac_triality.executed.ipynb -Algorithm SHA256).Hash.ToLowerInvariant())"
 Write-Output "dissertation_pdf_sha256=$((Get-FileHash dissertation\dirac-triality.pdf -Algorithm SHA256).Hash.ToLowerInvariant())"
+Write-Output "learn_dissertation_pdf_sha256=$((Get-FileHash dissertation\Learn_dirac-triality.pdf -Algorithm SHA256).Hash.ToLowerInvariant())"
 Write-Output "phase4_publication_verification=OK"
 exit 0

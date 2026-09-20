@@ -10,8 +10,12 @@ $head = git rev-parse --verify HEAD 2>$null
 if ($LASTEXITCODE -ne 0) {
     $head = "unborn"
 }
-$phaseTag = git tag --list "final-release-green" |
+$phaseTag = git tag --list "learn-dissertation-green" |
     Select-Object -First 1
+if (-not $phaseTag) {
+    $phaseTag = git tag --list "final-release-green" |
+        Select-Object -First 1
+}
 if (-not $phaseTag) {
     $phaseTag = git tag --list "phase*" --sort=-creatordate |
         Select-Object -First 1
@@ -40,7 +44,7 @@ Write-Output "head=$head"
 Write-Output "dirty_count=$($dirty.Count)"
 Write-Output "latest_phase_tag=$phaseTag"
 Write-Output "source_manifest_sha256=$manifestHash"
-Write-Output "latest_verification=phase4 publication: 69 Wolfram checks, 12 Jupyter checks, 6 PDF checks, 21 Python tests"
+Write-Output "latest_verification=phase4 publication plus self-contained Learn dissertation"
 Write-Output "next_action=$nextAction"
 if ($dirty.Count -gt 0) {
     Write-Output "dirty_files_begin"

@@ -34,6 +34,17 @@ The publication layer is complete. A standalone WolframScript combines all
 execute without failed checks; and the complete Markdown dissertation builds
 to deterministic LaTeX and a warning-free 13-page PDF.
 
+A parallel self-contained teaching edition is published as
+[dissertation/Learn_dirac-triality.md](dissertation/Learn_dirac-triality.md),
+[dissertation/Learn_dirac-triality.tex](dissertation/Learn_dirac-triality.tex),
+and [dissertation/Learn_dirac-triality.pdf](dissertation/Learn_dirac-triality.pdf).
+It develops the subject from calculus and basic matrices through Clifford
+algebras, real half-spin representations, split octonions, triality, numerical
+ODE verification, and the homogeneous cosmology. It includes worked examples,
+misconception checks, exercises with complete solutions, a glossary, a
+notation index, and in-document reference capsules. The original dissertation
+artifacts remain byte-for-byte unchanged.
+
 The `final-release-green` tag was verified from a fresh recursive clone. Every
 phase gate passed, all 21 Python tests passed, 15 canonical artifacts were
 byte-identical, and the rebuilt worktree had zero tracked drift. The local
@@ -51,6 +62,7 @@ Set-Location C:\Users\nsh\Developer\code\vscode\dirac
 .\scripts\verify_phase1.ps1
 .\scripts\verify_phase2_transport.ps1
 .\scripts\verify_phase3_cosmology.ps1
+.\scripts\verify_learn_dissertation.ps1
 .\scripts\verify_phase4_publication.ps1
 .\scripts\status.ps1
 ```
@@ -65,6 +77,7 @@ cd /c/Users/nsh/Developer/code/vscode/dirac
 ./scripts/verify_phase1.sh
 ./scripts/verify_phase2_transport.sh
 ./scripts/verify_phase3_cosmology.sh
+bash ./scripts/verify_learn_dissertation.sh
 bash ./scripts/verify_phase4_publication.sh
 ./scripts/status.sh
 ```
@@ -88,7 +101,8 @@ are under `artifacts/spinor-cosmology`, and all commands are in
 The publication artifacts are under `wolfram/`, `notebooks/`, and
 `dissertation/`. Complete standalone rebuild commands are in
 `provenance/WOLFRAMSCRIPT.md`, `provenance/MATHEMATICA_NOTEBOOK.md`,
-`provenance/JUPYTER_NOTEBOOK.md`, and `provenance/DISSERTATION.md`.
+`provenance/JUPYTER_NOTEBOOK.md`, `provenance/DISSERTATION.md`, and
+`provenance/LEARN_DISSERTATION.md`.
 
 ## Scientific boundary
 

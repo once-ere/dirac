@@ -13,7 +13,10 @@ if head="$("$git_command" rev-parse --verify HEAD 2>/dev/null | tr -d '\r')"; th
 else
     head="unborn"
 fi
-phase_tag="$("$git_command" tag --list 'final-release-green' | tr -d '\r' | head -n 1)"
+phase_tag="$("$git_command" tag --list 'learn-dissertation-green' | tr -d '\r' | head -n 1)"
+if [[ -z "$phase_tag" ]]; then
+    phase_tag="$("$git_command" tag --list 'final-release-green' | tr -d '\r' | head -n 1)"
+fi
 if [[ -z "$phase_tag" ]]; then
     phase_tag="$("$git_command" tag --list 'phase*' --sort=-creatordate | tr -d '\r' | head -n 1)"
 fi
@@ -38,7 +41,7 @@ printf 'head=%s\n' "$head"
 printf 'dirty_count=%d\n' "${#dirty[@]}"
 printf 'latest_phase_tag=%s\n' "$phase_tag"
 printf 'source_manifest_sha256=%s\n' "$manifest_hash"
-printf '%s\n' 'latest_verification=phase4 publication: 69 Wolfram checks, 12 Jupyter checks, 6 PDF checks, 21 Python tests'
+printf '%s\n' 'latest_verification=phase4 publication plus self-contained Learn dissertation'
 printf 'next_action=%s\n' "$next_action"
 if ((${#dirty[@]} > 0)); then
     printf '%s\n' 'dirty_files_begin'

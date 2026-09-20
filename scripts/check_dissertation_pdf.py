@@ -11,19 +11,38 @@ from pathlib import Path
 
 PAGE_PATTERN = re.compile(rb"/Type\s*/Page(?!s)\b")
 MEDIA_BOX_PATTERN = re.compile(rb"/MediaBox\s*\[([^]]+)\]")
-EXPECTED_PDF_SHA256 = "a2a6e366817cb17d4b4ba936a98f5e495a8ca9c0bc012540021bc548847073f3"
+ORIGINAL_PDF_SHA256 = "a2a6e366817cb17d4b4ba936a98f5e495a8ca9c0bc012540021bc548847073f3"
+LEARN_PDF_SHA256 = "134bd5dba9751e7972463c17a6074a3ac440d031c1a4a9ae44212a8d8fbcf521"
+EXPECTED_PDF_SHA256 = ORIGINAL_PDF_SHA256
+PDF_SPECIFICATIONS = {
+    "original": {
+        "path": Path("dissertation/dirac-triality.pdf"),
+        "pages": 13,
+        "sha256": ORIGINAL_PDF_SHA256,
+    },
+    "learn": {
+        "path": Path("dissertation/Learn_dirac-triality.pdf"),
+        "pages": 62,
+        "sha256": LEARN_PDF_SHA256,
+    },
+}
 
 
 def parse_arguments() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument(
+        "--edition",
+        choices=sorted(PDF_SPECIFICATIONS),
+        default="original",
+    )
+    parser.add_argument(
         "pdf",
         nargs="?",
         type=Path,
-        default=Path("dissertation/dirac-triality.pdf"),
     )
     parser.add_argument("--repeat", type=Path)
-    parser.add_argument("--expected-pages", type=int, default=13)
+    parser.add_argument("--expected-pages", type=int)
+    parser.add_argument("--expected-sha256")
     parser.add_argument("--expected-width", type=float, default=612.0)
     parser.add_argument("--expected-height", type=float, default=792.0)
     return parser.parse_args()
@@ -49,6 +68,7 @@ def verify_pdf(
     expected_pages: int,
     expected_width: float,
     expected_height: float,
+    expected_sha256: str = ORIGINAL_PDF_SHA256,
 ) -> dict[str, object]:
     content = pdf_path.read_bytes()
     content_hash = sha256_bytes(content)
@@ -62,7 +82,7 @@ def verify_pdf(
         "endMarker": content.rstrip().endswith(b"%%EOF"),
         "pageCount": page_count == expected_pages,
         "mediaBox": media_boxes == [expected_box],
-        "canonicalHash": content_hash == EXPECTED_PDF_SHA256,
+        "canonicalHash": content_hash == expected_sha256,
         "repeatByteIdentity": repeat_equal,
     }
     return {
@@ -79,12 +99,17 @@ def verify_pdf(
 
 def main() -> int:
     arguments = parse_arguments()
+    specification = PDF_SPECIFICATIONS[arguments.edition]
+    pdf_path = arguments.pdf or specification["path"]
+    expected_pages = arguments.expected_pages or specification["pages"]
+    expected_sha256 = arguments.expected_sha256 or specification["sha256"]
     report = verify_pdf(
-        arguments.pdf.resolve(),
+        pdf_path.resolve(),
         arguments.repeat.resolve() if arguments.repeat else None,
-        arguments.expected_pages,
+        expected_pages,
         arguments.expected_width,
         arguments.expected_height,
+        expected_sha256,
     )
     failures = [name for name, passed in report["checks"].items() if not passed]
     for name, passed in report["checks"].items():
