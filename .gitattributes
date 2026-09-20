@@ -11,5 +11,6 @@ dissertation/dirac-triality.md text eol=crlf
 dissertation/Learn_dirac-triality.md text eol=lf
 dissertation/*.tex text eol=lf
 dissertation/*.pdf binary
+scripts/*.sh text eol=lf
 studies/triality_transport/src/generated.rs text eol=lf
 studies/spinor_cosmology/src/generated.rs text eol=lf
