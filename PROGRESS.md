@@ -88,7 +88,7 @@ anonymous public recursive clone and tagged `learn-dissertation-green`.
 - The Learn edition's 2,825-line Markdown source generates a deterministic
   2,394-line standalone LaTeX document and a warning-free, 62-page
   letter-sized PDF. Both isolated three-pass builds are byte-identical.
-- The expanded Python suite contains 26 tests. Local PowerShell and Bash/WSL
+- The expanded Python suite contains 27 tests. Local PowerShell and Bash/WSL
   gates pass for Phases 0 through 4 and the focused Learn publication gate.
 
 ## Phase checkpoints
@@ -173,7 +173,7 @@ anonymous public recursive clone and tagged `learn-dissertation-green`.
 - Jupyter source notebook SHA-256:
   `5813727a077a9afcc881e86928e7e48376056d48ce31409fb5c28e00d0844411`.
 - Executed Jupyter notebook SHA-256:
-  `adea839972e7b5db62553d834f83948b6645da3b6b00893c729fadc17b70fe18`.
+  `2d998c596ac81be060562ed0d9a324c937b5069521320d95372f6a2dbce6b169`.
 - Dissertation Markdown SHA-256:
   `47d280353a02c37778775720cf2459b9866510bc89ddb1bbb83c6da2d3504b97`.
 - Dissertation LaTeX SHA-256:
@@ -268,12 +268,16 @@ anonymous public recursive clone and tagged `learn-dissertation-green`.
 - An anonymous recursive clone from `https://github.com/once-ere/dirac.git`
   resolved to the verified release commit and the same pinned solver commit.
   It passed all five PowerShell phase gates: Phase 0 checked 5,991 source
-  files, 209 audited artifacts, 66 Wolfram artifacts, and 26 Python tests;
+  files, 209 audited artifacts, 66 Wolfram artifacts, and 27 Python tests;
   Phases 1 through 3 reproduced the exact fixtures and both CVODE studies;
   Phase 4 passed the standalone Wolfram, Mathematica, Jupyter, original
   dissertation, and Learn dissertation checks. All six dissertation hashes
   matched and `git diff --exit-code` reported zero tracked drift after every
   phase.
+- Jupyter stream output is canonicalized by merging adjacent fragments from
+  the same channel. Two public-clone executions now reproduce the normalized
+  hash `2d998c596ac81be060562ed0d9a324c937b5069521320d95372f6a2dbce6b169`
+  byte-for-byte under both PowerShell and Bash/WSL publication gates.
 - Verification: `scripts/verify_learn_dissertation.ps1` or
   `scripts/verify_learn_dissertation.sh`.
 - Provenance: `provenance/LEARN_DISSERTATION.md`.

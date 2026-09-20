@@ -11,7 +11,17 @@ artifacts/notebooks/jupyter-report.json
 The notebook uses a standard Python kernel. It runs the independent exact and
 numerical checkers, reads both canonical CSV datasets, validates row counts and
 endpoints, checks all source hashes, and writes a six-check JSON report. The
-runner removes volatile execution metadata before serialization.
+runner removes volatile execution metadata before serialization. Jupyter may
+emit adjacent `stdout` fragments either separately or as one stream depending
+on kernel message batching. The runner coalesces adjacent streams with the
+same channel before serialization, so equivalent output has one canonical
+representation.
+
+Canonical executed-notebook SHA-256:
+
+```text
+2d998c596ac81be060562ed0d9a324c937b5069521320d95372f6a2dbce6b169
+```
 
 ## Complete Windows commands
 
