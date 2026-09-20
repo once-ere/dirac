@@ -1,0 +1,25 @@
+{
+  "schemaVersion": 1,
+  "backupId": "20260920T150300537364Z",
+  "repositoryRoot": "C:\\Users\\nsh\\Developer\\code\\vscode\\dirac",
+  "destinationRoot": "C:\\Users\\nsh\\Developer\\code\\vscode\\dirac\\backups\\edits\\20260920T150300537364Z",
+  "files": [
+    {
+      "relativePath": "README.md",
+      "sourceSha256": "1fe1fa9bacf6e7abb3471bcbdfeb9d68640938b56daf958b64d3dfbca5dd2152",
+      "sourceSize": 5283,
+      "backupSha256": "1fe1fa9bacf6e7abb3471bcbdfeb9d68640938b56daf958b64d3dfbca5dd2152",
+      "backupSize": 5283,
+      "match": true
+    },
+    {
+      "relativePath": "PROGRESS.md",
+      "sourceSha256": "46a08074326047af334611f043c740f1c003fe2b8fe76184416fb4eab60f62e0",
+      "sourceSize": 16970,
+      "backupSha256": "46a08074326047af334611f043c740f1c003fe2b8fe76184416fb4eab60f62e0",
+      "backupSize": 16970,
+      "match": true
+    }
+  ],
+  "allFilesMatched": true
+}

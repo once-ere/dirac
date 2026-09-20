@@ -1,7 +1,7 @@
 # Implementation progress
 
-Status: The self-contained Learn dissertation release candidate is verified
-from a fresh recursive clone; public push and remote-clone verification remain.
+Status: The self-contained Learn dissertation release is verified from an
+anonymous public recursive clone and tagged `learn-dissertation-green`.
 
 ## Verified checkpoint
 
@@ -226,6 +226,11 @@ from a fresh recursive clone; public push and remote-clone verification remain.
 
 - Verified content commit:
   `b96355c73121c3a79ded52a1594a3704957c5081`.
+- Verified release commit:
+  `8d12c34f4f014c3879310b439b805639b679dc16`.
+- Annotated tag: `learn-dissertation-green`; remote tag object
+  `3fad1189f5f00bb3ba0d06c93e6909a13c91f1de` peels to the verified release
+  commit.
 - The teaching edition is parallel to the original and does not replace it.
   The original Markdown, LaTeX, and PDF retain their frozen SHA-256 values:
   `47d280353a02c37778775720cf2459b9866510bc89ddb1bbb83c6da2d3504b97`,
@@ -254,18 +259,26 @@ from a fresh recursive clone; public push and remote-clone verification remain.
   warnings, overfull boxes, underfull boxes, or undefined controls. Extracted
   text and representative rendered pages from the beginning, middle,
   exercises, and conclusion were inspected successfully.
-- A fresh recursive clone at the verified content commit passed every
-  PowerShell Phase 0 through Phase 4 gate against solver submodule commit
+- A local recursive clone at the content commit passed every PowerShell
+  Phase 0 through Phase 4 gate against solver submodule commit
   `d1836e6a279d63a90fe2839a0020123245487e76`. All six dissertation hashes
   matched, and the clone had zero tracked drift after regeneration. Its only
   untracked outputs were six hash-verified backup-manifest directories created
   by the gates.
+- An anonymous recursive clone from `https://github.com/once-ere/dirac.git`
+  resolved to the verified release commit and the same pinned solver commit.
+  It passed all five PowerShell phase gates: Phase 0 checked 5,991 source
+  files, 209 audited artifacts, 66 Wolfram artifacts, and 26 Python tests;
+  Phases 1 through 3 reproduced the exact fixtures and both CVODE studies;
+  Phase 4 passed the standalone Wolfram, Mathematica, Jupyter, original
+  dissertation, and Learn dissertation checks. All six dissertation hashes
+  matched and `git diff --exit-code` reported zero tracked drift after every
+  phase.
 - Verification: `scripts/verify_learn_dissertation.ps1` or
   `scripts/verify_learn_dissertation.sh`.
 - Provenance: `provenance/LEARN_DISSERTATION.md`.
-- Next action: commit this checkpoint, push `main`, verify every gate and
-  canonical hash from an anonymous recursive clone of the public repository,
-  then create and push `learn-dissertation-green`.
+- Result: `main` and `learn-dissertation-green` are published; the tag points
+  to the release commit verified from the public clone.
 
 ## Evidence
 
@@ -302,5 +315,4 @@ from a fresh recursive clone; public push and remote-clone verification remain.
 - Vendored SUNDIALS source will remain byte-identical and read-only.
 - Every existing file is backed up and hash-verified before modification.
 
-Next action: commit the Learn checkpoint, push `main`, verify the public
-recursive clone, and publish `learn-dissertation-green`.
+Next action: none; `learn-dissertation-green` is the verified teaching release.

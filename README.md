@@ -45,6 +45,11 @@ misconception checks, exercises with complete solutions, a glossary, a
 notation index, and in-document reference capsules. The original dissertation
 artifacts remain byte-for-byte unchanged.
 
+The annotated `learn-dissertation-green` tag was verified from an anonymous
+recursive clone of the public repository. Every Phase 0 through Phase 4 gate
+passed at the tagged commit, including both dissertation editions and all 26
+Python tests, with zero tracked drift after regeneration.
+
 The `final-release-green` tag was verified from a fresh recursive clone. Every
 phase gate passed, all 21 Python tests passed, 15 canonical artifacts were
 byte-identical, and the rebuilt worktree had zero tracked drift. The local
