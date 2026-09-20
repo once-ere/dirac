@@ -1,6 +1,7 @@
 # Implementation progress
 
-Status: Final release verified from a fresh recursive clone; Phases 0 through 4 are frozen in Git.
+Status: The self-contained Learn dissertation release candidate is verified
+from a fresh recursive clone; public push and remote-clone verification remain.
 
 ## Verified checkpoint
 
@@ -80,6 +81,15 @@ Status: Final release verified from a fresh recursive clone; Phases 0 through 4 
   byte-identical in PowerShell and WSL.
 - Both Phase 4 publication gates pass, including six PDF structure and hash
   checks and all 21 Python tests.
+- The parallel Learn edition contains 25 chapters, 16 worked examples,
+  16 misconception checks, 18 exercises with 18 complete solutions, 47
+  glossary entries, a notation index, reference capsules, and a
+  claim-to-evidence map. Its 18 content checks and six PDF checks pass.
+- The Learn edition's 2,825-line Markdown source generates a deterministic
+  2,394-line standalone LaTeX document and a warning-free, 62-page
+  letter-sized PDF. Both isolated three-pass builds are byte-identical.
+- The expanded Python suite contains 26 tests. Local PowerShell and Bash/WSL
+  gates pass for Phases 0 through 4 and the focused Learn publication gate.
 
 ## Phase checkpoints
 
@@ -212,6 +222,51 @@ Status: Final release verified from a fresh recursive clone; Phases 0 through 4 
 - The remote tree contains all four files under `wolfram/` and no
   `prompt.txt`.
 
+### Self-contained Learn dissertation
+
+- Verified content commit:
+  `b96355c73121c3a79ded52a1594a3704957c5081`.
+- The teaching edition is parallel to the original and does not replace it.
+  The original Markdown, LaTeX, and PDF retain their frozen SHA-256 values:
+  `47d280353a02c37778775720cf2459b9866510bc89ddb1bbb83c6da2d3504b97`,
+  `414b966295ae8f5092553c1af5f339683a67bf8ed77844eb118751713795bfd0`,
+  and `a2a6e366817cb17d4b4ba936a98f5e495a8ca9c0bc012540021bc548847073f3`.
+- `dissertation/Learn_dirac-triality.md` SHA-256:
+  `a8cf09e1ea1860bdbef3125ef01dbf3bc0c5f5a3e9a7adc4fe6c92f534abce58`.
+- `dissertation/Learn_dirac-triality.tex` SHA-256:
+  `ee325930f4f45540957c9bc6dd166e4c610aa479291273e8636d87382464405f`.
+- `dissertation/Learn_dirac-triality.pdf` SHA-256:
+  `134bd5dba9751e7972463c17a6074a3ac440d031c1a4a9ae44212a8d8fbcf521`.
+- The source has 85,702 bytes, 2,825 newline-terminated lines, and 13,146
+  checker-counted words. The generated TeX has 99,832 bytes and 2,394
+  newline-terminated lines. The PDF has 669,155 bytes, 62 pages, and one
+  `612 x 792` point media box.
+- The content checker recomputes the Clifford chirality coordinates,
+  split-octonion products and associator, cyclic para-product value, triality
+  ranks, and both numerical summaries from canonical fixtures. All 18 checks
+  pass, including complete exercise/solution parity and self-containment.
+- A separate mathematical review found no high-severity issue. The final text
+  incorporates precise global `Pin`/`Spin` scope, algebraic highest-weight
+  scope, the exact reflection and intertwiner conventions, the transport
+  generator signs, the specified odd cosmology generator, and the dependence
+  of the Friedmann diagnostic on the density comparison.
+- Two isolated three-pass builds are byte-identical and have zero TeX errors,
+  warnings, overfull boxes, underfull boxes, or undefined controls. Extracted
+  text and representative rendered pages from the beginning, middle,
+  exercises, and conclusion were inspected successfully.
+- A fresh recursive clone at the verified content commit passed every
+  PowerShell Phase 0 through Phase 4 gate against solver submodule commit
+  `d1836e6a279d63a90fe2839a0020123245487e76`. All six dissertation hashes
+  matched, and the clone had zero tracked drift after regeneration. Its only
+  untracked outputs were six hash-verified backup-manifest directories created
+  by the gates.
+- Verification: `scripts/verify_learn_dissertation.ps1` or
+  `scripts/verify_learn_dissertation.sh`.
+- Provenance: `provenance/LEARN_DISSERTATION.md`.
+- Next action: commit this checkpoint, push `main`, verify every gate and
+  canonical hash from an anonymous recursive clone of the public repository,
+  then create and push `learn-dissertation-green`.
+
 ## Evidence
 
 - `backups/pre-bootstrap/manifest.json`
@@ -228,6 +283,7 @@ Status: Final release verified from a fresh recursive clone; Phases 0 through 4 
 - `audit/reviews/eternal-deflation-inflation.md`
 - `audit/reviews/sundials-7-8-rust-port-win11.md`
 - `audit/reviews/rust-solveit-win11-sundials-7-8-0.md`
+- `provenance/LEARN_DISSERTATION.md`
 - `logs/phase0-verify-tests.log` (local, ignored)
 - `logs/phase0-verify-manifest.log` (local, ignored)
 - `logs/phase0-verify-wolfram.log` (local, ignored)
@@ -246,4 +302,5 @@ Status: Final release verified from a fresh recursive clone; Phases 0 through 4 
 - Vendored SUNDIALS source will remain byte-identical and read-only.
 - Every existing file is backed up and hash-verified before modification.
 
-Next action: none; `final-release-green` is the frozen verified release.
+Next action: commit the Learn checkpoint, push `main`, verify the public
+recursive clone, and publish `learn-dissertation-green`.
