@@ -227,9 +227,9 @@ anonymous public recursive clone and tagged `learn-dissertation-green`.
 - Verified content commit:
   `b96355c73121c3a79ded52a1594a3704957c5081`.
 - Verified release commit:
-  `8d12c34f4f014c3879310b439b805639b679dc16`.
+  `b4646d80ca9764b6bb2cd5c2ae9d9298da3c8360`.
 - Annotated tag: `learn-dissertation-green`; remote tag object
-  `3fad1189f5f00bb3ba0d06c93e6909a13c91f1de` peels to the verified release
+  `0ea232b13dc07b83fd4246b8aee33f26b48b3bc9` peels to the verified release
   commit.
 - The teaching edition is parallel to the original and does not replace it.
   The original Markdown, LaTeX, and PDF retain their frozen SHA-256 values:
@@ -274,6 +274,11 @@ anonymous public recursive clone and tagged `learn-dissertation-green`.
   dissertation, and Learn dissertation checks. All six dissertation hashes
   matched and `git diff --exit-code` reported zero tracked drift after every
   phase.
+- The final anonymous clone also passed the complete Bash/WSL and PowerShell
+  Phase 4 publication gates at the same commit. Shell scripts were pinned to
+  LF for fresh Windows checkouts, and adjacent Jupyter streams were
+  canonicalized before serialization; both shells reproduced the same
+  executed-notebook, original-PDF, and Learn-PDF hashes.
 - Jupyter stream output is canonicalized by merging adjacent fragments from
   the same channel. Two public-clone executions now reproduce the normalized
   hash `2d998c596ac81be060562ed0d9a324c937b5069521320d95372f6a2dbce6b169`
