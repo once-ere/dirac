@@ -20,6 +20,23 @@ def parse_arguments() -> argparse.Namespace:
     return parser.parse_args()
 
 
+def coalesce_stream_outputs(notebook: nbformat.NotebookNode) -> None:
+    for cell in notebook.cells:
+        normalized = []
+        for output in cell.get("outputs", []):
+            if (
+                output.get("output_type") == "stream"
+                and normalized
+                and normalized[-1].get("output_type") == "stream"
+                and normalized[-1].get("name") == output.get("name")
+            ):
+                normalized[-1]["text"] += output.get("text", "")
+            else:
+                normalized.append(output)
+        if "outputs" in cell:
+            cell.outputs = normalized
+
+
 def main() -> int:
     arguments = parse_arguments()
     repository_root = Path(__file__).resolve().parent.parent
@@ -41,6 +58,7 @@ def main() -> int:
         allow_errors=False,
     )
     client.execute()
+    coalesce_stream_outputs(notebook)
     for cell in notebook.cells:
         cell.metadata.pop("execution", None)
     notebook.metadata["kernelspec"] = {
