@@ -77,17 +77,17 @@ Status: Phase 6 is verified from anonymous public recursive clones and tagged
   five passing notebook checks.
 - The deterministic Jupyter notebook has ten fixed-ID cells and five executed
   code cells; all 12 structural, result, canonical-hash, and replay checks pass.
-- The 598-line Markdown dissertation generates a complete 571-line LaTeX
-  source and a warning-free, 13-page letter-sized PDF. Independent builds are
+- The 1,042-line Markdown dissertation generates a complete 962-line LaTeX
+  source and a warning-free, 19-page letter-sized PDF. Independent builds are
   byte-identical in PowerShell and WSL.
 - Both Phase 4 publication gates pass, including six PDF structure and hash
   checks and all 21 Python tests.
-- The parallel Learn edition contains 25 chapters, 16 worked examples,
-  16 misconception checks, 18 exercises with 18 complete solutions, 47
+- The parallel Learn edition contains 29 chapters, 20 worked examples,
+  20 misconception checks, 22 exercises with 22 complete solutions, 53
   glossary entries, a notation index, reference capsules, and a
   claim-to-evidence map. Its 18 content checks and six PDF checks pass.
-- The Learn edition's 2,825-line Markdown source generates a deterministic
-  2,394-line standalone LaTeX document and a warning-free, 62-page
+- The Learn edition's 3,438-line Markdown source generates a deterministic
+  2,934-line standalone LaTeX document and a warning-free, 74-page
   letter-sized PDF. Both isolated three-pass builds are byte-identical.
 - The expanded Python suite contains 27 tests. Local PowerShell and Bash/WSL
   gates pass for Phases 0 through 4 and the focused Learn publication gate.

@@ -15,7 +15,7 @@ except ModuleNotFoundError:
     import build_dissertation_tex
 
 
-EXPECTED_CHECK_COUNT = 18
+EXPECTED_CHECK_COUNT = 21
 EXPECTED_SECTIONS = [
     "1. How to use this guide",
     "2. Toolkit I: vectors, matrices, and forms",
@@ -34,14 +34,18 @@ EXPECTED_SECTIONS = [
     "15. Numerical study I: 24-state triality transport",
     "16. Cosmology toolkit: expansion, density, and equation of state",
     "17. Numerical study II: an 18-state real-spinor background",
-    "18. Reproducibility and independent evidence",
-    "19. Claim-to-evidence map and limitations",
-    "20. Exercises",
-    "21. Complete solutions",
-    "22. Glossary",
-    "23. Notation index",
-    "24. Reference capsules and bibliography",
-    "25. Conclusion",
+    "18. Geometry toolkit: curved metrics, frames, and spinors",
+    "19. Numerical study III: coupled Einstein-spinor gravity",
+    "20. Weitzenböck connection and teleparallel gravity",
+    "21. Numerical study IV: independent teleparallel spinor dynamics",
+    "22. Reproducibility and independent evidence",
+    "23. Claim-to-evidence map and limitations",
+    "24. Exercises",
+    "25. Complete solutions",
+    "26. Glossary",
+    "27. Notation index",
+    "28. Reference capsules and bibliography",
+    "29. Conclusion",
 ]
 REQUIRED_PHRASES = [
     "full 16-dimensional Clifford module is irreducible",
@@ -58,9 +62,13 @@ REQUIRED_PHRASES = [
     "not independently compare it with a numerical quadrature",
     "derived from the density comparison, not an independent diagnostic",
     "background consistency calculation",
-    "not an observational fit",
+    "not observational fits",
     "does not establish stability of perturbations",
     "historical notebook outputs constitute proof",
+    "R_{LC}=-\\mathbb T+B",
+    "There is no quintessence scalar and no cosmological constant",
+    "does not call the Levi-Civita application",
+    "TEGR torsion is not an extra dark fluid",
 ]
 PROHIBITED_DELEGATION = re.compile(
     r"\b(?:look it up|look this up|consult an external|"
@@ -123,6 +131,18 @@ def exact_example_checks(repository_root: Path, text: str) -> dict[str, bool]:
     )
     cosmology = load_json(
         repository_root / "artifacts/spinor-cosmology/summary.json"
+    )
+    curved = load_json(
+        repository_root / "artifacts/curved-spin-geometry/geometry.json"
+    )
+    einstein = load_json(
+        repository_root / "artifacts/einstein-spinor-44/summary.json"
+    )
+    weitzenbock_geometry = load_json(
+        repository_root / "artifacts/weitzenbock-spin-geometry/geometry.json"
+    )
+    weitzenbock = load_json(
+        repository_root / "artifacts/weitzenbock-spinor-44/summary.json"
     )
 
     basis = [[int(row == column) for column in range(8)] for row in range(8)]
@@ -193,6 +213,37 @@ def exact_example_checks(repository_root: Path, text: str) -> dict[str, bool]:
             "friedmann": 3.0848480998659325e-11,
         }
         and cosmology["verdict"] == "SUCCESS",
+        "curvedGeometryMeasurements": curved["baseDimension"] == 8
+        and curved["signature"] == [4, 4]
+        and curved["measurements"]["nonzeroChristoffelComponents"] == 21
+        and curved["measurements"][
+            "nonzeroLoweredSpinConnectionComponents"
+        ]
+        == 14
+        and all(curved["checks"].values()),
+        "einsteinSpinorMeasurements": einstein["stateDimension"] == 18
+        and einstein["sampleCount"] == 171
+        and einstein["solverSteps"] == 1372
+        and einstein["rhsEvaluations"] == 1486
+        and einstein["accelerationTransitionScaleFactor"]
+        == 0.8631436165767085
+        and all(
+            value < 7.5e-9
+            for value in einstein["maximumRelativeError"].values()
+        )
+        and einstein["verdict"] == "SUCCESS",
+        "weitzenbockMeasurements": weitzenbock_geometry["checks"][
+            "curvatureZero"
+        ]
+        and weitzenbock_geometry["checks"]["torsionNonzero"]
+        and weitzenbock_geometry["teleparallelScalars"]["identity"]
+        == "RLC=-T+B"
+        and weitzenbock["sampleCount"] == 171
+        and weitzenbock["maximumRelativeError"][
+            "homogeneousDiracEquivalenceAbsolute"
+        ]
+        == 0.0
+        and weitzenbock["verdict"] == "SUCCESS",
     }
 
 
@@ -230,13 +281,13 @@ def verify_document(
             r"^### Solution E(\d+):", text, re.MULTILINE
         )
     ]
-    glossary_text = text.split("## 22. Glossary", 1)[1].split(
-        "## 23. Notation index", 1
+    glossary_text = text.split("## 26. Glossary", 1)[1].split(
+        "## 27. Notation index", 1
     )[0]
     glossary_entries = re.findall(
         r"^### (.+)$", glossary_text, flags=re.MULTILINE
     )
-    reference_capsules = re.findall(r"^### 24\.\d+ ", text, flags=re.MULTILINE)
+    reference_capsules = re.findall(r"^### 28\.\d+ ", text, flags=re.MULTILINE)
     generated_tex = build_dissertation_tex.convert(
         text,
         strip_heading_numbers=True,
@@ -254,9 +305,9 @@ def verify_document(
         "claimCoverage": all(
             phrase in normalized_text for phrase in REQUIRED_PHRASES
         ),
-        "workedExampleCoverage": worked_examples == list(range(1, 17)),
-        "misconceptionCoverage": misconceptions == list(range(1, 17)),
-        "exerciseSolutionParity": exercises == list(range(1, 19))
+        "workedExampleCoverage": worked_examples == list(range(1, 21)),
+        "misconceptionCoverage": misconceptions == list(range(1, 21)),
+        "exerciseSolutionParity": exercises == list(range(1, 23))
         and solutions == exercises,
         "glossaryCoverage": len(glossary_entries) >= 45,
         "referenceCapsules": len(reference_capsules) >= 6,

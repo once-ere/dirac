@@ -33,19 +33,19 @@ deterministic 1,201-row background history.
 
 The publication layer is complete. A standalone WolframScript combines all
 69 exact and numerical checks; generated Mathematica and Jupyter notebooks
-execute without failed checks; and the complete Markdown dissertation builds
-to deterministic LaTeX and a warning-free 13-page PDF.
+execute without failed checks; and the Phase 6-complete Markdown dissertation
+builds to deterministic LaTeX and a warning-free 19-page PDF.
 
 A parallel self-contained teaching edition is published as
 [dissertation/Learn_dirac-triality.md](dissertation/Learn_dirac-triality.md),
 [dissertation/Learn_dirac-triality.tex](dissertation/Learn_dirac-triality.tex),
 and [dissertation/Learn_dirac-triality.pdf](dissertation/Learn_dirac-triality.pdf).
 It develops the subject from calculus and basic matrices through Clifford
-algebras, real half-spin representations, split octonions, triality, numerical
-ODE verification, and the homogeneous cosmology. It includes worked examples,
-misconception checks, exercises with complete solutions, a glossary, a
-notation index, and in-document reference capsules. The original dissertation
-artifacts remain byte-for-byte unchanged.
+algebras, real half-spin representations, split octonions, triality, curved
+spin geometry, Einstein-spinor dynamics, and teleparallel gravity. It includes
+20 worked examples, 20 misconception checks, 22 exercises with complete
+solutions, 53 glossary entries, a notation index, and reference capsules.
+Both dissertation editions now include the verified Phase 5 and Phase 6 work.
 
 Phase 5 defines the rank-16 real spinor bundle
 `S = P_Spin x_rho (Delta_+ direct-sum Delta_-)` over an explicit curved

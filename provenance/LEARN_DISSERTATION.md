@@ -10,16 +10,16 @@ dissertation/Learn_dirac-triality.pdf
 
 The Markdown file is the authoritative teaching edition. It assumes calculus
 and basic matrix multiplication, then defines every specialized mathematical,
-numerical, and cosmological idea before use. It includes 25 numbered chapters,
-16 worked examples, 16 misconception checks, 18 exercises, 18 complete
-solutions, 47 glossary entries, a notation index, reference capsules, and a
+numerical, geometric, and cosmological idea before use. It includes 29 numbered
+chapters, 20 worked examples, 20 misconception checks, 22 exercises, 22 complete
+solutions, 53 glossary entries, a notation index, reference capsules, and a
 claim-to-evidence map.
 
 The Python builder converts the complete Markdown source to a standalone LaTeX
 document. The Learn build uses `--strip-heading-numbers`: authored numbering
 remains visible in standalone Markdown, while LaTeX supplies one clean set of
-section numbers in the PDF. The default builder mode remains byte-compatible
-with the original research edition.
+section numbers in the PDF. The default builder mode generates the primary
+research edition.
 
 The PDF suppresses volatile engine timestamps and trailer identifiers. Two
 isolated builds from independently generated TeX must be byte-identical. Three
@@ -29,35 +29,36 @@ build.
 ## Canonical measurements
 
 ```text
-Markdown bytes=85702
-Markdown lines=2826
-Markdown words=13146
-Markdown SHA-256=a8cf09e1ea1860bdbef3125ef01dbf3bc0c5f5a3e9a7adc4fe6c92f534abce58
-LaTeX bytes=99832
-LaTeX lines=2395
-LaTeX SHA-256=ee325930f4f45540957c9bc6dd166e4c610aa479291273e8636d87382464405f
-PDF bytes=669155
-PDF pages=62
+Markdown bytes=102388
+Markdown lines=3438
+Markdown words=15682
+Markdown SHA-256=ab6c653f6d0f2355411d61c9357d3c709ced8b9ac70167861e893a9029052676
+LaTeX bytes=118691
+LaTeX lines=2934
+LaTeX SHA-256=533eeaef0619d3b590d74fa03a4a81aaa76163fce289d659a1007d1b10b0e03e
+PDF bytes=745001
+PDF pages=74
 PDF MediaBox=612 x 792 points
-PDF SHA-256=134bd5dba9751e7972463c17a6074a3ac440d031c1a4a9ae44212a8d8fbcf521
+PDF SHA-256=7c683b51445a3b4964b244ea3e232bc0ba3f745b5427308b59a80d1532e19ff9
 ```
 
 ## Content verification
 
-`scripts/check_learn_dissertation.py` runs 18 checks. It requires:
+`scripts/check_learn_dissertation.py` runs 21 checks. It requires:
 
 - UTF-8 source with LF line endings and the canonical title/subtitle;
-- all 25 chapters in order and at least 10,000 words;
+- all 29 chapters in order and at least 10,000 words;
 - all original algebraic, numerical, and scientific-scope claims;
-- exactly 16 sequential worked examples and misconception checks;
-- exactly 18 exercises with 18 matching complete solutions;
-- at least 45 glossary entries and six reference capsules;
+- exactly 20 sequential worked examples and misconception checks;
+- exactly 22 exercises with 22 matching complete solutions;
+- at least 53 glossary entries and seven reference capsules;
 - no TODO, FIXME, TBD, or instruction to obtain a prerequisite elsewhere;
 - byte agreement between committed TeX and a fresh in-memory conversion;
 - exact Clifford chirality indices and volume-element signs from the fixture;
 - exact split-octonion products, associator, and cyclic para-product values;
 - exact triality rank, dimension, representation, and `S3` measurements;
-- exact canonical transport and cosmology measurements.
+- exact canonical transport, cosmology, curved-geometry, Einstein-spinor, and
+	Weitzenböck measurements.
 
 The checker deliberately recomputes the small algebra examples from the
 machine-readable tensors. It does not accept matching prose as proof of those
@@ -118,7 +119,7 @@ python -m unittest discover -s tests -p test_learn_dissertation.py -v
 python -m unittest discover -s tests -p test_dissertation_pdf.py -v
 ```
 
-The script also checks the frozen SHA-256 values of all three original
+The script also checks the canonical SHA-256 values of all three primary
 `dirac-triality.*` artifacts, compares both generated TeX files and both PDFs,
 rejects any listed TeX warning, and copies the PDF only after every check
 passes. Its final line must be:
@@ -135,7 +136,7 @@ bash ./scripts/verify_learn_dissertation.sh
 ```
 
 The Bash gate resolves the installed Windows Python and MiKTeX executables,
-performs the same original-hash guards, backups, dual builds, content checks,
+performs the same primary-hash guards, backups, dual builds, content checks,
 focused tests, warning scan, byte comparisons, and canonical copy. Its final
 line must also be:
 
@@ -159,13 +160,14 @@ A Phase 4 success therefore requires the standalone Wolfram report,
 Mathematica notebook, Jupyter notebook, original dissertation, and Learn
 dissertation to pass together.
 
-## Original-edition immutability
+## Primary-edition synchronization
 
-The teaching edition is parallel to, not a replacement for, the original. The
-focused gate requires these unchanged hashes before doing any work:
+The teaching edition is parallel to, not a replacement for, the primary
+research edition. The focused gate requires these canonical hashes before
+doing any work:
 
 ```text
-dissertation/dirac-triality.md  47d280353a02c37778775720cf2459b9866510bc89ddb1bbb83c6da2d3504b97
-dissertation/dirac-triality.tex 414b966295ae8f5092553c1af5f339683a67bf8ed77844eb118751713795bfd0
-dissertation/dirac-triality.pdf a2a6e366817cb17d4b4ba936a98f5e495a8ca9c0bc012540021bc548847073f3
+dissertation/dirac-triality.md  44b76c2d872598ad1b038a8d4ad1293b18885ab228297c921579daa86eeb1381
+dissertation/dirac-triality.tex 12df60627b5f11b09ccbbadd9ca38fd2ce7efcfccd769f69fd8280b78a6cec38
+dissertation/dirac-triality.pdf 8531af531c91fbf366fbcb30759da63e3881dcc241931698a9f6ee3a6ae0b69e
 ```

@@ -10,7 +10,8 @@ from scripts import check_dissertation_pdf
 class DissertationPdfTests(unittest.TestCase):
     def test_committed_pdfs_are_self_consistent(self) -> None:
         repository_root = Path(__file__).resolve().parent.parent
-        for edition, specification in check_dissertation_pdf.PDF_SPECIFICATIONS.items():
+        specifications = check_dissertation_pdf.PDF_SPECIFICATIONS.items()
+        for edition, specification in specifications:
             with self.subTest(edition=edition):
                 report = check_dissertation_pdf.verify_pdf(
                     repository_root / specification["path"],
@@ -21,7 +22,11 @@ class DissertationPdfTests(unittest.TestCase):
                     specification["sha256"],
                 )
                 self.assertEqual(
-                    [name for name, passed in report["checks"].items() if not passed],
+                    [
+                        name
+                        for name, passed in report["checks"].items()
+                        if not passed
+                    ],
                     [],
                 )
 
@@ -34,7 +39,7 @@ class DissertationPdfTests(unittest.TestCase):
             report = check_dissertation_pdf.verify_pdf(
                 changed_pdf,
                 None,
-                13,
+                19,
                 612.0,
                 792.0,
                 check_dissertation_pdf.ORIGINAL_PDF_SHA256,

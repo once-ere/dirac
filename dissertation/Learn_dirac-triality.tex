@@ -23,11 +23,11 @@
 \tableofcontents
 \newpage
 \begin{abstract}
-This book develops a complete path from familiar matrix algebra to the exact real relationship among the Clifford algebra \texttt{\detokenize{Cl(4,4)}}, the group \texttt{\detokenize{Spin(4,4)}}, two half-spin representations, split-octonion multiplication, and triality. It assumes only calculus and basic matrix multiplication. Every additional idea used later - bilinear forms, signature, tensor products, algebras, Lie algebras, representations, spinors, nonassociativity, numerical invariants, and the required cosmology - is introduced here before it is used. References are supplied for historical and scholarly context, but no reference is required to understand the argument.
+This book develops a complete path from familiar matrix algebra to the exact real relationship among the Clifford algebra \texttt{\detokenize{Cl(4,4)}}, the group \texttt{\detokenize{Spin(4,4)}}, two half-spin representations, split-octonion multiplication, and triality. It assumes only calculus and basic matrix multiplication. Every additional idea used later - bilinear forms, signature, tensor products, algebras, Lie algebras, representations, spinors, nonassociativity, numerical invariants, curved metrics, vielbeins, spin connections, torsion, and the required cosmology - is introduced here before it is used. References are supplied for historical and scholarly context, but no reference is required to understand the argument.
 
 The exact construction uses eight integral 16 by 16 matrices. Their 256 ordered Clifford monomials have rank 256, so the representation is faithful. The full 16-dimensional Clifford module is irreducible, but its restriction to the even algebra and to \texttt{\detokenize{Spin(4,4)}} splits into two inequivalent real 8-dimensional half-spin modules. An independent Zorn construction produces an 8-dimensional split composition algebra. Its para-product has a cyclic trilinear form whose related triples form a 28-dimensional Lie algebra. Three inequivalent 8-dimensional modules are permuted by representatives of the six-element outer automorphism group. An exact intertwiner joins the Clifford and split-octonion pictures.
 
-Two numerical studies show how the exact tensors can drive differential equations. A 24-state transport problem preserves three split norms and one triality trilinear form. An 18-state homogeneous real-spinor model reconstructs a specified cosmological background. Both studies use a pinned pure-Rust SUNDIALS CVODE engine and are checked against independent identities. The cosmology is a background consistency calculation, not an observational fit, a perturbation analysis, or a claim that nature must use this model.
+Four numerical studies show how the exact tensors can drive differential equations. A 24-state transport problem preserves three split norms and one triality trilinear form. An 18-state homogeneous real-spinor model reconstructs a specified cosmological background. A curved \texttt{\detokenize{(4,4)}} spinor bundle then supports a coupled Einstein-spinor model without a scalar field or cosmological constant. A flat, torsionful Weitzenböck connection gives an independently implemented teleparallel formulation with the same homogeneous state history. All studies use a pinned pure-Rust SUNDIALS CVODE engine and are checked against independent identities. The cosmologies are background consistency calculations, not observational fits, perturbation analyses, or claims that nature must use these models.
 
 \end{abstract}
 
@@ -77,6 +77,13 @@ permutes \texttt{\detokenize{V}}, \texttt{\detokenize{S+}}, and \texttt{\detoken
 
 \item The 24-state transport model evolves one vector and two spinors together.
 \item The 18-state cosmology evolves time, density, and a 16-component real field.
+\item A vielbein places the rank-16 spinor on a curved \texttt{\detokenize{(4,4)}} base.
+\item A coupled Einstein-spinor model separates dust-like and negative-pressure
+homogeneous terms.
+
+\item A Weitzenböck connection moves gravity from curvature to torsion while a
+boundary identity preserves the TEGR field equations.
+
 \end{itemize}
 
 The first half of the guide explains why these dimensions occur. The second half explains how exact algebra controls the invariants of the numerical models.
@@ -97,11 +104,17 @@ half-spin modules;
 representing the outer automorphism group;
 
 \item the Clifford and split-octonion realizations are exactly equivalent after a
-change of basis.
+change of basis;
+
+\item the explicit curved frame satisfies the metric relation and complete
+vielbein postulate;
+
+\item the canonical and Weitzenböck spinor formulations are related by exact
+contortion, boundary, and homogeneous Dirac-operator identities.
 
 \end{enumerate}
 
-The numerical claims concern two specified initial-value problems and their reported error bounds. They do not classify observations, derive dark energy from microscopic physics, establish perturbative stability, or identify a particle-generation mechanism. A mathematically consistent model is not by itself an empirical theory.
+The numerical claims concern four specified initial-value problems and their reported error bounds. They do not classify observations, derive dark energy from microscopic physics, establish perturbative stability, justify a dimensional reduction to \texttt{\detokenize{(3,1)}}, or identify a particle-generation mechanism. A mathematically consistent model is not by itself an empirical theory.
 
 \subsection{Conventions}
 
@@ -1614,6 +1627,393 @@ The calculation establishes a homogeneous background realization for the specifi
 
 Accurately reproducing the chosen CPL background shows that the equations and implementation agree. It cannot show that the CPL parameters are preferred by data or that omitted perturbations are stable.
 
+\section{Geometry toolkit: curved metrics, frames, and spinors}
+
+\subsection{Coordinate and tangent indices}
+
+On a curved manifold, a coordinate basis changes from point to point. Greek indices such as \texttt{\detokenize{mu,nu}} label coordinate components. Latin indices such as \texttt{\detokenize{a,b}} label a local orthonormal tangent frame. In this project both range from 0 through 7, but they play different roles.
+
+The constant tangent metric is
+
+\[
+\eta_{ab}=\operatorname{diag}(1,1,1,1,-1,-1,-1,-1).
+\]
+
+The coordinate metric \texttt{\detokenize{g_mu nu(x)}} may vary with position. A vielbein, also called an achtbein in eight dimensions, relates them:
+
+\[
+g_{\mu\nu}=e_\mu{}^a\eta_{ab}e_\nu{}^b.
+\]
+
+This equation does not say that \texttt{\detokenize{g}} and \texttt{\detokenize{eta}} are competing metrics. They are the same bilinear form written in coordinate and orthonormal bases.
+
+\subsection{The explicit curved split-signature frame}
+
+Use coordinates
+
+\begin{Verbatim}[fontsize=\small]
+(x0,x1,x2,x3,t,y1,y2,y3)
+\end{Verbatim}
+
+and a positive function \texttt{\detokenize{a(t)}}. Choose
+
+\[
+e_\mu{}^a=\operatorname{diag}(a,a,a,a,1,a,a,a).
+\]
+
+Then
+
+\[
+ds^2=a^2\left[(dx^0)^2+(dx^1)^2+(dx^2)^2+(dx^3)^2
+-(dy^1)^2-(dy^2)^2-(dy^3)^2\right]-dt^2.
+\]
+
+The metric has four positive and four negative directions. A constant-time slice has signature \texttt{\detokenize{(4,3)}}, not the positive-definite spatial signature of ordinary FLRW cosmology.
+
+\subsection{Worked example W17: Reconstructing the metric from the frame}
+
+The first diagonal entry is
+
+\[
+g_{00}=e_0{}^0\eta_{00}e_0{}^0=a\cdot1\cdot a=a^2.
+\]
+
+The evolution entry is
+
+\[
+g_{44}=e_4{}^4\eta_{44}e_4{}^4=1\cdot(-1)\cdot1=-1.
+\]
+
+The final entry is
+
+\[
+g_{77}=a\cdot(-1)\cdot a=-a^2.
+\]
+
+The off-diagonal entries vanish because both \texttt{\detokenize{e}} and \texttt{\detokenize{eta}} are diagonal.
+
+\subsection{Levi-Civita and spin connections}
+
+The torsion-free metric connection has Christoffel symbols
+
+\[
+\Gamma^\rho{}_{\mu\nu}
+=\frac12g^{\rho\sigma}
+(\partial_\mu g_{\nu\sigma}+\partial_\nu g_{\mu\sigma}
+-\partial_\sigma g_{\mu\nu}).
+\]
+
+Writing \texttt{\detokenize{H=adot/a}}, the nonzero coefficients for transverse indices \texttt{\detokenize{I}} are
+
+\[
+\Gamma^4{}_{II}=\eta_{II}a\dot a,
+\qquad
+\Gamma^I{}_{4I}=\Gamma^I{}_{I4}=H.
+\]
+
+The vielbein postulate determines the spin connection:
+
+\[
+\partial_\mu e_\nu{}^a
+-\Gamma^\rho{}_{\mu\nu}e_\rho{}^a
++\omega_\mu{}^a{}_b e_\nu{}^b=0.
+\]
+
+The spinor covariant derivative is
+
+\[
+D^{LC}_\mu\psi
+=\partial_\mu\psi
++\frac18\omega_{\mu ab}[\gamma^a,\gamma^b]\psi.
+\]
+
+Both ordered tangent indices are summed. If only \texttt{\detokenize{a<b}} were summed, the coefficient would be \texttt{\detokenize{1/4}}.
+
+\subsection{The spinor bundle}
+
+Assume the manifold admits a spin structure. The real spinor bundle is
+
+\[
+\mathcal S=P_{\operatorname{Spin}(4,4)}(M)
+\mathbin{\times}_\rho\Delta_{\mathbb R}.
+\]
+
+The fiber is the 16-dimensional module constructed in Section 6, and
+
+\[
+\Delta_{\mathbb R}=\Delta_+\oplus\Delta_-.
+\]
+
+Thus the type-one and type-two eight-component fields are the two chiral summands of one rank-16 bundle. Exact contraction gives
+
+\[
+\gamma^\mu D^{LC}_\mu\psi
+=\gamma^4\left(\partial_t+\frac72H\right)\psi
+\]
+
+for a homogeneous field.
+
+\subsection{Verification record V9: Curved spin geometry}
+
+The exact fixture records 21 nonzero Christoffel components and 14 nonzero lowered spin-connection components. Python checks 16 independent identities, and Wolfram checks 11, including every component of the vielbein postulate and the \texttt{\detokenize{7H/2}} contraction.
+
+\subsection{Misconception check M16: A vielbein is not unique}
+
+A local \texttt{\detokenize{SO(4,4)}} transformation changes the frame without changing the metric. The displayed diagonal frame is a declared gauge choice, not a frame uniquely forced by \texttt{\detokenize{g}}.
+
+\section{Numerical study III: coupled Einstein-spinor gravity}
+
+\subsection{Action and invariant condensate}
+
+Define
+
+\[
+C=\gamma_1^+\gamma_2^+\gamma_3^+\gamma_4^+,
+\qquad
+\bar\psi=\psi^{\mathsf T}C,
+\qquad
+S=\bar\psi\psi.
+\]
+
+The classical components commute. The action is
+
+\[
+I=\int d^8x\sqrt{|g|}\left[
+\frac{R}{2\kappa_8}
++\frac12(\bar\psi\gamma^\mu D^{LC}_\mu\psi
+-(D^{LC}_\mu\bar\psi)\gamma^\mu\psi)-V(S)\right].
+\]
+
+There is no quintessence scalar and no cosmological constant.
+
+\subsection{Potential, density, and pressure}
+
+Choose
+
+\[
+V(S)=\frac1{20}S+\frac{19}{20}S^{1/5}.
+\]
+
+For a homogeneous solution,
+
+\[
+\rho=V(S),
+\qquad
+p=SV'(S)-V(S)=-\frac45\frac{19}{20}S^{1/5}.
+\]
+
+The linear term has zero pressure. The fractional-power term has equation of state \texttt{\detokenize{-4/5}} when considered separately.
+
+\subsection{Worked example W18: Present-epoch dark-sector fractions}
+
+At \texttt{\detokenize{S=1}},
+
+\[
+\rho=\frac1{20}+\frac{19}{20}=1,
+\]
+
+\[
+p=-\frac45\frac{19}{20}=-\frac{19}{25}=-0.76.
+\]
+
+The linear fraction is \texttt{\detokenize{1/20=0.05}}, and the negative-pressure fraction is \texttt{\detokenize{19/20=0.95}}.
+
+\subsection{Reduced field equations}
+
+With \texttt{\detokenize{kappa_8=21}}, the two gravitational equations are
+
+\[
+21H^2=\kappa_8\rho,
+\]
+
+\[
+6\dot H+21H^2=-\kappa_8p.
+\]
+
+The spinor equation is
+
+\[
+\dot\psi=-\frac72H\psi-V'(S)\gamma^4\psi.
+\]
+
+Since \texttt{\detokenize{gamma^4}} is skew-adjoint for \texttt{\detokenize{C}},
+
+\[
+\dot S=-7HS,
+\qquad S=a^{-7}.
+\]
+
+\subsection{Verified numerical result}
+
+The 18-state CVODE solution contains 171 samples on \texttt{\detokenize{-0.2 <= t <= 1.5}}. The canonical run uses 1,372 steps and 1,486 right-hand-side evaluations. Maximum relative condensate, density, and Friedmann errors are below \texttt{\detokenize{7.5e-9}}. The acceleration transition is
+
+\[
+t=-0.1380052933032450,
+\qquad a=0.8631436165767085.
+\]
+
+\subsection{Verification record V10: Einstein-spinor dynamics}
+
+Four exact checks derive the stress and Einstein tensors. Four Rust tests and 24 release checks recompute all thermodynamic fields, both gravitational equations, all 18 state equations by five-point differences, deterministic replay, and tighter-tolerance convergence.
+
+\subsection{Misconception check M17: Dust-like is not observed dark matter}
+
+The linear term has the homogeneous scaling and pressure of dust in seven transverse dimensions. The calculation does not provide clustering, halos, particle phenomenology, or a reduction to observed spacetime.
+
+\section{Weitzenböck connection and teleparallel gravity}
+
+\subsection{Flat connection with torsion}
+
+In a selected proper frame, set the inertial tangent connection to zero and define
+
+\[
+\Gamma^\rho{}_{W\,\mu\nu}
+=e_a{}^\rho\partial_\mu e_\nu{}^a.
+\]
+
+The only nonzero coefficients are
+
+\[
+\Gamma^I{}_{W\,4I}=H.
+\]
+
+This connection is metric-compatible and has zero curvature, but its torsion
+
+\[
+T^\rho{}_{\mu\nu}
+=\Gamma^\rho{}_{W\,\mu\nu}-\Gamma^\rho{}_{W\,\nu\mu}
+\]
+
+is nonzero:
+
+\[
+T^I{}_{4I}=H,
+\qquad T^I{}_{I4}=-H.
+\]
+
+\subsection{Contortion and gauge covariance}
+
+Define
+
+\[
+K^\rho{}_{\mu\nu}
+=\Gamma^\rho{}_{W\,\mu\nu}-\Gamma^\rho{}_{LC\,\mu\nu}.
+\]
+
+Then \texttt{\detokenize{GammaW=GammaLC+K}}. The spin lifts satisfy
+
+\[
+\Omega_W=\Omega_{LC}+K_{\rm spin}=0
+\]
+
+in the selected gauge. A local Lorentz transformation generally produces a nonzero pure-gauge inertial connection. Therefore zero coefficients do not mean that the geometric connection or gravity has disappeared.
+
+\subsection{Worked example W19: Torsion trace and scalar}
+
+Summing the seven transverse torsion components gives
+
+\[
+	au_4=T^\nu{}_{4\nu}=7H.
+\]
+
+The quadratic torsion scalar evaluates to
+
+\[
+\mathbb T=42H^2.
+\]
+
+At \texttt{\detokenize{H=1}}, these are \texttt{\detokenize{tau_4=7}} and \texttt{\detokenize{T=42}}.
+
+\subsection{The teleparallel boundary identity}
+
+Exact contraction gives
+
+\[
+R_{LC}=14\dot H+56H^2,
+\]
+
+\[
+B=14\dot H+98H^2,
+\]
+
+and therefore
+
+\[
+\boxed{R_{LC}=-\mathbb T+B.}
+\]
+
+The TEGR action \texttt{\detokenize{-T/(2 kappa_8)}} differs from the Einstein-Hilbert action by the boundary divergence \texttt{\detokenize{B}}.
+
+\subsection{Hermitian spinor equation}
+
+The symmetric spinor action in torsionful geometry yields
+
+\[
+\gamma^\mu\left(D^W_\mu+\frac12\tau_\mu\right)\psi
+-V'(S)\psi=0.
+\]
+
+In the selected gauge \texttt{\detokenize{OmegaW=0}}, but \texttt{\detokenize{tau_4/2=7H/2}}. Hence the homogeneous operator equals the Levi-Civita operator. Simply deleting the canonical spin connection without retaining the torsion-trace term would not follow from the action.
+
+\subsection{Verification record V11: Weitzenböck geometry}
+
+The generator passes 15 exact checks. Independent Python and Wolfram paths check 21 and 15 identities, including zero curvature, nonzero torsion, raw spin-connection antisymmetry, contortion, \texttt{\detokenize{R=-T+B}}, and the Dirac-operator identity.
+
+\subsection{Misconception check M18: TEGR torsion is not an extra dark fluid}
+
+In this model torsion rewrites the gravitational sector. Counting it again as independent matter would double-count the same dynamics.
+
+\section{Numerical study IV: independent teleparallel spinor dynamics}
+
+\subsection{Independent implementation}
+
+The Phase 6 application generates \texttt{\detokenize{C}} and \texttt{\detokenize{gamma^4}} directly from exact fixtures and owns its state, right-hand side, and CVODE setup. It does not call the Levi-Civita application. Equality of results is therefore tested rather than built in by delegation.
+
+\subsection{Emitted teleparallel diagnostics}
+
+Every one of the 171 rows records
+
+\[
+\dot H,\quad\tau_4,\quad\mathbb T,\quad R_{LC},\quad B,
+\quad R_{LC}+\mathbb T-B,
+\]
+
+and the difference between the Weitzenböck and Levi-Civita homogeneous Dirac coefficients.
+
+\subsection{Worked example W20: Checking the present boundary identity}
+
+At the normalized epoch, \texttt{\detokenize{H=1}} and \texttt{\detokenize{Hdot=-21/25}}. Therefore
+
+\[
+\mathbb T=42,
+\]
+
+\[
+R_{LC}=14\left(-\frac{21}{25}\right)+56=\frac{1106}{25},
+\]
+
+\[
+B=14\left(-\frac{21}{25}\right)+98=\frac{2156}{25}.
+\]
+
+Indeed \texttt{\detokenize{R_LC+T-B=0}} exactly.
+
+\subsection{Verified equivalence and convergence}
+
+All serialized times and 18 state components agree exactly with the canonical Einstein-spinor output. The maximum floating boundary residual is \texttt{\detokenize{2.842170943040401e-14}}, and the Dirac-coefficient residual is zero. The refined run changes normalized state components by at most \texttt{\detokenize{6.310776406656671e-10}}.
+
+\subsection{Verification record V12: Teleparallel dynamics}
+
+Thirteen exact action and field-equation checks cover three rational condensates. Seven Rust tests exercise the independently owned solver. Thirty- four output checks include all state equations, every teleparallel column, byte replay, baseline comparison, and refined convergence.
+
+\subsection{Scientific boundary}
+
+The linear potential term is dust-like and the fractional term is negative-pressure-like in the homogeneous model. Neither is identified with the observed dark sectors. Nonminimal models such as \texttt{\detokenize{f(T)}}, \texttt{\detokenize{f(T,B)}}, or \texttt{\detokenize{F(S)T}} have different field equations and are not results of this study.
+
+\subsection{Misconception check M19: Equivalent backgrounds are not identical geometries}
+
+The two connections have different curvature and torsion. Their homogeneous field equations agree because the actions differ by a boundary term and the Hermitian spinor equations are related by contortion.
+
 \section{Reproducibility and independent evidence}
 
 \subsection{Ownership boundaries}
@@ -1651,7 +2051,7 @@ The Markdown source generates a complete standalone LaTeX document; the TeX does
 
 A SHA-256 digest is a compact fingerprint of bytes. Matching a trusted digest provides strong evidence that bytes did not change. It does not prove that the content is mathematically correct. Correctness comes from definitions, deductions, exhaustive exact checks, numerical comparisons, and review. Hashes then preserve the reviewed object.
 
-\subsection{Misconception check M16: Reproducible is not synonymous with correct}
+\subsection{Misconception check M20: Reproducible is not synonymous with correct}
 
 A mistake can be reproduced perfectly. This project combines reproducibility with independent semantic checks and explicit scientific limitations.
 
@@ -1681,6 +2081,12 @@ representing the outer automorphism group. Its identity is inner; its five nonid
 \item \textbf{Compatibility.} A one-dimensional intertwiner space contains a rank-16
 matrix, proving equivalence of the Clifford actions after a basis change.
 
+\item \textbf{Curved spin geometry.} The complete vielbein postulate, canonical spin
+connection, and rank-16 spinor bundle are checked independently.
+
+\item \textbf{Teleparallel geometry.} Zero curvature, nonzero torsion, contortion,
+\texttt{\detokenize{R_LC=-T+B}}, and equality of the homogeneous Hermitian Dirac operators are exact tensor identities.
+
 \end{itemize}
 
 \subsection{Numerical claims}
@@ -1704,6 +2110,12 @@ field terms give relative error below \texttt{\detokenize{3.1e-11}}. This is der
 \item \textbf{Deterministic replay.} Two release-mode runs are byte-identical in the
 verified Windows and WSL environment.
 
+\item \textbf{Einstein-spinor dynamics.} All 18 equations, the two gravitational
+equations, analytic dilution, acceleration transition, and refined convergence are checked independently.
+
+\item \textbf{Teleparallel dynamics.} An independent application reproduces every
+serialized canonical state value while independently emitting and checking torsion, boundary, and Dirac-equivalence diagnostics.
+
 \end{itemize}
 
 \subsection{Claims deliberately not made}
@@ -1721,15 +2133,18 @@ classified;
 \item that triality explains particle generations;
 \item that one numerical trajectory exhausts possible dynamics;
 \item that historical notebook outputs constitute proof.
+\item that split-signature \texttt{\detokenize{(4,4)}} is the observed spacetime geometry;
+\item that dust-like and negative-pressure terms are observational detections;
+\item that TEGR torsion is an additional dark fluid.
 \end{enumerate}
 
 \subsection{Future work}
 
-Natural next problems include global integration with explicit centers and components, orbit and stabilizer classification for null triality triples, perturbations of the homogeneous background, likelihood analysis with full observational covariance, geometric field equations connecting the internal algebra to physical spacetime, and deterministic comparison on additional platforms.
+Natural next problems include global integration with explicit centers and components, orbit and stabilizer classification for null triality triples, perturbations of the homogeneous background, likelihood analysis with full observational covariance, geometric field equations connecting the internal algebra to physical spacetime, and deterministic comparison on additional platforms, dimensional reduction, and perturbation analysis for both connection formulations.
 
 \section{Exercises}
 
-The exercises use only material defined in this guide. Complete solutions follow in Section 21.
+The exercises use only material defined in this guide. Complete solutions follow in Section 25.
 
 \subsection{Exercise E1: Bilinear form and null vectors}
 
@@ -1802,6 +2217,34 @@ Using the three density parameters in Section 16, verify \texttt{\detokenize{E(0
 \subsection{Exercise E18: Error interpretation}
 
 The largest transport invariant drift is about \texttt{\detokenize{3.1e-12}}, while the acceptance bound is \texttt{\detokenize{1e-8}}. By roughly how many decimal orders is the observed drift smaller? Explain why this comparison is useful but is not a proof of the ODE model's physical validity.
+
+\subsection{Exercise E19: Metric from a vielbein}
+
+For \texttt{\detokenize{eta=diag(1,-1)}} and \texttt{\detokenize{e=diag(a,1)}}, compute \texttt{\detokenize{g=e eta e^T}}. State its signature for positive \texttt{\detokenize{a}}.
+
+\subsection{Exercise E20: Torsion trace}
+
+Suppose there are seven transverse indices and
+
+\[
+T^I{}_{4I}=H,
+\qquad
+T^I{}_{I4}=-H.
+\]
+
+Compute
+
+\[
+	au_4=T^\nu{}_{4\nu}.
+\]
+
+\subsection{Exercise E21: Teleparallel boundary identity}
+
+Using \texttt{\detokenize{T=42H^2}}, \texttt{\detokenize{R=14Hdot+56H^2}}, and \texttt{\detokenize{B=14Hdot+98H^2}}, verify \texttt{\detokenize{R=-T+B}}.
+
+\subsection{Exercise E22: Dust-like and negative-pressure terms}
+
+For \texttt{\detokenize{V(S)=mS+lambda S^q}}, compute \texttt{\detokenize{p=SV'(S)-V(S)}}. Show that the linear term has zero pressure and the power term has \texttt{\detokenize{w=q-1}}.
 
 \section{Complete solutions}
 
@@ -2075,6 +2518,57 @@ The ratio is approximately
 
 Thus the measured drift is about three and a half decimal orders smaller than the acceptance bound. This is strong evidence that the numerical trajectory respects the encoded invariant. It says nothing by itself about whether the encoded ODE is a complete or empirically correct physical model.
 
+\subsection{Solution E19: Metric from a vielbein}
+
+Direct multiplication gives
+
+\[
+g=\begin{pmatrix}a&0\\0&1\end{pmatrix}
+\begin{pmatrix}1&0\\0&-1\end{pmatrix}
+\begin{pmatrix}a&0\\0&1\end{pmatrix}
+=\operatorname{diag}(a^2,-1).
+\]
+
+For positive \texttt{\detokenize{a}}, one eigenvalue is positive and one is negative, so the signature is \texttt{\detokenize{(1,1)}}.
+
+\subsection{Solution E20: Torsion trace}
+
+The trace sums one \texttt{\detokenize{H}} from each transverse direction:
+
+\[
+	au_4=\sum_I T^I{}_{4I}=7H.
+\]
+
+The components \texttt{\detokenize{T^I_(I4)}} do not enter this ordering of the trace.
+
+\subsection{Solution E21: Teleparallel boundary identity}
+
+Substitution gives
+
+\[
+-\mathbb T+B=-42H^2+14\dot H+98H^2
+=14\dot H+56H^2=R.
+\]
+
+Thus the two gravitational Lagrangians differ by the displayed divergence.
+
+\subsection{Solution E22: Dust-like and negative-pressure terms}
+
+Differentiate:
+
+\[
+V'(S)=m+\lambda qS^{q-1}.
+\]
+
+Then
+
+\[
+p=S(m+\lambda qS^{q-1})-(mS+\lambda S^q)
+=(q-1)\lambda S^q.
+\]
+
+The \texttt{\detokenize{mS}} terms cancel, so the linear component has zero pressure. For the power component, \texttt{\detokenize{p_q=(q-1)rho_q}}, hence \texttt{\detokenize{w_q=q-1}}.
+
 \section{Glossary}
 
 \subsection{Algebra}
@@ -2116,6 +2610,10 @@ All linear maps commuting with every matrix in a given action.
 \subsection{Commutator}
 
 The order-sensitive difference \texttt{\detokenize{[A,B]=AB-BA}}.
+
+\subsection{Contortion}
+
+The tensor difference between a metric-compatible torsionful connection and the Levi-Civita connection: \texttt{\detokenize{K=Gamma_W-Gamma_LC}} in this guide.
 
 \subsection{Complete reducibility}
 
@@ -2237,6 +2735,10 @@ The pair \texttt{\detokenize{(p,q)}} counting positive and negative squares in a
 
 The even Clifford group that double-covers the identity component of the special orthogonal group.
 
+\subsection{Spin connection}
+
+A connection on a spinor bundle obtained by lifting a tangent-frame connection through the spin representation.
+
 \subsection{Spinor}
 
 A vector in a module for a spin group or spin Lie algebra. It is not generally a vector in the defining vector representation.
@@ -2257,6 +2759,18 @@ A vector space representing bilinear combinations of two vector spaces; its dime
 
 The exceptional \texttt{\detokenize{D4}} symmetry that permutes the vector and two half-spin 8-dimensional representations while preserving a trilinear relation.
 
+\subsection{Torsion}
+
+The antisymmetric lower-index part of an affine connection, \texttt{\detokenize{T^rho_(mu nu)=Gamma^rho_(mu nu)-Gamma^rho_(nu mu)}}.
+
+\subsection{Teleparallel equivalent of general relativity}
+
+TEGR: a curvature-free, torsion-based formulation whose gravitational action differs from the Einstein-Hilbert action by a boundary divergence.
+
+\subsection{Vielbein}
+
+A local orthonormal frame or coframe relating a coordinate metric to a constant tangent metric by \texttt{\detokenize{g=e eta e^T}}.
+
 \subsection{Volume element}
 
 The ordered product of all Clifford generators; in this case its two eigenspaces define chirality.
@@ -2264,6 +2778,10 @@ The ordered product of all Clifford generators; in this case its two eigenspaces
 \subsection{Zorn model}
 
 A split-octonion construction using two scalars, two 3-vectors, dot products, and cross products.
+
+\subsection{Weitzenböck connection}
+
+A metric-compatible flat connection defined from a frame and a flat inertial tangent connection; in a proper-frame gauge its inertial coefficients vanish while its torsion generally does not.
 
 \section{Notation index}
 
@@ -2299,6 +2817,17 @@ A split-octonion construction using two scalars, two 3-vectors, dot products, an
 \item \texttt{\detokenize{J}}: the exact real skew internal rotation satisfying \texttt{\detokenize{J^2=-I}}.
 \item \texttt{\detokenize{U(S)}}: the reconstructed nonlinear potential.
 \item \texttt{\detokenize{w0,wa}}: the CPL equation-of-state parameters.
+\item \texttt{\detokenize{g_mu nu}}: the curved coordinate metric.
+\item \texttt{\detokenize{e_mu^a}}: the vielbein or eight-dimensional coframe.
+\item \texttt{\detokenize{Gamma_LC}}: the Levi-Civita affine connection.
+\item \texttt{\detokenize{omega_LC}}, \texttt{\detokenize{Omega_LC}}: the tangent and lifted canonical spin connections.
+\item \texttt{\detokenize{Gamma_W}}, \texttt{\detokenize{Omega_W}}: the Weitzenböck affine and inertial spin connections.
+\item \texttt{\detokenize{K}}: the contortion tensor or its spin lift, according to context.
+\item \texttt{\detokenize{tau_mu}}: the torsion trace \texttt{\detokenize{T^nu_(mu nu)}}.
+\item \texttt{\detokenize{mathbb T}}: the quadratic torsion scalar.
+\item \texttt{\detokenize{B}}: the teleparallel boundary divergence.
+\item \texttt{\detokenize{C}}: the invariant split spinor bilinear.
+\item \texttt{\detokenize{bar(psi)}}: the real adjoint \texttt{\detokenize{psi^T C}}.
 \end{itemize}
 
 \section{Reference capsules and bibliography}
@@ -2351,6 +2880,10 @@ SUNDIALS is a suite of numerical solvers for differential and algebraic equation
 
 The CPL form \texttt{\detokenize{w(a)=w0+wa(1-a)}} is a compact two-parameter description of a possibly varying homogeneous equation of state. Combining it with the continuity equation gives the analytic density derived in Section 17. It is a parameterization, not a fundamental field theory. The present work asks a constructive question: can a specified real homogeneous spinor system realize that background while satisfying its own analytic identities? It does not use CPL as evidence that the realization is unique or observationally selected.
 
+\subsection{Teleparallel gravity capsule}
+
+The Levi-Civita connection is metric-compatible and torsion-free, with gravity encoded in curvature. A Weitzenböck connection can instead be metric-compatible and curvature-free, with gravity encoded in torsion. In TEGR, a specific quadratic torsion scalar differs from the Levi-Civita scalar curvature by a boundary divergence. Covariant teleparallel calculations keep both the frame and its flat inertial connection; setting the inertial connection to zero is a gauge choice tied to a proper frame.
+
 \subsection{Bibliography}
 
 \begin{enumerate}
@@ -2381,13 +2914,19 @@ Dark Matter," \emph{International Journal of Modern Physics D} 10 (2001), 213-22
 \item Eric V. Linder, "Exploring the Expansion History of the Universe,"
 \emph{Physical Review Letters} 90 (2003), 091301.
 
+\item Ruben Aldrovandi and Jose G. Pereira, *Teleparallel Gravity: An
+Introduction*, Springer, 2013.
+
+\item Martin Krssak et al., "Teleparallel Theories of Gravity: Illuminating a
+Fully Invariant Approach," \emph{Classical and Quantum Gravity} 36 (2019), 183001.
+
 \end{enumerate}
 
 \section{Conclusion}
 
 Starting with matrices and calculus, we built the full chain of ideas needed to understand the project. A quadratic form of signature \texttt{\detokenize{(4,4)}} determines a Clifford algebra. Eight explicit tensor-product matrices realize it as \texttt{\detokenize{Mat_16(R)}}. The volume element splits the spin action into two inequivalent 8-dimensional half-spin modules. Independently, Zorn data defines a split composition algebra whose para-product supplies a cyclic trilinear form. Related triples recover \texttt{\detokenize{so(4,4)}}, and an exact \texttt{\detokenize{S3}} representing the outer automorphism group permutes the vector and half-spin modules; its five nonidentity elements are outer. A rank-16 intertwiner proves that the Clifford and split-octonion actions are compatible descriptions of the same representation-theoretic structure.
 
-The numerical studies then use, rather than merely display, the exact tensors. The 24-state flow preserves the defining triality invariants. The 18-state spinor system reproduces a derived homogeneous CPL background and its condensate, potential, and Friedmann-expression consistency diagnostics. In each case the conclusion is no larger than the hypotheses and checks.
+The numerical studies then use, rather than merely display, the exact tensors. The 24-state flow preserves the defining triality invariants. The first 18-state spinor system reproduces a derived homogeneous CPL background. The curved construction distinguishes \texttt{\detokenize{eta}}, \texttt{\detokenize{g}}, the vielbein, and the canonical spin connection. A coupled Einstein-spinor system and an independently coded Weitzenböck system agree exactly at every serialized state because exact contortion, boundary, and Hermitian Dirac identities relate their actions. The linear and fractional potential terms are dust-like and negative-pressure-like only within this homogeneous split-signature model. In each case the conclusion is no larger than the hypotheses and checks.
 
 The enduring technique is the combination of independent constructions, exact finite verification, invariant-based numerical testing, explicit scope, and reproducible publication. That technique is accessible with elementary linear algebra once every bridge is made visible, and it remains useful far beyond this particular example.
 

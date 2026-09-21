@@ -9,10 +9,10 @@ from scripts import build_dissertation_tex
 
 REPOSITORY_ROOT = Path(__file__).resolve().parent.parent
 ORIGINAL_MARKDOWN_SHA256 = (
-    "47d280353a02c37778775720cf2459b9866510bc89ddb1bbb83c6da2d3504b97"
+    "44b76c2d872598ad1b038a8d4ad1293b18885ab228297c921579daa86eeb1381"
 )
 ORIGINAL_TEX_SHA256 = (
-    "414b966295ae8f5092553c1af5f339683a67bf8ed77844eb118751713795bfd0"
+    "12df60627b5f11b09ccbbadd9ca38fd2ce7efcfccd769f69fd8280b78a6cec38"
 )
 
 
@@ -21,7 +21,7 @@ def sha256(content: bytes) -> str:
 
 
 class DissertationBuilderTests(unittest.TestCase):
-    def test_original_source_and_generated_tex_remain_frozen(self) -> None:
+    def test_source_and_generated_tex_are_canonical(self) -> None:
         markdown_path = REPOSITORY_ROOT / "dissertation" / "dirac-triality.md"
         tex_path = REPOSITORY_ROOT / "dissertation" / "dirac-triality.tex"
         markdown_bytes = markdown_path.read_bytes()

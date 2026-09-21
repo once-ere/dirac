@@ -11,18 +11,22 @@ from pathlib import Path
 
 PAGE_PATTERN = re.compile(rb"/Type\s*/Page(?!s)\b")
 MEDIA_BOX_PATTERN = re.compile(rb"/MediaBox\s*\[([^]]+)\]")
-ORIGINAL_PDF_SHA256 = "a2a6e366817cb17d4b4ba936a98f5e495a8ca9c0bc012540021bc548847073f3"
-LEARN_PDF_SHA256 = "134bd5dba9751e7972463c17a6074a3ac440d031c1a4a9ae44212a8d8fbcf521"
+ORIGINAL_PDF_SHA256 = (
+    "8531af531c91fbf366fbcb30759da63e3881dcc241931698a9f6ee3a6ae0b69e"
+)
+LEARN_PDF_SHA256 = (
+    "7c683b51445a3b4964b244ea3e232bc0ba3f745b5427308b59a80d1532e19ff9"
+)
 EXPECTED_PDF_SHA256 = ORIGINAL_PDF_SHA256
 PDF_SPECIFICATIONS = {
     "original": {
         "path": Path("dissertation/dirac-triality.pdf"),
-        "pages": 13,
+        "pages": 19,
         "sha256": ORIGINAL_PDF_SHA256,
     },
     "learn": {
         "path": Path("dissertation/Learn_dirac-triality.pdf"),
-        "pages": 62,
+        "pages": 74,
         "sha256": LEARN_PDF_SHA256,
     },
 }
@@ -111,7 +115,9 @@ def main() -> int:
         arguments.expected_height,
         expected_sha256,
     )
-    failures = [name for name, passed in report["checks"].items() if not passed]
+    failures = [
+        name for name, passed in report["checks"].items() if not passed
+    ]
     for name, passed in report["checks"].items():
         print(f"check_{name}={str(passed).lower()}")
     for name, value in report["measurements"].items():

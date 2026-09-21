@@ -1,6 +1,6 @@
-# Real Clifford Algebra, Split Octonions, and Triality in Signature (4,4)
+# Real Clifford Algebra, Triality, and Spinor Gravity in Signature (4,4)
 
-## A reproducible exact and numerical study
+## A reproducible exact, geometric, and numerical study
 
 ### Abstract
 
@@ -21,13 +21,26 @@ dimension 28; all three projections are isomorphisms, their eight-dimensional
 representations are irreducible and pairwise inequivalent, and exact outer
 operators generate a six-element permutation group.
 
-Two pure-Rust SUNDIALS CVODE studies accompany the exact work. A 24-state
+Four pure-Rust SUNDIALS CVODE studies accompany the exact work. A 24-state
 transport problem evolves the vector and both half-spin states through one
 noncommuting Lie-algebra path and preserves all four triality invariants. An
 18-state real homogeneous spinor cosmology reconstructs a CPL background and
 is checked against analytic dilution, density, potential, and Friedmann
-identities. Every result is generated from hash-pinned source, checked by two
-independent implementations where practical, and reproduced byte-for-byte.
+identities.
+
+The exact representation is then placed on a curved split-signature
+eight-manifold. A diagonal vielbein determines the curved metric, canonical
+Levi-Civita spin connection, and rank-16 real spinor bundle. A third 18-state
+study couples a commuting classical real spinor directly to the Einstein
+equations without a scalar field or cosmological constant. Finally, the
+canonical connection is replaced by a flat, metric-compatible, torsionful
+Weitzenböck connection. Exact Python and Wolfram calculations prove the
+contortion relation, the teleparallel boundary identity, and equality of the
+homogeneous Hermitian Dirac operators. An independently implemented fourth
+CVODE study reproduces the canonical state history byte-for-byte while
+emitting torsion and boundary diagnostics. Every result is generated from
+hash-pinned source, independently checked where practical, and reproduced
+byte-for-byte.
 
 ## 1. Scope and claims
 
@@ -44,11 +57,19 @@ claims are:
    six-element triality action preserving one trilinear form.
 5. The exact tensors can drive reproducible real ODE studies without changing
    the audited CVODE engine.
+6. The real rank-16 module defines a spinor bundle on an explicit curved
+   `(4,4)` manifold, with canonical Levi-Civita and inertial Weitzenböck spin
+   connections related by contortion.
+7. A nonlinear classical-spinor potential supplies dust-like and
+   negative-pressure homogeneous effective-fluid terms in both the Einstein
+   and teleparallel formulations.
 
 The work does not claim a classification of cosmological observations, a
-microscopic derivation of dark energy, perturbative stability, or a particle
-generation mechanism. Those questions require additional mathematics and
-data. Historical notebooks are treated as provenance and motivation, never as
+microscopic derivation of dark energy, perturbative stability, dimensional
+reduction to observed `(3,1)` spacetime, or a particle generation mechanism.
+The terms "dust-like" and "negative-pressure" describe the homogeneous model;
+they are not observational identifications of dark matter or dark energy.
+Historical notebooks are treated as provenance and motivation, never as
 proof.
 
 ## 2. Real Clifford algebra in split signature
@@ -527,7 +548,410 @@ The calculation establishes a homogeneous background realization. It does not
 establish perturbative stability. The region with `w<-1` particularly requires
 an independent analysis of fluctuations and admissible initial data.
 
-## 13. Reproducibility architecture
+## 13. Curved Spin(4,4) geometry and the canonical spin connection
+
+Let `M` be an oriented, time-oriented, spin eight-manifold with tangent metric
+
+$$
+\eta_{ab}=\operatorname{diag}(1,1,1,1,-1,-1,-1,-1).
+$$
+
+Use coordinates
+
+```text
+(x0,x1,x2,x3,t,y1,y2,y3)
+```
+
+and choose a positive scale factor `a(t)`. The explicit curved metric is
+
+$$
+ds^2=a(t)^2\left[(dx^0)^2+(dx^1)^2+(dx^2)^2+(dx^3)^2
+-(dy^1)^2-(dy^2)^2-(dy^3)^2\right]-dt^2.
+$$
+
+The selected diagonal coframe and its inverse are
+
+$$
+e_\mu{}^a=\operatorname{diag}(a,a,a,a,1,a,a,a),
+$$
+
+$$
+e_a{}^\mu=\operatorname{diag}
+(a^{-1},a^{-1},a^{-1},a^{-1},1,a^{-1},a^{-1},a^{-1}).
+$$
+
+They satisfy the defining vielbein relation
+
+$$
+g_{\mu\nu}=e_\mu{}^a\eta_{ab}e_\nu{}^b.
+$$
+
+The associated real spinor bundle is
+
+$$
+\mathcal S=P_{\operatorname{Spin}(4,4)}(M)
+\mathbin{\times}_\rho\Delta_{\mathbb R},
+\qquad
+\Delta_{\mathbb R}=\Delta_+\oplus\Delta_-.
+$$
+
+Thus a field `psi` is a section of a rank-16 real bundle whose two chiral
+summands have rank eight. A global construction requires the spin-structure
+assumption; the displayed frame is a local gauge choice.
+
+Define
+
+$$
+H=\frac{\dot a}{a}.
+$$
+
+The Levi-Civita Christoffel symbols are
+
+$$
+\Gamma^\rho{}_{\mu\nu}
+=\frac12g^{\rho\sigma}
+\left(\partial_\mu g_{\nu\sigma}
++\partial_\nu g_{\mu\sigma}
+-\partial_\sigma g_{\mu\nu}\right).
+$$
+
+For transverse indices `I` in `{0,1,2,3,5,6,7}`, the nonzero components are
+
+$$
+\Gamma^4{}_{II}=\eta_{II}a\dot a,
+\qquad
+\Gamma^I{}_{4I}=\Gamma^I{}_{I4}=H.
+$$
+
+The vielbein postulate
+
+$$
+\partial_\mu e_\nu{}^a
+-\Gamma^\rho{}_{\mu\nu}e_\rho{}^a
++\omega_\mu{}^a{}_b e_\nu{}^b=0
+$$
+
+gives the canonical spin connection
+
+$$
+\omega_\mu{}^a{}_b
+=e_b{}^\nu\left(
+\Gamma^\rho{}_{\mu\nu}e_\rho{}^a
+-\partial_\mu e_\nu{}^a\right).
+$$
+
+Its nonzero lowered components are
+
+$$
+\omega_{II4}=\eta_{II}\dot a,
+\qquad
+\omega_{I4I}=-\eta_{II}\dot a.
+$$
+
+The spinor derivative is
+
+$$
+D^{LC}_\mu\psi
+=\partial_\mu\psi
++\frac18\omega_{\mu ab}[\gamma^a,\gamma^b]\psi,
+$$
+
+where both ordered tangent indices are summed. Exact contraction gives
+
+$$
+\gamma^\mu D^{LC}_\mu\psi
+=\gamma^4\left(\partial_t+\frac72H\right)\psi
+$$
+
+for a homogeneous spinor. Independent Python and Wolfram derivations verify
+all components of the vielbein postulate, connection antisymmetry, chirality
+preservation, and this contracted operator.
+
+The geometry has signature `(4,4)`. Its constant-time slices have signature
+`(4,3)`, so it is not ordinary one-time cosmology.
+
+## 14. Numerical study III: coupled Einstein-spinor dynamics
+
+Let
+
+$$
+C=\gamma_1^+\gamma_2^+\gamma_3^+\gamma_4^+,
+\qquad
+\bar\psi=\psi^{\mathsf T}C,
+\qquad
+S=\bar\psi\psi.
+$$
+
+The symmetric bilinear `C` has signature `(8,8)` and is invariant under the
+local spin action. The classical commuting-spinor action is
+
+$$
+I=\int_Md^8x\sqrt{|g|}\left[
+\frac{R}{2\kappa_8}
++\frac12\left(
+\bar\psi\gamma^\mu D^{LC}_\mu\psi
+-(D^{LC}_\mu\bar\psi)\gamma^\mu\psi
+\right)-V(S)\right].
+$$
+
+No scalar field and no cosmological constant occur. Choose
+
+$$
+V(S)=mS+\lambda S^q,
+\qquad
+\kappa_8=21,
+\quad m=\frac1{20},
+\quad \lambda=\frac{19}{20},
+\quad q=\frac15.
+$$
+
+The homogeneous density and pressure are
+
+$$
+\rho=V(S),
+\qquad
+p=SV'(S)-V(S)=(q-1)\lambda S^q.
+$$
+
+The reduced Einstein equations are
+
+$$
+21H^2=\kappa_8\rho,
+$$
+
+$$
+6\dot H+21H^2=-\kappa_8p.
+$$
+
+The homogeneous spinor equation is
+
+$$
+\dot\psi=-\frac72H\psi-V'(S)\gamma^4\psi.
+$$
+
+Skew-adjointness of `gamma^4` with respect to `C` implies
+
+$$
+\dot S=-7HS,
+\qquad
+S(a)=a^{-7}
+$$
+
+for `S(1)=1`. Consequently
+
+$$
+\rho(a)=ma^{-7}+\lambda a^{-7q}.
+$$
+
+The first term has zero homogeneous pressure and dilutes as seven-dimensional
+dust. The second has equation of state
+
+$$
+w_q=q-1=-\frac45
+$$
+
+and dilutes more slowly.
+
+The state
+
+$$
+y=(a,H,\psi_0,\ldots,\psi_{15})\in\mathbb R^{18}
+$$
+
+is integrated from `t=0` to `t=-0.2` and `t=1.5`, then joined into 171
+ordered samples. The canonical run uses relative tolerance `1e-11`, absolute
+tolerance `1e-13`, maximum step `0.002`, 1,372 internal steps, and 1,486
+right-hand-side evaluations. Maximum relative errors are below `7.5e-9` for
+condensate dilution, density reconstruction, and Friedmann closure. A refined
+run uses `1e-12`, `1e-14`, and maximum step `0.001`.
+
+At the normalized epoch,
+
+$$
+S=\rho=H=1,
+\qquad
+p=w=-0.76,
+$$
+
+with dust-like fraction `0.05` and negative-pressure fraction `0.95`. The
+acceleration changes sign at
+
+$$
+t=-0.1380052933032450,
+\qquad
+a=0.8631436165767085.
+$$
+
+These labels describe homogeneous effective-fluid behavior. The calculation
+does not establish clustering, perturbative stability, dimensional reduction,
+or agreement with observational data.
+
+## 15. Weitzenböck spin connection and teleparallel equivalence
+
+For a coframe `e` and a flat inertial tangent connection
+`omegaW_mu^a_b`, define
+
+$$
+\Gamma^\rho{}_{W\,\mu\nu}
+=e_a{}^\rho\left(
+\partial_\mu e_\nu{}^a
++\omega^a{}_{W\,\mu b}e_\nu{}^b\right).
+$$
+
+In the selected diagonal proper-frame gauge,
+
+$$
+\omega^a{}_{W\,\mu b}=0,
+\qquad
+\Gamma^\rho{}_{W\,\mu\nu}
+=e_a{}^\rho\partial_\mu e_\nu{}^a.
+$$
+
+The only nonzero affine coefficients are
+
+$$
+\Gamma^I{}_{W\,4I}=H.
+$$
+
+The connection is metric-compatible and curvature-free. With
+
+$$
+T^\rho{}_{\mu\nu}
+=\Gamma^\rho{}_{W\,\mu\nu}
+-\Gamma^\rho{}_{W\,\nu\mu},
+$$
+
+its nonzero torsion components are
+
+$$
+T^I{}_{4I}=H,
+\qquad
+T^I{}_{I4}=-H.
+$$
+
+The torsion trace used by the spinor equation is
+
+$$
+	au_\mu=T^\nu{}_{\mu\nu},
+\qquad
+	au_4=7H,
+\qquad
+	au_I=0.
+$$
+
+Define contortion by
+
+$$
+K^\rho{}_{\mu\nu}
+=\Gamma^\rho{}_{W\,\mu\nu}
+-\Gamma^\rho{}_{LC\,\mu\nu}.
+$$
+
+Then
+
+$$
+\Gamma_W=\Gamma_{LC}+K,
+$$
+
+and the corresponding spin lifts obey
+
+$$
+\Omega_W=\Omega_{LC}+K_{\mathrm{spin}}=0
+$$
+
+in the selected gauge. The zero representative is gauge-dependent. Under a
+local Lorentz transformation it becomes a generally nonzero pure-gauge
+connection; it must not be interpreted as an invariant absence of gravity.
+
+The torsion scalar is
+
+$$
+\mathbb T=
+\frac14T^\rho{}_{\mu\nu}T_\rho{}^{\mu\nu}
++\frac12T^\rho{}_{\mu\nu}T^{\nu\mu}{}_\rho
+-\tau_\mu\tau^\mu
+=42H^2.
+$$
+
+The Levi-Civita scalar curvature and teleparallel boundary term are
+
+$$
+R_{LC}=14\dot H+56H^2,
+$$
+
+$$
+B=14\dot H+98H^2,
+$$
+
+so
+
+$$
+\boxed{R_{LC}=-\mathbb T+B.}
+$$
+
+The TEGR gravitational action is therefore
+
+$$
+I_g=-\frac1{2\kappa_8}\int_Md^8x\,e\,\mathbb T,
+$$
+
+which differs from the Einstein-Hilbert action by a boundary divergence.
+
+For the symmetric spinor action, integration by parts in the torsionful
+geometry contributes half the torsion trace. The Euler-Lagrange equation is
+
+$$
+\gamma^\mu\left(D^W_\mu+\frac12\tau_\mu\right)\psi
+-V'(S)\psi=0.
+$$
+
+Since `OmegaW=0` in the selected gauge,
+
+$$
+\gamma^\mu\left(D^W_\mu+\frac12\tau_\mu\right)\psi
+=\gamma^4\left(\partial_t+\frac72H\right)\psi.
+$$
+
+Thus the homogeneous Hermitian Weitzenböck and Levi-Civita Dirac operators
+agree although the underlying connections have different curvature and
+torsion.
+
+## 16. Numerical study IV: independent teleparallel spinor dynamics
+
+The Phase 6 application owns its matrices, state types, right-hand side, and
+CVODE setup. It generates `C` and `gamma^4` directly from the exact fixtures
+and depends only on the pinned solver crates. It does not call the canonical
+Einstein-spinor application.
+
+The teleparallel field equations reduce to the same 18 first-order equations
+only after the boundary and Hermitian Dirac identities are proved. The
+independent canonical run emits, at every sample,
+
+$$
+\dot H,
+\quad \tau_4,
+\quad \mathbb T,
+\quad R_{LC},
+\quad B,
+\quad R_{LC}+\mathbb T-B,
+$$
+
+and the difference between the two homogeneous Dirac coefficients.
+
+All 171 serialized times and state components agree exactly with the
+Levi-Civita run. The maximum boundary-identity residual is
+`2.842170943040401e-14`, and the homogeneous Dirac-coefficient residual is
+exactly zero. Repeated release runs are byte-identical. The refined run differs
+from the canonical state by at most `6.310776406656671e-10` in normalized
+components.
+
+This agreement is a test of teleparallel equivalence for the specified action
+and homogeneous ansatz. The torsion scalar rewrites the gravitational sector;
+it is not counted as an additional dark fluid. Nonminimal terms such as
+`F(S) T`, `G(S) B`, `f(T)`, or `f(T,B)` would define different theories and
+are not included.
+
+## 17. Reproducibility architecture
 
 The repository separates evidence by ownership boundary:
 
@@ -540,11 +964,14 @@ The repository separates evidence by ownership boundary:
 - `provenance/` contains complete commands for each published artifact.
 
 The exact fixtures are generated twice and compared by SHA-256. Independent
-Python programs reconstruct their defining identities. Each numerical study is
-run twice in release mode; semantic checkers recompute invariants from CSV and
-require byte-identical replay. PowerShell and WSL entry points are both tested.
+Python and Wolfram programs reconstruct their defining identities. Each
+numerical study is run twice in release mode; semantic checkers recompute
+invariants from CSV and require byte-identical replay. The two gravitational
+studies also use tighter-tolerance convergence runs. The generated Mathematica
+notebook executes 20 input cells with nine fail-fast checks. PowerShell and
+Git Bash entry points are both tested from anonymous recursive clones.
 
-## 14. Scientific limitations and future work
+## 18. Scientific limitations and future work
 
 The exact algebraic conclusions are finite computations over integers and
 rational numbers. The numerical conclusions are consistency results for two
@@ -559,10 +986,14 @@ Future work should address:
 3. perturbations of the homogeneous spinor background;
 4. data likelihoods with published covariance rather than central values;
 5. geometric field equations coupling the split-signature internal structure
-   to a physical spacetime model;
+   to a physical `(3,1)` spacetime model and a justified compactification;
 6. independent numerical comparison on additional platforms.
+7. perturbations and stability for both the Levi-Civita and teleparallel
+   spinor backgrounds;
+8. nonminimal torsion-spinor models treated as distinct theories rather than
+   inferred from TEGR.
 
-## 15. Conclusion
+## 19. Conclusion
 
 The project establishes, in one reproducible real framework, the exact
 relationship among `Cl(4,4)`, its 16-dimensional module, the two real
@@ -572,10 +1003,19 @@ irreducible, its restriction to the spin group splits, and the three
 eight-dimensional fundamental modules are inequivalent until permuted by an
 outer automorphism.
 
-The two numerical studies demonstrate how these exact tensors can enter
-application-owned CVODE models without changing the solver. Their invariants,
-analytic comparisons, hashes, and limitations are all part of the published
-result.
+The four numerical studies demonstrate how these exact tensors enter
+application-owned CVODE models without changing the audited solver. The curved
+construction distinguishes the tangent metric, coordinate metric, vielbein,
+Levi-Civita spin connection, and inertial Weitzenböck connection. Exact
+contortion and boundary identities explain why two independently implemented
+gravitational studies produce the same homogeneous state history.
+
+The nonlinear spinor potential separates into dust-like and
+negative-pressure homogeneous terms without introducing a scalar field or
+cosmological constant. Those are precise properties of the stated classical
+model, not observational detections. The invariants, analytic comparisons,
+hashes, convergence tests, gauge qualifications, and scientific limitations
+are all part of the published result.
 
 ## References
 
@@ -596,3 +1036,7 @@ Matter," *International Journal of Modern Physics D* 10 (2001), 213--223.
 9. E. V. Linder, "Exploring the Expansion History of the Universe,"
    *Physical Review Letters* 90 (2003), 091301.
 10. Camilleri et al., *Supernovae Unite*, arXiv:2609.05053v2.
+11. R. Aldrovandi and J. G. Pereira, *Teleparallel Gravity: An Introduction*,
+   Springer (2013).
+12. M. Krssak et al., "Teleparallel Theories of Gravity: Illuminating a Fully
+   Invariant Approach," *Classical and Quantum Gravity* 36 (2019), 183001.

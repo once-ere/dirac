@@ -14,14 +14,14 @@ if (-not (Get-Command pdflatex.exe -ErrorAction SilentlyContinue)) {
 }
 
 $originalHashes = @{
-    "dissertation\dirac-triality.md" = "47d280353a02c37778775720cf2459b9866510bc89ddb1bbb83c6da2d3504b97"
-    "dissertation\dirac-triality.tex" = "414b966295ae8f5092553c1af5f339683a67bf8ed77844eb118751713795bfd0"
-    "dissertation\dirac-triality.pdf" = "a2a6e366817cb17d4b4ba936a98f5e495a8ca9c0bc012540021bc548847073f3"
+    "dissertation\dirac-triality.md" = "44b76c2d872598ad1b038a8d4ad1293b18885ab228297c921579daa86eeb1381"
+    "dissertation\dirac-triality.tex" = "12df60627b5f11b09ccbbadd9ca38fd2ce7efcfccd769f69fd8280b78a6cec38"
+    "dissertation\dirac-triality.pdf" = "8531af531c91fbf366fbcb30759da63e3881dcc241931698a9f6ee3a6ae0b69e"
 }
 foreach ($entry in $originalHashes.GetEnumerator()) {
     $actual = (Get-FileHash -LiteralPath $entry.Key -Algorithm SHA256).Hash.ToLowerInvariant()
     if ($actual -ne $entry.Value) {
-        throw "Original dissertation drifted: $($entry.Key)"
+        throw "Primary dissertation drifted: $($entry.Key)"
     }
 }
 

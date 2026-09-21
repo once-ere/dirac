@@ -23,8 +23,9 @@ class LearnDissertationTests(unittest.TestCase):
             [name for name, passed in report["checks"].items() if not passed],
             [],
         )
-        self.assertEqual(report["measurements"]["exerciseCount"], 18)
-        self.assertEqual(report["measurements"]["solutionCount"], 18)
+        self.assertEqual(report["measurements"]["exerciseCount"], 22)
+        self.assertEqual(report["measurements"]["solutionCount"], 22)
+        self.assertEqual(report["measurements"]["glossaryEntryCount"], 53)
 
 
 if __name__ == "__main__":
