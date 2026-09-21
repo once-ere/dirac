@@ -1,7 +1,9 @@
 # Implementation progress
 
-Status: Phase 6 is complete and locally verified. Public fresh-clone
-verification is pending the Phase 6 content commit and push.
+Status: Phase 6 content commit
+`369df0a80a9738b50880ea3f20846eebb6249a28` is verified from an anonymous
+public recursive clone. Release-metadata commit and tagged release
+verification are pending.
 
 ## Verified checkpoint
 
@@ -376,7 +378,8 @@ verification is pending the Phase 6 content commit and push.
 
 ### Phase 6: Weitzenböck spin connection and dark-sector dynamics
 
-- Content commit: pending.
+- Publicly verified content commit:
+  `369df0a80a9738b50880ea3f20846eebb6249a28`.
 - Verified release commit and tag: pending public fresh-clone verification.
 - Weitzenböck geometry fixture SHA-256:
   `804f00f31ffa4247fc1e30d8e89df3ea7ddbd7c8d9fe795317bd57155c93774c`.
@@ -400,6 +403,11 @@ verification is pending the Phase 6 content commit and push.
 - Scientific boundary: the mass and self-interaction terms are homogeneous
   dust-like and negative-pressure analogies. TEGR torsion rewrites gravity
   and is not an extra dark fluid. No observational identification is claimed.
+- Public content verification: an anonymous recursive clone passed every
+  PowerShell Phase 0 through Phase 6 gate, the focused Learn gate, and the
+  Phase 6 Bash gate. It reproduced all canonical hashes against solver commit
+  `d1836e6a279d63a90fe2839a0020123245487e76`, had zero tracked/staged drift,
+  and both Git object databases passed `git fsck --full --strict`.
 
 ## Evidence
 
@@ -439,5 +447,6 @@ verification is pending the Phase 6 content commit and push.
 - Vendored SUNDIALS source will remain byte-identical and read-only.
 - Every existing file is backed up and hash-verified before modification.
 
-Next action: commit and push Phase 6, then run the complete Phase 6 gate in an
-anonymous recursive clone and record the verified release commit and tag.
+Next action: commit and push this public-verification record, verify that
+release commit from an anonymous recursive clone, then create and push the
+annotated `phase6-weitzenbock-spinor-green` tag.

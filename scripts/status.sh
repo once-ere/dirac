@@ -47,7 +47,7 @@ printf 'head=%s\n' "$head"
 printf 'dirty_count=%d\n' "${#dirty[@]}"
 printf 'latest_phase_tag=%s\n' "$phase_tag"
 printf 'source_manifest_sha256=%s\n' "$manifest_hash"
-printf '%s\n' 'latest_verification=local phase6 gate; public verification pending'
+printf '%s\n' 'latest_verification=public phase6 content 369df0a80a9738b50880ea3f20846eebb6249a28'
 printf 'next_action=%s\n' "$next_action"
 if ((${#dirty[@]} > 0)); then
     printf '%s\n' 'dirty_files_begin'

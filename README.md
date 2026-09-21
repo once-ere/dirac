@@ -81,6 +81,12 @@ terms as dust-like and negative-pressure homogeneous effective fluids. It
 does not count the TEGR torsion scalar as a separate dark component and makes
 no observational dark-matter or dark-energy claim.
 
+Phase 6 content commit `369df0a80a9738b50880ea3f20846eebb6249a28`
+was rebuilt from an anonymous recursive clone of public `main`. Every Phase 0
+through Phase 6 PowerShell gate, the focused Learn gate, and the Phase 6 Bash
+gate passed with zero tracked drift. Both the repository and recursive solver
+submodule passed strict Git object checks.
+
 Phase 5 content commit `88ce2220c144fa9487243f8d47e961f95f27461e`
 and release commit `f9fef6a47b9cb5767c2f1150e9795798bfe8adef`
 were rebuilt from anonymous recursive clones of public `main`. Every Phase 0

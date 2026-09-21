@@ -52,7 +52,7 @@ Write-Output "head=$head"
 Write-Output "dirty_count=$($dirty.Count)"
 Write-Output "latest_phase_tag=$phaseTag"
 Write-Output "source_manifest_sha256=$manifestHash"
-Write-Output "latest_verification=local phase6 gate; public verification pending"
+Write-Output "latest_verification=public phase6 content 369df0a80a9738b50880ea3f20846eebb6249a28"
 Write-Output "next_action=$nextAction"
 if ($dirty.Count -gt 0) {
     Write-Output "dirty_files_begin"
