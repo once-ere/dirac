@@ -1,0 +1,694 @@
+{
+  "schemaVersion": 1,
+  "cliffordFixtureSha256": "0660e436fdcf90ed0f0481c9a828e92659987f5820084ccbf5e1dfc96866cc54",
+  "baseDimension": 8,
+  "signature": [
+    4,
+    4
+  ],
+  "coordinateOrder": [
+    "x0",
+    "x1",
+    "x2",
+    "x3",
+    "t",
+    "y1",
+    "y2",
+    "y3"
+  ],
+  "timeCoordinateIndexZeroBased": 4,
+  "transverseIndicesZeroBased": [
+    0,
+    1,
+    2,
+    3,
+    5,
+    6,
+    7
+  ],
+  "tangentMetric": [
+    [
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      0,
+      -1,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      0,
+      0,
+      -1,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      -1,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      -1
+    ]
+  ],
+  "metricAnsatz": "g=diag(a(t)^2,a(t)^2,a(t)^2,a(t)^2,-1,-a(t)^2,-a(t)^2,-a(t)^2)",
+  "frameAnsatz": "e_mu^a=diag(a(t),a(t),a(t),a(t),1,a(t),a(t),a(t))",
+  "inverseFrameAnsatz": "e_a^mu=diag(1/a(t),1/a(t),1/a(t),1/a(t),1,1/a(t),1/a(t),1/a(t))",
+  "christoffelNonzero": [
+    {
+      "rho": 4,
+      "mu": 0,
+      "nu": 0,
+      "coefficient": "1 a adot"
+    },
+    {
+      "rho": 0,
+      "mu": 4,
+      "nu": 0,
+      "coefficient": "H"
+    },
+    {
+      "rho": 0,
+      "mu": 0,
+      "nu": 4,
+      "coefficient": "H"
+    },
+    {
+      "rho": 4,
+      "mu": 1,
+      "nu": 1,
+      "coefficient": "1 a adot"
+    },
+    {
+      "rho": 1,
+      "mu": 4,
+      "nu": 1,
+      "coefficient": "H"
+    },
+    {
+      "rho": 1,
+      "mu": 1,
+      "nu": 4,
+      "coefficient": "H"
+    },
+    {
+      "rho": 4,
+      "mu": 2,
+      "nu": 2,
+      "coefficient": "1 a adot"
+    },
+    {
+      "rho": 2,
+      "mu": 4,
+      "nu": 2,
+      "coefficient": "H"
+    },
+    {
+      "rho": 2,
+      "mu": 2,
+      "nu": 4,
+      "coefficient": "H"
+    },
+    {
+      "rho": 4,
+      "mu": 3,
+      "nu": 3,
+      "coefficient": "1 a adot"
+    },
+    {
+      "rho": 3,
+      "mu": 4,
+      "nu": 3,
+      "coefficient": "H"
+    },
+    {
+      "rho": 3,
+      "mu": 3,
+      "nu": 4,
+      "coefficient": "H"
+    },
+    {
+      "rho": 4,
+      "mu": 5,
+      "nu": 5,
+      "coefficient": "-1 a adot"
+    },
+    {
+      "rho": 5,
+      "mu": 4,
+      "nu": 5,
+      "coefficient": "H"
+    },
+    {
+      "rho": 5,
+      "mu": 5,
+      "nu": 4,
+      "coefficient": "H"
+    },
+    {
+      "rho": 4,
+      "mu": 6,
+      "nu": 6,
+      "coefficient": "-1 a adot"
+    },
+    {
+      "rho": 6,
+      "mu": 4,
+      "nu": 6,
+      "coefficient": "H"
+    },
+    {
+      "rho": 6,
+      "mu": 6,
+      "nu": 4,
+      "coefficient": "H"
+    },
+    {
+      "rho": 4,
+      "mu": 7,
+      "nu": 7,
+      "coefficient": "-1 a adot"
+    },
+    {
+      "rho": 7,
+      "mu": 4,
+      "nu": 7,
+      "coefficient": "H"
+    },
+    {
+      "rho": 7,
+      "mu": 7,
+      "nu": 4,
+      "coefficient": "H"
+    }
+  ],
+  "spinConnectionNonzero": [
+    {
+      "mu": 0,
+      "a": 0,
+      "b": 4,
+      "coefficient": "1 adot"
+    },
+    {
+      "mu": 0,
+      "a": 4,
+      "b": 0,
+      "coefficient": "-1 adot"
+    },
+    {
+      "mu": 1,
+      "a": 1,
+      "b": 4,
+      "coefficient": "1 adot"
+    },
+    {
+      "mu": 1,
+      "a": 4,
+      "b": 1,
+      "coefficient": "-1 adot"
+    },
+    {
+      "mu": 2,
+      "a": 2,
+      "b": 4,
+      "coefficient": "1 adot"
+    },
+    {
+      "mu": 2,
+      "a": 4,
+      "b": 2,
+      "coefficient": "-1 adot"
+    },
+    {
+      "mu": 3,
+      "a": 3,
+      "b": 4,
+      "coefficient": "1 adot"
+    },
+    {
+      "mu": 3,
+      "a": 4,
+      "b": 3,
+      "coefficient": "-1 adot"
+    },
+    {
+      "mu": 5,
+      "a": 5,
+      "b": 4,
+      "coefficient": "-1 adot"
+    },
+    {
+      "mu": 5,
+      "a": 4,
+      "b": 5,
+      "coefficient": "1 adot"
+    },
+    {
+      "mu": 6,
+      "a": 6,
+      "b": 4,
+      "coefficient": "-1 adot"
+    },
+    {
+      "mu": 6,
+      "a": 4,
+      "b": 6,
+      "coefficient": "1 adot"
+    },
+    {
+      "mu": 7,
+      "a": 7,
+      "b": 4,
+      "coefficient": "-1 adot"
+    },
+    {
+      "mu": 7,
+      "a": 4,
+      "b": 7,
+      "coefficient": "1 adot"
+    }
+  ],
+  "spinConnectionFormula": "omega_mu^a_b=e_b^nu(Gamma^rho_munu e_rho^a-partial_mu e_nu^a)",
+  "spinorDerivativeConvention": "D_mu=partial_mu+(1/8) omega_muab [gamma^a,gamma^b]",
+  "homogeneousDiracOperator": "gamma^4(partial_t+(7/2)H)",
+  "spinorBundle": {
+    "structureGroup": "Spin(4,4)",
+    "fiber": "Delta_R=Delta_plus direct-sum Delta_minus",
+    "fiberDimension": 16,
+    "halfSpinDimensions": [
+      8,
+      8
+    ],
+    "halfSpinIndicesZeroBased": {
+      "Plus": [
+        0,
+        3,
+        5,
+        6,
+        9,
+        10,
+        12,
+        15
+      ],
+      "Minus": [
+        1,
+        2,
+        4,
+        7,
+        8,
+        11,
+        13,
+        14
+      ]
+    }
+  },
+  "spinorBilinear": {
+    "definition": "C=gamma_1^+ gamma_2^+ gamma_3^+ gamma_4^+",
+    "matrix": [
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        -1,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        -1,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        -1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        -1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        -1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        -1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        -1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        -1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    ],
+    "adjoint": "bar(psi)=psi^T C"
+  },
+  "sample": {
+    "scaleFactor": [
+      3,
+      2
+    ],
+    "scaleDerivative": [
+      2,
+      5
+    ],
+    "hubble": [
+      4,
+      15
+    ]
+  },
+  "checks": {
+    "signature": true,
+    "metricFromFrame": true,
+    "spinConnectionAntisymmetric": true,
+    "vielbeinPostulate": true,
+    "chargeSymmetric": true,
+    "chargeInvolution": true,
+    "gammaChargeSkew": true,
+    "chargeNondegenerate": true,
+    "chargeSignature": true,
+    "slashConnection": true,
+    "connectionPreservesChirality": true,
+    "halfSpinIndices": true
+  },
+  "measurements": {
+    "nonzeroChristoffelComponents": 21,
+    "nonzeroLoweredSpinConnectionComponents": 14,
+    "spinorDimension": 16,
+    "chargeRank": 16,
+    "chargeSignature": [
+      8,
+      8
+    ]
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "backupId": "20260920T225600614310Z",
+  "repositoryRoot": "C:\\Users\\nsh\\Developer\\code\\vscode\\dirac",
+  "destinationRoot": "C:\\Users\\nsh\\Developer\\code\\vscode\\dirac\\backups\\edits\\20260920T225600614310Z",
+  "files": [
+    {
+      "relativePath": "Cargo.toml",
+      "sourceSha256": "e7014f1201f187e0d1ff8ab730b61448511c2bf1cf9772b03c12264ca61fbb8d",
+      "sourceSize": 265,
+      "backupSha256": "e7014f1201f187e0d1ff8ab730b61448511c2bf1cf9772b03c12264ca61fbb8d",
+      "backupSize": 265,
+      "match": true
+    }
+  ],
+  "allFilesMatched": true
+}

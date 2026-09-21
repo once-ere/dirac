@@ -1,0 +1,41 @@
+{
+  "schemaVersion": 1,
+  "backupId": "20260921T004154299500Z",
+  "repositoryRoot": "C:\\Users\\nsh\\Developer\\code\\vscode\\dirac",
+  "destinationRoot": "C:\\Users\\nsh\\Developer\\code\\vscode\\dirac\\backups\\edits\\20260921T004154299500Z",
+  "files": [
+    {
+      "relativePath": "provenance/CURVED_SPIN_BUNDLE.tex",
+      "sourceSha256": "aadb09c799aee43f66bf078bc88861d8737a1723a698b353fa8527048b88973f",
+      "sourceSize": 26031,
+      "backupSha256": "aadb09c799aee43f66bf078bc88861d8737a1723a698b353fa8527048b88973f",
+      "backupSize": 26031,
+      "match": true
+    },
+    {
+      "relativePath": "provenance/CURVED_SPIN_BUNDLE.pdf",
+      "sourceSha256": "b0051ae4b3ff03704e121c157f1f9b2b1e51f95be2d9b4196e78977f72772d66",
+      "sourceSize": 334940,
+      "backupSha256": "b0051ae4b3ff03704e121c157f1f9b2b1e51f95be2d9b4196e78977f72772d66",
+      "backupSize": 334940,
+      "match": true
+    },
+    {
+      "relativePath": "provenance/EINSTEIN_SPINOR_44.tex",
+      "sourceSha256": "b01e12c8c2511418c6631b0dc924bf2a1fff6c0b154e9903375e46608f6a4896",
+      "sourceSize": 33622,
+      "backupSha256": "b01e12c8c2511418c6631b0dc924bf2a1fff6c0b154e9903375e46608f6a4896",
+      "backupSize": 33622,
+      "match": true
+    },
+    {
+      "relativePath": "provenance/EINSTEIN_SPINOR_44.pdf",
+      "sourceSha256": "17452c408b59cdb18121c7c481eec0e2afc4fd58a67929dc780c2f5fe4b1d3b9",
+      "sourceSize": 356135,
+      "backupSha256": "17452c408b59cdb18121c7c481eec0e2afc4fd58a67929dc780c2f5fe4b1d3b9",
+      "backupSize": 356135,
+      "match": true
+    }
+  ],
+  "allFilesMatched": true
+}

@@ -1,6 +1,7 @@
 [workspace]
 resolver = "2"
 members = [
+	"studies/einstein_spinor_44",
 	"studies/spinor_cosmology",
 	"studies/triality_transport",
 ]

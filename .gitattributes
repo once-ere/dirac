@@ -5,12 +5,21 @@ artifacts/triality-transport/*.csv text eol=lf
 artifacts/triality-transport/*.json text eol=lf
 artifacts/spinor-cosmology/*.csv text eol=lf
 artifacts/spinor-cosmology/*.json text eol=lf
+artifacts/curved-spin-geometry/geometry.json text eol=lf
+artifacts/curved-spin-geometry/wolfram-report.json text eol=crlf
+artifacts/einstein-spinor-44/*.csv text eol=lf
+artifacts/einstein-spinor-44/*.json text eol=lf
 artifacts/notebooks/*.json text eol=crlf
 notebooks/*.ipynb text eol=lf
 dissertation/dirac-triality.md text eol=crlf
 dissertation/Learn_dirac-triality.md text eol=lf
 dissertation/*.tex text eol=lf
 dissertation/*.pdf binary
+provenance/CURVED_SPIN_BUNDLE.md text eol=crlf
+provenance/EINSTEIN_SPINOR_44.md text eol=crlf
+provenance/*.tex text eol=lf
+provenance/*.pdf binary
 scripts/*.sh text eol=lf
+studies/einstein_spinor_44/src/generated.rs text eol=lf
 studies/triality_transport/src/generated.rs text eol=lf
 studies/spinor_cosmology/src/generated.rs text eol=lf

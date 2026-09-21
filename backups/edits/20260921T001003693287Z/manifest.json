@@ -1,0 +1,25 @@
+{
+  "schemaVersion": 1,
+  "backupId": "20260921T001003693287Z",
+  "repositoryRoot": "C:\\Users\\nsh\\Developer\\code\\vscode\\dirac",
+  "destinationRoot": "C:\\Users\\nsh\\Developer\\code\\vscode\\dirac\\backups\\edits\\20260921T001003693287Z",
+  "files": [
+    {
+      "relativePath": "provenance/EINSTEIN_SPINOR_44.tex",
+      "sourceSha256": "a827f1d1f11293fc56cab8fe6389a21dd67daa9ecb4b37e021ae2212c607c605",
+      "sourceSize": 30394,
+      "backupSha256": "a827f1d1f11293fc56cab8fe6389a21dd67daa9ecb4b37e021ae2212c607c605",
+      "backupSize": 30394,
+      "match": true
+    },
+    {
+      "relativePath": "provenance/EINSTEIN_SPINOR_44.pdf",
+      "sourceSha256": "7bd65e91e5625e6f76832e664fce76a6677f31014840ee09ee7a1e7d6dcfb082",
+      "sourceSize": 352693,
+      "backupSha256": "7bd65e91e5625e6f76832e664fce76a6677f31014840ee09ee7a1e7d6dcfb082",
+      "backupSize": 352693,
+      "match": true
+    }
+  ],
+  "allFilesMatched": true
+}

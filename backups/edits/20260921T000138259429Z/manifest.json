@@ -1,0 +1,81 @@
+{
+  "schemaVersion": 1,
+  "backupId": "20260921T000138259429Z",
+  "repositoryRoot": "C:\\Users\\nsh\\Developer\\code\\vscode\\dirac",
+  "destinationRoot": "C:\\Users\\nsh\\Developer\\code\\vscode\\dirac\\backups\\edits\\20260921T000138259429Z",
+  "files": [
+    {
+      "relativePath": "provenance/EINSTEIN_SPINOR_44.md",
+      "sourceSha256": "73ae7a89accef8cfa77844d374cc3e0ab2ed1e5a38ed3f3b7b948debb72f4d39",
+      "sourceSize": 28533,
+      "backupSha256": "73ae7a89accef8cfa77844d374cc3e0ab2ed1e5a38ed3f3b7b948debb72f4d39",
+      "backupSize": 28533,
+      "match": true
+    },
+    {
+      "relativePath": "scripts/check_einstein_spinor_44.py",
+      "sourceSha256": "a8d6254e05e4e912cd582142c5ef544f4978843dc2bddc42e081fae143994d3a",
+      "sourceSize": 15101,
+      "backupSha256": "a8d6254e05e4e912cd582142c5ef544f4978843dc2bddc42e081fae143994d3a",
+      "backupSize": 15101,
+      "match": true
+    },
+    {
+      "relativePath": "tests/test_einstein_spinor_44_output.py",
+      "sourceSha256": "e1bda1774a8ed5f6b9aed1c185eb0ad2525ce1825769b4bff97ab1b2f451a3fc",
+      "sourceSize": 995,
+      "backupSha256": "e1bda1774a8ed5f6b9aed1c185eb0ad2525ce1825769b4bff97ab1b2f451a3fc",
+      "backupSize": 995,
+      "match": true
+    },
+    {
+      "relativePath": "scripts/verify_phase5_curved_spin_gravity.ps1",
+      "sourceSha256": "7822d97001615a4c364a043e54c9b098791eb0f605a65766b1a3ed33740a8a48",
+      "sourceSize": 8975,
+      "backupSha256": "7822d97001615a4c364a043e54c9b098791eb0f605a65766b1a3ed33740a8a48",
+      "backupSize": 8975,
+      "match": true
+    },
+    {
+      "relativePath": "scripts/verify_phase5_curved_spin_gravity.sh",
+      "sourceSha256": "2fa666e1a0189d697ca8c5b9bdf338d751c958374c6b327ab35e5bd5a28a83f0",
+      "sourceSize": 8855,
+      "backupSha256": "2fa666e1a0189d697ca8c5b9bdf338d751c958374c6b327ab35e5bd5a28a83f0",
+      "backupSize": 8855,
+      "match": true
+    },
+    {
+      "relativePath": "PROGRESS.md",
+      "sourceSha256": "2372e87d27ded6f5c9276d6e46f52034852182eb1e15224a42fdeb303ffa2cb0",
+      "sourceSize": 21552,
+      "backupSha256": "2372e87d27ded6f5c9276d6e46f52034852182eb1e15224a42fdeb303ffa2cb0",
+      "backupSize": 21552,
+      "match": true
+    },
+    {
+      "relativePath": "README.md",
+      "sourceSha256": "bb4d036a35cc4094b9cf5d90abb16df505165f9f0a2f546e6ce87547a3a45269",
+      "sourceSize": 7669,
+      "backupSha256": "bb4d036a35cc4094b9cf5d90abb16df505165f9f0a2f546e6ce87547a3a45269",
+      "backupSize": 7669,
+      "match": true
+    },
+    {
+      "relativePath": "scripts/check_provenance_pdf.py",
+      "sourceSha256": "e86553472605e176e1729f83f943364db28ecc3a71eca5673c9714938121a3cf",
+      "sourceSize": 2091,
+      "backupSha256": "e86553472605e176e1729f83f943364db28ecc3a71eca5673c9714938121a3cf",
+      "backupSize": 2091,
+      "match": true
+    },
+    {
+      "relativePath": "tests/test_curved_spin_publications.py",
+      "sourceSha256": "bbdd178b8afae515d8b1e7884f6cea5da29709947f588001d155c3642add1002",
+      "sourceSize": 5757,
+      "backupSha256": "bbdd178b8afae515d8b1e7884f6cea5da29709947f588001d155c3642add1002",
+      "backupSize": 5757,
+      "match": true
+    }
+  ],
+  "allFilesMatched": true
+}

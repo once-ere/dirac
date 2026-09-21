@@ -2,7 +2,7 @@
 
 This repository provides a reproducible, exact-real treatment of
 `Cl(4,4)`, `Spin(4,4)`, its two real half-spin modules, split-octonion
-multiplication, and split-real triality. It includes two numerical
+multiplication, and split-real triality. It includes three numerical
 studies driven by the pure-Rust SUNDIALS 7.8.0 CVODE implementation and publishes
 standalone WolframScript, Mathematica, Jupyter, Markdown, LaTeX, PDF, and
 provenance artifacts.
@@ -45,6 +45,24 @@ misconception checks, exercises with complete solutions, a glossary, a
 notation index, and in-document reference capsules. The original dissertation
 artifacts remain byte-for-byte unchanged.
 
+Phase 5 defines the rank-16 real spinor bundle
+`S = P_Spin x_rho (Delta_+ direct-sum Delta_-)` over an explicit curved
+eight-manifold of signature `(4,4)`. The exact fixture records the tangent
+metric, vielbein, curved metric, Christoffel symbols, canonical Levi-Civita
+spin connection, and covariant derivative. Independent Python and Wolfram
+derivations verify the Clifford relation, the full vielbein postulate, and the
+ordered-pair convention behind
+`D_mu = partial_mu + (1/8) omega_muab [gamma^a,gamma^b]`.
+
+The third numerical study couples the same 16-component commuting classical
+real spinor directly to the `(4,4)` Einstein equations. It contains neither a
+scalar field nor a cosmological constant. Its two-term spinor potential has a
+dust-like contribution and a negative-pressure contribution; an 18-state
+CVODE integration checks condensate dilution, density evolution, Friedmann
+closure, all state equations by finite differences, and deterministic replay.
+The dark-matter and dark-energy identifications are homogeneous effective-fluid
+analogies within this stated classical model, not observational detections.
+
 The annotated `learn-dissertation-green` tag was verified from an anonymous
 recursive clone of the public repository. Every Phase 0 through Phase 4 gate
 passed at the tagged commit, including both dissertation editions and all 27
@@ -70,6 +88,7 @@ Set-Location C:\Users\nsh\Developer\code\vscode\dirac
 .\scripts\verify_phase3_cosmology.ps1
 .\scripts\verify_learn_dissertation.ps1
 .\scripts\verify_phase4_publication.ps1
+.\scripts\verify_phase5_curved_spin_gravity.ps1
 .\scripts\status.ps1
 ```
 
@@ -85,6 +104,7 @@ cd /c/Users/nsh/Developer/code/vscode/dirac
 ./scripts/verify_phase3_cosmology.sh
 bash ./scripts/verify_learn_dissertation.sh
 bash ./scripts/verify_phase4_publication.sh
+bash ./scripts/verify_phase5_curved_spin_gravity.sh
 ./scripts/status.sh
 ```
 
@@ -103,6 +123,19 @@ outputs are under `artifacts/triality-transport`, and all commands are in
 The cosmology study is under `studies/spinor_cosmology`, its canonical outputs
 are under `artifacts/spinor-cosmology`, and all commands are in
 `provenance/SPINOR_COSMOLOGY.md`.
+
+The curved bundle geometry is under `wolfram/CurvedSpinGeometry.wl` and
+`artifacts/curved-spin-geometry`; its standalone account is
+[provenance/CURVED_SPIN_BUNDLE.md](provenance/CURVED_SPIN_BUNDLE.md), with
+generated [LaTeX](provenance/CURVED_SPIN_BUNDLE.tex) and
+[PDF](provenance/CURVED_SPIN_BUNDLE.pdf) editions.
+
+The coupled Einstein-spinor study is under `studies/einstein_spinor_44`, with
+canonical outputs under `artifacts/einstein-spinor-44`. Its equations,
+numerical method, complete commands, limitations, and dark-sector analysis are
+in [provenance/EINSTEIN_SPINOR_44.md](provenance/EINSTEIN_SPINOR_44.md), with
+generated [LaTeX](provenance/EINSTEIN_SPINOR_44.tex) and
+[PDF](provenance/EINSTEIN_SPINOR_44.pdf) editions.
 
 The publication artifacts are under `wolfram/`, `notebooks/`, and
 `dissertation/`. Complete standalone rebuild commands are in

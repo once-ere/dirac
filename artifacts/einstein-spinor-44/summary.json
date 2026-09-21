@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "study": "einstein-spinor-44",
+  "stateDimension": 18,
+  "baseDimension": 8,
+  "signature": [4, 4],
+  "cl44FixtureSha256": "0660e436fdcf90ed0f0481c9a828e92659987f5820084ccbf5e1dfc96866cc54",
+  "geometryFixtureSha256": "6b5eab6b001d69c5face7b179af8a27e3cfe254cf80bc740cdcb7a2855fcdf67",
+  "parameters": {
+    "kappa8": 2.10000000000000000e+01,
+    "massCoefficient": 5.00000000000000028e-02,
+    "selfCoefficient": 9.49999999999999956e-01,
+    "selfExponent": 2.00000000000000011e-01
+  },
+  "tMin": -2.00000000000000011e-01,
+  "tMax": 1.50000000000000000e+00,
+  "outputStep": 1.00000000000000002e-02,
+  "relativeTolerance": 9.99999999999999939e-12,
+  "absoluteTolerance": 1.00000000000000003e-13,
+  "maximumStep": 2.00000000000000004e-03,
+  "sampleCount": 171,
+  "solverSteps": 1372,
+  "rhsEvaluations": 1486,
+  "accelerationTransitionTime": -1.38005293303244986e-01,
+  "accelerationTransitionScaleFactor": 8.63143616576708461e-01,
+  "maximumRelativeError": {
+    "condensate": 7.44192091691309166e-09,
+    "density": 1.48948308787786630e-09,
+    "friedmann": 1.20354325050525201e-09
+  },
+  "verdict": "SUCCESS"
+}

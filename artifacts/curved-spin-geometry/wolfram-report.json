@@ -1,0 +1,27 @@
+{
+	"schemaVersion":1,
+	"sourceSha256":{
+		"Cl44.wl":"460aa7ede62f7938f75834cfb946782eb97f73a4494ac98afbaa7418a42029a8",
+		"CurvedSpinGeometry.wl":"a6f6e41d1d15cf6a05d4fb39d8c1fff860efe7b9e6f9fb00888804d494e05da1"
+	},
+	"checks":{
+		"metricFromFrame":true,
+		"christoffelComponents":true,
+		"spinConnectionComponents":true,
+		"spinConnectionAntisymmetric":true,
+		"vielbeinPostulate":true,
+		"chargeSymmetric":true,
+		"chargeInvolution":true,
+		"chargeSignature":true,
+		"gammaChargeSkew":true,
+		"slashConnection":true,
+		"connectionPreservesChirality":true
+	},
+	"measurements":{
+		"baseDimension":8,
+		"spinorDimension":16,
+		"transverseDimension":7,
+		"nonzeroChristoffelComponents":21,
+		"nonzeroSpinConnectionComponents":14
+	}
+}

@@ -1,0 +1,49 @@
+{
+  "schemaVersion": 1,
+  "backupId": "20260921T004006022107Z",
+  "repositoryRoot": "C:\\Users\\nsh\\Developer\\code\\vscode\\dirac",
+  "destinationRoot": "C:\\Users\\nsh\\Developer\\code\\vscode\\dirac\\backups\\edits\\20260921T004006022107Z",
+  "files": [
+    {
+      "relativePath": "scripts/check_einstein_spinor_44.py",
+      "sourceSha256": "f48fd8fc05f486f2a846d8587f5e05cfe77e3577ebbd429e7b67ab8714f70fe6",
+      "sourceSize": 19113,
+      "backupSha256": "f48fd8fc05f486f2a846d8587f5e05cfe77e3577ebbd429e7b67ab8714f70fe6",
+      "backupSize": 19113,
+      "match": true
+    },
+    {
+      "relativePath": "tests/test_einstein_spinor_44_output.py",
+      "sourceSha256": "08c43b9afca32f923b848930666c87359f38d746522f256f6e1c4e7e8f91cd57",
+      "sourceSize": 1014,
+      "backupSha256": "08c43b9afca32f923b848930666c87359f38d746522f256f6e1c4e7e8f91cd57",
+      "backupSize": 1014,
+      "match": true
+    },
+    {
+      "relativePath": "studies/einstein_spinor_44/src/lib.rs",
+      "sourceSha256": "11b6052b3deb7202d81bb42c3b226d81e136972f723829e065dd3cad7d569d3b",
+      "sourceSize": 15916,
+      "backupSha256": "11b6052b3deb7202d81bb42c3b226d81e136972f723829e065dd3cad7d569d3b",
+      "backupSize": 15916,
+      "match": true
+    },
+    {
+      "relativePath": "provenance/CURVED_SPIN_BUNDLE.md",
+      "sourceSha256": "bf012c9ecad2acc001b545b96222cd921a54336d911ddeb87f0d54a403f36851",
+      "sourceSize": 24187,
+      "backupSha256": "bf012c9ecad2acc001b545b96222cd921a54336d911ddeb87f0d54a403f36851",
+      "backupSize": 24187,
+      "match": true
+    },
+    {
+      "relativePath": "provenance/EINSTEIN_SPINOR_44.md",
+      "sourceSha256": "f9c34fada77c12e8b2947c366a826677b4356c9cbb6216ec9f6d975ee6ec1042",
+      "sourceSize": 31367,
+      "backupSha256": "f9c34fada77c12e8b2947c366a826677b4356c9cbb6216ec9f6d975ee6ec1042",
+      "backupSize": 31367,
+      "match": true
+    }
+  ],
+  "allFilesMatched": true
+}

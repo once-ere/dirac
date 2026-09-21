@@ -1,0 +1,160 @@
+from __future__ import annotations
+
+import hashlib
+import re
+import tempfile
+import unittest
+from pathlib import Path
+
+from scripts import build_dissertation_tex
+from scripts import check_provenance_pdf
+
+
+REPOSITORY_ROOT = Path(__file__).resolve().parent.parent
+DOCUMENTS = {
+    "curved-spin-bundle": {
+        "stem": "CURVED_SPIN_BUNDLE",
+        "markdown_sha256": (
+            "83bb78934b9b4986d8ae755319d9fb654e1c68dfc5f05ab6217839689e4184f7"
+        ),
+        "tex_sha256": (
+            "55b94966a83b007c37543a6875210a83594165efad024f3e52571d7d4370469c"
+        ),
+        "required": [
+            "spinor bundle",
+            "g_{\\mu\\nu}=e_\\mu{}^a\\eta_{ab}e_\\nu{}^b",
+            "vielbein postulate",
+            "\\frac18\\omega_{\\mu ab}[\\gamma^a,\\gamma^b]",
+            "\\frac72H",
+            "Complete Windows commands",
+            "Complete Git Bash or WSL commands",
+        ],
+    },
+    "einstein-spinor-44": {
+        "stem": "EINSTEIN_SPINOR_44",
+        "markdown_sha256": (
+            "0a38c49921735b27dc82e72acb8fa69ecb7f5e79c08d195a690dd00049c6fc5e"
+        ),
+        "tex_sha256": (
+            "58d55a27362add0a73b35e5561b0500c0a2fbfe20cd17a5891c789aee5877c6c"
+        ),
+        "required": [
+            "commuting classical real spinor",
+            "No cosmological constant and no scalar field occur",
+            "T_{\\mu\\nu} =-\\frac14",
+            "positive-condensate cone",
+            "G_{tt}=21H^2",
+            "V(S)=\\frac1{20}S+\\frac{19}{20}S^{1/5}",
+            "dust-like",
+            "negative-pressure",
+            "five-point finite differences",
+            "tighter convergence run",
+            "contains four tests",
+            "Complete Windows commands",
+            "Complete Git Bash or WSL commands",
+        ],
+    },
+}
+
+
+def sha256(content: bytes) -> str:
+    return hashlib.sha256(content).hexdigest()
+
+
+class CurvedSpinPublicationTests(unittest.TestCase):
+    def test_documents_and_pdfs_are_canonical(self) -> None:
+        for edition, document in DOCUMENTS.items():
+            with self.subTest(edition=edition):
+                stem = document["stem"]
+                markdown_path = REPOSITORY_ROOT / "provenance" / f"{stem}.md"
+                tex_path = REPOSITORY_ROOT / "provenance" / f"{stem}.tex"
+                markdown_bytes = markdown_path.read_bytes()
+                tex_bytes = tex_path.read_bytes()
+                text = markdown_bytes.decode("utf-8")
+                self.assertEqual(
+                    sha256(markdown_bytes), document["markdown_sha256"]
+                )
+                self.assertEqual(sha256(tex_bytes), document["tex_sha256"])
+                self.assertEqual(
+                    build_dissertation_tex.convert(
+                        text, strip_heading_numbers=True
+                    ).encode("utf-8"),
+                    tex_bytes,
+                )
+                normalized = re.sub(r"\s+", " ", text)
+                self.assertTrue(
+                    all(
+                        phrase in normalized
+                        for phrase in document["required"]
+                    )
+                )
+                self.assertNotIn("TODO", text)
+                self.assertNotIn("FIXME", text)
+                markdown_references = {
+                    match.replace("\\", "/")
+                    for match in re.findall(
+                        r"provenance[\\/][A-Za-z0-9_-]+\.md", text
+                    )
+                }
+                self.assertEqual(
+                    markdown_references,
+                    {f"provenance/{stem}.md"},
+                )
+                pdf_specification = (
+                    check_provenance_pdf.SPECIFICATIONS[edition]
+                )
+                verify_pdf = (
+                    check_provenance_pdf.check_dissertation_pdf.verify_pdf
+                )
+                report = verify_pdf(
+                    REPOSITORY_ROOT / pdf_specification["path"],
+                    None,
+                    pdf_specification["pages"],
+                    612.0,
+                    792.0,
+                    pdf_specification["sha256"],
+                )
+                self.assertEqual(
+                    [
+                        name
+                        for name, passed in report["checks"].items()
+                        if not passed
+                    ],
+                    [],
+                )
+
+    def test_pdf_checker_rejects_mutated_bytes(self) -> None:
+        specifications = check_provenance_pdf.SPECIFICATIONS.items()
+        for edition, specification in specifications:
+            with (
+                self.subTest(edition=edition),
+                tempfile.TemporaryDirectory() as root,
+            ):
+                canonical_path = REPOSITORY_ROOT / specification["path"]
+                mutated_path = Path(root) / canonical_path.name
+                mutated_path.write_bytes(
+                    canonical_path.read_bytes() + b"\n% mutation\n%%EOF\n"
+                )
+                verify_pdf = (
+                    check_provenance_pdf.check_dissertation_pdf.verify_pdf
+                )
+                report = verify_pdf(
+                    mutated_path,
+                    None,
+                    specification["pages"],
+                    612.0,
+                    792.0,
+                    specification["sha256"],
+                )
+                self.assertFalse(report["checks"]["canonicalHash"])
+                self.assertTrue(
+                    all(
+                        passed
+                        for name, passed in report["checks"].items()
+                        if name != "canonicalHash"
+                    )
+                )
+
+
+if __name__ == "__main__":
+    unittest.main()

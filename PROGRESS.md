@@ -1,7 +1,7 @@
 # Implementation progress
 
-Status: The self-contained Learn dissertation release is verified from an
-anonymous public recursive clone and tagged `learn-dissertation-green`.
+Status: The Phase 5 curved-spin-bundle and Einstein-spinor release candidate
+passes complete local PowerShell and Bash gates; public verification is next.
 
 ## Verified checkpoint
 
@@ -90,6 +90,30 @@ anonymous public recursive clone and tagged `learn-dissertation-green`.
   letter-sized PDF. Both isolated three-pass builds are byte-identical.
 - The expanded Python suite contains 27 tests. Local PowerShell and Bash/WSL
   gates pass for Phases 0 through 4 and the focused Learn publication gate.
+- The exact curved `(4,4)` fixture defines the rank-16 real spinor bundle and
+  records `eta`, `e`, `g=e eta e^T`, 21 Christoffel symbols, and 14 nonzero
+  lowered spin-connection components. Its generator passes 12 checks, the
+  independent Wolfram derivation passes 11, and the independent Python
+  derivation passes 16.
+- The canonical derivative uses
+  `D_mu=partial_mu+(1/8)omega_muab[gamma^a,gamma^b]` with both ordered tangent
+  indices summed. The full vielbein postulate and the homogeneous contraction
+  `gamma^4(partial_t+7H/2)` are verified exactly.
+- The application-owned Einstein-spinor study has 18 real states, no scalar
+  field, and no cosmological constant. Four independent exact checks derive
+  the action stress tensor and full Einstein tensor, including all
+  off-diagonal components. It also passes four Rust tests and 24 release
+  output checks, including five-point finite differences for all state
+  equations, deterministic replay, and comparison with a tighter solve.
+- The selected potential `V(S)=S/20+(19/20)S^(1/5)` separates a dust-like
+  term from a negative-pressure term. The run uses 1,372 CVODE steps and 1,486
+  right-hand-side evaluations; maximum relative condensate, density, and
+  Friedmann errors are below `7.5e-9`.
+- The standalone curved-bundle and Einstein-spinor provenance sources generate
+  warning-free, letter-sized 16-page and 21-page PDFs. Independent three-pass
+  builds are byte-identical in PowerShell and Bash.
+- The expanded Python suite contains 33 tests. Both complete local Phase 5
+  gates pass with zero failed checks and preserve all prior canonical hashes.
 
 ## Phase checkpoints
 
@@ -289,6 +313,35 @@ anonymous public recursive clone and tagged `learn-dissertation-green`.
 - Result: `main` and `learn-dissertation-green` are published; the tag points
   to the release commit verified from the public clone.
 
+### Phase 5: curved spin bundle and Einstein-spinor gravity
+
+- Release-candidate commit: pending public verification.
+- Planned tag: `phase5-curved-spin-gravity-green`.
+- Curved geometry fixture SHA-256:
+  `6b5eab6b001d69c5face7b179af8a27e3cfe254cf80bc740cdcb7a2855fcdf67`.
+- Independent Wolfram geometry report SHA-256:
+  `f81a902f7efc2a36bef1bacdbc4682a278f4907383970a8383f565efd602dc38`.
+- Generated spinor constants SHA-256:
+  `fa3aba370c1039f17b83fe86a65d75e45be6448aa7bd025dc0db6d0e79e61f60`.
+- Einstein-spinor history SHA-256:
+  `9553b36f201ef43a92c7de3fe2f46457a592e55285e6220d8aa7af6e36a26f9c`.
+- Einstein-spinor summary SHA-256:
+  `6b15d084178d01aaed37b84b4bcf8f5246a6941bbe8366ad9c0c3db099eea0f1`.
+- Curved-bundle Markdown, LaTeX, and PDF SHA-256 values:
+  `83bb78934b9b4986d8ae755319d9fb654e1c68dfc5f05ab6217839689e4184f7`,
+  `55b94966a83b007c37543a6875210a83594165efad024f3e52571d7d4370469c`,
+  and `588a83a2a5d7f66c5c11f0aeb682f3b32f3e314f9ea73cc16876790bb3a257be`.
+- Einstein-spinor Markdown, LaTeX, and PDF SHA-256 values:
+  `0a38c49921735b27dc82e72acb8fa69ecb7f5e79c08d195a690dd00049c6fc5e`,
+  `58d55a27362add0a73b35e5561b0500c0a2fbfe20cd17a5891c789aee5877c6c`,
+  and `3bb9fb215135852f4f2f8f444686de69665ee28ea5198705104d2b46c4801251`.
+- Verification: `scripts/verify_phase5_curved_spin_gravity.ps1` or
+  `scripts/verify_phase5_curved_spin_gravity.sh`.
+- Provenance: `provenance/CURVED_SPIN_BUNDLE.md` and
+  `provenance/EINSTEIN_SPINOR_44.md`.
+- Next action: commit and push the candidate, verify every gate and canonical
+  hash from an anonymous recursive clone, then publish the annotated tag.
+
 ## Evidence
 
 - `backups/pre-bootstrap/manifest.json`
@@ -306,6 +359,8 @@ anonymous public recursive clone and tagged `learn-dissertation-green`.
 - `audit/reviews/sundials-7-8-rust-port-win11.md`
 - `audit/reviews/rust-solveit-win11-sundials-7-8-0.md`
 - `provenance/LEARN_DISSERTATION.md`
+- `provenance/CURVED_SPIN_BUNDLE.md`
+- `provenance/EINSTEIN_SPINOR_44.md`
 - `logs/phase0-verify-tests.log` (local, ignored)
 - `logs/phase0-verify-manifest.log` (local, ignored)
 - `logs/phase0-verify-wolfram.log` (local, ignored)
@@ -324,4 +379,4 @@ anonymous public recursive clone and tagged `learn-dissertation-green`.
 - Vendored SUNDIALS source will remain byte-identical and read-only.
 - Every existing file is backed up and hash-verified before modification.
 
-Next action: none; `learn-dissertation-green` is the verified teaching release.
+Next action: verify the Phase 5 candidate from an anonymous recursive clone.

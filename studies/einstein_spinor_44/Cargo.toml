@@ -1,0 +1,10 @@
+[package]
+name = "einstein_spinor_44"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+description = "A coupled cohomogeneity-one Spin(4,4) Einstein-spinor model integrated with pure-Rust SUNDIALS CVODE."
+
+[dependencies]
+sundials_core = { path = "../../vendor/sundials_rs/crates/sundials_core" }
+cvode_rs = { path = "../../vendor/sundials_rs/crates/cvode_rs" }
