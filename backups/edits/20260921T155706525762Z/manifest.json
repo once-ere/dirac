@@ -1,0 +1,113 @@
+{
+  "schemaVersion": 1,
+  "backupId": "20260921T155706525762Z",
+  "repositoryRoot": "C:\\Users\\nsh\\Developer\\code\\vscode\\dirac",
+  "destinationRoot": "C:\\Users\\nsh\\Developer\\code\\vscode\\dirac\\backups\\edits\\20260921T155706525762Z",
+  "files": [
+    {
+      "relativePath": "dissertation/dirac-triality.md",
+      "sourceSha256": "47d280353a02c37778775720cf2459b9866510bc89ddb1bbb83c6da2d3504b97",
+      "sourceSize": 17356,
+      "backupSha256": "47d280353a02c37778775720cf2459b9866510bc89ddb1bbb83c6da2d3504b97",
+      "backupSize": 17356,
+      "match": true
+    },
+    {
+      "relativePath": "dissertation/dirac-triality.tex",
+      "sourceSha256": "414b966295ae8f5092553c1af5f339683a67bf8ed77844eb118751713795bfd0",
+      "sourceSize": 19249,
+      "backupSha256": "414b966295ae8f5092553c1af5f339683a67bf8ed77844eb118751713795bfd0",
+      "backupSize": 19249,
+      "match": true
+    },
+    {
+      "relativePath": "dissertation/dirac-triality.pdf",
+      "sourceSha256": "a2a6e366817cb17d4b4ba936a98f5e495a8ca9c0bc012540021bc548847073f3",
+      "sourceSize": 346246,
+      "backupSha256": "a2a6e366817cb17d4b4ba936a98f5e495a8ca9c0bc012540021bc548847073f3",
+      "backupSize": 346246,
+      "match": true
+    },
+    {
+      "relativePath": "dissertation/Learn_dirac-triality.md",
+      "sourceSha256": "a8cf09e1ea1860bdbef3125ef01dbf3bc0c5f5a3e9a7adc4fe6c92f534abce58",
+      "sourceSize": 85702,
+      "backupSha256": "a8cf09e1ea1860bdbef3125ef01dbf3bc0c5f5a3e9a7adc4fe6c92f534abce58",
+      "backupSize": 85702,
+      "match": true
+    },
+    {
+      "relativePath": "dissertation/Learn_dirac-triality.tex",
+      "sourceSha256": "ee325930f4f45540957c9bc6dd166e4c610aa479291273e8636d87382464405f",
+      "sourceSize": 99832,
+      "backupSha256": "ee325930f4f45540957c9bc6dd166e4c610aa479291273e8636d87382464405f",
+      "backupSize": 99832,
+      "match": true
+    },
+    {
+      "relativePath": "dissertation/Learn_dirac-triality.pdf",
+      "sourceSha256": "134bd5dba9751e7972463c17a6074a3ac440d031c1a4a9ae44212a8d8fbcf521",
+      "sourceSize": 669155,
+      "backupSha256": "134bd5dba9751e7972463c17a6074a3ac440d031c1a4a9ae44212a8d8fbcf521",
+      "backupSize": 669155,
+      "match": true
+    },
+    {
+      "relativePath": "scripts/check_learn_dissertation.py",
+      "sourceSha256": "12ddd5f4cfbe31fe41dd1ed4b07264f9a2a821c1338e05d83359f6b3b6640440",
+      "sourceSize": 11172,
+      "backupSha256": "12ddd5f4cfbe31fe41dd1ed4b07264f9a2a821c1338e05d83359f6b3b6640440",
+      "backupSize": 11172,
+      "match": true
+    },
+    {
+      "relativePath": "scripts/check_dissertation_pdf.py",
+      "sourceSha256": "a1cea1807e0f89992ba43901ed8c89d66eb230691c4aa1a2d3085833f38f2889",
+      "sourceSize": 4190,
+      "backupSha256": "a1cea1807e0f89992ba43901ed8c89d66eb230691c4aa1a2d3085833f38f2889",
+      "backupSize": 4190,
+      "match": true
+    },
+    {
+      "relativePath": "tests/test_dissertation_builder.py",
+      "sourceSha256": "75568f821b1ee4f8f1fcb8efba2ca4412a5618a0f744c22fae4ac068e3a1fa53",
+      "sourceSize": 2511,
+      "backupSha256": "75568f821b1ee4f8f1fcb8efba2ca4412a5618a0f744c22fae4ac068e3a1fa53",
+      "backupSize": 2511,
+      "match": true
+    },
+    {
+      "relativePath": "tests/test_dissertation_pdf.py",
+      "sourceSha256": "699f854340157adbe91f321eaca1326b68210d3c4985bb1ae7f853cfa40729d9",
+      "sourceSize": 1909,
+      "backupSha256": "699f854340157adbe91f321eaca1326b68210d3c4985bb1ae7f853cfa40729d9",
+      "backupSize": 1909,
+      "match": true
+    },
+    {
+      "relativePath": "tests/test_learn_dissertation.py",
+      "sourceSha256": "56461817d8862c99eca3c436aa9e448c9e548a0d6092f8a3b06fc169b7f9c1c7",
+      "sourceSize": 1012,
+      "backupSha256": "56461817d8862c99eca3c436aa9e448c9e548a0d6092f8a3b06fc169b7f9c1c7",
+      "backupSize": 1012,
+      "match": true
+    },
+    {
+      "relativePath": "scripts/verify_learn_dissertation.ps1",
+      "sourceSha256": "af3359600c56bb1806067c12cd8663d4b00015342a2207be47ae6f680a464927",
+      "sourceSize": 5687,
+      "backupSha256": "af3359600c56bb1806067c12cd8663d4b00015342a2207be47ae6f680a464927",
+      "backupSize": 5687,
+      "match": true
+    },
+    {
+      "relativePath": "scripts/verify_phase4_publication.ps1",
+      "sourceSha256": "eacdd4e9678d9abfc7358577f9d86bc216e0cd332dea8f6b865395fc6b7f1e1d",
+      "sourceSize": 6313,
+      "backupSha256": "eacdd4e9678d9abfc7358577f9d86bc216e0cd332dea8f6b865395fc6b7f1e1d",
+      "backupSize": 6313,
+      "match": true
+    }
+  ],
+  "allFilesMatched": true
+}
