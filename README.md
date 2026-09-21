@@ -87,6 +87,11 @@ through Phase 6 PowerShell gate, the focused Learn gate, and the Phase 6 Bash
 gate passed with zero tracked drift. Both the repository and recursive solver
 submodule passed strict Git object checks.
 
+Phase 6 release commit `acf02fe2f4f79fd4d41066aaddde06fb8bdcce97`
+passed the same complete PowerShell and Bash verification from a second
+anonymous recursive clone. The annotated `phase6-weitzenbock-spinor-green`
+tag identifies that verified release commit.
+
 Phase 5 content commit `88ce2220c144fa9487243f8d47e961f95f27461e`
 and release commit `f9fef6a47b9cb5767c2f1150e9795798bfe8adef`
 were rebuilt from anonymous recursive clones of public `main`. Every Phase 0

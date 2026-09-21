@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "backupId": "20260921T142530952419Z",
+  "repositoryRoot": "C:\\Users\\nsh\\Developer\\code\\vscode\\dirac",
+  "destinationRoot": "C:\\Users\\nsh\\Developer\\code\\vscode\\dirac\\backups\\edits\\20260921T142530952419Z",
+  "files": [
+    {
+      "relativePath": "scripts/build_mathematica_notebook.wls",
+      "sourceSha256": "ef9f430b30fe32b9096bacf195a2026e42e05ac3666d80fbbeea97afb21cbeee",
+      "sourceSize": 3384,
+      "backupSha256": "ef9f430b30fe32b9096bacf195a2026e42e05ac3666d80fbbeea97afb21cbeee",
+      "backupSize": 3384,
+      "match": true
+    },
+    {
+      "relativePath": "scripts/verify_mathematica_notebook.wls",
+      "sourceSha256": "a247d83953a79c92119223f5d8dc835e804b3da1efb7f10a45231b4341c61f86",
+      "sourceSize": 2096,
+      "backupSha256": "a247d83953a79c92119223f5d8dc835e804b3da1efb7f10a45231b4341c61f86",
+      "backupSize": 2096,
+      "match": true
+    },
+    {
+      "relativePath": "notebooks/DiracTriality.nb",
+      "sourceSha256": "e1c69e86982dd2ce9b887e5ad0e0e27e4dc78ff4550e568c63cb41764ddcdba1",
+      "sourceSize": 4905,
+      "backupSha256": "e1c69e86982dd2ce9b887e5ad0e0e27e4dc78ff4550e568c63cb41764ddcdba1",
+      "backupSize": 4905,
+      "match": true
+    }
+  ],
+  "allFilesMatched": true
+}

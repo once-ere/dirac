@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "backupId": "20260921T134904880611Z",
+  "repositoryRoot": "C:\\Users\\nsh\\Developer\\code\\vscode\\dirac",
+  "destinationRoot": "C:\\Users\\nsh\\Developer\\code\\vscode\\dirac\\backups\\edits\\20260921T134904880611Z",
+  "files": [
+    {
+      "relativePath": "artifacts/exact/cl44-seed.json",
+      "sourceSha256": "0660e436fdcf90ed0f0481c9a828e92659987f5820084ccbf5e1dfc96866cc54",
+      "sourceSize": 26721,
+      "backupSha256": "0660e436fdcf90ed0f0481c9a828e92659987f5820084ccbf5e1dfc96866cc54",
+      "backupSize": 26721,
+      "match": true
+    },
+    {
+      "relativePath": "artifacts/exact/split-octonion.json",
+      "sourceSha256": "25044ea194c1e18e40341da1f0098b80bfeb9f4bcb6e7665a32d03f55ac360ca",
+      "sourceSize": 12255,
+      "backupSha256": "25044ea194c1e18e40341da1f0098b80bfeb9f4bcb6e7665a32d03f55ac360ca",
+      "backupSize": 12255,
+      "match": true
+    },
+    {
+      "relativePath": "artifacts/exact/triality44.json",
+      "sourceSha256": "5985f5c0fdd6656c3c9f572ef1a5d06eee21aabe44cc9bf33747bb79b5e181dd",
+      "sourceSize": 337628,
+      "backupSha256": "5985f5c0fdd6656c3c9f572ef1a5d06eee21aabe44cc9bf33747bb79b5e181dd",
+      "backupSize": 337628,
+      "match": true
+    }
+  ],
+  "allFilesMatched": true
+}

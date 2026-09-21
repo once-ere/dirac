@@ -1,0 +1,153 @@
+{
+  "schemaVersion": 1,
+  "backupId": "20260921T151212525804Z",
+  "repositoryRoot": "C:\\Users\\nsh\\Developer\\code\\vscode\\dirac",
+  "destinationRoot": "C:\\Users\\nsh\\Developer\\code\\vscode\\dirac\\backups\\edits\\20260921T151212525804Z",
+  "files": [
+    {
+      "relativePath": "Cargo.toml",
+      "sourceSha256": "27e9da4275e2e02a4894ec3c4de3f6d9a6bef3c0253cad98adf4bae74c007454",
+      "sourceSize": 332,
+      "backupSha256": "27e9da4275e2e02a4894ec3c4de3f6d9a6bef3c0253cad98adf4bae74c007454",
+      "backupSize": 332,
+      "match": true
+    },
+    {
+      "relativePath": "Cargo.lock",
+      "sourceSha256": "74299f247ac0e22e80f58daa435425c4e552351f18565598d1028e5378314e75",
+      "sourceSize": 690,
+      "backupSha256": "74299f247ac0e22e80f58daa435425c4e552351f18565598d1028e5378314e75",
+      "backupSize": 690,
+      "match": true
+    },
+    {
+      "relativePath": "studies/weitzenbock_spinor_44/Cargo.toml",
+      "sourceSha256": "5f6f13fa9f0a6d452683af56dac861ed75e1278bd874a3cf33b26880aac98ede",
+      "sourceSize": 376,
+      "backupSha256": "5f6f13fa9f0a6d452683af56dac861ed75e1278bd874a3cf33b26880aac98ede",
+      "backupSize": 376,
+      "match": true
+    },
+    {
+      "relativePath": "studies/weitzenbock_spinor_44/src/lib.rs",
+      "sourceSha256": "82a51313574f4e7cdcb48b58f6c600e6fff467f7a1e1bcd97f48143115803ac8",
+      "sourceSize": 3426,
+      "backupSha256": "82a51313574f4e7cdcb48b58f6c600e6fff467f7a1e1bcd97f48143115803ac8",
+      "backupSize": 3426,
+      "match": true
+    },
+    {
+      "relativePath": "studies/weitzenbock_spinor_44/src/main.rs",
+      "sourceSha256": "0f31e0c8ce26e59cab13be321289b10f56b4667c84aa42d539451dc4f276e7ff",
+      "sourceSize": 12123,
+      "backupSha256": "0f31e0c8ce26e59cab13be321289b10f56b4667c84aa42d539451dc4f276e7ff",
+      "backupSize": 12123,
+      "match": true
+    },
+    {
+      "relativePath": "scripts/generate_weitzenbock_spinor_constants.py",
+      "sourceSha256": "6ad0169776519083fa08700bf3e4d523d084eb59949398821606e45df5ca5348",
+      "sourceSize": 3055,
+      "backupSha256": "6ad0169776519083fa08700bf3e4d523d084eb59949398821606e45df5ca5348",
+      "backupSize": 3055,
+      "match": true
+    },
+    {
+      "relativePath": "scripts/build_weitzenbock_spin_geometry.py",
+      "sourceSha256": "5d52fc1cdc400f22617c393051536fca4c98089dd6b22edf42e18c4adc2c076d",
+      "sourceSize": 17701,
+      "backupSha256": "5d52fc1cdc400f22617c393051536fca4c98089dd6b22edf42e18c4adc2c076d",
+      "backupSize": 17701,
+      "match": true
+    },
+    {
+      "relativePath": "scripts/check_weitzenbock_spin_geometry.py",
+      "sourceSha256": "8d5abcf6445822031fc62f76f2d418be5ebddb50e5e6edaf4d3014f037d4b3c8",
+      "sourceSize": 15584,
+      "backupSha256": "8d5abcf6445822031fc62f76f2d418be5ebddb50e5e6edaf4d3014f037d4b3c8",
+      "backupSize": 15584,
+      "match": true
+    },
+    {
+      "relativePath": "scripts/check_weitzenbock_spinor_model.py",
+      "sourceSha256": "7e65397cf51671b4d0e11e1a5fd8b2182a1188765b3fd1ad566185d65bcb921e",
+      "sourceSize": 5154,
+      "backupSha256": "7e65397cf51671b4d0e11e1a5fd8b2182a1188765b3fd1ad566185d65bcb921e",
+      "backupSize": 5154,
+      "match": true
+    },
+    {
+      "relativePath": "scripts/check_weitzenbock_spinor_44.py",
+      "sourceSha256": "b4ddff5aa7566579c3b6b478efe4a5c3bdb12c5ddd7cd4b051756f3ac41c55b1",
+      "sourceSize": 21720,
+      "backupSha256": "b4ddff5aa7566579c3b6b478efe4a5c3bdb12c5ddd7cd4b051756f3ac41c55b1",
+      "backupSize": 21720,
+      "match": true
+    },
+    {
+      "relativePath": "tests/test_weitzenbock_spinor_model.py",
+      "sourceSha256": "2a3035af3b304d3c29e9eee67bee3b8aac4acfdecbabeefd329d8885c88d51fd",
+      "sourceSize": 851,
+      "backupSha256": "2a3035af3b304d3c29e9eee67bee3b8aac4acfdecbabeefd329d8885c88d51fd",
+      "backupSize": 851,
+      "match": true
+    },
+    {
+      "relativePath": "tests/test_weitzenbock_spinor_44_output.py",
+      "sourceSha256": "3eee424dc879561c6943d7ec80487f18d2a63e7742e70c25af1f0b2e33e851bf",
+      "sourceSize": 2963,
+      "backupSha256": "3eee424dc879561c6943d7ec80487f18d2a63e7742e70c25af1f0b2e33e851bf",
+      "backupSize": 2963,
+      "match": true
+    },
+    {
+      "relativePath": "provenance/WEITZENBOCK_SPINOR_44.md",
+      "sourceSha256": "077d719bf2f25c1ed5488b1ee4602ad43b2c79370d3ec8324809f46e7d3f1f95",
+      "sourceSize": 26242,
+      "backupSha256": "077d719bf2f25c1ed5488b1ee4602ad43b2c79370d3ec8324809f46e7d3f1f95",
+      "backupSize": 26242,
+      "match": true
+    },
+    {
+      "relativePath": "provenance/WEITZENBOCK_SPINOR_44.tex",
+      "sourceSha256": "9d5c42a94a6d7a7bcddc6e811616694de2dd213119984a623c4a2f27de7490fe",
+      "sourceSize": 28207,
+      "backupSha256": "9d5c42a94a6d7a7bcddc6e811616694de2dd213119984a623c4a2f27de7490fe",
+      "backupSize": 28207,
+      "match": true
+    },
+    {
+      "relativePath": "provenance/WEITZENBOCK_SPINOR_44.pdf",
+      "sourceSha256": "d6673f6b972f18f7dfea7de2b8319aed63df5de57a3049e35dcfabd60e556f01",
+      "sourceSize": 382923,
+      "backupSha256": "d6673f6b972f18f7dfea7de2b8319aed63df5de57a3049e35dcfabd60e556f01",
+      "backupSize": 382923,
+      "match": true
+    },
+    {
+      "relativePath": "scripts/verify_phase6_weitzenbock_spinor.ps1",
+      "sourceSha256": "c569bd763050d3595e7b14b123500e63b0a1c543dce820acea759e6e78dc0a41",
+      "sourceSize": 8481,
+      "backupSha256": "c569bd763050d3595e7b14b123500e63b0a1c543dce820acea759e6e78dc0a41",
+      "backupSize": 8481,
+      "match": true
+    },
+    {
+      "relativePath": "scripts/verify_phase6_weitzenbock_spinor.sh",
+      "sourceSha256": "3982b33bdd89a65b6a23b79914251205a076b5fd69fdaaa4202bc011b6d38b0b",
+      "sourceSize": 8581,
+      "backupSha256": "3982b33bdd89a65b6a23b79914251205a076b5fd69fdaaa4202bc011b6d38b0b",
+      "backupSize": 8581,
+      "match": true
+    },
+    {
+      "relativePath": "notebooks/DiracTriality.nb",
+      "sourceSha256": "307537d95037524b137544f61809b7a0383c85ad24462750a7d9f22220c6358c",
+      "sourceSize": 7256,
+      "backupSha256": "307537d95037524b137544f61809b7a0383c85ad24462750a7d9f22220c6358c",
+      "backupSize": 7256,
+      "match": true
+    }
+  ],
+  "allFilesMatched": true
+}

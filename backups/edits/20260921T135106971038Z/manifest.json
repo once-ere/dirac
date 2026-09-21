@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "backupId": "20260921T135106971038Z",
+  "repositoryRoot": "C:\\Users\\nsh\\Developer\\code\\vscode\\dirac",
+  "destinationRoot": "C:\\Users\\nsh\\Developer\\code\\vscode\\dirac\\backups\\edits\\20260921T135106971038Z",
+  "files": [
+    {
+      "relativePath": "studies/spinor_cosmology/src/generated.rs",
+      "sourceSha256": "cc2131fc739b0bdc4ae9e9146ccb57e47e7ed12aadabcef42ef1263df3de9c7b",
+      "sourceSize": 3933,
+      "backupSha256": "cc2131fc739b0bdc4ae9e9146ccb57e47e7ed12aadabcef42ef1263df3de9c7b",
+      "backupSize": 3933,
+      "match": true
+    },
+    {
+      "relativePath": "artifacts/spinor-cosmology/background.csv",
+      "sourceSha256": "8a6f7ace34949d82d4022a9b5a660733ed018c91b2b931d934aab7793b5585c2",
+      "sourceSize": 810624,
+      "backupSha256": "8a6f7ace34949d82d4022a9b5a660733ed018c91b2b931d934aab7793b5585c2",
+      "backupSize": 810624,
+      "match": true
+    },
+    {
+      "relativePath": "artifacts/spinor-cosmology/summary.json",
+      "sourceSha256": "8f1e45a37c14cc10c7c6b6469ceca7c65e7b9ffc08b3c9dd5bfc518065c590db",
+      "sourceSize": 988,
+      "backupSha256": "8f1e45a37c14cc10c7c6b6469ceca7c65e7b9ffc08b3c9dd5bfc518065c590db",
+      "backupSize": 988,
+      "match": true
+    }
+  ],
+  "allFilesMatched": true
+}

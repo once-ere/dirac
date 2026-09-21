@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "backupId": "20260921T144109136280Z",
+  "repositoryRoot": "C:\\Users\\nsh\\Developer\\code\\vscode\\dirac",
+  "destinationRoot": "C:\\Users\\nsh\\Developer\\code\\vscode\\dirac\\backups\\edits\\20260921T144109136280Z",
+  "files": [
+    {
+      "relativePath": "provenance/MATHEMATICA_NOTEBOOK.md",
+      "sourceSha256": "0d8eb6657878cb0362b69d07e7aac1d606e817cb67e7eebd81dbb0529137f1f0",
+      "sourceSize": 2475,
+      "backupSha256": "0d8eb6657878cb0362b69d07e7aac1d606e817cb67e7eebd81dbb0529137f1f0",
+      "backupSize": 2475,
+      "match": true
+    }
+  ],
+  "allFilesMatched": true
+}

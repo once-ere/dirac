@@ -1,0 +1,25 @@
+{
+  "schemaVersion": 1,
+  "backupId": "20260921T144308630068Z",
+  "repositoryRoot": "C:\\Users\\nsh\\Developer\\code\\vscode\\dirac",
+  "destinationRoot": "C:\\Users\\nsh\\Developer\\code\\vscode\\dirac\\backups\\edits\\20260921T144308630068Z",
+  "files": [
+    {
+      "relativePath": "dissertation/Learn_dirac-triality.tex",
+      "sourceSha256": "ee325930f4f45540957c9bc6dd166e4c610aa479291273e8636d87382464405f",
+      "sourceSize": 99832,
+      "backupSha256": "ee325930f4f45540957c9bc6dd166e4c610aa479291273e8636d87382464405f",
+      "backupSize": 99832,
+      "match": true
+    },
+    {
+      "relativePath": "dissertation/Learn_dirac-triality.pdf",
+      "sourceSha256": "134bd5dba9751e7972463c17a6074a3ac440d031c1a4a9ae44212a8d8fbcf521",
+      "sourceSize": 669155,
+      "backupSha256": "134bd5dba9751e7972463c17a6074a3ac440d031c1a4a9ae44212a8d8fbcf521",
+      "backupSize": 669155,
+      "match": true
+    }
+  ],
+  "allFilesMatched": true
+}

@@ -1,9 +1,8 @@
 # Implementation progress
 
-Status: Phase 6 content commit
-`369df0a80a9738b50880ea3f20846eebb6249a28` is verified from an anonymous
-public recursive clone. Release-metadata commit and tagged release
-verification are pending.
+Status: Phase 6 is verified from anonymous public recursive clones and tagged
+`phase6-weitzenbock-spinor-green` at release commit
+`acf02fe2f4f79fd4d41066aaddde06fb8bdcce97`.
 
 ## Verified checkpoint
 
@@ -380,7 +379,11 @@ verification are pending.
 
 - Publicly verified content commit:
   `369df0a80a9738b50880ea3f20846eebb6249a28`.
-- Verified release commit and tag: pending public fresh-clone verification.
+- Verified release commit:
+  `acf02fe2f4f79fd4d41066aaddde06fb8bdcce97`.
+- Annotated tag: `phase6-weitzenbock-spinor-green`; remote tag object
+  `22d8bb42d9e62343c412859c5be1abec653af638` peels to the verified release
+  commit.
 - Weitzenböck geometry fixture SHA-256:
   `804f00f31ffa4247fc1e30d8e89df3ea7ddbd7c8d9fe795317bd57155c93774c`.
 - Independent Wolfram geometry report SHA-256:
@@ -408,6 +411,13 @@ verification are pending.
   Phase 6 Bash gate. It reproduced all canonical hashes against solver commit
   `d1836e6a279d63a90fe2839a0020123245487e76`, had zero tracked/staged drift,
   and both Git object databases passed `git fsck --full --strict`.
+- Public release verification: a second anonymous recursive clone at the
+  release commit passed the same complete PowerShell Phase 0 through Phase 6
+  suite, the focused Learn gate, and the Phase 6 Bash gate. It reproduced all
+  canonical hashes, had zero tracked/staged drift, and both Git object
+  databases passed strict checks.
+- Result: `main` and `phase6-weitzenbock-spinor-green` are public; the tag
+  points to the release commit verified from the second anonymous clone.
 
 ## Evidence
 
@@ -447,6 +457,5 @@ verification are pending.
 - Vendored SUNDIALS source will remain byte-identical and read-only.
 - Every existing file is backed up and hash-verified before modification.
 
-Next action: commit and push this public-verification record, verify that
-release commit from an anonymous recursive clone, then create and push the
-annotated `phase6-weitzenbock-spinor-green` tag.
+Next action: none; `phase6-weitzenbock-spinor-green` is the verified release.
+<!-- End of verified release ledger. -->

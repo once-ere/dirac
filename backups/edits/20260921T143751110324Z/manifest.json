@@ -1,0 +1,73 @@
+{
+  "schemaVersion": 1,
+  "backupId": "20260921T143751110324Z",
+  "repositoryRoot": "C:\\Users\\nsh\\Developer\\code\\vscode\\dirac",
+  "destinationRoot": "C:\\Users\\nsh\\Developer\\code\\vscode\\dirac\\backups\\edits\\20260921T143751110324Z",
+  "files": [
+    {
+      "relativePath": "artifacts/weitzenbock-spin-geometry/geometry.json",
+      "sourceSha256": "804f00f31ffa4247fc1e30d8e89df3ea7ddbd7c8d9fe795317bd57155c93774c",
+      "sourceSize": 6625,
+      "backupSha256": "804f00f31ffa4247fc1e30d8e89df3ea7ddbd7c8d9fe795317bd57155c93774c",
+      "backupSize": 6625,
+      "match": true
+    },
+    {
+      "relativePath": "artifacts/weitzenbock-spin-geometry/wolfram-report.json",
+      "sourceSha256": "4faa10f831727e8142c9137f50ebec416eb2286f6adb74148ad318fa1a05b517",
+      "sourceSize": 1899,
+      "backupSha256": "4faa10f831727e8142c9137f50ebec416eb2286f6adb74148ad318fa1a05b517",
+      "backupSize": 1899,
+      "match": true
+    },
+    {
+      "relativePath": "studies/weitzenbock_spinor_44/src/generated.rs",
+      "sourceSha256": "b5d611b20dda10b96bf66d3e6ff0ce25660bdcbbd3f9f60834b8d00582f91a68",
+      "sourceSize": 487,
+      "backupSha256": "b5d611b20dda10b96bf66d3e6ff0ce25660bdcbbd3f9f60834b8d00582f91a68",
+      "backupSize": 487,
+      "match": true
+    },
+    {
+      "relativePath": "artifacts/weitzenbock-spinor-44/history.csv",
+      "sourceSha256": "c88ed61cafa59ea0d7693da41527c7b4486ded7cc09ac680b4f20f893d42b62a",
+      "sourceSize": 148957,
+      "backupSha256": "c88ed61cafa59ea0d7693da41527c7b4486ded7cc09ac680b4f20f893d42b62a",
+      "backupSize": 148957,
+      "match": true
+    },
+    {
+      "relativePath": "artifacts/weitzenbock-spinor-44/summary.json",
+      "sourceSha256": "d03a90539887702ad6bdbe0ee3a5d783094b052609fc0e4d2b761a12b97fa6c8",
+      "sourceSize": 2128,
+      "backupSha256": "d03a90539887702ad6bdbe0ee3a5d783094b052609fc0e4d2b761a12b97fa6c8",
+      "backupSize": 2128,
+      "match": true
+    },
+    {
+      "relativePath": "notebooks/DiracTriality.nb",
+      "sourceSha256": "307537d95037524b137544f61809b7a0383c85ad24462750a7d9f22220c6358c",
+      "sourceSize": 7256,
+      "backupSha256": "307537d95037524b137544f61809b7a0383c85ad24462750a7d9f22220c6358c",
+      "backupSize": 7256,
+      "match": true
+    },
+    {
+      "relativePath": "provenance/WEITZENBOCK_SPINOR_44.tex",
+      "sourceSha256": "9d5c42a94a6d7a7bcddc6e811616694de2dd213119984a623c4a2f27de7490fe",
+      "sourceSize": 28207,
+      "backupSha256": "9d5c42a94a6d7a7bcddc6e811616694de2dd213119984a623c4a2f27de7490fe",
+      "backupSize": 28207,
+      "match": true
+    },
+    {
+      "relativePath": "provenance/WEITZENBOCK_SPINOR_44.pdf",
+      "sourceSha256": "d6673f6b972f18f7dfea7de2b8319aed63df5de57a3049e35dcfabd60e556f01",
+      "sourceSize": 382923,
+      "backupSha256": "d6673f6b972f18f7dfea7de2b8319aed63df5de57a3049e35dcfabd60e556f01",
+      "backupSize": 382923,
+      "match": true
+    }
+  ],
+  "allFilesMatched": true
+}

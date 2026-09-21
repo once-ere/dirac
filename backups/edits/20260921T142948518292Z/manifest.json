@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "backupId": "20260921T142948518292Z",
+  "repositoryRoot": "C:\\Users\\nsh\\Developer\\code\\vscode\\dirac",
+  "destinationRoot": "C:\\Users\\nsh\\Developer\\code\\vscode\\dirac\\backups\\edits\\20260921T142948518292Z",
+  "files": [
+    {
+      "relativePath": "scripts/check_provenance_pdf.py",
+      "sourceSha256": "647764d2c1a58bc4b0b7523a42def669130e06b9de5943391a31a7cd74ab7f96",
+      "sourceSize": 2091,
+      "backupSha256": "647764d2c1a58bc4b0b7523a42def669130e06b9de5943391a31a7cd74ab7f96",
+      "backupSize": 2091,
+      "match": true
+    }
+  ],
+  "allFilesMatched": true
+}

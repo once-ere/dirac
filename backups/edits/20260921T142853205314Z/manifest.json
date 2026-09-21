@@ -1,0 +1,25 @@
+{
+  "schemaVersion": 1,
+  "backupId": "20260921T142853205314Z",
+  "repositoryRoot": "C:\\Users\\nsh\\Developer\\code\\vscode\\dirac",
+  "destinationRoot": "C:\\Users\\nsh\\Developer\\code\\vscode\\dirac\\backups\\edits\\20260921T142853205314Z",
+  "files": [
+    {
+      "relativePath": "provenance/WEITZENBOCK_SPINOR_44.md",
+      "sourceSha256": "eb15005284fc9a4e123438bb525aea035620757aa8ce76950b8389d14253428c",
+      "sourceSize": 26355,
+      "backupSha256": "eb15005284fc9a4e123438bb525aea035620757aa8ce76950b8389d14253428c",
+      "backupSize": 26355,
+      "match": true
+    },
+    {
+      "relativePath": "provenance/WEITZENBOCK_SPINOR_44.tex",
+      "sourceSha256": "fde63c72e2d670525d498cc7f69f4a7758a611251938de60687f4f774e513c96",
+      "sourceSize": 28500,
+      "backupSha256": "fde63c72e2d670525d498cc7f69f4a7758a611251938de60687f4f774e513c96",
+      "backupSize": 28500,
+      "match": true
+    }
+  ],
+  "allFilesMatched": true
+}

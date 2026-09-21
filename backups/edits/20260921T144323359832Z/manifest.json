@@ -1,0 +1,81 @@
+{
+  "schemaVersion": 1,
+  "backupId": "20260921T144323359832Z",
+  "repositoryRoot": "C:\\Users\\nsh\\Developer\\code\\vscode\\dirac",
+  "destinationRoot": "C:\\Users\\nsh\\Developer\\code\\vscode\\dirac\\backups\\edits\\20260921T144323359832Z",
+  "files": [
+    {
+      "relativePath": "artifacts/curved-spin-geometry/geometry.json",
+      "sourceSha256": "6b5eab6b001d69c5face7b179af8a27e3cfe254cf80bc740cdcb7a2855fcdf67",
+      "sourceSize": 9129,
+      "backupSha256": "6b5eab6b001d69c5face7b179af8a27e3cfe254cf80bc740cdcb7a2855fcdf67",
+      "backupSize": 9129,
+      "match": true
+    },
+    {
+      "relativePath": "artifacts/curved-spin-geometry/wolfram-report.json",
+      "sourceSha256": "f81a902f7efc2a36bef1bacdbc4682a278f4907383970a8383f565efd602dc38",
+      "sourceSize": 757,
+      "backupSha256": "f81a902f7efc2a36bef1bacdbc4682a278f4907383970a8383f565efd602dc38",
+      "backupSize": 757,
+      "match": true
+    },
+    {
+      "relativePath": "studies/einstein_spinor_44/src/generated.rs",
+      "sourceSha256": "fa3aba370c1039f17b83fe86a65d75e45be6448aa7bd025dc0db6d0e79e61f60",
+      "sourceSize": 7692,
+      "backupSha256": "fa3aba370c1039f17b83fe86a65d75e45be6448aa7bd025dc0db6d0e79e61f60",
+      "backupSize": 7692,
+      "match": true
+    },
+    {
+      "relativePath": "artifacts/einstein-spinor-44/history.csv",
+      "sourceSha256": "9553b36f201ef43a92c7de3fe2f46457a592e55285e6220d8aa7af6e36a26f9c",
+      "sourceSize": 119880,
+      "backupSha256": "9553b36f201ef43a92c7de3fe2f46457a592e55285e6220d8aa7af6e36a26f9c",
+      "backupSize": 119880,
+      "match": true
+    },
+    {
+      "relativePath": "artifacts/einstein-spinor-44/summary.json",
+      "sourceSha256": "6b15d084178d01aaed37b84b4bcf8f5246a6941bbe8366ad9c0c3db099eea0f1",
+      "sourceSize": 1139,
+      "backupSha256": "6b15d084178d01aaed37b84b4bcf8f5246a6941bbe8366ad9c0c3db099eea0f1",
+      "backupSize": 1139,
+      "match": true
+    },
+    {
+      "relativePath": "provenance/CURVED_SPIN_BUNDLE.tex",
+      "sourceSha256": "55b94966a83b007c37543a6875210a83594165efad024f3e52571d7d4370469c",
+      "sourceSize": 26157,
+      "backupSha256": "55b94966a83b007c37543a6875210a83594165efad024f3e52571d7d4370469c",
+      "backupSize": 26157,
+      "match": true
+    },
+    {
+      "relativePath": "provenance/CURVED_SPIN_BUNDLE.pdf",
+      "sourceSha256": "588a83a2a5d7f66c5c11f0aeb682f3b32f3e314f9ea73cc16876790bb3a257be",
+      "sourceSize": 335217,
+      "backupSha256": "588a83a2a5d7f66c5c11f0aeb682f3b32f3e314f9ea73cc16876790bb3a257be",
+      "backupSize": 335217,
+      "match": true
+    },
+    {
+      "relativePath": "provenance/EINSTEIN_SPINOR_44.tex",
+      "sourceSha256": "58d55a27362add0a73b35e5561b0500c0a2fbfe20cd17a5891c789aee5877c6c",
+      "sourceSize": 33802,
+      "backupSha256": "58d55a27362add0a73b35e5561b0500c0a2fbfe20cd17a5891c789aee5877c6c",
+      "backupSize": 33802,
+      "match": true
+    },
+    {
+      "relativePath": "provenance/EINSTEIN_SPINOR_44.pdf",
+      "sourceSha256": "3bb9fb215135852f4f2f8f444686de69665ee28ea5198705104d2b46c4801251",
+      "sourceSize": 356174,
+      "backupSha256": "3bb9fb215135852f4f2f8f444686de69665ee28ea5198705104d2b46c4801251",
+      "backupSize": 356174,
+      "match": true
+    }
+  ],
+  "allFilesMatched": true
+}

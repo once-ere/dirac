@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "backupId": "20260921T143016818732Z",
+  "repositoryRoot": "C:\\Users\\nsh\\Developer\\code\\vscode\\dirac",
+  "destinationRoot": "C:\\Users\\nsh\\Developer\\code\\vscode\\dirac\\backups\\edits\\20260921T143016818732Z",
+  "files": [
+    {
+      "relativePath": "tests/test_curved_spin_publications.py",
+      "sourceSha256": "d5b6c0b396bcb25259098b9385f3dd01cda8567c2097e2b7bb923f10e63f628f",
+      "sourceSize": 5914,
+      "backupSha256": "d5b6c0b396bcb25259098b9385f3dd01cda8567c2097e2b7bb923f10e63f628f",
+      "backupSize": 5914,
+      "match": true
+    }
+  ],
+  "allFilesMatched": true
+}

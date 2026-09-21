@@ -1,0 +1,25 @@
+{
+  "schemaVersion": 1,
+  "backupId": "20260921T143636123793Z",
+  "repositoryRoot": "C:\\Users\\nsh\\Developer\\code\\vscode\\dirac",
+  "destinationRoot": "C:\\Users\\nsh\\Developer\\code\\vscode\\dirac\\backups\\edits\\20260921T143636123793Z",
+  "files": [
+    {
+      "relativePath": ".gitattributes",
+      "sourceSha256": "fb2cf70a155e9675014c2c40cae6a624dd57a90b5bc3c2cd72d35eb1794e251d",
+      "sourceSize": 1129,
+      "backupSha256": "fb2cf70a155e9675014c2c40cae6a624dd57a90b5bc3c2cd72d35eb1794e251d",
+      "backupSize": 1129,
+      "match": true
+    },
+    {
+      "relativePath": "README.md",
+      "sourceSha256": "2b9caa1d423f4fee0373292e02d866ff3bfb6a50a4e3bdc08136a2549f3a0552",
+      "sourceSize": 9957,
+      "backupSha256": "2b9caa1d423f4fee0373292e02d866ff3bfb6a50a4e3bdc08136a2549f3a0552",
+      "backupSize": 9957,
+      "match": true
+    }
+  ],
+  "allFilesMatched": true
+}
