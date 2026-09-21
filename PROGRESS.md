@@ -1,8 +1,8 @@
 # Implementation progress
 
-Status: Phase 5 content commit `88ce2220c144fa9487243f8d47e961f95f27461e`
-passes complete local and anonymous-public-clone verification. The release
-record is ready for its final clone check and annotated tag.
+Status: Phase 5 is verified from an anonymous public recursive clone and
+tagged `phase5-curved-spin-gravity-green` at release commit
+`f9fef6a47b9cb5767c2f1150e9795798bfe8adef`.
 
 ## Verified checkpoint
 
@@ -318,7 +318,11 @@ record is ready for its final clone check and annotated tag.
 
 - Publicly verified content commit:
   `88ce2220c144fa9487243f8d47e961f95f27461e`.
-- Planned tag: `phase5-curved-spin-gravity-green`.
+- Verified release commit:
+  `f9fef6a47b9cb5767c2f1150e9795798bfe8adef`.
+- Annotated tag: `phase5-curved-spin-gravity-green`; remote tag object
+  `84e2954a47b0e3297c26b38e58b754447062b445` peels to the verified release
+  commit.
 - Curved geometry fixture SHA-256:
   `6b5eab6b001d69c5face7b179af8a27e3cfe254cf80bc740cdcb7a2855fcdf67`.
 - Independent Wolfram geometry report SHA-256:
@@ -341,13 +345,14 @@ record is ready for its final clone check and annotated tag.
   `scripts/verify_phase5_curved_spin_gravity.sh`.
 - Provenance: `provenance/CURVED_SPIN_BUNDLE.md` and
   `provenance/EINSTEIN_SPINOR_44.md`.
-- Public verification: an anonymous recursive clone passed every PowerShell
-  Phase 0 through Phase 5 gate, the focused Learn gate, and the Phase 5 Bash
-  gate. It reproduced all canonical hashes against solver commit
+- Public verification: anonymous recursive clones of both the content commit
+  and release commit passed every PowerShell Phase 0 through Phase 5 gate,
+  the focused Learn gate, and the Phase 5 Bash gate. They reproduced all
+  canonical hashes against solver commit
   `d1836e6a279d63a90fe2839a0020123245487e76`, had zero tracked drift, and left
   only nine gate-created backup manifests untracked.
-- Next action: publish this release record, verify its commit from a second
-  anonymous recursive clone, then publish the annotated tag.
+- Result: `main` and `phase5-curved-spin-gravity-green` are public; the tag
+  points to the release commit verified from the final anonymous clone.
 
 ## Evidence
 
@@ -386,4 +391,4 @@ record is ready for its final clone check and annotated tag.
 - Vendored SUNDIALS source will remain byte-identical and read-only.
 - Every existing file is backed up and hash-verified before modification.
 
-Next action: verify the Phase 5 release-record commit and publish its tag.
+Next action: none; `phase5-curved-spin-gravity-green` is the verified release.

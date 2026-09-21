@@ -64,10 +64,11 @@ The dark-matter and dark-energy identifications are homogeneous effective-fluid
 analogies within this stated classical model, not observational detections.
 
 Phase 5 content commit `88ce2220c144fa9487243f8d47e961f95f27461e`
-was rebuilt from an anonymous recursive clone of public `main`. Every Phase 0
+and release commit `f9fef6a47b9cb5767c2f1150e9795798bfe8adef`
+were rebuilt from anonymous recursive clones of public `main`. Every Phase 0
 through Phase 5 PowerShell gate, the focused Learn gate, and the Phase 5 Bash
-gate passed with zero tracked drift; only gate-created backup manifests were
-left untracked.
+gate passed with zero tracked drift. The annotated
+`phase5-curved-spin-gravity-green` tag identifies the verified release commit.
 
 The annotated `learn-dissertation-green` tag was verified from an anonymous
 recursive clone of the public repository. Every Phase 0 through Phase 4 gate
