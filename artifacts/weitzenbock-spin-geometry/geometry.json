@@ -1,0 +1,399 @@
+{
+  "schemaVersion": 1,
+  "connection": "Dirac-Weitzenbock inertial spin connection",
+  "cliffordFixtureSha256": "0660e436fdcf90ed0f0481c9a828e92659987f5820084ccbf5e1dfc96866cc54",
+  "curvedGeometryFixtureSha256": "6b5eab6b001d69c5face7b179af8a27e3cfe254cf80bc740cdcb7a2855fcdf67",
+  "baseDimension": 8,
+  "signature": [
+    4,
+    4
+  ],
+  "coordinateOrder": [
+    "x0",
+    "x1",
+    "x2",
+    "x3",
+    "t",
+    "y1",
+    "y2",
+    "y3"
+  ],
+  "timeCoordinateIndexZeroBased": 4,
+  "transverseIndicesZeroBased": [
+    0,
+    1,
+    2,
+    3,
+    5,
+    6,
+    7
+  ],
+  "tangentMetric": [
+    [
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      0,
+      -1,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      0,
+      0,
+      -1,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      -1,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      -1
+    ]
+  ],
+  "metricAnsatz": "g=diag(a(t)^2,a(t)^2,a(t)^2,a(t)^2,-1,-a(t)^2,-a(t)^2,-a(t)^2)",
+  "frameAnsatz": "e_mu^a=diag(a(t),a(t),a(t),a(t),1,a(t),a(t),a(t))",
+  "affineConnectionFormula": "GammaW^rho_munu=e_a^rho(partial_mu e_nu^a+omegaW_mu^a_b e_nu^b)",
+  "selectedGauge": {
+    "name": "diagonal proper-frame Weitzenbock gauge",
+    "inertialSpinConnection": "omegaW_mu^a_b=0",
+    "spinLift": "OmegaW_mu=(1/8)omegaW_muab[gamma^a,gamma^b]=0"
+  },
+  "localLorentzGaugeFamily": "e'=Lambda e, omegaW'=Lambda omegaW Lambda^-1-(partial Lambda)Lambda^-1",
+  "weitzenbockAffineConnectionNonzero": [
+    {
+      "rho": 0,
+      "mu": 4,
+      "nu": 0,
+      "coefficient": "H"
+    },
+    {
+      "rho": 1,
+      "mu": 4,
+      "nu": 1,
+      "coefficient": "H"
+    },
+    {
+      "rho": 2,
+      "mu": 4,
+      "nu": 2,
+      "coefficient": "H"
+    },
+    {
+      "rho": 3,
+      "mu": 4,
+      "nu": 3,
+      "coefficient": "H"
+    },
+    {
+      "rho": 5,
+      "mu": 4,
+      "nu": 5,
+      "coefficient": "H"
+    },
+    {
+      "rho": 6,
+      "mu": 4,
+      "nu": 6,
+      "coefficient": "H"
+    },
+    {
+      "rho": 7,
+      "mu": 4,
+      "nu": 7,
+      "coefficient": "H"
+    }
+  ],
+  "torsionConvention": "T^rho_munu=GammaW^rho_munu-GammaW^rho_numu",
+  "torsionNonzero": [
+    {
+      "rho": 0,
+      "mu": 4,
+      "nu": 0,
+      "coefficient": "H"
+    },
+    {
+      "rho": 0,
+      "mu": 0,
+      "nu": 4,
+      "coefficient": "-H"
+    },
+    {
+      "rho": 1,
+      "mu": 4,
+      "nu": 1,
+      "coefficient": "H"
+    },
+    {
+      "rho": 1,
+      "mu": 1,
+      "nu": 4,
+      "coefficient": "-H"
+    },
+    {
+      "rho": 2,
+      "mu": 4,
+      "nu": 2,
+      "coefficient": "H"
+    },
+    {
+      "rho": 2,
+      "mu": 2,
+      "nu": 4,
+      "coefficient": "-H"
+    },
+    {
+      "rho": 3,
+      "mu": 4,
+      "nu": 3,
+      "coefficient": "H"
+    },
+    {
+      "rho": 3,
+      "mu": 3,
+      "nu": 4,
+      "coefficient": "-H"
+    },
+    {
+      "rho": 5,
+      "mu": 4,
+      "nu": 5,
+      "coefficient": "H"
+    },
+    {
+      "rho": 5,
+      "mu": 5,
+      "nu": 4,
+      "coefficient": "-H"
+    },
+    {
+      "rho": 6,
+      "mu": 4,
+      "nu": 6,
+      "coefficient": "H"
+    },
+    {
+      "rho": 6,
+      "mu": 6,
+      "nu": 4,
+      "coefficient": "-H"
+    },
+    {
+      "rho": 7,
+      "mu": 4,
+      "nu": 7,
+      "coefficient": "H"
+    },
+    {
+      "rho": 7,
+      "mu": 7,
+      "nu": 4,
+      "coefficient": "-H"
+    }
+  ],
+  "torsionTraceConvention": "tau_mu=T^nu_munu",
+  "torsionTrace": {
+    "time": "7 H",
+    "transverse": "0"
+  },
+  "contortionConvention": "K^rho_munu=GammaW^rho_munu-GammaLC^rho_munu",
+  "contortionNonzero": [
+    {
+      "rho": 4,
+      "mu": 0,
+      "nu": 0,
+      "coefficient": "-1 a adot"
+    },
+    {
+      "rho": 0,
+      "mu": 0,
+      "nu": 4,
+      "coefficient": "-H"
+    },
+    {
+      "rho": 4,
+      "mu": 1,
+      "nu": 1,
+      "coefficient": "-1 a adot"
+    },
+    {
+      "rho": 1,
+      "mu": 1,
+      "nu": 4,
+      "coefficient": "-H"
+    },
+    {
+      "rho": 4,
+      "mu": 2,
+      "nu": 2,
+      "coefficient": "-1 a adot"
+    },
+    {
+      "rho": 2,
+      "mu": 2,
+      "nu": 4,
+      "coefficient": "-H"
+    },
+    {
+      "rho": 4,
+      "mu": 3,
+      "nu": 3,
+      "coefficient": "-1 a adot"
+    },
+    {
+      "rho": 3,
+      "mu": 3,
+      "nu": 4,
+      "coefficient": "-H"
+    },
+    {
+      "rho": 4,
+      "mu": 5,
+      "nu": 5,
+      "coefficient": "1 a adot"
+    },
+    {
+      "rho": 5,
+      "mu": 5,
+      "nu": 4,
+      "coefficient": "-H"
+    },
+    {
+      "rho": 4,
+      "mu": 6,
+      "nu": 6,
+      "coefficient": "1 a adot"
+    },
+    {
+      "rho": 6,
+      "mu": 6,
+      "nu": 4,
+      "coefficient": "-H"
+    },
+    {
+      "rho": 4,
+      "mu": 7,
+      "nu": 7,
+      "coefficient": "1 a adot"
+    },
+    {
+      "rho": 7,
+      "mu": 7,
+      "nu": 4,
+      "coefficient": "-H"
+    }
+  ],
+  "connectionRelation": "GammaW=GammaLC+K",
+  "spinConnectionRelation": "OmegaW=OmegaLC+Kspin=0 in selected gauge",
+  "teleparallelScalars": {
+    "torsionScalar": "T=42 H^2",
+    "leviCivitaRicciScalar": "RLC=14 Hdot+56 H^2",
+    "boundaryTerm": "B=14 Hdot+98 H^2",
+    "identity": "RLC=-T+B",
+    "tegrLagrangian": "-T/(2 kappa8)"
+  },
+  "spinorDerivative": "DW_mu=partial_mu+(1/8)omegaW_muab[gamma^a,gamma^b]",
+  "hermitianDiracOperator": "gamma^mu(DW_mu+(1/2)tau_mu)",
+  "homogeneousDiracOperator": "gamma^4(partial_t+(7/2)H)",
+  "sample": {
+    "scaleFactor": [
+      3,
+      2
+    ],
+    "scaleDerivative": [
+      2,
+      5
+    ],
+    "hubble": [
+      4,
+      15
+    ]
+  },
+  "checks": {
+    "signature": true,
+    "sourceFrame": true,
+    "vielbeinPostulate": true,
+    "metricCompatibility": true,
+    "torsionAntisymmetry": true,
+    "torsionNonzero": true,
+    "curvatureZero": true,
+    "contortionIdentity": true,
+    "inertialSpinConnectionZero": true,
+    "spinContortionIdentity": true,
+    "torsionTrace": true,
+    "torsionScalar": true,
+    "boundaryIdentity": true,
+    "homogeneousDiracEquivalence": true,
+    "chiralityPreserved": true
+  },
+  "measurements": {
+    "nonzeroAffineConnectionComponents": 7,
+    "nonzeroTorsionComponents": 14,
+    "nonzeroContortionComponents": 14,
+    "nonzeroInertialSpinConnectionComponents": 0,
+    "sampleTorsionScalar": [
+      224,
+      75
+    ],
+    "spinorDimension": 16
+  }
+}

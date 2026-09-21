@@ -2,8 +2,10 @@
 
 This repository provides a reproducible, exact-real treatment of
 `Cl(4,4)`, `Spin(4,4)`, its two real half-spin modules, split-octonion
-multiplication, and split-real triality. It includes three numerical
-studies driven by the pure-Rust SUNDIALS 7.8.0 CVODE implementation and publishes
+algebra, and split-real triality. It includes multiple numerical studies,
+including Levi-Civita and teleparallel
+Einstein-spinor reductions, driven by the pure-Rust SUNDIALS 7.8.0 CVODE
+implementation. It publishes
 standalone WolframScript, Mathematica, Jupyter, Markdown, LaTeX, PDF, and
 provenance artifacts.
 
@@ -63,6 +65,22 @@ closure, all state equations by finite differences, and deterministic replay.
 The dark-matter and dark-energy identifications are homogeneous effective-fluid
 analogies within this stated classical model, not observational detections.
 
+Phase 6 replaces the canonical spin connection by a flat inertial
+`Spin(4,4)` connection in an explicit diagonal Weitzenböck gauge. The exact
+geometry has zero affine curvature, 14 nonzero torsion components,
+`T=42 H^2`, and the boundary identity `R_LC=-T+B`. The Hermitian spinor
+action contributes half the torsion trace, reproducing the canonical
+homogeneous `7 H/2` Dirac term without treating the vanishing gauge
+representative as an invariant absence of connection.
+
+The fourth numerical study solves the resulting 18-state TEGR-spinor system.
+It reproduces the canonical state history exactly, verifies the torsion and
+boundary quantities independently at every sample, passes a tighter CVODE
+convergence run, and classifies the linear and fractional-power condensate
+terms as dust-like and negative-pressure homogeneous effective fluids. It
+does not count the TEGR torsion scalar as a separate dark component and makes
+no observational dark-matter or dark-energy claim.
+
 Phase 5 content commit `88ce2220c144fa9487243f8d47e961f95f27461e`
 and release commit `f9fef6a47b9cb5767c2f1150e9795798bfe8adef`
 were rebuilt from anonymous recursive clones of public `main`. Every Phase 0
@@ -96,6 +114,7 @@ Set-Location C:\Users\nsh\Developer\code\vscode\dirac
 .\scripts\verify_learn_dissertation.ps1
 .\scripts\verify_phase4_publication.ps1
 .\scripts\verify_phase5_curved_spin_gravity.ps1
+.\scripts\verify_phase6_weitzenbock_spinor.ps1
 .\scripts\status.ps1
 ```
 
@@ -112,6 +131,7 @@ cd /c/Users/nsh/Developer/code/vscode/dirac
 bash ./scripts/verify_learn_dissertation.sh
 bash ./scripts/verify_phase4_publication.sh
 bash ./scripts/verify_phase5_curved_spin_gravity.sh
+bash ./scripts/verify_phase6_weitzenbock_spinor.sh
 ./scripts/status.sh
 ```
 
@@ -144,6 +164,18 @@ in [provenance/EINSTEIN_SPINOR_44.md](provenance/EINSTEIN_SPINOR_44.md), with
 generated [LaTeX](provenance/EINSTEIN_SPINOR_44.tex) and
 [PDF](provenance/EINSTEIN_SPINOR_44.pdf) editions.
 
+The Weitzenböck geometry is under
+`wolfram/WeitzenbockSpinGeometry.wl` and
+`artifacts/weitzenbock-spin-geometry`. The teleparallel numerical study is
+under `studies/weitzenbock_spinor_44`, with canonical outputs under
+`artifacts/weitzenbock-spinor-44`. Its connection, action, field equations,
+numerical method, complete commands, limitations, and dark-sector analysis
+are in
+[provenance/WEITZENBOCK_SPINOR_44.md](provenance/WEITZENBOCK_SPINOR_44.md),
+with generated
+[LaTeX](provenance/WEITZENBOCK_SPINOR_44.tex) and
+[PDF](provenance/WEITZENBOCK_SPINOR_44.pdf) editions.
+
 The publication artifacts are under `wolfram/`, `notebooks/`, and
 `dissertation/`. Complete standalone rebuild commands are in
 `provenance/WOLFRAMSCRIPT.md`, `provenance/MATHEMATICA_NOTEBOOK.md`,
@@ -155,4 +187,6 @@ The publication artifacts are under `wolfram/`, `notebooks/`, and
 The real 16-dimensional irreducible module of the full Clifford algebra is
 reducible after restriction to `Spin(4,4)`: it is the direct sum of two
 inequivalent real 8-dimensional half-spin modules. The project will preserve
-that distinction throughout its code and dissertation.
+that distinction throughout its code and dissertation. A zero inertial spin
+connection is used only together with its declared proper frame; local
+Lorentz transforms generally produce nonzero pure-gauge representatives.

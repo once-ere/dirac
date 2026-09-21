@@ -6,11 +6,17 @@
 notebooks/DiracTriality.nb
 ```
 
-The notebook is generated from held Wolfram expressions. It contains 22 cells,
-including 14 executable input cells. The verifier imports the notebook without
-evaluation, then evaluates every input cell in order in a fresh Wolfram kernel
-with an explicit repository root. It fails on messages, failed evaluations, a
-changed cell count, or any failed notebook check.
+The notebook is generated from held Wolfram expressions. It contains 29 cells,
+including 20 executable input cells. It loads the exact Clifford,
+split-octonion, triality, canonical curved-spin, and Weitzenböck spin-geometry
+packages. It also imports the triality transport, spinor cosmology,
+Levi-Civita Einstein-spinor, and Weitzenböck Einstein-spinor summaries.
+
+The verifier imports the notebook without evaluation, then evaluates every
+input cell in order in a fresh Wolfram kernel with an explicit repository
+root. It fails on messages, failed evaluations, a changed input-cell count, or
+any failed notebook check. The nine final checks cover the three exact
+algebras, both spin connections, and all four numerical studies.
 
 ## Complete Windows commands
 
@@ -33,10 +39,10 @@ if ($first -ne $second) { throw "Mathematica notebook generation changed bytes" 
 Expected verifier totals:
 
 ```text
-input_cell_count=14
+input_cell_count=20
 failed_evaluation_count=0
 message_count=0
-notebook_check_count=5
+notebook_check_count=9
 failed_notebook_check_count=0
 ```
 

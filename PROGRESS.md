@@ -1,8 +1,7 @@
 # Implementation progress
 
-Status: Phase 5 is verified from an anonymous public recursive clone and
-tagged `phase5-curved-spin-gravity-green` at release commit
-`f9fef6a47b9cb5767c2f1150e9795798bfe8adef`.
+Status: Phase 6 is complete and locally verified. Public fresh-clone
+verification is pending the Phase 6 content commit and push.
 
 ## Verified checkpoint
 
@@ -115,6 +114,27 @@ tagged `phase5-curved-spin-gravity-green` at release commit
   builds are byte-identical in PowerShell and Bash.
 - The expanded Python suite contains 33 tests. Both complete local Phase 5
   gates pass with zero failed checks and preserve all prior canonical hashes.
+- The Dirac-Weitzenböck geometry generator passes 15 exact checks. Independent
+  Python and Wolfram reconstructions pass 20 and 15 checks, respectively:
+  metric compatibility, the full vielbein postulate, zero curvature, nonzero
+  torsion, the contortion decomposition, `T=42 H^2`, `R_LC=-T+B`, and the
+  homogeneous spinor-operator identity.
+- The Weitzenböck spinor model passes 13 exact rational action and
+  field-equation checks, seven Rust tests, and 34 numerical-output checks.
+  Its application-owned RHS and CVODE integration have no dependency on the
+  Phase 5 application; exact state agreement is an external result. Its 171-row
+  canonical run uses 1,372 CVODE steps and 1,486 RHS evaluations; deterministic
+  replay is byte-identical and the refined solution differs by at most
+  `6.310776406656671e-10` in normalized state values.
+- The generated Mathematica notebook now has 29 fixed cells and 20 executable
+  inputs. Fresh-kernel execution has zero failures, zero messages, and nine
+  passing checks spanning both connection choices and all four numerical
+  summaries.
+- The standalone Weitzenböck provenance Markdown generates deterministic
+  LaTeX and a warning-free, letter-sized 19-page PDF. Independent three-pass
+  builds are byte-identical and pass all six PDF checks.
+- The expanded Python suite contains 38 tests. The complete local Phase 6
+  PowerShell gate passes with zero failed checks.
 
 ## Phase checkpoints
 
@@ -354,6 +374,33 @@ tagged `phase5-curved-spin-gravity-green` at release commit
 - Result: `main` and `phase5-curved-spin-gravity-green` are public; the tag
   points to the release commit verified from the final anonymous clone.
 
+### Phase 6: Weitzenböck spin connection and dark-sector dynamics
+
+- Content commit: pending.
+- Verified release commit and tag: pending public fresh-clone verification.
+- Weitzenböck geometry fixture SHA-256:
+  `804f00f31ffa4247fc1e30d8e89df3ea7ddbd7c8d9fe795317bd57155c93774c`.
+- Independent Wolfram geometry report SHA-256:
+  `4faa10f831727e8142c9137f50ebec416eb2286f6adb74148ad318fa1a05b517`.
+- Generated Rust constants SHA-256:
+  `98aefc8d785bef34dc801a75b03f07f67bde77422afd4867de2709ae05a4ab4a`.
+- Numerical history SHA-256:
+  `c88ed61cafa59ea0d7693da41527c7b4486ded7cc09ac680b4f20f893d42b62a`.
+- Numerical summary SHA-256:
+  `d03a90539887702ad6bdbe0ee3a5d783094b052609fc0e4d2b761a12b97fa6c8`.
+- Mathematica notebook SHA-256:
+  `5c80d2d9367610db9835f4c570966dba1751cad77ae30f42dc0987bc917505e2`.
+- Provenance Markdown, LaTeX, and PDF SHA-256 values:
+  `cdffe26dd1d3bc67a656769d7defb2eb991da6cc34231bfad4d55876e98ee7fc`,
+  `735576ec52eb30477a6d1dc15ed5e0109ee47bafd389871075256554237046d0`,
+  and `7d14521cf34debb25d277e4db75d3b47bce55ad24ddd30b2b56d65bc9dfa7cd6`.
+- Verification: `scripts/verify_phase6_weitzenbock_spinor.ps1` or
+  `scripts/verify_phase6_weitzenbock_spinor.sh`.
+- Provenance: `provenance/WEITZENBOCK_SPINOR_44.md`.
+- Scientific boundary: the mass and self-interaction terms are homogeneous
+  dust-like and negative-pressure analogies. TEGR torsion rewrites gravity
+  and is not an extra dark fluid. No observational identification is claimed.
+
 ## Evidence
 
 - `backups/pre-bootstrap/manifest.json`
@@ -373,6 +420,7 @@ tagged `phase5-curved-spin-gravity-green` at release commit
 - `provenance/LEARN_DISSERTATION.md`
 - `provenance/CURVED_SPIN_BUNDLE.md`
 - `provenance/EINSTEIN_SPINOR_44.md`
+- `provenance/WEITZENBOCK_SPINOR_44.md`
 - `logs/phase0-verify-tests.log` (local, ignored)
 - `logs/phase0-verify-manifest.log` (local, ignored)
 - `logs/phase0-verify-wolfram.log` (local, ignored)
@@ -391,4 +439,5 @@ tagged `phase5-curved-spin-gravity-green` at release commit
 - Vendored SUNDIALS source will remain byte-identical and read-only.
 - Every existing file is backed up and hash-verified before modification.
 
-Next action: none; `phase5-curved-spin-gravity-green` is the verified release.
+Next action: commit and push Phase 6, then run the complete Phase 6 gate in an
+anonymous recursive clone and record the verified release commit and tag.

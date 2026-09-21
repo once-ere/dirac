@@ -54,6 +54,28 @@ DOCUMENTS = {
             "Complete Git Bash or WSL commands",
         ],
     },
+    "weitzenbock-spinor-44": {
+        "stem": "WEITZENBOCK_SPINOR_44",
+        "markdown_sha256": (
+            "cdffe26dd1d3bc67a656769d7defb2eb991da6cc34231bfad4d55876e98ee7fc"
+        ),
+        "tex_sha256": (
+            "735576ec52eb30477a6d1dc15ed5e0109ee47bafd389871075256554237046d0"
+        ),
+        "required": [
+            "Dirac-Weitzenböck inertial spin connection",
+            "omega^a{}_{W\\,\\mu b}=0",
+            "R_{LC}=-\\mathbb T+B",
+            "Hermitian Weitzenböck-Dirac equation",
+            "There is no scalar field and no cosmological constant",
+            "dust-like",
+            "dark-energy-like",
+            "not counted as an additional dark component",
+            "Complete reproduction and verification commands",
+            "all possible connections",
+            "does not call the Phase 5 Einstein-spinor application",
+        ],
+    },
 }
 
 

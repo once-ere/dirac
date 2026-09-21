@@ -27,6 +27,13 @@ SPECIFICATIONS = {
             "3bb9fb215135852f4f2f8f444686de69665ee28ea5198705104d2b46c4801251"
         ),
     },
+    "weitzenbock-spinor-44": {
+        "path": Path("provenance/WEITZENBOCK_SPINOR_44.pdf"),
+        "pages": 19,
+        "sha256": (
+            "7d14521cf34debb25d277e4db75d3b47bce55ad24ddd30b2b56d65bc9dfa7cd6"
+        ),
+    },
 }
 
 

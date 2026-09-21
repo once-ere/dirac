@@ -36,3 +36,11 @@ dependencies = [
  "cvode_rs",
  "sundials_core",
 ]
+
+[[package]]
+name = "weitzenbock_spinor_44"
+version = "0.1.0"
+dependencies = [
+ "cvode_rs",
+ "sundials_core",
+]

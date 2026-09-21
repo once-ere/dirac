@@ -1,0 +1,50 @@
+{
+  "schemaVersion": 1,
+  "study": "weitzenbock-spinor-44",
+  "connection": "flat inertial Spin(4,4) connection in diagonal Weitzenbock gauge",
+  "stateDimension": 18,
+  "baseDimension": 8,
+  "signature": [4, 4],
+  "cl44FixtureSha256": "0660e436fdcf90ed0f0481c9a828e92659987f5820084ccbf5e1dfc96866cc54",
+  "curvedGeometryFixtureSha256": "6b5eab6b001d69c5face7b179af8a27e3cfe254cf80bc740cdcb7a2855fcdf67",
+  "weitzenbockGeometryFixtureSha256": "804f00f31ffa4247fc1e30d8e89df3ea7ddbd7c8d9fe795317bd57155c93774c",
+  "parameters": {
+    "kappa8": 2.10000000000000000e+01,
+    "massCoefficient": 5.00000000000000028e-02,
+    "selfCoefficient": 9.49999999999999956e-01,
+    "selfExponent": 2.00000000000000011e-01
+  },
+  "tMin": -2.00000000000000011e-01,
+  "tMax": 1.50000000000000000e+00,
+  "outputStep": 1.00000000000000002e-02,
+  "relativeTolerance": 9.99999999999999939e-12,
+  "absoluteTolerance": 1.00000000000000003e-13,
+  "maximumStep": 2.00000000000000004e-03,
+  "sampleCount": 171,
+  "solverSteps": 1372,
+  "rhsEvaluations": 1486,
+  "accelerationTransitionTime": -1.38005293303244986e-01,
+  "accelerationTransitionScaleFactor": 8.63143616576708461e-01,
+  "maximumRelativeError": {
+    "condensate": 7.44192091691309166e-09,
+    "density": 1.48948308787786630e-09,
+    "friedmann": 1.20354325050525201e-09,
+    "teleparallelBoundaryIdentityAbsolute": 2.84217094304040074e-14,
+    "homogeneousDiracEquivalenceAbsolute": 0.00000000000000000e+00
+  },
+  "darkSectorDiagnostics": {
+    "presentEquationOfState": -7.60000000000000009e-01,
+    "presentDustLikeFraction": 5.00000000000000028e-02,
+    "presentNegativePressureFraction": 9.49999999999999956e-01,
+    "finalEquationOfState": -7.99852330343959861e-01,
+    "finalDustLikeFraction": 1.84587070050176515e-04,
+    "finalNegativePressureFraction": 9.99815412929949798e-01
+  },
+  "interpretation": {
+    "massTerm": "homogeneous dust-like effective fluid",
+    "selfInteraction": "homogeneous negative-pressure effective fluid",
+    "torsionSector": "TEGR rewriting of curvature, not an additional dark component",
+    "observationalClaim": false
+  },
+  "verdict": "SUCCESS"
+}

@@ -4,6 +4,7 @@ members = [
 	"studies/einstein_spinor_44",
 	"studies/spinor_cosmology",
 	"studies/triality_transport",
+	"studies/weitzenbock_spinor_44",
 ]
 exclude = ["vendor/sundials_rs"]
 

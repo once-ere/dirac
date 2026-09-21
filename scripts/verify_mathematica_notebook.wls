@@ -23,7 +23,7 @@ If[notebook === $Failed || !MatchQ[notebook, _Notebook],
   Exit[2]
 ];
 inputBoxes = Cases[notebook, Cell[BoxData[boxes_], "Input", ___] :> boxes, Infinity];
-expectedInputCount = 14;
+expectedInputCount = 20;
 If[Length[inputBoxes] =!= expectedInputCount,
   Print["ERROR: expected ", expectedInputCount, " input cells, found ", Length[inputBoxes]];
   Exit[1]
@@ -57,7 +57,7 @@ If[messages =!= {}, Print["messages=", StringRiffle[messages, ","]]];
 If[failedChecks =!= {}, Print["failed_checks=", StringRiffle[failedChecks, ","]]];
 
 If[
-  failedEvaluationCount > 0 || messages =!= {} || Length[checks] =!= 5 || failedChecks =!= {},
+  failedEvaluationCount > 0 || messages =!= {} || Length[checks] =!= 9 || failedChecks =!= {},
   Exit[1]
 ];
 Exit[0];

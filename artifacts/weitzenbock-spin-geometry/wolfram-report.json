@@ -1,0 +1,35 @@
+{
+	"schemaVersion":1,
+	"sourceSha256":{
+		"Cl44.wl":"460aa7ede62f7938f75834cfb946782eb97f73a4494ac98afbaa7418a42029a8",
+		"WeitzenbockSpinGeometry.wl":"aaced4468be1c80f2f3e7454ea677c7bc8489126d1878b74181390f6fd0b2a26"
+	},
+	"checks":{
+		"metricFromFrame":true,
+		"affineComponents":true,
+		"vielbeinPostulate":true,
+		"metricCompatibility":true,
+		"torsionComponents":true,
+		"torsionAntisymmetry":true,
+		"curvatureZero":true,
+		"connectionDecomposition":true,
+		"inertialSpinConnectionZero":true,
+		"spinContortionIdentity":true,
+		"torsionTrace":true,
+		"torsionScalar":true,
+		"boundaryIdentity":true,
+		"homogeneousDiracEquivalence":true,
+		"chiralityPreserved":true
+	},
+	"measurements":{
+		"baseDimension":8,
+		"spinorDimension":16,
+		"transverseDimension":7,
+		"nonzeroAffineConnectionComponents":7,
+		"nonzeroTorsionComponents":14,
+		"nonzeroContortionComponents":14,
+		"torsionScalar":"(42*Derivative[1][Dirac`WeitzenbockSpinGeometry`Private`a][Dirac`WeitzenbockSpinGeometry`Private`t]^2)\/Dirac`WeitzenbockSpinGeometry`Private`a[Dirac`WeitzenbockSpinGeometry`Private`t]^2",
+		"ricciScalar":"(14*(3*Derivative[1][Dirac`WeitzenbockSpinGeometry`Private`a][Dirac`WeitzenbockSpinGeometry`Private`t]^2 + Dirac`WeitzenbockSpinGeometry`Private`a[Dirac`WeitzenbockSpinGeometry`Private`t]*Derivative[2][Dirac`WeitzenbockSpinGeometry`Private`a][Dirac`WeitzenbockSpinGeometry`Private`t]))\/Dirac`WeitzenbockSpinGeometry`Private`a[Dirac`WeitzenbockSpinGeometry`Private`t]^2",
+		"boundaryTerm":"(14*(6*Derivative[1][Dirac`WeitzenbockSpinGeometry`Private`a][Dirac`WeitzenbockSpinGeometry`Private`t]^2 + Dirac`WeitzenbockSpinGeometry`Private`a[Dirac`WeitzenbockSpinGeometry`Private`t]*Derivative[2][Dirac`WeitzenbockSpinGeometry`Private`a][Dirac`WeitzenbockSpinGeometry`Private`t]))\/Dirac`WeitzenbockSpinGeometry`Private`a[Dirac`WeitzenbockSpinGeometry`Private`t]^2"
+	}
+}
