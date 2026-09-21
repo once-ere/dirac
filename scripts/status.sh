@@ -44,7 +44,7 @@ printf 'head=%s\n' "$head"
 printf 'dirty_count=%d\n' "${#dirty[@]}"
 printf 'latest_phase_tag=%s\n' "$phase_tag"
 printf 'source_manifest_sha256=%s\n' "$manifest_hash"
-printf '%s\n' 'latest_verification=local phase5 curved spin bundle and Einstein-spinor gravity'
+printf '%s\n' 'latest_verification=public phase5 content commit 88ce2220c144fa9487243f8d47e961f95f27461e'
 printf 'next_action=%s\n' "$next_action"
 if ((${#dirty[@]} > 0)); then
     printf '%s\n' 'dirty_files_begin'

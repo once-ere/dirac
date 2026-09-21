@@ -48,7 +48,7 @@ Write-Output "head=$head"
 Write-Output "dirty_count=$($dirty.Count)"
 Write-Output "latest_phase_tag=$phaseTag"
 Write-Output "source_manifest_sha256=$manifestHash"
-Write-Output "latest_verification=local phase5 curved spin bundle and Einstein-spinor gravity"
+Write-Output "latest_verification=public phase5 content commit 88ce2220c144fa9487243f8d47e961f95f27461e"
 Write-Output "next_action=$nextAction"
 if ($dirty.Count -gt 0) {
     Write-Output "dirty_files_begin"

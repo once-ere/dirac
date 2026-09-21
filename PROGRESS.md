@@ -1,7 +1,8 @@
 # Implementation progress
 
-Status: The Phase 5 curved-spin-bundle and Einstein-spinor release candidate
-passes complete local PowerShell and Bash gates; public verification is next.
+Status: Phase 5 content commit `88ce2220c144fa9487243f8d47e961f95f27461e`
+passes complete local and anonymous-public-clone verification. The release
+record is ready for its final clone check and annotated tag.
 
 ## Verified checkpoint
 
@@ -315,7 +316,8 @@ passes complete local PowerShell and Bash gates; public verification is next.
 
 ### Phase 5: curved spin bundle and Einstein-spinor gravity
 
-- Release-candidate commit: pending public verification.
+- Publicly verified content commit:
+  `88ce2220c144fa9487243f8d47e961f95f27461e`.
 - Planned tag: `phase5-curved-spin-gravity-green`.
 - Curved geometry fixture SHA-256:
   `6b5eab6b001d69c5face7b179af8a27e3cfe254cf80bc740cdcb7a2855fcdf67`.
@@ -339,8 +341,13 @@ passes complete local PowerShell and Bash gates; public verification is next.
   `scripts/verify_phase5_curved_spin_gravity.sh`.
 - Provenance: `provenance/CURVED_SPIN_BUNDLE.md` and
   `provenance/EINSTEIN_SPINOR_44.md`.
-- Next action: commit and push the candidate, verify every gate and canonical
-  hash from an anonymous recursive clone, then publish the annotated tag.
+- Public verification: an anonymous recursive clone passed every PowerShell
+  Phase 0 through Phase 5 gate, the focused Learn gate, and the Phase 5 Bash
+  gate. It reproduced all canonical hashes against solver commit
+  `d1836e6a279d63a90fe2839a0020123245487e76`, had zero tracked drift, and left
+  only nine gate-created backup manifests untracked.
+- Next action: publish this release record, verify its commit from a second
+  anonymous recursive clone, then publish the annotated tag.
 
 ## Evidence
 
@@ -379,4 +386,4 @@ passes complete local PowerShell and Bash gates; public verification is next.
 - Vendored SUNDIALS source will remain byte-identical and read-only.
 - Every existing file is backed up and hash-verified before modification.
 
-Next action: verify the Phase 5 candidate from an anonymous recursive clone.
+Next action: verify the Phase 5 release-record commit and publish its tag.

@@ -1,0 +1,41 @@
+{
+  "schemaVersion": 1,
+  "backupId": "20260921T012507890083Z",
+  "repositoryRoot": "C:\\Users\\nsh\\Developer\\code\\vscode\\dirac",
+  "destinationRoot": "C:\\Users\\nsh\\Developer\\code\\vscode\\dirac\\backups\\edits\\20260921T012507890083Z",
+  "files": [
+    {
+      "relativePath": "PROGRESS.md",
+      "sourceSha256": "c663f1b8223a85a55fd486daa0d8dd96723facf9489af22edbf880815eee45fc",
+      "sourceSize": 21704,
+      "backupSha256": "c663f1b8223a85a55fd486daa0d8dd96723facf9489af22edbf880815eee45fc",
+      "backupSize": 21704,
+      "match": true
+    },
+    {
+      "relativePath": "README.md",
+      "sourceSha256": "bb4d036a35cc4094b9cf5d90abb16df505165f9f0a2f546e6ce87547a3a45269",
+      "sourceSize": 7669,
+      "backupSha256": "bb4d036a35cc4094b9cf5d90abb16df505165f9f0a2f546e6ce87547a3a45269",
+      "backupSize": 7669,
+      "match": true
+    },
+    {
+      "relativePath": "scripts/status.ps1",
+      "sourceSha256": "2d6dabcdf8f7857191a25a98505e9624e1205f7ae7550d80a2c47fcfac78179d",
+      "sourceSize": 1841,
+      "backupSha256": "2d6dabcdf8f7857191a25a98505e9624e1205f7ae7550d80a2c47fcfac78179d",
+      "backupSize": 1841,
+      "match": true
+    },
+    {
+      "relativePath": "scripts/status.sh",
+      "sourceSha256": "aca00ea1c3359fcdb2421639a17b813951c53f2f254b9eab4bf530272b9b7628",
+      "sourceSize": 2000,
+      "backupSha256": "aca00ea1c3359fcdb2421639a17b813951c53f2f254b9eab4bf530272b9b7628",
+      "backupSize": 2000,
+      "match": true
+    }
+  ],
+  "allFilesMatched": true
+}
