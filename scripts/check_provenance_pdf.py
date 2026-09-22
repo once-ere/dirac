@@ -13,6 +13,13 @@ except ModuleNotFoundError:
 
 
 SPECIFICATIONS = {
+    "developer-summary": {
+        "path": Path("DEVELOPER_SUMMARY.pdf"),
+        "pages": 27,
+        "sha256": (
+            "f4de8214b1b6f03f4bd91874d1cc56d609fee348df15962a6d99d6c68e2f8836"
+        ),
+    },
     "curved-spin-bundle": {
         "path": Path("provenance/CURVED_SPIN_BUNDLE.pdf"),
         "pages": 16,

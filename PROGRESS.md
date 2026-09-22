@@ -160,6 +160,19 @@ clone at `c1e6c9dbda7c16d459ad92fb62b022ffa5a23b98`.
   recursive public clone then passed the complete Phase 7 gate, all 42 Python
   tests, strict main/submodule Git integrity, zero tracked/staged drift, and
   exact agreement among local `HEAD`, `origin/main`, and live GitHub `main`.
+- The repository-wide Developer Summary is published as
+  `DEVELOPER_SUMMARY.md`, `.tex`, and `.pdf`. The Markdown has 887 lines,
+  5,374 checker-counted words, and 44,837 bytes; its deterministic LaTeX has
+  61,977 bytes; the warning-free PDF has 27 letter-sized pages and 410,404
+  bytes.
+- Developer Summary MD/TeX/PDF SHA-256 values are
+  `8dda043982e71991b137edce1f951c67d711b5b36850f8f1501278cdacc3d980`,
+  `ffa17fcf780cbe08e6104c23a840d6ce91e833272b884c01f6ee86a87360fe2b`,
+  and `f4de8214b1b6f03f4bd91874d1cc56d609fee348df15962a6d99d6c68e2f8836`.
+- Its checker passes 24 semantic/path/hash/schema checks. Five focused tests,
+  all 47 repository Python tests, and six PDF checks pass. PowerShell and Bash
+  gates produce byte-identical TeX/PDF files with no TeX errors, warnings,
+  overfull boxes, underfull boxes, or undefined controls.
 
 ## Phase checkpoints
 
@@ -481,5 +494,5 @@ clone at `c1e6c9dbda7c16d459ad92fb62b022ffa5a23b98`.
 - Vendored SUNDIALS source will remain byte-identical and read-only.
 - Every existing file is backed up and hash-verified before modification.
 
-Next action: none; `phase6-weitzenbock-spinor-green` is the verified release.
+Next action: push and fresh-clone verify the Developer Summary; `phase7-x0-x7-refinement-green` remains the verified scientific release.
 <!-- End of verified release ledger. -->

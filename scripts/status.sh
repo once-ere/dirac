@@ -13,7 +13,10 @@ if head="$("$git_command" rev-parse --verify HEAD 2>/dev/null | tr -d '\r')"; th
 else
     head="unborn"
 fi
-phase_tag="$("$git_command" tag --list 'phase6-weitzenbock-spinor-green' | tr -d '\r' | head -n 1)"
+phase_tag="$("$git_command" tag --list 'phase7-x0-x7-refinement-green' | tr -d '\r' | head -n 1)"
+if [[ -z "$phase_tag" ]]; then
+    phase_tag="$("$git_command" tag --list 'phase6-weitzenbock-spinor-green' | tr -d '\r' | head -n 1)"
+fi
 if [[ -z "$phase_tag" ]]; then
     phase_tag="$("$git_command" tag --list 'phase5-curved-spin-gravity-green' | tr -d '\r' | head -n 1)"
 fi
@@ -47,7 +50,7 @@ printf 'head=%s\n' "$head"
 printf 'dirty_count=%d\n' "${#dirty[@]}"
 printf 'latest_phase_tag=%s\n' "$phase_tag"
 printf 'source_manifest_sha256=%s\n' "$manifest_hash"
-printf '%s\n' 'latest_verification=public phase6 release acf02fe2f4f79fd4d41066aaddde06fb8bdcce97'
+printf '%s\n' 'latest_verification=public phase7 release d0352e66ecff8dcbb825555400b77c0e9101da78'
 printf 'next_action=%s\n' "$next_action"
 if ((${#dirty[@]} > 0)); then
     printf '%s\n' 'dirty_files_begin'

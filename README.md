@@ -9,6 +9,14 @@ implementation. It publishes
 standalone WolframScript, Mathematica, Jupyter, Markdown, LaTeX, PDF, and
 provenance artifacts.
 
+The repository-wide engineering guide is
+[DEVELOPER_SUMMARY.md](DEVELOPER_SUMMARY.md), with deterministic
+[LaTeX](DEVELOPER_SUMMARY.tex) and [PDF](DEVELOPER_SUMMARY.pdf) editions. It
+covers architecture, ownership boundaries, phases 0 through 7, exact and
+numerical data flow, toolchain prerequisites, canonical hashes, verification
+strategy, release discipline, troubleshooting, change impact, and scientific
+non-claims. It is a detailed Developer Summary, not an executive summary.
+
 Phase 0 is complete. The seven-root source corpus is frozen in a byte-complete
 SHA-256 manifest, all 209 required Markdown and Wolfram-family artifacts have
 human review evidence, and all 66 parseable Wolfram artifacts import without
@@ -127,6 +135,7 @@ Set-Location C:\Users\nsh\Developer\code\vscode\dirac
 .\scripts\verify_phase5_curved_spin_gravity.ps1
 .\scripts\verify_phase6_weitzenbock_spinor.ps1
 .\scripts\verify_phase7_x0_x7_reports.ps1
+.\scripts\verify_developer_summary.ps1
 .\scripts\status.ps1
 ```
 
@@ -145,6 +154,7 @@ bash ./scripts/verify_phase4_publication.sh
 bash ./scripts/verify_phase5_curved_spin_gravity.sh
 bash ./scripts/verify_phase6_weitzenbock_spinor.sh
 bash ./scripts/verify_phase7_x0_x7_reports.sh
+bash ./scripts/verify_developer_summary.sh
 ./scripts/status.sh
 ```
 
@@ -218,6 +228,12 @@ The publication artifacts are under `wolfram/`, `notebooks/`, and
 `provenance/WOLFRAMSCRIPT.md`, `provenance/MATHEMATICA_NOTEBOOK.md`,
 `provenance/JUPYTER_NOTEBOOK.md`, `provenance/DISSERTATION.md`, and
 `provenance/LEARN_DISSERTATION.md`.
+
+The Developer Summary is verified separately by
+`scripts/check_developer_summary.py`, five focused semantic/canonical/mutation
+tests, the complete Python suite, two isolated LaTeX/PDF builds, and the same
+strict PDF structure/hash/replay checks used by the scientific provenance
+reports.
 
 ## Scientific boundary
 

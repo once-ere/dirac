@@ -28,6 +28,14 @@ def parse_arguments() -> argparse.Namespace:
             "section numbers."
         ),
     )
+    parser.add_argument(
+        "--developer-layout",
+        action="store_true",
+        help=(
+            "Use compact ragged tables and breakable long code spans for "
+            "the repository-wide Developer Summary."
+        ),
+    )
     return parser.parse_args()
 
 
@@ -52,7 +60,20 @@ def escape_text(value: str) -> str:
     )
 
 
-def inline_markup(value: str) -> str:
+def render_code(value: str, break_long_code: bool) -> str:
+    if not break_long_code or len(value) <= 8:
+        return r"\texttt{\detokenize{" + value + "}}"
+    chunks = [value[index:index + 8] for index in range(0, len(value), 8)]
+    return (
+        r"\texttt{"
+        + r"\allowbreak{}".join(
+            escape_text(chunk).replace("$", r"\$") for chunk in chunks
+        )
+        + "}"
+    )
+
+
+def inline_markup(value: str, break_long_code: bool = False) -> str:
     result: list[str] = []
     index = 0
     while index < len(value):
@@ -60,7 +81,9 @@ def inline_markup(value: str) -> str:
             end = value.find("**", index + 2)
             if end >= 0:
                 result.append(
-                    r"\textbf{" + inline_markup(value[index + 2:end]) + "}"
+                    r"\textbf{"
+                    + inline_markup(value[index + 2:end], break_long_code)
+                    + "}"
                 )
                 index = end + 2
                 continue
@@ -68,7 +91,9 @@ def inline_markup(value: str) -> str:
             end = value.find("*", index + 1)
             if end >= 0:
                 result.append(
-                    r"\emph{" + inline_markup(value[index + 1:end]) + "}"
+                    r"\emph{"
+                    + inline_markup(value[index + 1:end], break_long_code)
+                    + "}"
                 )
                 index = end + 1
                 continue
@@ -76,7 +101,7 @@ def inline_markup(value: str) -> str:
             end = value.find("`", index + 1)
             if end >= 0:
                 result.append(
-                    r"\texttt{\detokenize{" + value[index + 1:end] + "}}"
+                    render_code(value[index + 1:end], break_long_code)
                 )
                 index = end + 1
                 continue
@@ -115,25 +140,29 @@ def is_table_separator(line: str) -> bool:
     )
 
 
-def render_table(lines: list[str]) -> list[str]:
+def render_table(
+    lines: list[str], developer_layout: bool = False
+) -> list[str]:
     rows = [
         [
-            inline_markup(cell.strip())
+            inline_markup(cell.strip(), developer_layout)
             for cell in line.strip().strip("|").split("|")
         ]
         for line in lines
         if not is_table_separator(line)
     ]
     columns = len(rows[0])
-    width = 0.92 / columns
-    specification = (
-        "@{}"
-        + "".join(
-            f"p{{{width:.3f}\\linewidth}}" for _ in range(columns)
-        )
-        + "@{}"
+    width = (0.80 if developer_layout else 0.92) / columns
+    column_type = (
+        f">{{\\raggedright\\arraybackslash}}p{{{width:.3f}\\linewidth}}"
+        if developer_layout
+        else f"p{{{width:.3f}\\linewidth}}"
     )
-    output = [f"\\begin{{longtable}}{{{specification}}}", "\\toprule"]
+    specification = "@{}" + column_type * columns + "@{}"
+    output = []
+    if developer_layout:
+        output.extend(["\\begingroup", "\\small"])
+    output.extend([f"\\begin{{longtable}}{{{specification}}}", "\\toprule"])
     header = " & ".join(
         r"\textbf{" + cell + "}" for cell in rows[0]
     ) + r" \\"
@@ -147,6 +176,8 @@ def render_table(lines: list[str]) -> list[str]:
     for row in rows[1:]:
         output.append(" & ".join(row) + r" \\")
     output.extend(["\\bottomrule", "\\end{longtable}"])
+    if developer_layout:
+        output.append("\\endgroup")
     return output
 
 
@@ -176,7 +207,11 @@ def document_metadata(lines: list[str]) -> tuple[str, str, int, int]:
     return title, subtitle, title_index, subtitle_index
 
 
-def convert(markdown: str, strip_heading_numbers: bool = False) -> str:
+def convert(
+    markdown: str,
+    strip_heading_numbers: bool = False,
+    developer_layout: bool = False,
+) -> str:
     lines = markdown.splitlines()
     title, subtitle, title_index, subtitle_index = document_metadata(lines)
     body: list[str] = []
@@ -191,7 +226,10 @@ def convert(markdown: str, strip_heading_numbers: bool = False) -> str:
         nonlocal paragraph
         if paragraph:
             body.append(
-                inline_markup(" ".join(line.strip() for line in paragraph))
+                inline_markup(
+                    " ".join(line.strip() for line in paragraph),
+                    developer_layout,
+                )
             )
             body.append("")
             paragraph = []
@@ -245,7 +283,7 @@ def convert(markdown: str, strip_heading_numbers: bool = False) -> str:
             while index < len(lines) and lines[index].strip().startswith("|"):
                 table_lines.append(lines[index])
                 index += 1
-            body.extend(render_table(table_lines))
+            body.extend(render_table(table_lines, developer_layout))
             body.append("")
             continue
         heading = re.match(r"^(#{1,6})\s+(.+)$", stripped)
@@ -266,11 +304,20 @@ def convert(markdown: str, strip_heading_numbers: bool = False) -> str:
                 body.append("\\begin{abstract}")
                 in_abstract = True
             elif level == 2:
-                body.extend([f"\\section{{{inline_markup(text)}}}", ""])
+                body.extend(
+                    [f"\\section{{{inline_markup(text, developer_layout)}}}", ""]
+                )
             elif level == 3:
-                body.extend([f"\\subsection{{{inline_markup(text)}}}", ""])
+                body.extend(
+                    [f"\\subsection{{{inline_markup(text, developer_layout)}}}", ""]
+                )
             else:
-                body.extend([f"\\subsubsection{{{inline_markup(text)}}}", ""])
+                body.extend(
+                    [
+                        f"\\subsubsection{{{inline_markup(text, developer_layout)}}}",
+                        "",
+                    ]
+                )
             index += 1
             continue
         ordered = re.match(r"^\d+\.\s+(.+)$", stripped)
@@ -283,7 +330,10 @@ def convert(markdown: str, strip_heading_numbers: bool = False) -> str:
                 body.append(f"\\begin{{{wanted}}}")
                 list_kind = wanted
             body.append(
-                "\\item " + inline_markup((ordered or unordered).group(1))
+                "\\item "
+                + inline_markup(
+                    (ordered or unordered).group(1), developer_layout
+                )
             )
             index += 1
             continue
@@ -301,8 +351,9 @@ def convert(markdown: str, strip_heading_numbers: bool = False) -> str:
         body.append("\\end{abstract}")
 
     latex_title = (
-        f"{chr(92)}title{{{inline_markup(title)}"
-        f"{chr(92) * 2}[0.5em]\\large {inline_markup(subtitle)}}}"
+        f"{chr(92)}title{{{inline_markup(title, developer_layout)}"
+        f"{chr(92) * 2}[0.5em]\\large "
+        f"{inline_markup(subtitle, developer_layout)}}}"
     )
     preamble = rf"""\documentclass[11pt]{{article}}
 \usepackage[T1]{{fontenc}}
@@ -339,6 +390,7 @@ def main() -> int:
     latex = convert(
         input_path.read_text(encoding="utf-8"),
         strip_heading_numbers=arguments.strip_heading_numbers,
+        developer_layout=arguments.developer_layout,
     )
     output_path.parent.mkdir(parents=True, exist_ok=True)
     output_path.write_text(latex, encoding="utf-8", newline="\n")

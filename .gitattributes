@@ -1,5 +1,8 @@
 # Generated text artifacts are hashed byte-for-byte by the verification gates.
 Cargo.lock text eol=lf
+DEVELOPER_SUMMARY.md text eol=lf
+DEVELOPER_SUMMARY.tex text eol=lf
+DEVELOPER_SUMMARY.pdf binary
 audit/** text eol=lf
 audit/wolfram-structure.json text eol=crlf
 artifacts/triality-transport/*.csv text eol=lf

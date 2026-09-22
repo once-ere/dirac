@@ -10,8 +10,12 @@ $head = git rev-parse --verify HEAD 2>$null
 if ($LASTEXITCODE -ne 0) {
     $head = "unborn"
 }
-$phaseTag = git tag --list "phase6-weitzenbock-spinor-green" |
+$phaseTag = git tag --list "phase7-x0-x7-refinement-green" |
     Select-Object -First 1
+if (-not $phaseTag) {
+    $phaseTag = git tag --list "phase6-weitzenbock-spinor-green" |
+        Select-Object -First 1
+}
 if (-not $phaseTag) {
     $phaseTag = git tag --list "phase5-curved-spin-gravity-green" |
         Select-Object -First 1
@@ -52,7 +56,7 @@ Write-Output "head=$head"
 Write-Output "dirty_count=$($dirty.Count)"
 Write-Output "latest_phase_tag=$phaseTag"
 Write-Output "source_manifest_sha256=$manifestHash"
-Write-Output "latest_verification=public phase6 release acf02fe2f4f79fd4d41066aaddde06fb8bdcce97"
+Write-Output "latest_verification=public phase7 release d0352e66ecff8dcbb825555400b77c0e9101da78"
 Write-Output "next_action=$nextAction"
 if ($dirty.Count -gt 0) {
     Write-Output "dirty_files_begin"
