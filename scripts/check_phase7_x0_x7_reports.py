@@ -28,8 +28,12 @@ EVIDENCE_PATH = (
     REPOSITORY_ROOT / "refinement" / "phase7-x0-x7" / "evidence.json"
 )
 EVIDENCE_BUILDER_PATH = EVIDENCE_PATH.with_name("build_evidence.py")
+CONVERGENCE_PATH = EVIDENCE_PATH.with_name("convergence.json")
 EXPECTED_EVIDENCE_SHA256 = (
     "58373d6aeea90807a3f064f395b8367502ff3a280050a5c8823c9e0cc0b2eb0b"
+)
+EXPECTED_CONVERGENCE_SHA256 = (
+    "9cf9e89a2326786e2573eafbf1ad1cdcb1528eeb540bfb102cbf5c6988a1ef76"
 )
 
 
@@ -73,6 +77,7 @@ def verify_reports(
     components_path: Path = COMPONENTS_PATH,
     numerics_path: Path = NUMERICS_PATH,
     evidence_path: Path = EVIDENCE_PATH,
+    convergence_path: Path = CONVERGENCE_PATH,
 ) -> dict[str, Any]:
     components = components_path.read_text(encoding="utf-8")
     numerics = numerics_path.read_text(encoding="utf-8")
@@ -80,6 +85,7 @@ def verify_reports(
     numerics_compact = compact(numerics)
     numerics_normalized = re.sub(r"\s+", " ", numerics)
     evidence = json.loads(evidence_path.read_text(encoding="utf-8"))
+    convergence = json.loads(convergence_path.read_text(encoding="utf-8"))
     rebuilt_evidence = load_evidence_builder().build_evidence()
 
     expected_metric = compact(
@@ -127,6 +133,8 @@ def verify_reports(
 
     checks = {
         "evidenceHash": sha256_file(evidence_path) == EXPECTED_EVIDENCE_SHA256,
+        "convergenceHash": sha256_file(convergence_path)
+        == EXPECTED_CONVERGENCE_SHA256,
         "evidenceCanonical": evidence == rebuilt_evidence,
         "exactComponentEvidence": all_nested_checks_pass(
             evidence["exactComponents"]
@@ -136,6 +144,13 @@ def verify_reports(
         "numericalEvidence": all_nested_checks_pass(
             evidence["numericalOutput"]
         ),
+        "convergenceEvidence": all_nested_checks_pass(
+            convergence["independentVerification"]
+        )
+        and convergence["canonical"]["historySha256"]
+        == convergence["repeat"]["historySha256"]
+        and convergence["canonical"]["summarySha256"]
+        == convergence["repeat"]["summarySha256"],
         "coordinateReference": (
             "coordinates = {x0, x1, x2, x3, x4, x5, x6, x7}"
             in components
@@ -236,6 +251,12 @@ def verify_reports(
             and "5.702272371471661\\times10^{-7}" in numerics_compact
             and "must not be reported as `1e-9` equation accuracy" in numerics
         ),
+        "recordedRefinedConvergence": (
+            "6.310776406656671\\times10^{-10}" in numerics_compact
+            and "1.6415774988196702\\times10^{-9}" in numerics_compact
+            and "2,294 solver steps" in numerics
+            and "2,422 right-hand-side" in numerics
+        ),
         "numericalLimitations": all(
             phrase in numerics
             for phrase in (
@@ -270,6 +291,9 @@ def verify_reports(
             "numericalEvidenceCheckCount": len(
                 evidence["numericalOutput"]["checks"]
             ),
+            "convergenceCheckCount": len(
+                convergence["independentVerification"]["checks"]
+            ),
         },
     }
 
@@ -280,6 +304,7 @@ def main() -> int:
         arguments.components.resolve(),
         arguments.numerics.resolve(),
         arguments.evidence.resolve(),
+        CONVERGENCE_PATH,
     )
     failures = [
         name for name, passed in report["checks"].items() if not passed

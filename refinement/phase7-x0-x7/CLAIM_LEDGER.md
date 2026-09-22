@@ -17,18 +17,23 @@ interpretations, and open questions. The machine-readable companion is
 | N03 | The three quoted approximately `1e-9` errors are condensate, density, and Friedmann relative errors. | `derived_values()` and canonical CSV. | Verified; they are not ODE residual norms. |
 | N04 | The five-point ODE residual check has maximum component RMS below `1e-3`. | Independent checker measurement in `evidence.json`. | Verified; exact value must be reported separately. |
 | N05 | BDF is globally the “best” method. | No comparative solver benchmark exists. | Not established; replace with “selected robust method”. |
-| N06 | CVODE uses BDF with a dense 18-by-18 linear solver. | `CVodeCreate(CV_BDF)`, `SUNDenseMatrix`, `SUNLinSol_Dense`. | Verified. Newton/default nonlinear-solver wording still requires source confirmation. |
+| N06 | CVODE uses variable-order BDF, default Newton iteration, an internal difference-quotient Jacobian, and a dense 18-by-18 direct solve. | Application and pinned SUNDIALS 7.8.0 sources, hash-recorded in `evidence.json`. | Verified; orders 1--5 and at most three nonlinear correctors per attempt. |
+| N07 | Canonical replay is byte-identical and the tighter run converges toward the analytic constraints. | `convergence.json`; 24 independent checks. | Verified; maximum normalized canonical/refined state difference is `6.310776406656671e-10`. |
 | D01 | The linear potential term is dust-like. | `p=S V_S-V=0`, `S proportional to a^-7`. | Verified as a homogeneous background analogy. |
 | D02 | The fractional term is dark-energy-like. | `w=-4/5`, while 7-space acceleration requires `w<-5/7`. | Verified as a homogeneous background analogy. |
 | D03 | The model establishes observed dark matter or dark energy. | No perturbation, clustering, compactification, stability, or observational analysis. | Not established and must not be claimed. |
 
-## Required refinements
+## Implemented refinements
 
-1. Expand `S` and all 16 spinor ODEs with no matrix sums.
-2. Write the eight diagonal Einstein equations separately and enumerate all 28
+1. Expanded `S` and all 16 spinor ODEs with no matrix sums.
+2. Wrote the eight diagonal Einstein equations separately and enumerated all 28
    independent off-diagonal equations as ansatz-specific identities.
-3. Add the one-based mathematical to zero-based implementation mapping.
-4. State the positive-condensate domain and its singular boundary.
-5. Record reference-state data and two-branch integration.
-6. Define every error metric and report finite-difference residuals separately.
-7. Bound the dark-sector classification and explicitly record untested claims.
+3. Added the one-based mathematical to zero-based implementation mapping.
+4. Stated the positive-condensate domain and its singular boundary.
+5. Recorded reference-state data and two-branch integration.
+6. Defined every error metric and reported finite-difference residuals
+   separately from invariant errors.
+7. Bounded the dark-sector classification and explicitly recorded untested
+   physical claims.
+8. Added exact quadrature, spinor-rotation reconstruction, and early/late
+   asymptotic solutions.

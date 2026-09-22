@@ -13,8 +13,18 @@ if (-not (Get-Command pdflatex.exe -ErrorAction SilentlyContinue)) {
     $env:Path = "$miktexBin;$env:Path"
 }
 
+$expectedVendorCommit = "d1836e6a279d63a90fe2839a0020123245487e76"
+$actualVendorCommit = git -C vendor/sundials_rs rev-parse HEAD
+if ($LASTEXITCODE -ne 0 -or $actualVendorCommit -ne $expectedVendorCommit) {
+    throw "solver submodule commit mismatch"
+}
+if (git -C vendor/sundials_rs status --porcelain) {
+    throw "solver submodule is dirty"
+}
+
 $generated = @(
     "refinement/phase7-x0-x7/evidence.json",
+    "refinement/phase7-x0-x7/convergence.json",
     "provenance/EINSTEIN_SPINOR_44_COMPONENTS_X0_X7.tex",
     "provenance/EINSTEIN_SPINOR_44_COMPONENTS_X0_X7.pdf",
     "provenance/EINSTEIN_SPINOR_44_NUMERICS_X0_X7.tex",
@@ -32,18 +42,28 @@ $buildDirectories = @(
     "build\phase7\components-pdf-a",
     "build\phase7\components-pdf-b",
     "build\phase7\numerics-pdf-a",
-    "build\phase7\numerics-pdf-b"
+    "build\phase7\numerics-pdf-b",
+    "build\phase7\einstein-spinor-repeat",
+    "build\phase7\einstein-spinor-refined"
 )
 Remove-Item $buildDirectories -Recurse -Force -ErrorAction SilentlyContinue
 Remove-Item "build\phase7\evidence-repeat.json" -Force -ErrorAction SilentlyContinue
+Remove-Item "build\phase7\convergence-repeat.json" -Force -ErrorAction SilentlyContinue
 New-Item -ItemType Directory -Path $buildDirectories -Force | Out-Null
 
 $steps = @(
     @("logs/phase7-check-components.log", "python refinement/phase7-x0-x7/verify_component_claims.py"),
+    @("logs/phase7-check-exact-model.log", "python scripts/check_einstein_spinor_model.py"),
+    @("logs/phase7-cargo-fmt.log", "cargo fmt -p einstein_spinor_44 -- --check"),
+    @("logs/phase7-cargo-clippy.log", "cargo clippy -p einstein_spinor_44 --all-targets -- -D warnings"),
+    @("logs/phase7-cargo-test.log", "cargo test -p einstein_spinor_44"),
+    @("logs/phase7-run-repeat.log", "cargo run --release -p einstein_spinor_44 -- --output build/phase7/einstein-spinor-repeat"),
+    @("logs/phase7-run-refined.log", "cargo run --release -p einstein_spinor_44 -- --output build/phase7/einstein-spinor-refined --relative-tolerance 1e-12 --absolute-tolerance 1e-14 --maximum-step 0.001"),
+    @("logs/phase7-check-numerical-output.log", "python scripts/check_einstein_spinor_44.py --repeat build/phase7/einstein-spinor-repeat --refined build/phase7/einstein-spinor-refined"),
+    @("logs/phase7-build-convergence.log", "python refinement/phase7-x0-x7/build_convergence_evidence.py"),
+    @("logs/phase7-build-convergence-repeat.log", "python refinement/phase7-x0-x7/build_convergence_evidence.py --output build/phase7/convergence-repeat.json"),
     @("logs/phase7-build-evidence.log", "python refinement/phase7-x0-x7/build_evidence.py"),
     @("logs/phase7-build-evidence-repeat.log", "python refinement/phase7-x0-x7/build_evidence.py --output build/phase7/evidence-repeat.json"),
-    @("logs/phase7-check-exact-model.log", "python scripts/check_einstein_spinor_model.py"),
-    @("logs/phase7-check-numerical-output.log", "python scripts/check_einstein_spinor_44.py"),
     @("logs/phase7-check-reports.log", "python scripts/check_phase7_x0_x7_reports.py"),
     @("logs/phase7-tests.log", "python -m unittest tests.test_phase7_x0_x7_refinement tests.test_curved_spin_publications -v"),
     @("logs/phase7-build-components-tex.log", "python scripts/build_dissertation_tex.py --strip-heading-numbers --input provenance/EINSTEIN_SPINOR_44_COMPONENTS_X0_X7.md --output provenance/EINSTEIN_SPINOR_44_COMPONENTS_X0_X7.tex"),
@@ -87,6 +107,7 @@ if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
 
 $pairs = @(
     @("refinement\phase7-x0-x7\evidence.json", "build\phase7\evidence-repeat.json"),
+    @("refinement\phase7-x0-x7\convergence.json", "build\phase7\convergence-repeat.json"),
     @("provenance\EINSTEIN_SPINOR_44_COMPONENTS_X0_X7.tex", "build\phase7\EINSTEIN_SPINOR_44_COMPONENTS_X0_X7-repeat.tex"),
     @("provenance\EINSTEIN_SPINOR_44_NUMERICS_X0_X7.tex", "build\phase7\EINSTEIN_SPINOR_44_NUMERICS_X0_X7-repeat.tex"),
     @("build\phase7\components-pdf-a\EINSTEIN_SPINOR_44_COMPONENTS_X0_X7.pdf", "build\phase7\components-pdf-b\EINSTEIN_SPINOR_44_COMPONENTS_X0_X7.pdf"),
@@ -125,5 +146,7 @@ Write-Output "numerics_md_sha256=$((Get-FileHash provenance\EINSTEIN_SPINOR_44_N
 Write-Output "numerics_tex_sha256=$((Get-FileHash provenance\EINSTEIN_SPINOR_44_NUMERICS_X0_X7.tex -Algorithm SHA256).Hash.ToLowerInvariant())"
 Write-Output "numerics_pdf_sha256=$((Get-FileHash provenance\EINSTEIN_SPINOR_44_NUMERICS_X0_X7.pdf -Algorithm SHA256).Hash.ToLowerInvariant())"
 Write-Output "evidence_sha256=$((Get-FileHash refinement\phase7-x0-x7\evidence.json -Algorithm SHA256).Hash.ToLowerInvariant())"
+Write-Output "convergence_sha256=$((Get-FileHash refinement\phase7-x0-x7\convergence.json -Algorithm SHA256).Hash.ToLowerInvariant())"
+Write-Output "vendor_commit=$actualVendorCommit"
 Write-Output "phase7_x0_x7_reports_verification=OK"
 exit 0

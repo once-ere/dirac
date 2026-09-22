@@ -45,7 +45,7 @@ SPECIFICATIONS = {
         "path": Path("provenance/EINSTEIN_SPINOR_44_NUMERICS_X0_X7.pdf"),
         "pages": 8,
         "sha256": (
-            "488641f2c043ee5cad1aa9216d43645b09ccbf133290276c638643ca0a14deaf"
+            "8501d992709282039b5a69d1de045660018505f1048f09fecfedc40795484af9"
         ),
     },
 }

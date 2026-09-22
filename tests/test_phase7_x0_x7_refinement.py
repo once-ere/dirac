@@ -63,6 +63,27 @@ class Phase7X0X7RefinementTests(unittest.TestCase):
             with self.subTest(section=section):
                 self.assertTrue(all(evidence[section]["checks"].values()))
 
+    def test_convergence_artifact_records_replay_and_refinement(self) -> None:
+        convergence_path = (
+            REPOSITORY_ROOT
+            / "refinement"
+            / "phase7-x0-x7"
+            / "convergence.json"
+        )
+        convergence = json.loads(
+            convergence_path.read_text(encoding="utf-8")
+        )
+        checks = convergence["independentVerification"]["checks"]
+        measurements = convergence["independentVerification"]["measurements"]
+        self.assertTrue(all(checks.values()))
+        self.assertTrue(checks["repeatByteIdentity"])
+        self.assertTrue(checks["refinedConvergence"])
+        self.assertLess(
+            measurements["maximumRefinedStateDifference"], 2.0e-9
+        )
+        self.assertEqual(convergence["refined"]["solverSteps"], 2294)
+        self.assertEqual(convergence["refined"]["rhsEvaluations"], 2422)
+
 
 if __name__ == "__main__":
     unittest.main()

@@ -151,7 +151,8 @@ deterministic, independently refined, and locally verified by
   finite-difference residual measurements.
 - Phase 7 machine-readable evidence passes 7 exact-component, 4 exact-model,
   7 solver-source, and 22 numerical-output checks. Its semantic checker passes
-  28 checks, and five focused regression tests pass including deliberate
+  31 checks; its convergence artifact passes all 24 canonical, replay, and
+  refined checks; and six focused regression tests pass including deliberate
   mutation rejection. Both refined eight-page PDFs are warning-free and
   byte-identical across isolated three-pass builds.
 

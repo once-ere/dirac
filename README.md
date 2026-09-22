@@ -195,9 +195,9 @@ The independent Phase 7 refinement workspace is under
 [refinement/phase7-x0-x7](refinement/phase7-x0-x7). Its claim ledger and
 machine-readable evidence distinguish exact component identities, numerical
 measurements, model interpretations, and unestablished physical claims. The
-Phase 7 gate regenerates that evidence, runs 40 lower-level checks and 28
-semantic report checks, and rejects reintroduced matrix sums or metric-sign
-errors.
+Phase 7 gate regenerates the exact and 24-check convergence evidence, runs 40
+lower-level checks and 31 semantic report checks, and rejects reintroduced
+matrix sums or metric-sign errors.
 
 The Weitzenböck geometry is under
 `wolfram/WeitzenbockSpinGeometry.wl` and

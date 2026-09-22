@@ -102,10 +102,10 @@ DOCUMENTS = {
     "einstein-spinor-44-numerics-x0-x7": {
         "stem": "EINSTEIN_SPINOR_44_NUMERICS_X0_X7",
         "markdown_sha256": (
-            "001833eb13e953582150e9180c51b2f0afe5db1c59b5873bc097005197f44e32"
+            "1ea9958088af5044f8ceea67e44c1b3b634e581e0902c26c1f364f9efa9e8f49"
         ),
         "tex_sha256": (
-            "6e65c0c8332a908b2eb0add3ac6b8582d551095facb0c63aeda64d451f3ae731"
+            "8465df163fb255c8b091365d543c604e6692d8b114921241e6cac5b39eb3a054"
         ),
         "required": [
             "coordinates = {x0, x1, x2, x3, x4, x5, x6, x7}",

@@ -1,0 +1,125 @@
+{
+  "schemaVersion": 1,
+  "canonical": {
+    "historySha256": "9553b36f201ef43a92c7de3fe2f46457a592e55285e6220d8aa7af6e36a26f9c",
+    "summarySha256": "6b15d084178d01aaed37b84b4bcf8f5246a6941bbe8366ad9c0c3db099eea0f1",
+    "relativeTolerance": 1e-11,
+    "absoluteTolerance": 1e-13,
+    "maximumStep": 0.002,
+    "sampleCount": 171,
+    "solverSteps": 1372,
+    "rhsEvaluations": 1486,
+    "maximumRelativeError": {
+      "condensate": 7.441920916913092e-09,
+      "density": 1.4894830878778663e-09,
+      "friedmann": 1.203543250505252e-09
+    },
+    "verdict": "SUCCESS"
+  },
+  "repeat": {
+    "historySha256": "9553b36f201ef43a92c7de3fe2f46457a592e55285e6220d8aa7af6e36a26f9c",
+    "summarySha256": "6b15d084178d01aaed37b84b4bcf8f5246a6941bbe8366ad9c0c3db099eea0f1",
+    "relativeTolerance": 1e-11,
+    "absoluteTolerance": 1e-13,
+    "maximumStep": 0.002,
+    "sampleCount": 171,
+    "solverSteps": 1372,
+    "rhsEvaluations": 1486,
+    "maximumRelativeError": {
+      "condensate": 7.441920916913092e-09,
+      "density": 1.4894830878778663e-09,
+      "friedmann": 1.203543250505252e-09
+    },
+    "verdict": "SUCCESS"
+  },
+  "refined": {
+    "historySha256": "c29e30eb1caa6face72fad186959d6e348aebacec2e385eed441111723f33a1d",
+    "summarySha256": "d1f62941f973e68a6740a9fd2350f910242baf45b28e34ec0b3d5e20ba74b93c",
+    "relativeTolerance": 1e-12,
+    "absoluteTolerance": 1e-14,
+    "maximumStep": 0.001,
+    "sampleCount": 171,
+    "solverSteps": 2294,
+    "rhsEvaluations": 2422,
+    "maximumRelativeError": {
+      "condensate": 1.6415769908047724e-09,
+      "density": 3.285577241236907e-10,
+      "friedmann": 3.3103429119850667e-10
+    },
+    "verdict": "SUCCESS"
+  },
+  "independentVerification": {
+    "checks": {
+      "filesPresent": true,
+      "schemaVersion": true,
+      "studyAndDimensions": true,
+      "fixtureHashes": true,
+      "parameters": true,
+      "csvHeader": true,
+      "sampleCount": true,
+      "timeGrid": true,
+      "presentEpochOnce": true,
+      "finiteValues": true,
+      "initialData": true,
+      "recordedDerivedValues": true,
+      "recordedErrors": true,
+      "positiveCondensateDomain": true,
+      "errorLimits": true,
+      "summaryErrors": true,
+      "transition": true,
+      "finiteDifferenceOdeResiduals": true,
+      "finiteDifferenceSpatialEinstein": true,
+      "darkSectorFractions": true,
+      "canonicalHashes": true,
+      "summaryVerdict": true,
+      "repeatByteIdentity": true,
+      "refinedConvergence": true
+    },
+    "measurements": {
+      "sampleCount": 171,
+      "solverSteps": 1372,
+      "rhsEvaluations": 1486,
+      "maximumRelativeErrors": [
+        7.441921424927986e-09,
+        1.4894832079072834e-09,
+        1.203543250505252e-09
+      ],
+      "componentOdeRms": [
+        1.462832806646284e-08,
+        4.5103915450628345e-07,
+        0.0003987689785573546,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.00023529253285280489,
+        0.0004705850657056059,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.00019938448927865867
+      ],
+      "maximumComponentOdeRms": 0.0004705850657056059,
+      "maximumSpatialEinsteinFiniteDifferenceError": 5.702272371471661e-07,
+      "transition": [
+        -0.13800529330324499,
+        0.8631436165767085
+      ],
+      "historySha256": "9553b36f201ef43a92c7de3fe2f46457a592e55285e6220d8aa7af6e36a26f9c",
+      "summarySha256": "6b15d084178d01aaed37b84b4bcf8f5246a6941bbe8366ad9c0c3db099eea0f1",
+      "repeatCompared": true,
+      "refinedCompared": true,
+      "maximumRefinedStateDifference": 6.310776406656671e-10,
+      "refinedMaximumRelativeErrors": [
+        1.6415774988196702e-09,
+        3.2855796418252515e-10,
+        3.31034411227924e-10
+      ]
+    }
+  }
+}

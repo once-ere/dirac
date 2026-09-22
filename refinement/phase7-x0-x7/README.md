@@ -31,11 +31,14 @@ numerical provenance reports introduced at commit
    for `x5`, `x6`, and `x7`; the refined metric has `-a^2` in all three slots.
 - Evidence: `evidence.json` passes 7 exact-component, 4 exact-model, 7
    solver-source, and 22 numerical-output checks.
-- Semantic verification: `scripts/check_phase7_x0_x7_reports.py` passes 28
+- Convergence: `convergence.json` passes all 24 canonical, replay, and refined
+   numerical checks; the canonical replay is byte-identical.
+- Semantic verification: `scripts/check_phase7_x0_x7_reports.py` passes 31
    report checks, including 16 spinor, 8 diagonal Einstein, and 28 independent
    off-diagonal Einstein component inventories.
 - Publication verification: both eight-page PDFs build warning-free and are
-   byte-identical across two isolated three-pass builds.
+   byte-identical across two isolated three-pass builds. Six focused regression
+   tests pass, including deliberate matrix-sum and PDF-byte mutations.
 
 All generated evidence belongs under this directory. The external
 `Pre-Universe_opus-fable-main` reference remains untracked and read-only.
