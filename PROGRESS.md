@@ -162,11 +162,11 @@ clone at `c1e6c9dbda7c16d459ad92fb62b022ffa5a23b98`.
   exact agreement among local `HEAD`, `origin/main`, and live GitHub `main`.
 - The repository-wide Developer Summary is published as
   `DEVELOPER_SUMMARY.md`, `.tex`, and `.pdf`. The Markdown has 887 lines,
-  5,374 checker-counted words, and 44,837 bytes; its deterministic LaTeX has
+  5,374 checker-counted words, and 43,950 bytes; its deterministic LaTeX has
   61,977 bytes; the warning-free PDF has 27 letter-sized pages and 410,404
   bytes.
 - Developer Summary MD/TeX/PDF SHA-256 values are
-  `8dda043982e71991b137edce1f951c67d711b5b36850f8f1501278cdacc3d980`,
+  `ad56d4a4ab86326c4923228e4e84a102b92aecc874969e3083cbd9f2e7db8010`,
   `ffa17fcf780cbe08e6104c23a840d6ce91e833272b884c01f6ee86a87360fe2b`,
   and `f4de8214b1b6f03f4bd91874d1cc56d609fee348df15962a6d99d6c68e2f8836`.
 - Its checker passes 24 semantic/path/hash/schema checks. Five focused tests,
