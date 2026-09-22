@@ -173,6 +173,15 @@ clone at `c1e6c9dbda7c16d459ad92fb62b022ffa5a23b98`.
   all 47 repository Python tests, and six PDF checks pass. PowerShell and Bash
   gates produce byte-identical TeX/PDF files with no TeX errors, warnings,
   overfull boxes, underfull boxes, or undefined controls.
+- Developer Summary public verification: a recursive clone at
+  `511e27bb0c5344db4b6f399cdce84802aaa23a71` passed both PowerShell and Bash
+  summary gates, all 47 Python tests, six PDF checks, strict root/submodule
+  `git fsck --full --strict`, and zero tracked/staged drift. Clone `HEAD`,
+  `origin/main`, and live GitHub `main` were identical. The clone reproduced
+  MD/TeX/PDF hashes
+  `ad56d4a4ab86326c4923228e4e84a102b92aecc874969e3083cbd9f2e7db8010`,
+  `ffa17fcf780cbe08e6104c23a840d6ce91e833272b884c01f6ee86a87360fe2b`,
+  and `f4de8214b1b6f03f4bd91874d1cc56d609fee348df15962a6d99d6c68e2f8836`.
 
 ## Phase checkpoints
 
@@ -494,5 +503,5 @@ clone at `c1e6c9dbda7c16d459ad92fb62b022ffa5a23b98`.
 - Vendored SUNDIALS source will remain byte-identical and read-only.
 - Every existing file is backed up and hash-verified before modification.
 
-Next action: push and fresh-clone verify the Developer Summary; `phase7-x0-x7-refinement-green` remains the verified scientific release.
+Next action: none; publish the verified Developer Summary documentation tag while preserving `phase7-x0-x7-refinement-green` as the scientific release.
 <!-- End of verified release ledger. -->

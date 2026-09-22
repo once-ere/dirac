@@ -233,7 +233,10 @@ The Developer Summary is verified separately by
 `scripts/check_developer_summary.py`, five focused semantic/canonical/mutation
 tests, the complete Python suite, two isolated LaTeX/PDF builds, and the same
 strict PDF structure/hash/replay checks used by the scientific provenance
-reports.
+reports. A recursive public clone at commit
+`511e27bb0c5344db4b6f399cdce84802aaa23a71` passed both PowerShell and Bash
+Developer Summary gates, all 47 Python tests, strict root/submodule Git object
+checks, and zero tracked drift.
 
 ## Scientific boundary
 
