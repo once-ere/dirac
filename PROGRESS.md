@@ -4,8 +4,8 @@ Status: Phase 6 is verified from anonymous public recursive clones and tagged
 `phase6-weitzenbock-spinor-green` at release commit
 `acf02fe2f4f79fd4d41066aaddde06fb8bdcce97`. Phase 7 coordinate-fixed
 `{x0,...,x7}` component and numerics provenance reports are now generated,
-deterministic, independently refined, and locally verified by
-`verify_phase7_x0_x7_reports`.
+deterministic, independently refined, and verified from a recursive public
+clone at `c1e6c9dbda7c16d459ad92fb62b022ffa5a23b98`.
 
 ## Verified checkpoint
 
@@ -151,10 +151,15 @@ deterministic, independently refined, and locally verified by
   finite-difference residual measurements.
 - Phase 7 machine-readable evidence passes 7 exact-component, 4 exact-model,
   7 solver-source, and 22 numerical-output checks. Its semantic checker passes
-  31 checks; its convergence artifact passes all 24 canonical, replay, and
+  32 checks; its convergence artifact passes all 24 canonical, replay, and
   refined checks; and six focused regression tests pass including deliberate
   mutation rejection. Both refined eight-page PDFs are warning-free and
   byte-identical across isolated three-pass builds.
+- A first public fresh clone exposed checkout-dependent CRLF conversion in one
+  hash-pinned Rust source. Commit `c1e6c9d` pins that source to LF. A second
+  recursive public clone then passed the complete Phase 7 gate, all 42 Python
+  tests, strict main/submodule Git integrity, zero tracked/staged drift, and
+  exact agreement among local `HEAD`, `origin/main`, and live GitHub `main`.
 
 ## Phase checkpoints
 

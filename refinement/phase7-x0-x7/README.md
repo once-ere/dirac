@@ -33,7 +33,7 @@ numerical provenance reports introduced at commit
    solver-source, and 22 numerical-output checks.
 - Convergence: `convergence.json` passes all 24 canonical, replay, and refined
    numerical checks; the canonical replay is byte-identical.
-- Semantic verification: `scripts/check_phase7_x0_x7_reports.py` passes 31
+- Semantic verification: `scripts/check_phase7_x0_x7_reports.py` passes 32
    report checks, including 16 spinor, 8 diagonal Einstein, and 28 independent
    off-diagonal Einstein component inventories.
 - Publication verification: both eight-page PDFs build warning-free and are

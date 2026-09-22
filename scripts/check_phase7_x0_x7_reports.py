@@ -29,6 +29,7 @@ EVIDENCE_PATH = (
 )
 EVIDENCE_BUILDER_PATH = EVIDENCE_PATH.with_name("build_evidence.py")
 CONVERGENCE_PATH = EVIDENCE_PATH.with_name("convergence.json")
+VERIFICATION_PATH = EVIDENCE_PATH.with_name("VERIFICATION.md")
 EXPECTED_EVIDENCE_SHA256 = (
     "58373d6aeea90807a3f064f395b8367502ff3a280050a5c8823c9e0cc0b2eb0b"
 )
@@ -86,6 +87,7 @@ def verify_reports(
     numerics_normalized = re.sub(r"\s+", " ", numerics)
     evidence = json.loads(evidence_path.read_text(encoding="utf-8"))
     convergence = json.loads(convergence_path.read_text(encoding="utf-8"))
+    verification_record = VERIFICATION_PATH.read_text(encoding="utf-8")
     rebuilt_evidence = load_evidence_builder().build_evidence()
 
     expected_metric = compact(
@@ -130,6 +132,16 @@ def verify_reports(
         "1.48948308787786630\\times10^{-9}",
         "1.20354325050525201\\times10^{-9}",
     )
+    verification_artifacts = (
+        COMPONENTS_PATH,
+        COMPONENTS_PATH.with_suffix(".tex"),
+        COMPONENTS_PATH.with_suffix(".pdf"),
+        NUMERICS_PATH,
+        NUMERICS_PATH.with_suffix(".tex"),
+        NUMERICS_PATH.with_suffix(".pdf"),
+        EVIDENCE_PATH,
+        CONVERGENCE_PATH,
+    )
 
     checks = {
         "evidenceHash": sha256_file(evidence_path) == EXPECTED_EVIDENCE_SHA256,
@@ -151,6 +163,14 @@ def verify_reports(
         == convergence["repeat"]["historySha256"]
         and convergence["canonical"]["summarySha256"]
         == convergence["repeat"]["summarySha256"],
+        "verificationRecord": all(
+            sha256_file(path) in verification_record
+            for path in verification_artifacts
+        )
+        and "c1e6c9dbda7c16d459ad92fb62b022ffa5a23b98"
+        in verification_record
+        and "Complete Python suite: 42 tests passed" in verification_record
+        and "zero tracked or staged drift" in verification_record,
         "coordinateReference": (
             "coordinates = {x0, x1, x2, x3, x4, x5, x6, x7}"
             in components
