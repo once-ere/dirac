@@ -33,6 +33,7 @@ refinement/phase7-x0-x7/*.md text eol=lf
 refinement/phase7-x0-x7/*.py text eol=lf
 scripts/*.sh text eol=lf
 studies/einstein_spinor_44/src/generated.rs text eol=lf
+studies/einstein_spinor_44/src/lib.rs text eol=lf
 studies/weitzenbock_spinor_44/src/generated.rs text eol=lf
 studies/triality_transport/src/generated.rs text eol=lf
 studies/spinor_cosmology/src/generated.rs text eol=lf
