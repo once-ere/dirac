@@ -23,17 +23,17 @@
 \tableofcontents
 \newpage
 \begin{abstract}
-This report gives the numerical strategy for solving the full 18-equation homogeneous reduction of the coordinate-explicit Einstein-spinor model written in
+This report verifies the numerical and approximate methods for the 18-equation homogeneous reduction of the Einstein-spinor model written in
 
 \begin{Verbatim}[fontsize=\small]
 coordinates = {x0, x1, x2, x3, x4, x5, x6, x7}
 \end{Verbatim}
 
-with evolution variable \texttt{\detokenize{x4}}. The method is designed to solve each component equation in one coupled stiff system, quantify approximation error, and expose model-internal dark-energy-like and dark-matter-like behavior from the 16-component commuting spinor condensate.
+with evolution variable \texttt{\detokenize{x4}}. The external bridge notebook supplies only these coordinate names and their ordering; its metric and connection are not used. The selected production method is the pinned safe-Rust SUNDIALS 7.8.0 CVODE BDF implementation. A separate exact reduction to one background quadrature and eight spinor rotations supplies analytic structure and asymptotic approximations. No comparison study establishes BDF as globally optimal.
 
 \end{abstract}
 
-\section{System solved and solver target}
+\section{Exact initial-value problem solved}
 
 State vector:
 
@@ -41,20 +41,29 @@ State vector:
 y(x4)=(a,H,\psi_1,\ldots,\psi_{16})\in\mathbb R^{18}.
 \]
 
-The solved component equations are:
+The report uses one-based spinor labels. They map to zero-based code and CSV columns by \texttt{\detokenize{psi_A = psi(A-1)}}. Define
 
 \[
-\frac{da}{dx4}=aH,
+U=\frac1{20}+\frac{19}{100}S^{-4/5}.
+\]
+
+The geometry equations are
+
+\[
+\dot a=aH,
 \qquad
-\frac{dH}{dx4}=-\frac{\kappa_8}{6}(\rho+p),
+\dot H=-\frac{21}{6}(\rho+p).
 \]
+
+For each \texttt{\detokenize{j=1,...,8}}, the two spinor equations are exactly
 
 \[
-\frac{d\psi_A}{dx4}=-\frac{7}{2}H\psi_A-V_S\sum_{B=1}^{16}(\gamma^4)_{AB}\psi_B,
-\quad A=1,\ldots,16.
+\dot\psi_j=-\frac72H\psi_j-U\psi_{j+8},
+\qquad
+\dot\psi_{j+8}=-\frac72H\psi_{j+8}+U\psi_j.
 \]
 
-Auxiliary closures:
+This represents all 16 scalar equations; they are listed individually in the companion component report. The closures are
 
 \[
 S=\psi^{\mathsf T}C\psi,
@@ -64,26 +73,40 @@ S=\psi^{\mathsf T}C\psi,
 
 \[
 p=-\frac{19}{25}S^{1/5},
-\qquad
-V_S=\frac{1}{20}+\frac{19}{100}S^{-4/5}.
+\qquad H^2=\rho.
 \]
 
-\section{Best numerical method used for all component equations}
+The reference state is imposed at \texttt{\detokenize{x4=0}}:
 
-The best method for this system, as implemented and verified in this repository, is variable-step variable-order BDF with Newton iterations via the pinned pure- Rust SUNDIALS/CVODE engine.
+\[
+a=1,
+\quad H=1,
+\quad \psi_1=1,
+\quad \psi_{16}=\frac12,
+\quad \psi_A=0\ \text{otherwise}.
+\]
 
-Reasoning for this choice:
+CVODE integrates independently from this state backward to \texttt{\detokenize{-0.2}} and forward to \texttt{\detokenize{1.5}}; the backward branch is reversed before both branches are joined.
+
+\section{Selected production method and exact solver configuration}
+
+The implemented production method is variable-step, variable-order BDF in the safe-Rust port of SUNDIALS CVODE 7.8.0. The solver submodule commit is frozen in the machine-readable evidence file.
+
+Source inspection and executable evidence establish this configuration:
 
 \begin{enumerate}
-\item The coupled Einstein-spinor equations are mildly stiff near the transition
-where dilution and self-interaction contributions rebalance.
+\item \texttt{\detokenize{CVodeCreate(CV_BDF)}} selects BDF.
+\item CVODE starts at order one and permits orders one through five.
+\item \texttt{\detokenize{CVodeInit}} installs the default Newton nonlinear solver, with at most three
+nonlinear corrector iterations per attempt in the pinned implementation.
 
-\item The spinor block is linear in \texttt{\detokenize{psi}} for fixed \texttt{\detokenize{(H,S)}} but nonlinear through
-\texttt{\detokenize{S(psi)}}, which benefits from implicit stability.
+\item The application attaches an 18-by-18 dense matrix and dense direct linear
+solver.
 
-\item BDF + Newton gives robust long-interval integration with deterministic
-tolerances and reproducible step histories under fixed binaries and inputs.
+\item No user Jacobian is supplied, so the internal dense difference-quotient
+Jacobian is used.
 
+\item A direct dense solve needs no iterative preconditioner; none is configured.
 \end{enumerate}
 
 Canonical solver settings:
@@ -94,6 +117,7 @@ Canonical solver settings:
 \item Relative tolerance: \texttt{\detokenize{1e-11}}.
 \item Absolute tolerance: \texttt{\detokenize{1e-13}}.
 \item Maximum internal step: \texttt{\detokenize{0.002}}.
+\item Maximum allowed steps per branch: \texttt{\detokenize{1,000,000}}.
 \end{itemize}
 
 Canonical run summary:
@@ -105,7 +129,84 @@ Canonical run summary:
 \item Acceleration transition at \texttt{\detokenize{x4=-0.138005293303244986}}.
 \end{itemize}
 
-\section{Approximation and error-control method}
+BDF is a defensible robust choice for the nonlinear, potentially rapidly rotating spinor system, but this repository has not benchmarked Rosenbrock, DIRK, Adams, or symplectic alternatives. Therefore ``selected method'' is the verified claim; ``globally best method'' is not.
+
+\section{Exact reduction and approximate analytic solution}
+
+Skew-adjointness of \texttt{\detokenize{gamma4}} with respect to \texttt{\detokenize{C}} gives
+
+\[
+\dot S=-7HS,
+\qquad S(0)=1,
+\qquad \boxed{S=a^{-7}}.
+\]
+
+The expanding background therefore reduces exactly to
+
+\[
+\rho(a)=\frac1{20}a^{-7}+\frac{19}{20}a^{-7/5},
+\qquad H(a)=+\sqrt{\rho(a)},
+\]
+
+and one scalar quadrature:
+
+\[
+x4-x4_0=\int_{a_0}^{a}
+\frac{d\tilde a}{\tilde a\sqrt{
+(1/20)\tilde a^{-7}+(19/20)\tilde a^{-7/5}}}.
+\]
+
+For the spinor, define \texttt{\detokenize{chi=a^(7/2) psi}} and
+
+\[
+	heta(x4)=\int_0^{x4}U(S(s))\,ds.
+\]
+
+Then
+
+\[
+\dot\chi=-U\gamma^4\chi,
+\qquad
+\chi(x4)=\left(\cos\theta\,I_{16}
+-\sin\theta\,\gamma^4\right)\chi(0).
+\]
+
+Thus every pair \texttt{\detokenize{j,j+8}} has the explicit reconstruction
+
+\[
+\begin{aligned}
+\psi_j&=a^{-7/2}\left(
+\cos\theta\,\psi_j(0)-\sin\theta\,\psi_{j+8}(0)\right),\\
+\psi_{j+8}&=a^{-7/2}\left(
+\sin\theta\,\psi_j(0)+\cos\theta\,\psi_{j+8}(0)\right).
+\end{aligned}
+\]
+
+This reduces the approximate solution problem to quadrature for \texttt{\detokenize{a}} and \texttt{\detokenize{theta}}. It also supplies an independent structural check on all 16 numerical components.
+
+Two useful single-term asymptotics are:
+
+\begin{enumerate}
+\item Linear-term dominance, with \texttt{\detokenize{m=1/20}}:
+\end{enumerate}
+
+\[
+a(x4)^{7/2}\simeq a_r^{7/2}
++\frac72\sqrt{m}\,(x4-x4_r).
+\]
+
+\begin{enumerate}
+\item Fractional-term dominance, with \texttt{\detokenize{lambda=19/20}}:
+\end{enumerate}
+
+\[
+a(x4)^{7/10}\simeq a_r^{7/10}
++\frac7{10}\sqrt{\lambda}\,(x4-x4_r).
+\]
+
+The late expression corresponds to \texttt{\detokenize{a proportional to x4^(10/7)}} after an appropriate origin shift and is accelerating. These are regime-specific approximations; the canonical output integrates the full two-term system.
+
+\section{Numerical approximation and error control}
 
 The approximation strategy is fully controlled, not ad hoc:
 
@@ -136,7 +237,29 @@ S(x4)\sim a(x4)^{-7}.
 \item Deterministic replay byte-identity for history and summary artifacts.
 \end{enumerate}
 
-Canonical maximum relative errors from independent checker:
+For nonzero expected value \texttt{\detokenize{q_ref}}, define
+
+\[
+\operatorname{rel}(q,q_{\rm ref})=
+\frac{|q-q_{\rm ref}|}{\max(|q_{\rm ref}|,10^{-300})}.
+\]
+
+The three invariant metrics are explicitly
+
+\[
+\varepsilon_S=\max\operatorname{rel}(S,a^{-7}),
+\]
+
+\[
+\varepsilon_\rho=\max\operatorname{rel}
+\left(\rho,\frac1{20}a^{-7}+\frac{19}{20}a^{-7/5}\right),
+\]
+
+\[
+\varepsilon_F=\max\operatorname{rel}(H^2,\rho).
+\]
+
+The canonical run records
 
 \[
 \varepsilon_S\le 7.44192091691309166\times 10^{-9},
@@ -150,7 +273,29 @@ Canonical maximum relative errors from independent checker:
 \varepsilon_{F}\le 1.20354325050525201\times 10^{-9}.
 \]
 
-These bounds demonstrate that the approximate numerical solution tracks the component equations at high precision over the full interval.
+Independent recomputation from the decimal CSV gives, respectively,
+
+\begin{Verbatim}[fontsize=\small]
+7.441921424927986e-09
+1.4894832079072834e-09
+1.203543250505252e-09
+\end{Verbatim}
+
+The tiny difference in the first two values is output-decimal roundoff. These are invariant and constraint errors, not residuals of all 18 ODEs.
+
+For the ODE test, the checker differentiates the 171-point output with the five-point centered stencil and compares it with an independently implemented right-hand side. The largest component RMS residual is
+
+\[
+4.705850657056059\times10^{-4},
+\]
+
+below the declared \texttt{\detokenize{1e-3}} acceptance bound. The largest normalized spatial Einstein finite-difference residual is
+
+\[
+5.702272371471661\times10^{-7},
+\]
+
+below \texttt{\detokenize{1e-6}}. Finite-difference truncation at output spacing \texttt{\detokenize{0.01}} dominates these residuals, so they must not be reported as \texttt{\detokenize{1e-9}} equation accuracy.
 
 \section{Equation-by-equation numerical treatment}
 
@@ -158,21 +303,21 @@ Each equation family is solved as part of the same implicit coupled system:
 
 \begin{enumerate}
 \item \texttt{\detokenize{a}} equation:
-treated as a linear transport equation once \texttt{\detokenize{H}} is known per implicit stage.
+the nonlinear stage equation includes the product \texttt{\detokenize{a H}}; it is advanced in the same Newton solve as every other component.
 
 \item \texttt{\detokenize{H}} equation:
 nonlinear scalar equation coupled through \texttt{\detokenize{rho(S)}} and \texttt{\detokenize{p(S)}}.
 
-\item \texttt{\detokenize{psi_A}} equations (\texttt{\detokenize{A=1,...,16}}):
-linear matrix action in \texttt{\detokenize{psi}} with nonlinear coefficient \texttt{\detokenize{V_S(S(psi))}}.
+\item Eight spinor pairs \texttt{\detokenize{(psi_j,psi_(j+8))}}:
+each has the exact two-component rotation/dilution form in Section 1, while all pairs remain nonlinearly coupled through the shared condensate \texttt{\detokenize{S}}.
 
 \end{enumerate}
 
-No equation is decoupled or solved by shortcut substitution; all 18 components are advanced simultaneously in each implicit Newton solve.
+No equation is decoupled or solved by shortcut substitution; all 18 components are advanced simultaneously in each implicit Newton solve. The canonical initial state leaves six spinor pairs identically zero, but their equations are still present and checked. Only the \texttt{\detokenize{(1,9)}} and \texttt{\detokenize{(8,16)}} pairs become nonzero.
 
-\section{Dark-energy-like and dark-matter-like provenance from component output}
+\section{Dark-energy-like and dark-matter-like provenance}
 
-The model's possible dark-sector correspondences are fully internal and conditional:
+Within the implemented potential there are exactly two homogeneous background correspondences:
 
 \begin{enumerate}
 \item Dust-like component (candidate dark-matter analog):
@@ -221,22 +366,32 @@ identifications.
 \item Split signature \texttt{\detokenize{(4,4)}} is mathematically consistent in this framework but
 is not a standard Lorentzian cosmology.
 
-\item The report does not claim particle-physics identity, perturbation stability,
-or precision-fit cosmology.
+\item Dust-like background dilution does not establish dark-matter clustering.
+\item Negative background pressure does not establish perturbative stability or
+an observational dark-energy fit.
+
+\item No compactification, particle-physics identity, quantum theory, or
+precision-fit cosmology is supplied.
 
 \end{enumerate}
 
-\section{Reproduction commands}
+Other spinor potentials, nonminimal curvature terms, torsion couplings, and inhomogeneous modes are mathematically possible but were not implemented. Accordingly, this is exhaustive only for the selected two-term potential and homogeneous ansatz.
+
+\section{Reproduction and machine-readable evidence}
+
+\texttt{\detokenize{refinement/phase7-x0-x7/evidence.json}} records the exact component pairings, source hashes, solver configuration, four exact model checks, 22 numerical checks, and dark-sector scope. It is regenerated byte-identically by the Phase 7 gate.
 
 \subsection{Windows PowerShell}
 
 \begin{Verbatim}[fontsize=\small]
+python refinement\phase7-x0-x7\build_evidence.py
 .\scripts\verify_phase7_x0_x7_reports.ps1
 \end{Verbatim}
 
 \subsection{Git Bash or WSL}
 
 \begin{Verbatim}[fontsize=\small]
+python.exe refinement/phase7-x0-x7/build_evidence.py
 bash ./scripts/verify_phase7_x0_x7_reports.sh
 \end{Verbatim}
 

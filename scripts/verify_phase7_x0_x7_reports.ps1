@@ -14,6 +14,7 @@ if (-not (Get-Command pdflatex.exe -ErrorAction SilentlyContinue)) {
 }
 
 $generated = @(
+    "refinement/phase7-x0-x7/evidence.json",
     "provenance/EINSTEIN_SPINOR_44_COMPONENTS_X0_X7.tex",
     "provenance/EINSTEIN_SPINOR_44_COMPONENTS_X0_X7.pdf",
     "provenance/EINSTEIN_SPINOR_44_NUMERICS_X0_X7.tex",
@@ -34,9 +35,17 @@ $buildDirectories = @(
     "build\phase7\numerics-pdf-b"
 )
 Remove-Item $buildDirectories -Recurse -Force -ErrorAction SilentlyContinue
+Remove-Item "build\phase7\evidence-repeat.json" -Force -ErrorAction SilentlyContinue
 New-Item -ItemType Directory -Path $buildDirectories -Force | Out-Null
 
 $steps = @(
+    @("logs/phase7-check-components.log", "python refinement/phase7-x0-x7/verify_component_claims.py"),
+    @("logs/phase7-build-evidence.log", "python refinement/phase7-x0-x7/build_evidence.py"),
+    @("logs/phase7-build-evidence-repeat.log", "python refinement/phase7-x0-x7/build_evidence.py --output build/phase7/evidence-repeat.json"),
+    @("logs/phase7-check-exact-model.log", "python scripts/check_einstein_spinor_model.py"),
+    @("logs/phase7-check-numerical-output.log", "python scripts/check_einstein_spinor_44.py"),
+    @("logs/phase7-check-reports.log", "python scripts/check_phase7_x0_x7_reports.py"),
+    @("logs/phase7-tests.log", "python -m unittest tests.test_phase7_x0_x7_refinement tests.test_curved_spin_publications -v"),
     @("logs/phase7-build-components-tex.log", "python scripts/build_dissertation_tex.py --strip-heading-numbers --input provenance/EINSTEIN_SPINOR_44_COMPONENTS_X0_X7.md --output provenance/EINSTEIN_SPINOR_44_COMPONENTS_X0_X7.tex"),
     @("logs/phase7-build-components-tex-repeat.log", "python scripts/build_dissertation_tex.py --strip-heading-numbers --input provenance/EINSTEIN_SPINOR_44_COMPONENTS_X0_X7.md --output build/phase7/EINSTEIN_SPINOR_44_COMPONENTS_X0_X7-repeat.tex"),
     @("logs/phase7-build-numerics-tex.log", "python scripts/build_dissertation_tex.py --strip-heading-numbers --input provenance/EINSTEIN_SPINOR_44_NUMERICS_X0_X7.md --output provenance/EINSTEIN_SPINOR_44_NUMERICS_X0_X7.tex"),
@@ -77,6 +86,7 @@ if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
 if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
 
 $pairs = @(
+    @("refinement\phase7-x0-x7\evidence.json", "build\phase7\evidence-repeat.json"),
     @("provenance\EINSTEIN_SPINOR_44_COMPONENTS_X0_X7.tex", "build\phase7\EINSTEIN_SPINOR_44_COMPONENTS_X0_X7-repeat.tex"),
     @("provenance\EINSTEIN_SPINOR_44_NUMERICS_X0_X7.tex", "build\phase7\EINSTEIN_SPINOR_44_NUMERICS_X0_X7-repeat.tex"),
     @("build\phase7\components-pdf-a\EINSTEIN_SPINOR_44_COMPONENTS_X0_X7.pdf", "build\phase7\components-pdf-b\EINSTEIN_SPINOR_44_COMPONENTS_X0_X7.pdf"),
@@ -114,5 +124,6 @@ Write-Output "components_pdf_sha256=$((Get-FileHash provenance\EINSTEIN_SPINOR_4
 Write-Output "numerics_md_sha256=$((Get-FileHash provenance\EINSTEIN_SPINOR_44_NUMERICS_X0_X7.md -Algorithm SHA256).Hash.ToLowerInvariant())"
 Write-Output "numerics_tex_sha256=$((Get-FileHash provenance\EINSTEIN_SPINOR_44_NUMERICS_X0_X7.tex -Algorithm SHA256).Hash.ToLowerInvariant())"
 Write-Output "numerics_pdf_sha256=$((Get-FileHash provenance\EINSTEIN_SPINOR_44_NUMERICS_X0_X7.pdf -Algorithm SHA256).Hash.ToLowerInvariant())"
+Write-Output "evidence_sha256=$((Get-FileHash refinement\phase7-x0-x7\evidence.json -Algorithm SHA256).Hash.ToLowerInvariant())"
 Write-Output "phase7_x0_x7_reports_verification=OK"
 exit 0

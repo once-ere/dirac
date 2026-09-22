@@ -79,18 +79,21 @@ DOCUMENTS = {
     "einstein-spinor-44-components-x0-x7": {
         "stem": "EINSTEIN_SPINOR_44_COMPONENTS_X0_X7",
         "markdown_sha256": (
-            "e12869f586a6e508c152802463776061e3d64df30ebd231674efdfa8a8737156"
+            "aba76aabc2fce453aa1214b4b580555aa04045649279df2c9f796a27d3994502"
         ),
         "tex_sha256": (
-            "ce980fac9324aa17b0e64a6cf83f5e2cc9b99f676269941d80724a0c3c187185"
+            "4249ed227b8b4ed1c6ad7b8ec9f4b122fc296f7f17e729c274f49b7914d802ee"
         ),
         "required": [
             "coordinates = {x0, x1, x2, x3, x4, x5, x6, x7}",
-            "The evolution coordinate is `x4`",
-            "G_{44}=21H^2",
-            "off-diagonal components",
+            "Only the coordinate names and ordering are adopted",
+            "These are the unrestricted PDEs",
+            "constant-`x4` slice has signature `(4,3)`",
             "one commuting real 16-component spinor field",
-            "Written one-by-one",
+            "There are no hidden matrix sums",
+            "full 36-component symmetric Einstein system",
+            "positive-condensate cone `S>0`",
+            "backward from `x4=0` to `-0.2`",
             "Reduced autonomous ODE system solved by the study",
             "verify_phase7_x0_x7_reports.ps1",
             "verify_phase7_x0_x7_reports.sh",
@@ -99,23 +102,26 @@ DOCUMENTS = {
     "einstein-spinor-44-numerics-x0-x7": {
         "stem": "EINSTEIN_SPINOR_44_NUMERICS_X0_X7",
         "markdown_sha256": (
-            "c4ae3f7e094564e861204e7c818440367e976cdabf1065913663cb355f1e0ade"
+            "001833eb13e953582150e9180c51b2f0afe5db1c59b5873bc097005197f44e32"
         ),
         "tex_sha256": (
-            "5de649720b001b38ee9c8d79ee7c1c59ebfccf5debe4412100f49a1cd94c48e8"
+            "6e65c0c8332a908b2eb0add3ac6b8582d551095facb0c63aeda64d451f3ae731"
         ),
         "required": [
             "coordinates = {x0, x1, x2, x3, x4, x5, x6, x7}",
-            "best method for this system",
-            "variable-step variable-order BDF",
+            "variable-step, variable-order BDF",
             "CVODE",
+            "No comparison study establishes BDF as globally optimal",
+            "default Newton nonlinear solver",
+            "internal dense difference-quotient Jacobian",
             "171",
             "1372",
             "1486",
             "Five-point finite-difference residual checks on all 18 ODE components",
+            "4.705850657056059",
             "dark-energy analog",
             "dark-matter analog",
-            "Approximation and error-control method",
+            "Exact reduction and approximate analytic solution",
             "verify_phase7_x0_x7_reports.ps1",
             "verify_phase7_x0_x7_reports.sh",
         ],

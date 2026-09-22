@@ -191,6 +191,14 @@ with generated
 [LaTeX](provenance/EINSTEIN_SPINOR_44_NUMERICS_X0_X7.tex) and
 [PDF](provenance/EINSTEIN_SPINOR_44_NUMERICS_X0_X7.pdf).
 
+The independent Phase 7 refinement workspace is under
+[refinement/phase7-x0-x7](refinement/phase7-x0-x7). Its claim ledger and
+machine-readable evidence distinguish exact component identities, numerical
+measurements, model interpretations, and unestablished physical claims. The
+Phase 7 gate regenerates that evidence, runs 40 lower-level checks and 28
+semantic report checks, and rejects reintroduced matrix sums or metric-sign
+errors.
+
 The Weitzenböck geometry is under
 `wolfram/WeitzenbockSpinGeometry.wl` and
 `artifacts/weitzenbock-spin-geometry`. The teleparallel numerical study is

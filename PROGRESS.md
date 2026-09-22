@@ -4,7 +4,8 @@ Status: Phase 6 is verified from anonymous public recursive clones and tagged
 `phase6-weitzenbock-spinor-green` at release commit
 `acf02fe2f4f79fd4d41066aaddde06fb8bdcce97`. Phase 7 coordinate-fixed
 `{x0,...,x7}` component and numerics provenance reports are now generated,
-deterministic, and locally verified by `verify_phase7_x0_x7_reports`.
+deterministic, independently refined, and locally verified by
+`verify_phase7_x0_x7_reports`.
 
 ## Verified checkpoint
 
@@ -138,6 +139,21 @@ deterministic, and locally verified by `verify_phase7_x0_x7_reports`.
   builds are byte-identical and pass all six PDF checks.
 - The expanded Python suite contains 38 tests. The complete local Phase 6
   PowerShell gate passes with zero failed checks.
+- The refined Phase 7 component report corrects the negative metric entries at
+  indices 5, 6, and 7, distinguishes unrestricted covariant equations from the
+  solved homogeneous reduction, expands all 16 spinor equations and the
+  condensate, and inventories all 36 independent homogeneous Einstein
+  equations.
+- The refined Phase 7 numerical report records the exact reference state and
+  two-branch integration, the source-verified CVODE BDF/Newton/dense-solver
+  configuration, an exact quadrature and spinor-rotation reduction, both
+  asymptotic backgrounds, explicit invariant-error definitions, and separate
+  finite-difference residual measurements.
+- Phase 7 machine-readable evidence passes 7 exact-component, 4 exact-model,
+  7 solver-source, and 22 numerical-output checks. Its semantic checker passes
+  28 checks, and five focused regression tests pass including deliberate
+  mutation rejection. Both refined eight-page PDFs are warning-free and
+  byte-identical across isolated three-pass builds.
 
 ## Phase checkpoints
 

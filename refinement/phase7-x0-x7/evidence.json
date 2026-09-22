@@ -7,17 +7,19 @@
   "reference": {
     "bridgeNotebook": {
       "path": "Pre-Universe_opus-fable-main/notebooks/gpt-5.6_bridge.nb",
-      "availableDuringAudit": true,
       "byteCount": 27740,
       "sha256": "6791e7f66582a7a80bef50f6092eca0f558ec2fbae8f57b629a427d07dc30fa6",
+      "trackedInDiracRepository": false,
+      "verifiedDuringAudit": true,
       "coordinateExpressionPresent": true,
       "coordinateExpression": "coordinates = {x0, x1, x2, x3, x4, x5, x6, x7};"
     },
     "referenceZip": {
       "path": "Pre-Universe_opus-fable-main.zip",
-      "availableDuringAudit": true,
       "byteCount": 2839251,
-      "sha256": "a8e6503390d58536782547025692af88912c7f0bccc2081bdb73be97f7e40858"
+      "sha256": "a8e6503390d58536782547025692af88912c7f0bccc2081bdb73be97f7e40858",
+      "trackedInDiracRepository": false,
+      "verifiedDuringAudit": true
     }
   },
   "sources": [
@@ -55,6 +57,31 @@
       "path": "scripts/check_einstein_spinor_44.py",
       "byteCount": 20474,
       "sha256": "7a5b28110de59f3c99ca0466970e335a8120d31aeb9e9fbc116defc5874751d8"
+    },
+    {
+      "path": "vendor/sundials_rs/Cargo.toml",
+      "byteCount": 296,
+      "sha256": "443fd9f8c5613f52945691792a8ba78029108d9ee68e61e4ce5f11382f846d20"
+    },
+    {
+      "path": "vendor/sundials_rs/crates/cvode_rs/src/cvode.rs",
+      "byteCount": 169510,
+      "sha256": "590ee01b7e6f0f2af0fff090b1acb728cd11d452679ca9c317f85e1ec5f1774e"
+    },
+    {
+      "path": "vendor/sundials_rs/crates/cvode_rs/src/cvode_impl.rs",
+      "byteCount": 29325,
+      "sha256": "9e37b2d5e75e730822aab1480fb0ed7df25fde9eb96d68a0a709a577fb2a621b"
+    },
+    {
+      "path": "vendor/sundials_rs/crates/cvode_rs/src/cvode_nls.rs",
+      "byteCount": 19753,
+      "sha256": "f5f7aa4502d8da92bb49422f07dbb754a78443b947bb649fb12ad4581b5df9ac"
+    },
+    {
+      "path": "vendor/sundials_rs/crates/cvode_rs/src/cvode_ls.rs",
+      "byteCount": 89246,
+      "sha256": "7f16271e50dba35ca179e6f18228faf18bf906ede4798c461d3204231d20a05d"
     }
   ],
   "exactComponents": {
@@ -291,6 +318,31 @@
       "energyDensity": "1",
       "pressure": "-19/25",
       "initialEinsteinTimeTime": "21"
+    }
+  },
+  "solver": {
+    "name": "safe-Rust port of SUNDIALS CVODE",
+    "version": "7.8.0",
+    "submoduleCommit": "d1836e6a279d63a90fe2839a0020123245487e76",
+    "method": "variable-step variable-order BDF",
+    "orderRange": [
+      1,
+      5
+    ],
+    "defaultNonlinearSolver": "Newton",
+    "maximumNonlinearCorrectors": 3,
+    "linearSolver": "dense direct 18-by-18",
+    "jacobian": "internal dense difference quotient",
+    "preconditioner": "none for the dense direct solve",
+    "selectionClaim": "selected robust implementation; no comparative benchmark establishes global optimality",
+    "checks": {
+      "applicationSelectsBdf": true,
+      "applicationUsesDenseMatrix": true,
+      "applicationUsesDenseLinearSolver": true,
+      "cvodeDefaultNewton": true,
+      "bdfMaximumOrderFive": true,
+      "newtonMaximumCorrectorsThree": true,
+      "internalDifferenceQuotientJacobian": true
     }
   },
   "numericalOutput": {

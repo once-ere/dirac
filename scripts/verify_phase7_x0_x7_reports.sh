@@ -9,6 +9,7 @@ pdflatex_command="$(resolve_miktex_pdflatex)"
 cd -- "$repository_root"
 
 generated=(
+    refinement/phase7-x0-x7/evidence.json
     provenance/EINSTEIN_SPINOR_44_COMPONENTS_X0_X7.tex
     provenance/EINSTEIN_SPINOR_44_COMPONENTS_X0_X7.pdf
     provenance/EINSTEIN_SPINOR_44_NUMERICS_X0_X7.tex
@@ -28,11 +29,30 @@ rm -rf -- \
     build/phase7/components-pdf-b \
     build/phase7/numerics-pdf-a \
     build/phase7/numerics-pdf-b
+rm -f -- build/phase7/evidence-repeat.json
 mkdir -p -- \
     build/phase7/components-pdf-a \
     build/phase7/components-pdf-b \
     build/phase7/numerics-pdf-a \
     build/phase7/numerics-pdf-b
+
+"$script_dir/run_logged.sh" logs/phase7-check-components-bash.log -- \
+    "$python_command" refinement/phase7-x0-x7/verify_component_claims.py
+"$script_dir/run_logged.sh" logs/phase7-build-evidence-bash.log -- \
+    "$python_command" refinement/phase7-x0-x7/build_evidence.py
+"$script_dir/run_logged.sh" logs/phase7-build-evidence-repeat-bash.log -- \
+    "$python_command" refinement/phase7-x0-x7/build_evidence.py \
+        --output build/phase7/evidence-repeat.json
+"$script_dir/run_logged.sh" logs/phase7-check-exact-model-bash.log -- \
+    "$python_command" scripts/check_einstein_spinor_model.py
+"$script_dir/run_logged.sh" logs/phase7-check-numerical-output-bash.log -- \
+    "$python_command" scripts/check_einstein_spinor_44.py
+"$script_dir/run_logged.sh" logs/phase7-check-reports-bash.log -- \
+    "$python_command" scripts/check_phase7_x0_x7_reports.py
+"$script_dir/run_logged.sh" logs/phase7-tests-bash.log -- \
+    "$python_command" -m unittest \
+        tests.test_phase7_x0_x7_refinement \
+        tests.test_curved_spin_publications -v
 
 "$script_dir/run_logged.sh" logs/phase7-build-components-tex-bash.log -- \
     "$python_command" scripts/build_dissertation_tex.py \
@@ -90,6 +110,7 @@ done
         --repeat build/phase7/numerics-pdf-b/EINSTEIN_SPINOR_44_NUMERICS_X0_X7.pdf
 
 pairs=(
+    "refinement/phase7-x0-x7/evidence.json:build/phase7/evidence-repeat.json"
     "provenance/EINSTEIN_SPINOR_44_COMPONENTS_X0_X7.tex:build/phase7/EINSTEIN_SPINOR_44_COMPONENTS_X0_X7-repeat.tex"
     "provenance/EINSTEIN_SPINOR_44_NUMERICS_X0_X7.tex:build/phase7/EINSTEIN_SPINOR_44_NUMERICS_X0_X7-repeat.tex"
     "build/phase7/components-pdf-a/EINSTEIN_SPINOR_44_COMPONENTS_X0_X7.pdf:build/phase7/components-pdf-b/EINSTEIN_SPINOR_44_COMPONENTS_X0_X7.pdf"
@@ -127,4 +148,6 @@ printf 'numerics_tex_sha256=%s\n' \
     "$(sha256sum provenance/EINSTEIN_SPINOR_44_NUMERICS_X0_X7.tex | cut -d' ' -f1)"
 printf 'numerics_pdf_sha256=%s\n' \
     "$(sha256sum provenance/EINSTEIN_SPINOR_44_NUMERICS_X0_X7.pdf | cut -d' ' -f1)"
+printf 'evidence_sha256=%s\n' \
+    "$(sha256sum refinement/phase7-x0-x7/evidence.json | cut -d' ' -f1)"
 printf '%s\n' 'phase7_x0_x7_reports_verification=OK'

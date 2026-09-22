@@ -25,6 +25,17 @@ numerical provenance reports introduced at commit
   matrices, so all such sums and the condensate can be expanded without loss.
 - Discriminating check: `verify_component_claims.py` requires exactly one
   nonzero entry in every row and checks the exact adjoint identities.
+- Result: all six discriminating checks pass. The refined component report now
+   expands the condensate and all 16 spinor equations without matrix sums.
+- Corrected defect: the earlier report incorrectly gave positive metric entries
+   for `x5`, `x6`, and `x7`; the refined metric has `-a^2` in all three slots.
+- Evidence: `evidence.json` passes 7 exact-component, 4 exact-model, 7
+   solver-source, and 22 numerical-output checks.
+- Semantic verification: `scripts/check_phase7_x0_x7_reports.py` passes 28
+   report checks, including 16 spinor, 8 diagonal Einstein, and 28 independent
+   off-diagonal Einstein component inventories.
+- Publication verification: both eight-page PDFs build warning-free and are
+   byte-identical across two isolated three-pass builds.
 
 All generated evidence belongs under this directory. The external
 `Pre-Universe_opus-fable-main` reference remains untracked and read-only.
