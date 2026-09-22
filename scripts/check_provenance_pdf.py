@@ -34,6 +34,20 @@ SPECIFICATIONS = {
             "7d14521cf34debb25d277e4db75d3b47bce55ad24ddd30b2b56d65bc9dfa7cd6"
         ),
     },
+    "einstein-spinor-44-components-x0-x7": {
+        "path": Path("provenance/EINSTEIN_SPINOR_44_COMPONENTS_X0_X7.pdf"),
+        "pages": 6,
+        "sha256": (
+            "2605fc268ef48861ca68ee48c03b0a4904f94244b7e381f0fbd5be4f5bfccb90"
+        ),
+    },
+    "einstein-spinor-44-numerics-x0-x7": {
+        "path": Path("provenance/EINSTEIN_SPINOR_44_NUMERICS_X0_X7.pdf"),
+        "pages": 5,
+        "sha256": (
+            "c5f496bd54d7e9a40bb7f56e93bcbfeb2d2be0e2737355cd5bdd098f29a5024c"
+        ),
+    },
 }
 
 

@@ -1,0 +1,243 @@
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{booktabs,longtable,array}
+\usepackage{fancyvrb}
+\usepackage[hidelinks]{hyperref}
+\usepackage{microtype}
+\pdfobjcompresslevel=0
+\pdfinfoomitdate=1
+\pdftrailerid{}
+\pdfsuppressptexinfo=15
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.65em}
+\setlength{\emergencystretch}{3em}
+\title{Numerical and Approximate Solution Methods for the Signature \texttt{\detokenize{(4,4)}} Einstein-Spinor Components on \texttt{\detokenize{{x0,...,x7}}}\\[0.5em]\large Complete solver-method provenance and dark-sector interpretation report}
+\author{Reproducible exact-real implementation}
+\date{September 2026}
+\begin{document}
+\maketitle
+\tableofcontents
+\newpage
+\begin{abstract}
+This report gives the numerical strategy for solving the full 18-equation homogeneous reduction of the coordinate-explicit Einstein-spinor model written in
+
+\begin{Verbatim}[fontsize=\small]
+coordinates = {x0, x1, x2, x3, x4, x5, x6, x7}
+\end{Verbatim}
+
+with evolution variable \texttt{\detokenize{x4}}. The method is designed to solve each component equation in one coupled stiff system, quantify approximation error, and expose model-internal dark-energy-like and dark-matter-like behavior from the 16-component commuting spinor condensate.
+
+\end{abstract}
+
+\section{System solved and solver target}
+
+State vector:
+
+\[
+y(x4)=(a,H,\psi_1,\ldots,\psi_{16})\in\mathbb R^{18}.
+\]
+
+The solved component equations are:
+
+\[
+\frac{da}{dx4}=aH,
+\qquad
+\frac{dH}{dx4}=-\frac{\kappa_8}{6}(\rho+p),
+\]
+
+\[
+\frac{d\psi_A}{dx4}=-\frac{7}{2}H\psi_A-V_S\sum_{B=1}^{16}(\gamma^4)_{AB}\psi_B,
+\quad A=1,\ldots,16.
+\]
+
+Auxiliary closures:
+
+\[
+S=\psi^{\mathsf T}C\psi,
+\qquad
+\rho=\frac{1}{20}S+\frac{19}{20}S^{1/5},
+\]
+
+\[
+p=-\frac{19}{25}S^{1/5},
+\qquad
+V_S=\frac{1}{20}+\frac{19}{100}S^{-4/5}.
+\]
+
+\section{Best numerical method used for all component equations}
+
+The best method for this system, as implemented and verified in this repository, is variable-step variable-order BDF with Newton iterations via the pinned pure- Rust SUNDIALS/CVODE engine.
+
+Reasoning for this choice:
+
+\begin{enumerate}
+\item The coupled Einstein-spinor equations are mildly stiff near the transition
+where dilution and self-interaction contributions rebalance.
+
+\item The spinor block is linear in \texttt{\detokenize{psi}} for fixed \texttt{\detokenize{(H,S)}} but nonlinear through
+\texttt{\detokenize{S(psi)}}, which benefits from implicit stability.
+
+\item BDF + Newton gives robust long-interval integration with deterministic
+tolerances and reproducible step histories under fixed binaries and inputs.
+
+\end{enumerate}
+
+Canonical solver settings:
+
+\begin{itemize}
+\item Interval: \texttt{\detokenize{x4 in [-0.2, 1.5]}}.
+\item Output step: \texttt{\detokenize{0.01}}.
+\item Relative tolerance: \texttt{\detokenize{1e-11}}.
+\item Absolute tolerance: \texttt{\detokenize{1e-13}}.
+\item Maximum internal step: \texttt{\detokenize{0.002}}.
+\end{itemize}
+
+Canonical run summary:
+
+\begin{itemize}
+\item Samples: \texttt{\detokenize{171}}.
+\item Internal solver steps: \texttt{\detokenize{1372}}.
+\item RHS evaluations: \texttt{\detokenize{1486}}.
+\item Acceleration transition at \texttt{\detokenize{x4=-0.138005293303244986}}.
+\end{itemize}
+
+\section{Approximation and error-control method}
+
+The approximation strategy is fully controlled, not ad hoc:
+
+\begin{enumerate}
+\item Integrate the full coupled ODE once with canonical tolerances.
+\item Repeat integration with identical settings to enforce byte-level replay.
+\item Integrate a refined run with tighter controls (\texttt{\detokenize{rtol=1e-12}},
+\texttt{\detokenize{atol=1e-14}}, \texttt{\detokenize{max_step=0.001}}).
+
+\item Compare canonical and refined states componentwise.
+\item Recompute every derived quantity from raw state output independently.
+\end{enumerate}
+
+Independent consistency checks applied to each equation family:
+
+\begin{enumerate}
+\item Friedmann closure check from the \texttt{\detokenize{44}} Einstein component.
+\item Pressure/acceleration consistency from the spatial Einstein components.
+\item Five-point finite-difference residual checks on all 18 ODE components.
+\item Condensate power-law consistency:
+\end{enumerate}
+
+\[
+S(x4)\sim a(x4)^{-7}.
+\]
+
+\begin{enumerate}
+\item Deterministic replay byte-identity for history and summary artifacts.
+\end{enumerate}
+
+Canonical maximum relative errors from independent checker:
+
+\[
+\varepsilon_S\le 7.44192091691309166\times 10^{-9},
+\]
+
+\[
+\varepsilon_\rho\le 1.48948308787786630\times 10^{-9},
+\]
+
+\[
+\varepsilon_{F}\le 1.20354325050525201\times 10^{-9}.
+\]
+
+These bounds demonstrate that the approximate numerical solution tracks the component equations at high precision over the full interval.
+
+\section{Equation-by-equation numerical treatment}
+
+Each equation family is solved as part of the same implicit coupled system:
+
+\begin{enumerate}
+\item \texttt{\detokenize{a}} equation:
+treated as a linear transport equation once \texttt{\detokenize{H}} is known per implicit stage.
+
+\item \texttt{\detokenize{H}} equation:
+nonlinear scalar equation coupled through \texttt{\detokenize{rho(S)}} and \texttt{\detokenize{p(S)}}.
+
+\item \texttt{\detokenize{psi_A}} equations (\texttt{\detokenize{A=1,...,16}}):
+linear matrix action in \texttt{\detokenize{psi}} with nonlinear coefficient \texttt{\detokenize{V_S(S(psi))}}.
+
+\end{enumerate}
+
+No equation is decoupled or solved by shortcut substitution; all 18 components are advanced simultaneously in each implicit Newton solve.
+
+\section{Dark-energy-like and dark-matter-like provenance from component output}
+
+The model's possible dark-sector correspondences are fully internal and conditional:
+
+\begin{enumerate}
+\item Dust-like component (candidate dark-matter analog):
+\end{enumerate}
+
+\[
+\rho_{\mathrm{dust}}=\frac{1}{20}S,
+\qquad p_{\mathrm{dust}}=0.
+\]
+
+\begin{enumerate}
+\item Negative-pressure component (candidate dark-energy analog):
+\end{enumerate}
+
+\[
+\rho_{\mathrm{neg}}=\frac{19}{20}S^{1/5},
+\qquad p_{\mathrm{neg}}=-\frac{4}{5}\rho_{\mathrm{neg}}.
+\]
+
+\begin{enumerate}
+\item Total equation-of-state trajectory:
+\end{enumerate}
+
+\[
+w=\frac{p}{\rho},
+\]
+
+which evolves from less negative to more negative effective pressure dominance as \texttt{\detokenize{S}} dilutes.
+
+\begin{enumerate}
+\item Fraction diagnostics used by the solver output:
+\end{enumerate}
+
+\[
+f_{\mathrm{dust}}=\frac{(1/20)S}{\rho},
+\qquad
+f_{\mathrm{neg}}=\frac{(19/20)S^{1/5}}{\rho}.
+\]
+
+Interpretation guardrails:
+
+\begin{enumerate}
+\item These are model-internal effective-fluid analogies, not direct observational
+identifications.
+
+\item Split signature \texttt{\detokenize{(4,4)}} is mathematically consistent in this framework but
+is not a standard Lorentzian cosmology.
+
+\item The report does not claim particle-physics identity, perturbation stability,
+or precision-fit cosmology.
+
+\end{enumerate}
+
+\section{Reproduction commands}
+
+\subsection{Windows PowerShell}
+
+\begin{Verbatim}[fontsize=\small]
+.\scripts\verify_phase7_x0_x7_reports.ps1
+\end{Verbatim}
+
+\subsection{Git Bash or WSL}
+
+\begin{Verbatim}[fontsize=\small]
+bash ./scripts/verify_phase7_x0_x7_reports.sh
+\end{Verbatim}
+
+\end{document}

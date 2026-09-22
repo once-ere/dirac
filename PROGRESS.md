@@ -2,7 +2,9 @@
 
 Status: Phase 6 is verified from anonymous public recursive clones and tagged
 `phase6-weitzenbock-spinor-green` at release commit
-`acf02fe2f4f79fd4d41066aaddde06fb8bdcce97`.
+`acf02fe2f4f79fd4d41066aaddde06fb8bdcce97`. Phase 7 coordinate-fixed
+`{x0,...,x7}` component and numerics provenance reports are now generated,
+deterministic, and locally verified by `verify_phase7_x0_x7_reports`.
 
 ## Verified checkpoint
 

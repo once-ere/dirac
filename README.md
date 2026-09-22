@@ -126,6 +126,7 @@ Set-Location C:\Users\nsh\Developer\code\vscode\dirac
 .\scripts\verify_phase4_publication.ps1
 .\scripts\verify_phase5_curved_spin_gravity.ps1
 .\scripts\verify_phase6_weitzenbock_spinor.ps1
+.\scripts\verify_phase7_x0_x7_reports.ps1
 .\scripts\status.ps1
 ```
 
@@ -143,6 +144,7 @@ bash ./scripts/verify_learn_dissertation.sh
 bash ./scripts/verify_phase4_publication.sh
 bash ./scripts/verify_phase5_curved_spin_gravity.sh
 bash ./scripts/verify_phase6_weitzenbock_spinor.sh
+bash ./scripts/verify_phase7_x0_x7_reports.sh
 ./scripts/status.sh
 ```
 
@@ -174,6 +176,20 @@ numerical method, complete commands, limitations, and dark-sector analysis are
 in [provenance/EINSTEIN_SPINOR_44.md](provenance/EINSTEIN_SPINOR_44.md), with
 generated [LaTeX](provenance/EINSTEIN_SPINOR_44.tex) and
 [PDF](provenance/EINSTEIN_SPINOR_44.pdf) editions.
+
+The coordinate-fixed `{x0,...,x7}` component-by-component Einstein-spinor
+equation inventory is in
+[provenance/EINSTEIN_SPINOR_44_COMPONENTS_X0_X7.md](provenance/EINSTEIN_SPINOR_44_COMPONENTS_X0_X7.md),
+with generated
+[LaTeX](provenance/EINSTEIN_SPINOR_44_COMPONENTS_X0_X7.tex) and
+[PDF](provenance/EINSTEIN_SPINOR_44_COMPONENTS_X0_X7.pdf).
+
+The coordinate-fixed `{x0,...,x7}` numerical and approximate-method report,
+including solver validation and dark-sector mapping, is in
+[provenance/EINSTEIN_SPINOR_44_NUMERICS_X0_X7.md](provenance/EINSTEIN_SPINOR_44_NUMERICS_X0_X7.md),
+with generated
+[LaTeX](provenance/EINSTEIN_SPINOR_44_NUMERICS_X0_X7.tex) and
+[PDF](provenance/EINSTEIN_SPINOR_44_NUMERICS_X0_X7.pdf).
 
 The Weitzenböck geometry is under
 `wolfram/WeitzenbockSpinGeometry.wl` and

@@ -24,6 +24,8 @@ dissertation/*.pdf binary
 provenance/CURVED_SPIN_BUNDLE.md text eol=crlf
 provenance/EINSTEIN_SPINOR_44.md text eol=crlf
 provenance/WEITZENBOCK_SPINOR_44.md text eol=crlf
+provenance/EINSTEIN_SPINOR_44_COMPONENTS_X0_X7.md text eol=crlf
+provenance/EINSTEIN_SPINOR_44_NUMERICS_X0_X7.md text eol=crlf
 provenance/*.tex text eol=lf
 provenance/*.pdf binary
 scripts/*.sh text eol=lf
