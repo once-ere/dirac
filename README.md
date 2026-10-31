@@ -1,5 +1,9 @@
 # Real Spin(4,4), split octonions, and triality
 
+This notebook is distributed as free software under the GNU General Public License.They are distributed in the hope that they will  be useful,but WITHOUT ANY WARRANTY;without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.See the GNU GPL for more details.
+
+Please  cite  this  work  and this web page if you use it.
+
 This repository provides a reproducible, exact-real treatment of
 `Cl(4,4)`, `Spin(4,4)`, its two real half-spin modules, split-octonion
 algebra, and split-real triality. It includes multiple numerical studies,
